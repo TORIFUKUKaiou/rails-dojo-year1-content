@@ -9,3 +9,8 @@
 
 - [変数 ── データに名前をつける](02/orientation.md)
 - [練習：変数で遊ぼう](02/practice.md)
+
+## 第3回
+
+- [条件分岐 ── もし○○なら](03/orientation.md)
+- [練習：条件分岐で遊ぼう](03/practice.md)
