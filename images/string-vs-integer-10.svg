@@ -1,0 +1,22 @@
+<svg width="1100" height="500" viewBox="0 0 1100 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1100" height="500" rx="28" fill="#F7F4EC"/>
+
+  <rect x="40" y="44" width="366" height="66" rx="20" fill="#F2A65A"/>
+  <text x="223" y="87" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="30" font-weight="700" fill="#2D2A26">文字列 String</text>
+  <rect x="40" y="142" width="366" height="210" rx="28" fill="#FFFDF8" stroke="#1F5C4A" stroke-width="10"/>
+  <text x="233" y="226" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="74" font-weight="700" fill="#2D2A26">"10"</text>
+  <text x="233" y="286" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="26" font-weight="500" fill="#6B665E">ダブルクォーテーション付き</text>
+  <text x="233" y="402" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="28" font-weight="700" fill="#1F5C4A">"10" + "20" → "1020"</text>
+  <text x="233" y="444" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="24" font-weight="500" fill="#6B665E">文字としてつながる</text>
+
+  <rect x="694" y="44" width="366" height="66" rx="20" fill="#F2A65A"/>
+  <text x="877" y="87" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="30" font-weight="700" fill="#2D2A26">数値 Integer</text>
+  <rect x="694" y="142" width="366" height="210" rx="28" fill="#FFFDF8" stroke="#1F5C4A" stroke-width="10"/>
+  <text x="867" y="226" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="74" font-weight="700" fill="#2D2A26">10</text>
+  <text x="867" y="286" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="26" font-weight="500" fill="#6B665E">ダブルクォーテーションなし</text>
+  <text x="867" y="402" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="28" font-weight="700" fill="#1F5C4A">10 + 20 → 30</text>
+  <text x="867" y="444" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="24" font-weight="500" fill="#6B665E">数として計算される</text>
+
+  <text x="550" y="232" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="64" font-weight="700" fill="#8B867C">≠</text>
+  <text x="550" y="282" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="24" font-weight="500" fill="#8B867C">見た目が似ていても別物</text>
+</svg>

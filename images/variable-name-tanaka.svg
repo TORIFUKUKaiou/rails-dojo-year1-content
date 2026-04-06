@@ -1,0 +1,13 @@
+<svg width="960" height="360" viewBox="0 0 960 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="360" rx="28" fill="#F7F4EC"/>
+  <rect x="96" y="68" width="220" height="84" rx="24" fill="#1F5C4A"/>
+  <text x="206" y="120" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="42" font-weight="700" fill="#FFFDF8">name</text>
+  <path d="M346 110H498" stroke="#1F5C4A" stroke-width="12" stroke-linecap="round"/>
+  <path d="M492 82L548 110L492 138" fill="#1F5C4A"/>
+  <rect x="582" y="54" width="282" height="244" rx="28" fill="#FFFDF8" stroke="#1F5C4A" stroke-width="12"/>
+  <rect x="646" y="18" width="154" height="56" rx="18" fill="#F2A65A"/>
+  <text x="723" y="55" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="26" font-weight="700" fill="#2D2A26">変数</text>
+  <text x="723" y="190" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="72" font-weight="700" fill="#2D2A26">田中</text>
+  <text x="723" y="242" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="28" font-weight="500" fill="#6B665E">この箱の中身</text>
+  <text x="206" y="188" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="26" font-weight="500" fill="#3E3A34">変数名</text>
+</svg>

@@ -24,12 +24,7 @@ puts "答えは #{1 + 1} です"
 
 変数は、データに名前をつけて保存する仕組みです。
 
-<!-- TODO: 図を追加（箱に「name」とラベルが貼ってあり、中に「田中」が入っているイメージ図） -->
-
-```mermaid
-graph LR
-    name["name"] -->|"="| value["田中"]
-```
+![name という名前の箱に 田中 が入っている図](../images/variable-name-tanaka.svg)
 
 ```ruby
 name = "田中"
@@ -96,18 +91,7 @@ puts "10年後は #{age + 10} 歳です"
 
 ## 変数は上書きできる
 
-<!-- TODO: 図を追加（箱の中身が「赤」から「青」に入れ替わるイメージ図） -->
-
-```mermaid
-graph LR
-    subgraph 最初
-        A1["color"] --> B1["赤"]
-    end
-    subgraph 上書き後
-        A2["color"] --> B2["青"]
-    end
-    最初 -->|"color = '青'"| 上書き後
-```
+![color の中身が 赤 から 青 に変わる図](../images/variable-overwrite-red-blue.svg)
 
 ```ruby
 color = "赤"
@@ -132,19 +116,7 @@ puts color
 
 Rubyでは、データの種類（型）があります。今日覚えるのは2つ：
 
-<!-- TODO: 図を追加（「"10"」は文字列の箱、「10」は数値の箱、見た目は似ているが種類が違うことを示す図） -->
-
-```mermaid
-graph LR
-    subgraph 文字列 String
-        S["'10'"]
-    end
-    subgraph 数値 Integer
-        I["10"]
-    end
-    S ---|"+ '20' → '1020'"| S2["連結"]
-    I ---|"+ 20 → 30"| I2["計算"]
-```
+![文字列の \"10\" と数値の 10 は別物だと示す図](../images/string-vs-integer-10.svg)
 
 ```ruby
 greeting = "こんにちは"   # 文字列（String）
