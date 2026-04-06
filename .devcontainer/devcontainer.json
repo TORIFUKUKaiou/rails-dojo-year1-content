@@ -1,4 +1,15 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/ruby",
-  "postCreateCommand": "gem install irb"
+  "image": "mcr.microsoft.com/devcontainers/ruby:4",
+  "postCreateCommand": "gem install irb",
+  "postAttachCommand": {
+    "Open terminal": "echo 'Ready: ruby main.rb'"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.hideOnStartup": "never",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
 }
