@@ -1,5 +1,7 @@
 {
   "image": "mcr.microsoft.com/devcontainers/ruby:4",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/home/vscode/content,type=bind",
+  "workspaceFolder": "/home/vscode/content",
   "postCreateCommand": "gem install irb",
   "postAttachCommand": {
     "Open terminal": "echo 'Ready: ruby main.rb'"
@@ -8,7 +10,13 @@
     "vscode": {
       "settings": {
         "terminal.integrated.hideOnStartup": "never",
-        "terminal.integrated.defaultProfile.linux": "bash"
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.cwd": "/home/vscode/content",
+        "files.exclude": {
+          "**/.devcontainer": true,
+          "**/.git": true,
+          "**/.ruby-lsp": true
+        }
       }
     }
   }
