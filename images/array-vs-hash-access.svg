@@ -1,0 +1,47 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="600" rx="28" fill="#F7F4EC"/>
+
+  <text x="600" y="54" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="30" font-weight="700" fill="#2D2A26">配列は番号で、ハッシュは名前で取り出す</text>
+
+  <rect x="40" y="86" width="520" height="470" rx="28" fill="#FFFDF8" stroke="#1F5C4A" stroke-width="8"/>
+  <rect x="175" y="58" width="250" height="58" rx="18" fill="#F2A65A"/>
+  <text x="300" y="96" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="28" font-weight="700" fill="#2D2A26">配列 Array</text>
+  <text x="76" y="148" font-family="Menlo, Consolas, monospace" font-size="24" fill="#2D2A26">foods = ["りんご", "ばなな", "みかん"]</text>
+
+  <rect x="78" y="196" width="102" height="120" rx="18" fill="#E9E2D5"/>
+  <rect x="224" y="196" width="102" height="120" rx="18" fill="#E9E2D5"/>
+  <rect x="370" y="196" width="102" height="120" rx="18" fill="#E9E2D5"/>
+
+  <text x="129" y="244" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="26" font-weight="700" fill="#2D2A26">りんご</text>
+  <text x="275" y="244" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="26" font-weight="700" fill="#2D2A26">ばなな</text>
+  <text x="421" y="244" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="26" font-weight="700" fill="#2D2A26">みかん</text>
+
+  <text x="129" y="292" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="34" font-weight="700" fill="#1F5C4A">0</text>
+  <text x="275" y="292" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="34" font-weight="700" fill="#1F5C4A">1</text>
+  <text x="421" y="292" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="34" font-weight="700" fill="#1F5C4A">2</text>
+
+  <text x="300" y="374" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="24" fill="#2D2A26">foods[0]  # =&gt; "りんご"</text>
+  <text x="300" y="416" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="24" fill="#2D2A26">foods[1]  # =&gt; "ばなな"</text>
+  <text x="300" y="458" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="22" font-weight="500" fill="#6B665E">何番目かで取り出す</text>
+
+  <rect x="640" y="86" width="520" height="470" rx="28" fill="#FFFDF8" stroke="#1F5C4A" stroke-width="8"/>
+  <rect x="781" y="58" width="238" height="58" rx="18" fill="#F2A65A"/>
+  <text x="900" y="96" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="28" font-weight="700" fill="#2D2A26">ハッシュ Hash</text>
+  <text x="676" y="148" font-family="Menlo, Consolas, monospace" font-size="24" fill="#2D2A26">person = { "name" =&gt; "田中", ... }</text>
+
+  <rect x="680" y="188" width="390" height="74" rx="18" fill="#E9E2D5"/>
+  <rect x="680" y="282" width="390" height="74" rx="18" fill="#E9E2D5"/>
+  <rect x="680" y="376" width="390" height="74" rx="18" fill="#E9E2D5"/>
+
+  <text x="740" y="234" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="26" font-weight="700" fill="#1F5C4A">name</text>
+  <text x="955" y="234" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="28" font-weight="700" fill="#2D2A26">田中</text>
+
+  <text x="740" y="328" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="26" font-weight="700" fill="#1F5C4A">age</text>
+  <text x="955" y="328" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="28" font-weight="700" fill="#2D2A26">20</text>
+
+  <text x="740" y="422" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="26" font-weight="700" fill="#1F5C4A">city</text>
+  <text x="955" y="422" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="28" font-weight="700" fill="#2D2A26">福岡</text>
+
+  <text x="900" y="474" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="24" fill="#2D2A26">person["name"]  # =&gt; "田中"</text>
+  <text x="900" y="514" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="22" font-weight="500" fill="#6B665E">何という名前かで取り出す</text>
+</svg>
