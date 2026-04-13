@@ -1,0 +1,24 @@
+<svg width="980" height="360" viewBox="0 0 980 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="980" height="360" rx="28" fill="#F7F4EC"/>
+
+  <text x="490" y="54" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="30" font-weight="700" fill="#2D2A26">配列の各要素には 0, 1, 2 ... の番号がつく</text>
+  <text x="490" y="102" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="24" fill="#2D2A26">foods = ["カレー", "ラーメン", "寿司"]</text>
+
+  <rect x="110" y="150" width="180" height="120" rx="22" fill="#FFFDF8" stroke="#1F5C4A" stroke-width="8"/>
+  <rect x="400" y="150" width="180" height="120" rx="22" fill="#FFFDF8" stroke="#1F5C4A" stroke-width="8"/>
+  <rect x="690" y="150" width="180" height="120" rx="22" fill="#FFFDF8" stroke="#1F5C4A" stroke-width="8"/>
+
+  <circle cx="200" cy="140" r="28" fill="#F2A65A"/>
+  <circle cx="490" cy="140" r="28" fill="#F2A65A"/>
+  <circle cx="780" cy="140" r="28" fill="#F2A65A"/>
+
+  <text x="200" y="150" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="28" font-weight="700" fill="#2D2A26">0</text>
+  <text x="490" y="150" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="28" font-weight="700" fill="#2D2A26">1</text>
+  <text x="780" y="150" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="28" font-weight="700" fill="#2D2A26">2</text>
+
+  <text x="200" y="220" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="34" font-weight="700" fill="#2D2A26">カレー</text>
+  <text x="490" y="220" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="34" font-weight="700" fill="#2D2A26">ラーメン</text>
+  <text x="780" y="220" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="34" font-weight="700" fill="#2D2A26">寿司</text>
+
+  <text x="490" y="318" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="22" font-weight="500" fill="#6B665E">1番目を取り出すときは foods[0]、2番目なら foods[1] を使う</text>
+</svg>
