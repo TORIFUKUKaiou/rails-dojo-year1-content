@@ -1,0 +1,28 @@
+<svg width="1100" height="520" viewBox="0 0 1100 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1100" height="520" rx="28" fill="#F7F4EC"/>
+
+  <text x="550" y="58" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="30" font-weight="700" fill="#2D2A26">同じ処理をそのまま書く方法と、timesでまとめる方法</text>
+
+  <rect x="70" y="96" width="410" height="340" rx="28" fill="#FFFDF8" stroke="#CFC7B8" stroke-width="4"/>
+  <rect x="112" y="72" width="326" height="54" rx="18" fill="#C53B30"/>
+  <text x="275" y="107" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="24" font-weight="700" fill="#FFFDF8">そのまま3回書く</text>
+  <text x="118" y="168" font-family="Menlo, Consolas, monospace" font-size="28" fill="#2D2A26">puts "こんにちは"</text>
+  <text x="118" y="218" font-family="Menlo, Consolas, monospace" font-size="28" fill="#2D2A26">puts "こんにちは"</text>
+  <text x="118" y="268" font-family="Menlo, Consolas, monospace" font-size="28" fill="#2D2A26">puts "こんにちは"</text>
+  <text x="118" y="350" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="22" font-weight="500" fill="#6B665E">回数が増えるほど、同じコードが長く並ぶ</text>
+
+  <path d="M525 262H583" stroke="#1F5C4A" stroke-width="12" stroke-linecap="round"/>
+  <path d="M571 232L627 262L571 292" fill="#1F5C4A"/>
+  <text x="554" y="228" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="22" font-weight="700" fill="#1F5C4A">まとめる</text>
+
+  <rect x="620" y="96" width="410" height="340" rx="28" fill="#FFFDF8" stroke="#CFC7B8" stroke-width="4"/>
+  <rect x="688" y="72" width="274" height="54" rx="18" fill="#1F5C4A"/>
+  <text x="825" y="107" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="24" font-weight="700" fill="#FFFDF8">timesで短く書く</text>
+  <text x="668" y="168" font-family="Menlo, Consolas, monospace" font-size="28" fill="#2D2A26">3.times do</text>
+  <text x="704" y="218" font-family="Menlo, Consolas, monospace" font-size="28" fill="#2D2A26">puts "こんにちは"</text>
+  <text x="668" y="268" font-family="Menlo, Consolas, monospace" font-size="28" fill="#2D2A26">end</text>
+  <text x="668" y="350" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="22" font-weight="500" fill="#6B665E">同じ意味でも、短くて直しやすい</text>
+
+  <rect x="176" y="448" width="748" height="42" rx="14" fill="#E9E2D5"/>
+  <text x="550" y="476" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="22" font-weight="700" fill="#2D2A26">同じことを何度もやるときは、繰り返しを使うと整理しやすい</text>
+</svg>
