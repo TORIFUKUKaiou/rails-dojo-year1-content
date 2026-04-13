@@ -18,11 +18,41 @@
 
 ## 準備
 
-1. Codespacesを起動する
-2. `main.rb` を開く
-3. 書き換えるたびに、ターミナルで `ruby main.rb` を実行する
+1. GitHubにログインする
+2. [このリポジトリ](https://github.com/TORIFUKUKaiou/rails-dojo-year1-content/)のページを開く (リンクを右クリックして、「リンクを新しいタブで開く」)
+3. 「Code」ボタン → 「Codespaces」タブ → 「Create codespace on main」をクリック
 
-<!-- TODO: 図を追加（Codespaces起動手順のスクリーンショット） -->
+    ![](../images/create-codespace-on-main.png)
+
+4. しばらく待つ（初回は1〜2分かかります）
+
+画面が開いて、「**準備完了**」の文字が表示されたらプログラミングができる環境が整っています。
+
+![](../images/created-codespace-on-main.png)
+
+## ファイルにRubyのプログラムを書いて実行する
+
+1. 画面左側のファイル一覧で `content` の外側、ホームディレクトリのあたりを右クリック →「新しいファイル」→ `main.rb` と入力
+
+    ![](../images/new-file.png)
+
+2. ファイルに以下を書く：
+
+```ruby
+puts "Hello, World!"
+```
+
+※ Codespaces 上の VS Code では、自動保存が初期設定で有効になっています。そのため、この環境では保存操作をしなくても変更は反映されます。ただし、開発環境によっては、保存しないと変更が反映されないこともあります。書き換えたら `ruby main.rb` を実行してください。
+
+3. ターミナルで以下を実行する：
+
+```
+ruby main.rb
+```
+
+`Hello, World!` と表示されたら成功です。
+
+ここまでできたら準備完了です。次へ進みましょう。
 
 ---
 
