@@ -1,0 +1,49 @@
+<svg width="1100" height="680" viewBox="0 0 1100 680" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1100" height="680" rx="28" fill="#F7F4EC"/>
+
+  <text x="550" y="58" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="30" font-weight="700" fill="#2D2A26">do から end までが1セットになって、そのまま3回くり返される</text>
+
+  <rect x="60" y="110" width="460" height="390" rx="28" fill="#FFFDF8" stroke="#1F5C4A" stroke-width="6"/>
+  <rect x="162" y="86" width="256" height="56" rx="18" fill="#1F5C4A"/>
+  <text x="290" y="122" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="24" font-weight="700" fill="#FFFDF8">1回分の中身</text>
+
+  <text x="104" y="196" font-family="Menlo, Consolas, monospace" font-size="30" fill="#2D2A26">3.times do</text>
+  <rect x="100" y="216" width="380" height="174" rx="22" fill="#E9E2D5"/>
+  <text x="134" y="270" font-family="Menlo, Consolas, monospace" font-size="28" fill="#2D2A26">puts "---"</text>
+  <text x="134" y="320" font-family="Menlo, Consolas, monospace" font-size="28" fill="#2D2A26">puts "1回"</text>
+  <text x="134" y="370" font-family="Menlo, Consolas, monospace" font-size="28" fill="#2D2A26">puts "2回"</text>
+  <text x="104" y="432" font-family="Menlo, Consolas, monospace" font-size="30" fill="#2D2A26">end</text>
+  <text x="290" y="474" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="22" font-weight="500" fill="#6B665E">色のついた部分が1回ごとに実行される</text>
+
+  <path d="M550 304H590" stroke="#1F5C4A" stroke-width="12" stroke-linecap="round"/>
+  <path d="M578 274L634 304L578 334" fill="#1F5C4A"/>
+  <text x="570" y="268" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="22" font-weight="700" fill="#1F5C4A">3回くり返す</text>
+
+  <rect x="650" y="110" width="370" height="520" rx="28" fill="#FFFDF8" stroke="#CFC7B8" stroke-width="4"/>
+  <rect x="737" y="86" width="196" height="56" rx="18" fill="#F2A65A"/>
+  <text x="835" y="122" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="24" font-weight="700" fill="#2D2A26">表示される順番</text>
+
+  <rect x="709" y="168" width="252" height="94" rx="20" fill="#E9E2D5"/>
+  <text x="835" y="205" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="24" fill="#2D2A26">---</text>
+  <text x="835" y="233" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="24" fill="#2D2A26">1回</text>
+  <text x="835" y="261" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="24" fill="#2D2A26">2回</text>
+  <text x="669" y="225" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="22" font-weight="700" fill="#2D2A26">1回目</text>
+
+  <path d="M835 274V312" stroke="#2D2A26" stroke-width="8" stroke-linecap="round"/>
+  <path d="M811 304L835 344L859 304" fill="#2D2A26"/>
+
+  <rect x="709" y="350" width="252" height="94" rx="20" fill="#E9E2D5"/>
+  <text x="835" y="387" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="24" fill="#2D2A26">---</text>
+  <text x="835" y="415" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="24" fill="#2D2A26">1回</text>
+  <text x="835" y="443" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="24" fill="#2D2A26">2回</text>
+  <text x="669" y="407" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="22" font-weight="700" fill="#2D2A26">2回目</text>
+
+  <path d="M835 456V494" stroke="#2D2A26" stroke-width="8" stroke-linecap="round"/>
+  <path d="M811 486L835 526L859 486" fill="#2D2A26"/>
+
+  <rect x="709" y="514" width="252" height="94" rx="20" fill="#E9E2D5"/>
+  <text x="835" y="551" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="24" fill="#2D2A26">---</text>
+  <text x="835" y="579" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="24" fill="#2D2A26">1回</text>
+  <text x="835" y="607" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="24" fill="#2D2A26">2回</text>
+  <text x="669" y="571" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="22" font-weight="700" fill="#2D2A26">3回目</text>
+</svg>
