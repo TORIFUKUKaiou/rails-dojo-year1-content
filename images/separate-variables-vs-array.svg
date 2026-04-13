@@ -1,0 +1,39 @@
+<svg width="1100" height="540" viewBox="0 0 1100 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1100" height="540" rx="28" fill="#F7F4EC"/>
+
+  <text x="550" y="56" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="30" font-weight="700" fill="#2D2A26">ばらばらに持つ方法と、配列1つにまとめる方法</text>
+
+  <rect x="60" y="96" width="420" height="340" rx="28" fill="#FFFDF8" stroke="#CFC7B8" stroke-width="4"/>
+  <rect x="132" y="72" width="276" height="54" rx="18" fill="#C53B30"/>
+  <text x="270" y="107" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="24" font-weight="700" fill="#FFFDF8">ばらばらの変数で持つ</text>
+
+  <rect x="104" y="154" width="332" height="58" rx="16" fill="#E9E2D5"/>
+  <rect x="104" y="232" width="332" height="58" rx="16" fill="#E9E2D5"/>
+  <rect x="104" y="310" width="332" height="58" rx="16" fill="#E9E2D5"/>
+
+  <text x="132" y="191" font-family="Menlo, Consolas, monospace" font-size="24" fill="#2D2A26">food1 = "カレー"</text>
+  <text x="132" y="269" font-family="Menlo, Consolas, monospace" font-size="24" fill="#2D2A26">food2 = "ラーメン"</text>
+  <text x="132" y="347" font-family="Menlo, Consolas, monospace" font-size="24" fill="#2D2A26">food3 = "寿司"</text>
+
+  <text x="270" y="404" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="22" font-weight="500" fill="#6B665E">データが増えると、変数も増えていく</text>
+
+  <path d="M522 264H580" stroke="#1F5C4A" stroke-width="12" stroke-linecap="round"/>
+  <path d="M568 234L624 264L568 294" fill="#1F5C4A"/>
+  <text x="551" y="230" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="22" font-weight="700" fill="#1F5C4A">まとめる</text>
+
+  <rect x="620" y="96" width="420" height="400" rx="28" fill="#FFFDF8" stroke="#1F5C4A" stroke-width="6"/>
+  <rect x="742" y="72" width="176" height="54" rx="18" fill="#1F5C4A"/>
+  <text x="830" y="107" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="24" font-weight="700" fill="#FFFDF8">配列1つにする</text>
+
+  <text x="676" y="174" font-family="Menlo, Consolas, monospace" font-size="24" fill="#2D2A26">foods = [</text>
+  <rect x="700" y="204" width="260" height="62" rx="16" fill="#E9E2D5"/>
+  <rect x="700" y="278" width="260" height="62" rx="16" fill="#E9E2D5"/>
+  <rect x="700" y="352" width="260" height="62" rx="16" fill="#E9E2D5"/>
+
+  <text x="830" y="243" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="28" font-weight="700" fill="#2D2A26">"カレー"</text>
+  <text x="830" y="317" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="28" font-weight="700" fill="#2D2A26">"ラーメン"</text>
+  <text x="830" y="391" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="28" font-weight="700" fill="#2D2A26">"寿司"</text>
+
+  <text x="676" y="448" font-family="Menlo, Consolas, monospace" font-size="24" fill="#2D2A26">]</text>
+  <text x="830" y="474" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="22" font-weight="500" fill="#6B665E">同じ種類のデータを1つにまとめて持てる</text>
+</svg>
