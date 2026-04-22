@@ -18,18 +18,6 @@
 
 ## 準備
 
-1. GitHubにログインする
-2. [このリポジトリ](https://github.com/TORIFUKUKaiou/rails-dojo-year1-content/)のページを開く (リンクを右クリックして、「リンクを新しいタブで開く」)
-3. 「Code」ボタン → 「Codespaces」タブ → 「Create codespace on main」をクリック
-
-    ![](../images/create-codespace-on-main.png)
-
-4. しばらく待つ（初回は1〜2分かかります）
-
-画面が開いて、「**準備完了**」の文字が表示されたらプログラミングができる環境が整っています。
-
-![](../images/created-codespace-on-main.png)
-
 <details>
 <summary>前回の Codespace が残っている場合</summary>
 
@@ -41,6 +29,18 @@
 - 削除方法は [Codespace を削除する](../delete_codespace.md) を見てください（リンクを右クリックして、「新しいタブで開く」）
 
 </details>
+
+1. GitHubにログインする
+2. [このリポジトリ](https://github.com/TORIFUKUKaiou/rails-dojo-year1-content/)のページを開く (リンクを右クリックして、「リンクを新しいタブで開く」)
+3. 「Code」ボタン → 「Codespaces」タブ → 「Create codespace on main」をクリック
+
+    ![](../images/create-codespace-on-main.png)
+
+4. しばらく待つ（初回は1〜2分かかります）
+
+画面が開いて、「**準備完了**」の文字が表示されたらプログラミングができる環境が整っています。
+
+![](../images/created-codespace-on-main.png)
 
 ## ファイルにRubyのプログラムを書いて実行する
 
