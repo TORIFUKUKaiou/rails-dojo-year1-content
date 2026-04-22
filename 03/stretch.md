@@ -1,6 +1,6 @@
 # 第3回 もっと練習
 
-チャレンジ問題を全部終えた人向けです。第1回〜第3回で学んだ `puts`、変数、`#{}`、計算、`if`/`elsif`/`else` を使って解きましょう。
+チャレンジ問題を全部終えた人向けです。第1回〜第3回で学んだ `puts`、変数、`#{}`、計算、`if`/`elsif`/`else`、入力を使って解きましょう。
 
 - `まずは`：1〜10
 - `余裕があれば`：11〜20
@@ -242,93 +242,23 @@ end
 
 ---
 
-## 11〜20：変数と計算を組み合わせる
+## 11〜20：入力して判定する
 
-### 問題11：名前つきで合格判定
+### 問題11：入力した年齢で判定する
 
-`name` と `score` を使って、合格なら「田中さんは合格です」、不合格なら「田中さんは不合格です」のように表示してみましょう。
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-name = "田中"
-score = 72
-
-if score >= 60
-  puts "#{name}さんは合格です"
-else
-  puts "#{name}さんは不合格です"
-end
-```
-
-</details>
-
----
-
-### 問題12：送料無料判定
-
-`price` と `count` から合計金額を計算し、1000円以上なら「送料無料です」、それ未満なら「送料500円かかります」と表示してみましょう。
+キーボードから年齢を入力して、18歳以上なら「大人です」、それ以外は「未成年です」と表示してみましょう。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-price = 250
-count = 5
-total = price * count
-
-if total >= 1000
-  puts "合計#{total}円：送料無料です"
-else
-  puts "合計#{total}円：送料500円かかります"
-end
-```
-
-</details>
-
----
-
-### 問題13：税込み金額で判定する
-
-`price` と `count` から税込み金額を計算し、1500円以上なら「予算オーバーです」、それ以外は「予算内です」と表示してみましょう。
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-price = 400
-count = 3
-total = price * count
-tax = total * 10 / 100
-total_with_tax = total + tax
-
-if total_with_tax >= 1500
-  puts "合計#{total_with_tax}円：予算オーバーです"
-else
-  puts "合計#{total_with_tax}円：予算内です"
-end
-```
-
-</details>
-
----
-
-### 問題14：生まれ年から判定する
-
-`birth_year` から2026年の年齢を計算し、18歳以上なら「大人です」、それ以外は「未成年です」と表示してみましょう。
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-birth_year = 2010
-age = 2026 - birth_year
+puts "年齢を入力してください"
+age = gets.to_i
 
 if age >= 18
-  puts "#{age}歳なので大人です"
+  puts "大人です"
 else
-  puts "#{age}歳なので未成年です"
+  puts "未成年です"
 end
 ```
 
@@ -336,24 +266,343 @@ end
 
 ---
 
-### 問題15：3教科の平均で判定する
+### 問題12：入力した点数で合否判定する
 
-3教科の点数から平均点を計算し、60点以上なら「合格」、それ未満なら「不合格」と表示してみましょう。
+キーボードから点数を入力して、60点以上なら「合格」、それ以外は「不合格」と表示してみましょう。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-japanese = 75
-math = 82
-english = 58
+puts "点数を入力してください"
+score = gets.to_i
+
+if score >= 60
+  puts "合格"
+else
+  puts "不合格"
+end
+```
+
+</details>
+
+---
+
+### 問題13：入力した点数で成績を出す
+
+キーボードから点数を入力して、成績（S/A/B/C/F）を表示してみましょう。
+
+- 90以上：S
+- 80以上：A
+- 70以上：B
+- 60以上：C
+- 60未満：F
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "点数を入力してください"
+score = gets.to_i
+
+if score >= 90
+  grade = "S"
+elsif score >= 80
+  grade = "A"
+elsif score >= 70
+  grade = "B"
+elsif score >= 60
+  grade = "C"
+else
+  grade = "F"
+end
+
+puts "#{score}点は#{grade}です"
+```
+
+</details>
+
+---
+
+### 問題14：入力した気温で判定する
+
+キーボードから気温を入力して、30以上なら「暑いです」、15以上なら「ちょうどよいです」、それ未満なら「寒いです」と表示してみましょう。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "気温を入力してください"
+temperature = gets.to_i
+
+if temperature >= 30
+  puts "暑いです"
+elsif temperature >= 15
+  puts "ちょうどよいです"
+else
+  puts "寒いです"
+end
+```
+
+</details>
+
+---
+
+### 問題15：入力した所持金で判定する
+
+キーボードから所持金を入力して、自動販売機で買えるものを表示してみましょう。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "所持金を入力してください"
+money = gets.to_i
+
+if money >= 500
+  puts "コーヒーが買えます"
+elsif money >= 200
+  puts "ジュースが買えます"
+elsif money >= 100
+  puts "水が買えます"
+else
+  puts "お金が足りません"
+end
+```
+
+</details>
+
+---
+
+### 問題16：入力した月が冬かどうかを判定する
+
+キーボードから月を入力して、12月・1月・2月なら「冬です」、それ以外なら「冬ではありません」と表示してみましょう。
+
+ヒント：`||` は「または」という意味です。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "月を入力してください"
+month = gets.to_i
+
+if month == 12 || month == 1 || month == 2
+  puts "冬です"
+else
+  puts "冬ではありません"
+end
+```
+
+</details>
+
+---
+
+### 問題17：入力した年齢を5段階に分ける
+
+キーボードから年齢を入力して、次のように表示してみましょう。
+
+- 0〜5歳：「幼児です」
+- 6〜12歳：「小学生です」
+- 13〜15歳：「中学生です」
+- 16〜18歳：「高校生です」
+- 19歳以上：「大人です」
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "年齢を入力してください"
+age = gets.to_i
+
+if age <= 5
+  puts "幼児です"
+elsif age <= 12
+  puts "小学生です"
+elsif age <= 15
+  puts "中学生です"
+elsif age <= 18
+  puts "高校生です"
+else
+  puts "大人です"
+end
+```
+
+</details>
+
+---
+
+### 問題18：入力した数が偶数か奇数かを判定する
+
+キーボードから数を入力して、偶数なら「偶数です」、奇数なら「奇数です」と表示してみましょう。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "数を入力してください"
+number = gets.to_i
+
+if number % 2 == 0
+  puts "偶数です"
+else
+  puts "奇数です"
+end
+```
+
+</details>
+
+---
+
+### 問題19：入力したHPで状態を表示する
+
+キーボードから HP を入力して、0以下なら「たおれた」、10以下なら「ピンチです」、それ以外は「まだ元気です」と表示してみましょう。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "HPを入力してください"
+hp = gets.to_i
+
+if hp <= 0
+  puts "たおれた"
+elsif hp <= 10
+  puts "ピンチです"
+else
+  puts "まだ元気です"
+end
+```
+
+</details>
+
+---
+
+### 問題20：入力した手でじゃんけんする
+
+じゃんけんプログラムを作りましょう。自分の手と相手の手を入力して、勝敗を表示します。
+
+- 1：グー
+- 2：チョキ
+- 3：パー
+
+ヒント：`&&` は「かつ」という意味です。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "自分の手を入力してください（1:グー 2:チョキ 3:パー）"
+my_hand = gets.to_i
+
+puts "相手の手を入力してください（1:グー 2:チョキ 3:パー）"
+enemy_hand = gets.to_i
+
+if my_hand == enemy_hand
+  puts "あいこ！"
+elsif my_hand == 1 && enemy_hand == 2
+  puts "勝ち！"
+elsif my_hand == 2 && enemy_hand == 3
+  puts "勝ち！"
+elsif my_hand == 3 && enemy_hand == 1
+  puts "勝ち！"
+else
+  puts "負け！"
+end
+```
+
+</details>
+
+---
+
+## 21〜30：第1回〜第3回をミックスする
+
+### 問題21：入力した名前と年齢で自己紹介する
+
+名前と年齢を入力して、自己紹介を表示し、そのあと年齢が18歳以上かどうかも表示してみましょう。
+
+ヒント：文字を入力するときは `gets.chomp` を使います。`chomp` をつけると、最後の改行が消えます。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "名前を入力してください"
+name = gets.chomp
+
+puts "年齢を入力してください"
+age = gets.to_i
+
+puts "名前：#{name}"
+puts "年齢：#{age}歳"
+
+if age >= 18
+  puts "大人です"
+else
+  puts "未成年です"
+end
+```
+
+</details>
+
+---
+
+### 問題22：入力した値段と個数で送料判定する
+
+値段と個数を入力して、合計金額を表示し、1000円以上なら「送料無料です」、それ未満なら「送料500円かかります」と表示してみましょう。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "値段を入力してください"
+price = gets.to_i
+
+puts "個数を入力してください"
+count = gets.to_i
+
+total = price * count
+
+puts "合計は#{total}円です"
+
+if total >= 1000
+  puts "送料無料です"
+else
+  puts "送料500円かかります"
+end
+```
+
+</details>
+
+---
+
+### 問題23：入力した3教科で平均点を出す
+
+3教科の点数を入力して、合計と平均を表示し、平均が60点以上なら「合格」、それ未満なら「不合格」と表示してみましょう。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "国語の点数を入力してください"
+japanese = gets.to_i
+
+puts "数学の点数を入力してください"
+math = gets.to_i
+
+puts "英語の点数を入力してください"
+english = gets.to_i
+
 total = japanese + math + english
 average = total / 3
 
+puts "合計：#{total}点"
+puts "平均：#{average}点"
+
 if average >= 60
-  puts "平均#{average}点：合格"
+  puts "合格"
 else
-  puts "平均#{average}点：不合格"
+  puts "不合格"
 end
 ```
 
@@ -361,15 +610,17 @@ end
 
 ---
 
-### 問題16：身長を変換して判定する
+### 問題24：入力した身長を変換して判定する
 
-`height_cm` を `m` と `cm` に分けて表示し、170cm以上なら「高めです」、それ未満なら「170cm未満です」と表示してみましょう。
+身長を cm で入力して、`m` と `cm` に分けて表示し、170cm以上なら「高めです」、それ未満なら「170cm未満です」と表示してみましょう。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-height_cm = 168
+puts "身長をcmで入力してください"
+height_cm = gets.to_i
+
 meters = height_cm / 100
 remaining_cm = height_cm % 100
 
@@ -386,15 +637,17 @@ end
 
 ---
 
-### 問題17：秒を分と秒に分けて判定する
+### 問題25：入力した秒を分と秒に分ける
 
-`total_seconds` を `分` と `秒` に分けて表示し、180秒以上なら「3分以上です」、それ未満なら「3分未満です」と表示してみましょう。
+秒数を入力して、`分` と `秒` に分けて表示し、180秒以上なら「3分以上です」、それ未満なら「3分未満です」と表示してみましょう。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-total_seconds = 185
+puts "秒数を入力してください"
+total_seconds = gets.to_i
+
 minutes = total_seconds / 60
 seconds = total_seconds % 60
 
@@ -411,140 +664,25 @@ end
 
 ---
 
-### 問題18：おみくじ
+### 問題26：入力した3つの値段でレシートを作る
 
-`rand` を使って、1〜5の数字をランダムに出し、その数字に応じておみくじの結果を表示してみましょう。
-
-```ruby
-number = rand(1..5)
-puts number
-```
+3つの商品の値段を入力して、合計金額を表示し、1000円を超えていたら「買いすぎ注意」と表示してみましょう。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-number = rand(1..5)
+puts "1つ目の値段を入力してください"
+price1 = gets.to_i
 
-if number == 1
-  puts "大吉"
-elsif number == 2
-  puts "中吉"
-elsif number == 3
-  puts "小吉"
-elsif number == 4
-  puts "末吉"
-else
-  puts "凶"
-end
-```
+puts "2つ目の値段を入力してください"
+price2 = gets.to_i
 
-</details>
+puts "3つ目の値段を入力してください"
+price3 = gets.to_i
 
----
-
-### 問題19：うるう年判定
-
-`year` を使って、その年がうるう年かどうかを判定してみましょう。
-
-ルール：
-- 4で割り切れる年はうるう年
-- ただし100で割り切れる年はうるう年ではない
-- ただし400で割り切れる年はうるう年
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-year = 2024
-
-if year % 400 == 0
-  puts "#{year}年はうるう年です"
-elsif year % 100 == 0
-  puts "#{year}年はうるう年ではありません"
-elsif year % 4 == 0
-  puts "#{year}年はうるう年です"
-else
-  puts "#{year}年はうるう年ではありません"
-end
-```
-
-</details>
-
----
-
-### 問題20：HPで状態を表示する
-
-`hp` を使って、0以下なら「たおれた」、10以下なら「ピンチです」、それ以外は「まだ元気です」と表示してみましょう。
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-hp = 8
-
-if hp <= 0
-  puts "たおれた"
-elsif hp <= 10
-  puts "ピンチです"
-else
-  puts "まだ元気です"
-end
-```
-
-</details>
-
----
-
-## 21〜30：第1回〜第3回をミックスする
-
-### 問題21：自己紹介と年齢判定
-
-`name`、`age`、`hobby` を使って自己紹介を表示し、そのあと年齢が18歳以上かどうかも表示してみましょう。
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-name = "田中"
-age = 17
-hobby = "ゲーム"
-
-puts "名前：#{name}"
-puts "年齢：#{age}歳"
-puts "趣味：#{hobby}"
-
-if age >= 18
-  puts "大人です"
-else
-  puts "未成年です"
-end
-```
-
-</details>
-
----
-
-### 問題22：レシートと予算判定
-
-商品名と値段を3つ用意してレシート風に表示し、合計が1000円を超えていたら「買いすぎ注意」と表示してみましょう。
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-item1 = "りんご"
-price1 = 150
-item2 = "パン"
-price2 = 280
-item3 = "牛乳"
-price3 = 198
 total = price1 + price2 + price3
 
-puts "========== レシート =========="
-puts "#{item1}：#{price1}円"
-puts "#{item2}：#{price2}円"
-puts "#{item3}：#{price3}円"
 puts "合計：#{total}円"
 
 if total > 1000
@@ -558,173 +696,13 @@ end
 
 ---
 
-### 問題23：名前つき成績判定
+### 問題27：間違い探し その1
 
-`name` と `score` を使って、点数と成績をまとめて表示してみましょう。
-
-例：
-
-```
-山田さんは78点です
-判定：合格です
-```
-
-<details>
-<summary>解答例</summary>
+次のコードは、`gets` で入力した値をそのまま数値と比べているので、うまく動きません。直してみましょう。
 
 ```ruby
-name = "山田"
-score = 78
-
-puts "#{name}さんは#{score}点です"
-
-if score >= 60
-  puts "判定：合格です"
-else
-  puts "判定：不合格です"
-end
-```
-
-</details>
-
----
-
-### 問題24：3日分の勉強時間
-
-3日分の勉強時間を変数に入れて合計を出し、120分以上なら「よくがんばりました」と表示してみましょう。
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-day1 = 40
-day2 = 35
-day3 = 50
-total = day1 + day2 + day3
-
-puts "合計勉強時間：#{total}分"
-
-if total >= 120
-  puts "よくがんばりました"
-else
-  puts "明日も続けよう"
-end
-```
-
-</details>
-
----
-
-### 問題25：おこづかい帳
-
-もらったお金と、使ったお金を変数に入れて残り金額を表示し、残りが500円以上なら「まだ使えます」、それ未満なら「使いすぎ注意」と表示してみましょう。
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-money = 2000
-lunch = 650
-juice = 150
-rest = money - lunch - juice
-
-puts "残り：#{rest}円"
-
-if rest >= 500
-  puts "まだ使えます"
-else
-  puts "使いすぎ注意"
-end
-```
-
-</details>
-
----
-
-### 問題26：間違い探し その1
-
-次のコードは、文字列に `""` がないのでエラーになります。直して動くようにしましょう。
-
-```ruby
-weather = 晴れ
-
-if weather == "晴れ"
-  puts "散歩に行こう"
-else
-  puts "家にいよう"
-end
-```
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-weather = "晴れ"
-
-if weather == "晴れ"
-  puts "散歩に行こう"
-else
-  puts "家にいよう"
-end
-```
-
-文字列は `""` で囲みます。
-
-</details>
-
----
-
-### 問題27：間違い探し その2
-
-次のコードは、`end` が足りません。直して動くようにしましょう。
-
-```ruby
-score = 75
-
-if score >= 60
-  puts "合格"
-else
-  puts "不合格"
-```
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-score = 75
-
-if score >= 60
-  puts "合格"
-else
-  puts "不合格"
-end
-```
-
-`if` を書いたら、最後に `end` が必要です。
-
-</details>
-
----
-
-### 問題28：間違い探し その3
-
-次のコードは、`else age < 18` の書き方が間違っています。直して動くようにしましょう。
-
-```ruby
-age = 16
-
-if age >= 18
-  puts "大人です"
-else age < 18
-  puts "未成年です"
-end
-```
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-age = 16
+puts "年齢を入力してください"
+age = gets
 
 if age >= 18
   puts "大人です"
@@ -733,27 +711,38 @@ else
 end
 ```
 
-`else` には条件を書きません。条件を書くなら `elsif` を使います。
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "年齢を入力してください"
+age = gets.to_i
+
+if age >= 18
+  puts "大人です"
+else
+  puts "未成年です"
+end
+```
+
+`gets` だけだと文字列なので、`to_i` で整数に変換します。
 
 </details>
 
 ---
 
-### 問題29：間違い探し その4
+### 問題28：間違い探し その2
 
-次のコードは、条件の順番がよくありません。200円のときに「水が買えます」と出てしまいます。順番を直しましょう。
+次のコードは、`=` と `==` をまちがえています。直して動くようにしましょう。
 
 ```ruby
-money = 200
+puts "点数を入力してください"
+score = gets.to_i
 
-if money >= 100
-  puts "水が買えます"
-elsif money >= 200
-  puts "ジュースが買えます"
-elsif money >= 500
-  puts "コーヒーが買えます"
+if score = 100
+  puts "満点です"
 else
-  puts "お金が足りません"
+  puts "満点ではありません"
 end
 ```
 
@@ -761,20 +750,52 @@ end
 <summary>解答例</summary>
 
 ```ruby
-money = 200
+puts "点数を入力してください"
+score = gets.to_i
 
-if money >= 500
-  puts "コーヒーが買えます"
-elsif money >= 200
-  puts "ジュースが買えます"
-elsif money >= 100
-  puts "水が買えます"
+if score == 100
+  puts "満点です"
 else
-  puts "お金が足りません"
+  puts "満点ではありません"
 end
 ```
 
-条件は上から順に調べられるので、広い条件を先に書くと、そこで止まってしまいます。
+比較するときは `==` を使います。
+
+</details>
+
+---
+
+### 問題29：間違い探し その3
+
+次のコードは、条件の順番がよくありません。12月を入力しても「冬ではありません」と出ます。順番を直しましょう。
+
+```ruby
+puts "月を入力してください"
+month = gets.to_i
+
+if month >= 1
+  puts "冬ではありません"
+elsif month == 12 || month == 1 || month == 2
+  puts "冬です"
+end
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "月を入力してください"
+month = gets.to_i
+
+if month == 12 || month == 1 || month == 2
+  puts "冬です"
+else
+  puts "冬ではありません"
+end
+```
+
+広すぎる条件を先に書くと、そこで止まってしまいます。
 
 </details>
 
@@ -782,7 +803,7 @@ end
 
 ### 問題30：まとめカードを作る
 
-`name`、`age`、`score` を使って、自己紹介とテスト結果をまとめたカードを作ってみましょう。
+名前、年齢、点数を入力して、自己紹介とテスト結果をまとめたカードを作ってみましょう。
 
 例：
 
@@ -800,9 +821,14 @@ end
 <summary>解答例</summary>
 
 ```ruby
-name = "田中"
-age = 17
-score = 78
+puts "名前を入力してください"
+name = gets.chomp
+
+puts "年齢を入力してください"
+age = gets.to_i
+
+puts "点数を入力してください"
+score = gets.to_i
 
 puts "===================="
 puts "名前：#{name}"
