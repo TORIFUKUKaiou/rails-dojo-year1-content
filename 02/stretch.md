@@ -2,98 +2,383 @@
 
 チャレンジ問題を全部終えた人向けです。第1回〜第2回で学んだ `puts`、変数、`#{}`、計算、文字列と数値を使って解きましょう。
 
+- `まずは`：1〜10
+- `余裕があれば`：11〜20
+- `さらに余裕があれば`：21〜30
+
+全部やる必要はありません。できるところまで進めれば十分です。
+
 ---
 
-## 問題1：BMI計算
+## 1〜10：基本
 
-身長と体重を変数に入れて、BMIを計算して表示してみましょう。
+### 問題1：名前を入れて表示する
 
-BMIの計算式：体重(kg) ÷ 身長(m) ÷ 身長(m)
+`name` という変数に名前を入れて、表示してみましょう。
 
 ```
-身長：170cm
-体重：65kg
-BMI：22
+山田太郎
 ```
 
-ヒント：Rubyの整数同士の割り算は小数が切り捨てられます。まずはそれでやってみましょう。
+<details>
+<summary>解答例</summary>
+
+```ruby
+name = "山田太郎"
+puts name
+```
+
+</details>
+
+---
+
+### 問題2：年齢を入れて表示する
+
+`age` という変数に年齢を入れて、表示してみましょう。
+
+```
+18
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+age = 18
+puts age
+```
+
+</details>
+
+---
+
+### 問題3：好きな食べ物を入れて表示する
+
+`food` という変数に好きな食べ物を入れて、表示してみましょう。
+
+```
+カレー
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+food = "カレー"
+puts food
+```
+
+</details>
+
+---
+
+### 問題4：同じ変数を2回使う
+
+1つの変数を2回使って、同じ内容を2回表示してみましょう。
+
+```
+Ruby
+Ruby
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+language = "Ruby"
+puts language
+puts language
+```
+
+</details>
+
+---
+
+### 問題5：文字列を上書きする
+
+`color` に最初は `"赤"` を入れ、そのあと `"青"` を入れて表示してみましょう。
+
+```
+赤
+青
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+color = "赤"
+puts color
+
+color = "青"
+puts color
+```
+
+</details>
+
+---
+
+### 問題6：数値を上書きする
+
+`score` に最初は `80` を入れ、そのあと `95` を入れて表示してみましょう。
+
+```
+80
+95
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+score = 80
+puts score
+
+score = 95
+puts score
+```
+
+</details>
+
+---
+
+### 問題7：名前と年齢を1行で表示する
+
+変数を使って、次のように表示してみましょう。
+
+```
+山田太郎さんは18歳です
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+name = "山田太郎"
+age = 18
+
+puts "#{name}さんは#{age}歳です"
+```
+
+</details>
+
+---
+
+### 問題8：趣味と出身を2行で表示する
+
+変数を使って、次のように2行で表示してみましょう。
+
+```
+趣味：音楽
+出身：福岡
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+hobby = "音楽"
+hometown = "福岡"
+
+puts "趣味：#{hobby}"
+puts "出身：#{hometown}"
+```
+
+</details>
+
+---
+
+### 問題9：単価と個数から合計を出す
+
+`price` と `count` を使って、合計金額を表示してみましょう。
+
+```
+単価：120円
+個数：3個
+合計：360円
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+price = 120
+count = 3
+total = price * count
+
+puts "単価：#{price}円"
+puts "個数：#{count}個"
+puts "合計：#{total}円"
+```
+
+</details>
+
+---
+
+### 問題10：10年後の年齢を表示する
+
+今の年齢を変数に入れて、10年後の年齢を表示してみましょう。
+
+```
+今は18歳です
+10年後は28歳です
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+age = 18
+
+puts "今は#{age}歳です"
+puts "10年後は#{age + 10}歳です"
+```
+
+</details>
+
+---
+
+## 11〜20：計算と組み立て
+
+### 問題11：3教科の合計点
+
+3教科の点数を変数に入れて、合計点を表示してみましょう。
+
+```
+国語：75点
+数学：82点
+英語：68点
+合計：225点
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+japanese = 75
+math = 82
+english = 68
+total = japanese + math + english
+
+puts "国語：#{japanese}点"
+puts "数学：#{math}点"
+puts "英語：#{english}点"
+puts "合計：#{total}点"
+```
+
+</details>
+
+---
+
+### 問題12：3教科の平均点
+
+問題11の続きとして、平均点も表示してみましょう。
+
+```
+合計：225点
+平均：75点
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+japanese = 75
+math = 82
+english = 68
+total = japanese + math + english
+average = total / 3
+
+puts "合計：#{total}点"
+puts "平均：#{average}点"
+```
+
+</details>
+
+---
+
+### 問題13：身長を m と cm に分ける
+
+身長 `170cm` を、`1m 70cm` の形で表示してみましょう。
+
+```
+170cmは1m70cmです
+```
+
+ヒント：`/` は割り算、`%` は余りです。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
 height_cm = 170
-weight = 65
-height_m = height_cm / 100
-bmi = weight / height_m / height_m
+meters = height_cm / 100
+remaining_cm = height_cm % 100
 
-puts "身長：#{height_cm}cm"
-puts "体重：#{weight}kg"
-puts "BMI：#{bmi}"
+puts "#{height_cm}cmは#{meters}m#{remaining_cm}cmです"
 ```
-
-`170 / 100` は `1` になってしまい、BMIの値が正確ではありません。次の「小数を使う」で解決します。
 
 </details>
 
 ---
 
-## 小数を使う（ミニ解説）
+### 問題14：分を時間と分に分ける
 
-Rubyでは、整数同士の割り算は小数が切り捨てられます。
+`145` 分を、`2時間25分` の形で表示してみましょう。
 
-```ruby
-puts 170 / 100    # => 1（小数が消える）
+```
+145分は2時間25分です
 ```
 
-数値に `.0` をつけると小数（Float）になります。
+<details>
+<summary>解答例</summary>
 
 ```ruby
-puts 170.0 / 100  # => 1.7
+total_minutes = 145
+hours = total_minutes / 60
+minutes = total_minutes % 60
+
+puts "#{total_minutes}分は#{hours}時間#{minutes}分です"
 ```
 
-片方が小数なら、結果も小数になります。`.to_f` を使って変換することもできます。
-
-```ruby
-puts 170.to_f / 100  # => 1.7
-```
-
-### BMIを小数で計算し直す
-
-```ruby
-height_cm = 170
-weight = 65
-height_m = height_cm.to_f / 100
-bmi = weight / height_m / height_m
-
-puts "身長：#{height_cm}cm"
-puts "体重：#{weight}kg"
-puts "BMI：#{bmi}"
-```
-
-`22.49134948096886` のような長い数値が出ます。小数点以下を丸めたいときは `.round` を使います。
-
-```ruby
-puts bmi.round(1)   # => 22.5（小数第1位まで）
-puts bmi.round      # => 22（整数に丸める）
-```
+</details>
 
 ---
 
-## 問題2：お買い物レシート
+### 問題15：秒を分と秒に分ける
 
-3つの商品の名前と値段を変数に入れて、レシート風に表示してみましょう。
+`185` 秒を、`3分5秒` の形で表示してみましょう。
+
+```
+185秒は3分5秒です
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+total_seconds = 185
+minutes = total_seconds / 60
+seconds = total_seconds % 60
+
+puts "#{total_seconds}秒は#{minutes}分#{seconds}秒です"
+```
+
+</details>
+
+---
+
+### 問題16：お買い物レシート
+
+商品名と値段を変数に入れて、レシート風に表示してみましょう。
 
 ```
 ========== レシート ==========
-りんご          150円
-パン            280円
-牛乳            198円
+りんご：150円
+パン：280円
+牛乳：198円
 ------------------------------
-合計            628円
-消費税           62円
-お支払い        690円
-==============================
+合計：628円
 ```
 
 <details>
@@ -106,44 +391,38 @@ item2 = "パン"
 price2 = 280
 item3 = "牛乳"
 price3 = 198
-
 total = price1 + price2 + price3
-tax = total * 10 / 100
-payment = total + tax
 
 puts "========== レシート =========="
-puts "#{item1}          #{price1}円"
-puts "#{item2}            #{price2}円"
-puts "#{item3}            #{price3}円"
+puts "#{item1}：#{price1}円"
+puts "#{item2}：#{price2}円"
+puts "#{item3}：#{price3}円"
 puts "------------------------------"
-puts "合計            #{total}円"
-puts "消費税           #{tax}円"
-puts "お支払い        #{payment}円"
-puts "=============================="
+puts "合計：#{total}円"
 ```
 
 </details>
 
 ---
 
-## 問題3：年齢早見表
+### 問題17：年齢早見表
 
-生まれ年を変数に入れて、2026年〜2030年の年齢を一覧表示してみましょう。
+生まれ年を変数に入れて、2026年から2030年までの年齢を表示してみましょう。
 
 ```
-生まれ年：2006年
-2026年 → 20歳
-2027年 → 21歳
-2028年 → 22歳
-2029年 → 23歳
-2030年 → 24歳
+生まれ年：2008年
+2026年 → 18歳
+2027年 → 19歳
+2028年 → 20歳
+2029年 → 21歳
+2030年 → 22歳
 ```
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-birth_year = 2006
+birth_year = 2008
 
 puts "生まれ年：#{birth_year}年"
 puts "2026年 → #{2026 - birth_year}歳"
@@ -157,15 +436,81 @@ puts "2030年 → #{2030 - birth_year}歳"
 
 ---
 
-## 問題4：秒を時間に変換
+### 問題18：ゲームのステータス画面
 
-秒数を変数に入れて、○時間○分○秒に変換して表示してみましょう。
+変数を使って、ゲームのステータス画面を作ってみましょう。
+
+```
+====================
+勇者のステータス
+====================
+名前：ゆうしゃ
+HP：35
+MP：12
+攻撃力：8
+防御力：6
+====================
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+name = "ゆうしゃ"
+hp = 35
+mp = 12
+attack = 8
+defense = 6
+
+puts "===================="
+puts "勇者のステータス"
+puts "===================="
+puts "名前：#{name}"
+puts "HP：#{hp}"
+puts "MP：#{mp}"
+puts "攻撃力：#{attack}"
+puts "防御力：#{defense}"
+puts "===================="
+```
+
+</details>
+
+---
+
+### 問題19：時間割を表示する
+
+3つの授業名を変数に入れて、時間割のように表示してみましょう。
+
+```
+1限：Ruby
+2限：英語
+3限：数学
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+subject1 = "Ruby"
+subject2 = "英語"
+subject3 = "数学"
+
+puts "1限：#{subject1}"
+puts "2限：#{subject2}"
+puts "3限：#{subject3}"
+```
+
+</details>
+
+---
+
+### 問題20：秒を時間・分・秒に分ける
+
+`7384` 秒を、`2時間3分4秒` の形で表示してみましょう。
 
 ```
 7384秒は2時間3分4秒です
 ```
-
-ヒント：`/` と `%` を組み合わせます。
 
 <details>
 <summary>解答例</summary>
@@ -184,40 +529,283 @@ puts "#{total_seconds}秒は#{hours}時間#{minutes}分#{seconds}秒です"
 
 ---
 
-## 問題5：文字列メソッドで遊ぶ
+## 21〜30：直して作る
 
-第1回で `.upcase` を学びました。他にもこんなメソッドがあります：
+### 問題21：間違い探し その1
+
+次のコードはエラーになります。直して動くようにしましょう。
 
 ```ruby
-puts "Hello".downcase    # => hello
-puts "Hello".reverse     # => olleH
-puts "Hello".length      # => 5
+name = 田中
+puts name
 ```
-
-これらを使って、自分の名前（ローマ字）を色々変換して表示してみましょう。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-name = "Tanaka"
-
+name = "田中"
 puts name
-puts name.upcase
-puts name.downcase
-puts name.reverse
-puts "#{name}は#{name.length}文字です"
+```
+
+文字列は `""` で囲みます。
+
+</details>
+
+---
+
+### 問題22：間違い探し その2
+
+次のコードは、変数名の打ち間違いがあります。直して動くようにしましょう。
+
+```ruby
+name = "田中"
+puts nmae
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+name = "田中"
+puts name
 ```
 
 </details>
 
 ---
 
-## 問題6：自由研究
+### 問題23：間違い探し その3
 
-第1回〜第2回で学んだことを全部使って、自分だけのプログラムを作ってみましょう。
+次のコードは、文字列と数値をそのまま `+` でつなごうとしているのでエラーになります。直して動くようにしましょう。
 
-アイデア例：
-- 通貨換算（1ドル＝150円として、ドルを円に変換）
-- 自分の時間割を表示するプログラム
-- 好きなゲームやアニメのステータス画面
+```ruby
+age = 18
+puts "私の年齢は" + age + "歳です"
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+age = 18
+puts "私の年齢は#{age}歳です"
+```
+
+</details>
+
+---
+
+### 問題24：間違い探し その4
+
+次のコードは、`#{}` の書き方が少し違います。直して動くようにしましょう。
+
+```ruby
+name = "田中"
+puts "名前は{name}です"
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+name = "田中"
+puts "名前は#{name}です"
+```
+
+</details>
+
+---
+
+### 問題25：間違い探し その5
+
+次のコードでは、変更前の点数と変更後の点数を出したいのに、同じ点数が2回出ます。直してみましょう。
+
+```ruby
+score = 80
+score = 95
+
+puts "変更前：#{score}点"
+puts "変更後：#{score}点"
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+score = 80
+puts "変更前：#{score}点"
+
+score = 95
+puts "変更後：#{score}点"
+```
+
+上書きしたあとには、新しい値だけが残ります。
+
+</details>
+
+---
+
+### 問題26：3日分の勉強時間
+
+3日分の勉強時間を変数に入れて、合計時間と平均時間を表示してみましょう。
+
+```
+1日目：40分
+2日目：35分
+3日目：25分
+合計：100分
+平均：33分
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+day1 = 40
+day2 = 35
+day3 = 25
+total = day1 + day2 + day3
+average = total / 3
+
+puts "1日目：#{day1}分"
+puts "2日目：#{day2}分"
+puts "3日目：#{day3}分"
+puts "合計：#{total}分"
+puts "平均：#{average}分"
+```
+
+</details>
+
+---
+
+### 問題27：おこづかい帳
+
+もらったお金と、使ったお金を変数に入れて、残り金額を表示してみましょう。
+
+```
+もらったお金：2000円
+お昼ごはん：650円
+ジュース：150円
+残り：1200円
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+money = 2000
+lunch = 650
+juice = 150
+rest = money - lunch - juice
+
+puts "もらったお金：#{money}円"
+puts "お昼ごはん：#{lunch}円"
+puts "ジュース：#{juice}円"
+puts "残り：#{rest}円"
+```
+
+</details>
+
+---
+
+### 問題28：買い物の合計とおつり
+
+持っているお金と、買う商品の値段を変数に入れて、合計金額とおつりを表示してみましょう。
+
+```
+持っているお金：1000円
+ノート：180円
+ペン：120円
+消しゴム：90円
+合計：390円
+おつり：610円
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+money = 1000
+notebook = 180
+pen = 120
+eraser = 90
+total = notebook + pen + eraser
+change = money - total
+
+puts "持っているお金：#{money}円"
+puts "ノート：#{notebook}円"
+puts "ペン：#{pen}円"
+puts "消しゴム：#{eraser}円"
+puts "合計：#{total}円"
+puts "おつり：#{change}円"
+```
+
+</details>
+
+---
+
+### 問題29：ミニ旅行の予算表
+
+交通費、宿泊費、食費を変数に入れて、旅行の予算表を作ってみましょう。
+
+```
+交通費：8000円
+宿泊費：12000円
+食費：3000円
+合計予算：23000円
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+transportation = 8000
+hotel = 12000
+food = 3000
+total = transportation + hotel + food
+
+puts "交通費：#{transportation}円"
+puts "宿泊費：#{hotel}円"
+puts "食費：#{food}円"
+puts "合計予算：#{total}円"
+```
+
+</details>
+
+---
+
+### 問題30：自己紹介カードを5行で作る
+
+変数を使って、5行以上の自己紹介カードを作ってみましょう。
+
+```
+========================
+名前：山田太郎
+年齢：18歳
+出身：福岡
+趣味：音楽
+目標：Webアプリを作る
+========================
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+name = "山田太郎"
+age = 18
+hometown = "福岡"
+hobby = "音楽"
+goal = "Webアプリを作る"
+
+puts "========================"
+puts "名前：#{name}"
+puts "年齢：#{age}歳"
+puts "出身：#{hometown}"
+puts "趣味：#{hobby}"
+puts "目標：#{goal}"
+puts "========================"
+```
+
+</details>
