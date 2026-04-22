@@ -525,6 +525,10 @@ seconds = remaining_seconds % 60
 puts "#{total_seconds}秒は#{hours}時間#{minutes}分#{seconds}秒です"
 ```
 
+`3600` は、`1時間 = 60分`、`1分 = 60秒` なので、`60 × 60 = 3600秒` を表しています。
+
+つまり、`total_seconds / 3600` で「何時間あるか」を求めています。
+
 </details>
 
 ---
@@ -592,6 +596,13 @@ age = 18
 puts "私の年齢は#{age}歳です"
 ```
 
+別解です。`age` を文字列にすれば、`+` でつなげることもできます。
+
+```ruby
+age = "18"
+puts "私の年齢は" + age + "歳です"
+```
+
 </details>
 
 ---
@@ -631,6 +642,18 @@ puts "変更後：#{score}点"
 
 <details>
 <summary>解答例</summary>
+
+```ruby
+score1 = 80
+score2 = 95
+
+puts "変更前：#{score1}点"
+puts "変更後：#{score2}点"
+```
+
+「変更前」と「変更後」の両方を残したいなら、別々の変数に分けて持つ方が分かりやすいです。
+
+別解です。1つの変数を使うなら、上書きする前に表示します。
 
 ```ruby
 score = 80
