@@ -13,20 +13,20 @@
   <text x="645" y="184" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="22" font-weight="500" fill="#3E3A34">変数名</text>
   <rect x="548" y="212" width="194" height="118" rx="24" fill="#FFFDF8" stroke="#1F5C4A" stroke-width="10"/>
   <text x="645" y="287" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="68" font-weight="700" fill="#C53B30">赤</text>
-  <text x="645" y="337" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="24" font-weight="500" fill="#6B665E">いま入っている値</text>
+  <text x="645" y="349" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="24" font-weight="500" fill="#6B665E">いま入っている値</text>
 
-  <path d="M645 364V430" stroke="#2D2A26" stroke-width="10" stroke-linecap="round"/>
+  <path d="M645 376V430" stroke="#2D2A26" stroke-width="10" stroke-linecap="round"/>
   <path d="M619 422L645 474L671 422" fill="#2D2A26"/>
 
-  <text x="120" y="428" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="28" font-weight="700" fill="#2D2A26">2. 次に青を入れる</text>
-  <rect x="120" y="458" width="220" height="64" rx="18" fill="#E9E2D5"/>
-  <text x="230" y="499" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="28" font-weight="700" fill="#2D2A26">color = "青"</text>
+  <text x="120" y="440" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="28" font-weight="700" fill="#2D2A26">2. 次に青を入れる</text>
+  <rect x="120" y="470" width="220" height="64" rx="18" fill="#E9E2D5"/>
+  <text x="230" y="511" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="28" font-weight="700" fill="#2D2A26">color = "青"</text>
 
-  <path d="M390 490H486" stroke="#1F5C4A" stroke-width="10" stroke-linecap="round"/>
-  <path d="M478 464L530 490L478 516" fill="#1F5C4A"/>
+  <path d="M390 502H486" stroke="#1F5C4A" stroke-width="10" stroke-linecap="round"/>
+  <path d="M478 476L530 502L478 528" fill="#1F5C4A"/>
 
-  <rect x="548" y="446" width="194" height="90" rx="24" fill="#FFFDF8" stroke="#1F5C4A" stroke-width="10"/>
-  <text x="645" y="505" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="68" font-weight="700" fill="#2368D9">青</text>
+  <rect x="548" y="458" width="194" height="90" rx="24" fill="#FFFDF8" stroke="#1F5C4A" stroke-width="10"/>
+  <text x="645" y="517" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="68" font-weight="700" fill="#2368D9">青</text>
 
   <text x="790" y="247" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="24" font-weight="700" fill="#8B867C">前の値</text>
   <text x="790" y="287" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="54" font-weight="700" fill="#8B867C" text-decoration="line-through">赤</text>
