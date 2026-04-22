@@ -30,6 +30,8 @@
 
 </details>
 
+---
+
 1. GitHubにログインする
 2. [このリポジトリ](https://github.com/TORIFUKUKaiou/rails-dojo-year1-content/)のページを開く (リンクを右クリックして、「リンクを新しいタブで開く」)
 3. 「Code」ボタン → 「Codespaces」タブ → 「Create codespace on main」をクリック
