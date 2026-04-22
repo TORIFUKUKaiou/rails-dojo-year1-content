@@ -30,6 +30,18 @@
 
 ![](../images/created-codespace-on-main.png)
 
+<details>
+<summary>前回の Codespace が残っている場合</summary>
+
+前回の授業で Codespace を削除していないと、前回の Codespace が残っていることがあります。
+
+- この授業では、操作に慣れるために、毎回新しい Codespace を作って始めます
+- 前回の Codespace が残っている場合は、削除してから新しく作り直してください
+- まっさらな状態から始めることで、準備の手順も少しずつ覚えられます
+- 削除方法は [Codespace を削除する](../delete_codespace.md) を見てください（リンクを右クリックして、「新しいタブで開く」）
+
+</details>
+
 ## ファイルにRubyのプログラムを書いて実行する
 
 1. 画面左側のファイル一覧で `content` の外側、ホームディレクトリのあたりを右クリック →「新しいファイル」→ `main.rb` と入力
