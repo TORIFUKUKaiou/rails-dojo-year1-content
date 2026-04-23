@@ -36,6 +36,14 @@ end
 
 条件が正しくない（偽）なら、何も起きません。
 
+```mermaid
+flowchart TD
+    A([開始]) --> B{age >= 18}
+    B -- 真 --> C["puts &quot;大人です&quot;"]
+    C --> D([end])
+    B -- 偽 --> D
+```
+
 ---
 
 ## if と else
