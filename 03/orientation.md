@@ -155,6 +155,43 @@ flowchart TD
 
 ---
 
+## elsif ── 4つ以上に分ける
+
+`elsif` は何個でも並べられます。
+
+```ruby
+score = 100
+
+if score == 100
+  puts "満点！"
+elsif score >= 80
+  puts "よくできました"
+elsif score >= 60
+  puts "合格です"
+else
+  puts "もう少しがんばりましょう"
+end
+```
+
+上から順に調べて、最初に正しかった1つだけが実行されます。`score` が 100 なら、`score >= 80` も正しいですが、先に `score == 100` が正しいので「満点！」だけが表示されます。
+
+```mermaid
+flowchart TD
+    A([開始]) --> B{score == 100}
+    B -- 真 --> C["puts &quot;満点！&quot;"]
+    B -- 偽 --> D{score >= 80}
+    D -- 真 --> E["puts &quot;よくできました&quot;"]
+    D -- 偽 --> F{score >= 60}
+    F -- 真 --> G["puts &quot;合格です&quot;"]
+    F -- 偽 --> H["puts &quot;もう少しがんばりましょう&quot;"]
+    C --> I([end])
+    E --> I
+    G --> I
+    H --> I
+```
+
+---
+
 ## 文字列の比較
 
 数値だけでなく、文字列も比較できます。
