@@ -141,6 +141,18 @@ end
 
 上から順に条件を調べて、最初に正しかった方が実行されます。どれも正しくなければ `else` が実行されます。
 
+```mermaid
+flowchart TD
+    A([開始]) --> B{score >= 80}
+    B -- 真 --> C["puts &quot;よくできました&quot;"]
+    B -- 偽 --> D{score >= 60}
+    D -- 真 --> E["puts &quot;合格です&quot;"]
+    D -- 偽 --> F["puts &quot;もう少しがんばりましょう&quot;"]
+    C --> G([end])
+    E --> G
+    F --> G
+```
+
 ---
 
 ## 文字列の比較
