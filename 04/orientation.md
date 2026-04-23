@@ -140,7 +140,8 @@ flowchart TD
     C -- 真 --> D["puts i"]
     D --> E["i = i + 1"]
     E --> C
-    C -- 偽 --> F([end])
+    C -- 偽 --> F[ ]
+    F --> G([end])
 ```
 
 ---
