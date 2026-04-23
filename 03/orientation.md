@@ -62,6 +62,15 @@ end
 
 `age` が 15 なので、`age >= 18` は偽。`else` の方が実行されます。
 
+```mermaid
+flowchart TD
+    A([開始]) --> B{age >= 18}
+    B -- 真 --> C["puts &quot;大人です&quot;"]
+    B -- 偽 --> D["puts &quot;未成年です&quot;"]
+    C --> E([end])
+    D --> E
+```
+
 ---
 
 ## 比較の記号
