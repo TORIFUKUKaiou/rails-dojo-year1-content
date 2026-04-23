@@ -246,6 +246,24 @@ end
 
 ### その2
 
+その1を改造して、キーボードから入力した数まで表示するようにしましょう。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "いくつまで表示しますか？"
+n = gets.to_i
+
+n.times do |i|
+  puts i + 1
+end
+```
+
+</details>
+
+### その3
+
 次の出力を作ってみましょう。
 
 ```
@@ -273,7 +291,25 @@ end
 
 </details>
 
-### その3
+### その4
+
+その3を改造して、段数をキーボードから入力できるようにしましょう。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "何段にしますか？"
+n = gets.to_i
+
+n.times do |i|
+  puts "*" * (i + 1)
+end
+```
+
+</details>
+
+### その5
 
 7の段を、繰り返しで表示してみましょう。
 
@@ -296,7 +332,26 @@ end
 
 </details>
 
-### その4
+### その6
+
+その5を改造して、何の段を表示するかをキーボードから入力できるようにしましょう。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "何の段を表示しますか？"
+dan = gets.to_i
+
+9.times do |i|
+  n = i + 1
+  puts "#{dan} x #{n} = #{dan * n}"
+end
+```
+
+</details>
+
+### その7
 
 カウントダウンを作ってみましょう。
 
@@ -322,7 +377,27 @@ puts "スタート！"
 
 </details>
 
-### その5
+### その8
+
+その7を改造して、何秒前からカウントダウンするかをキーボードから入力できるようにしましょう。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "何からカウントダウンしますか？"
+n = gets.to_i
+
+n.times do |i|
+  puts n - i
+end
+
+puts "スタート！"
+```
+
+</details>
+
+### その9
 
 自由課題。`times` を使って、自分だけのプログラムを作ってみましょう。
 
