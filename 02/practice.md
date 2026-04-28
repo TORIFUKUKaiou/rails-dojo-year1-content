@@ -356,7 +356,45 @@ puts "#{n} x 9 = #{n * 9}"
 
 ### その4
 
-自由課題。変数を使って、好きなプログラムを作ってみましょう。
+映画のチケット料金を表示するプログラムを作りましょう。
+
+次の4つを変数に入れてください。
+
+- 名前：`name`
+- 年齢：`age`
+- チケットの単価：`ticket_price`
+- 買う枚数：`ticket_count`
+
+さらに、`ticket_price * ticket_count` の結果を `total` に入れて、次のように表示してください。
+
+```
+田中さんのチケット
+年齢：20歳
+単価：1500円
+枚数：2枚
+合計：3000円
+```
+
+名前、年齢、単価、枚数の値は好きに変えてOKです。ただし、合計は計算で出しましょう。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+name = "田中"
+age = 20
+ticket_price = 1500
+ticket_count = 2
+total = ticket_price * ticket_count
+
+puts "#{name}さんのチケット"
+puts "年齢：#{age}歳"
+puts "単価：#{ticket_price}円"
+puts "枚数：#{ticket_count}枚"
+puts "合計：#{total}円"
+```
+
+</details>
 
 ---
 

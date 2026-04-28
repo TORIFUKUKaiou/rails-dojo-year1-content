@@ -13,22 +13,24 @@
 
 ---
 
-## 1〜10：基本の条件分岐
+## 1〜10：変数で条件分岐する
 
-### 問題1：大人か未成年か
+ここでは、あらかじめ変数に入れた値を使って判定します。`gets` はまだ使いません。
 
-変数 `age` を使って、18歳以上なら「大人です」、そうでなければ「未成年です」と表示してみましょう。
+### 問題1：バッテリー残量チェック
+
+変数 `battery` を使って、20未満なら「充電してください」、それ以外なら「まだ使えます」と表示してみましょう。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-age = 17
+battery = 15
 
-if age >= 18
-  puts "大人です"
+if battery < 20
+  puts "充電してください"
 else
-  puts "未成年です"
+  puts "まだ使えます"
 end
 ```
 
@@ -36,20 +38,20 @@ end
 
 ---
 
-### 問題2：合格か不合格か
+### 問題2：エレベーターの重量チェック
 
-変数 `score` を使って、60点以上なら「合格」、それ以外は「不合格」と表示してみましょう。
+変数 `weight` を使って、600以上なら「重量オーバーです」、それ以外なら「乗れます」と表示してみましょう。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-score = 75
+weight = 520
 
-if score >= 60
-  puts "合格"
+if weight >= 600
+  puts "重量オーバーです"
 else
-  puts "不合格"
+  puts "乗れます"
 end
 ```
 
@@ -57,20 +59,22 @@ end
 
 ---
 
-### 問題3：晴れか雨か
+### 問題3：注文の状態を表示する
 
-変数 `weather` を使って、`"晴れ"` なら「散歩に行こう」、それ以外は「家にいよう」と表示してみましょう。
+変数 `status` を使って、`"準備中"` なら「ただいま準備中です」、`"発送済み"` なら「発送しました」、それ以外なら「状態を確認してください」と表示してみましょう。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-weather = "晴れ"
+status = "発送済み"
 
-if weather == "晴れ"
-  puts "散歩に行こう"
+if status == "準備中"
+  puts "ただいま準備中です"
+elsif status == "発送済み"
+  puts "発送しました"
 else
-  puts "家にいよう"
+  puts "状態を確認してください"
 end
 ```
 
@@ -78,9 +82,9 @@ end
 
 ---
 
-### 問題4：偶数か奇数か
+### 問題4：座席番号で左右を分ける
 
-変数 `number` を使って、偶数なら「偶数です」、奇数なら「奇数です」と表示してみましょう。
+変数 `seat_number` を使って、偶数なら「右側の席です」、奇数なら「左側の席です」と表示してみましょう。
 
 ヒント：`% 2` の結果が `0` なら偶数です。
 
@@ -88,12 +92,12 @@ end
 <summary>解答例</summary>
 
 ```ruby
-number = 7
+seat_number = 14
 
-if number % 2 == 0
-  puts "偶数です"
+if seat_number % 2 == 0
+  puts "右側の席です"
 else
-  puts "奇数です"
+  puts "左側の席です"
 end
 ```
 
@@ -101,22 +105,22 @@ end
 
 ---
 
-### 問題5：正・負・ゼロ
+### 問題5：在庫数チェック
 
-変数 `number` を使って、正の数なら「正の数です」、負の数なら「負の数です」、0なら「0です」と表示してみましょう。
+変数 `stock` を使って、10以上なら「在庫あり」、1以上なら「残りわずか」、0以下なら「売り切れ」と表示してみましょう。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-number = -3
+stock = 3
 
-if number > 0
-  puts "正の数です"
-elsif number < 0
-  puts "負の数です"
+if stock >= 10
+  puts "在庫あり"
+elsif stock >= 1
+  puts "残りわずか"
 else
-  puts "0です"
+  puts "売り切れ"
 end
 ```
 
@@ -124,22 +128,22 @@ end
 
 ---
 
-### 問題6：気温でメッセージを変える
+### 問題6：ゲームの残り時間
 
-変数 `temperature` を使って、30以上なら「暑いです」、15以上なら「ちょうどよいです」、それ未満なら「寒いです」と表示してみましょう。
+変数 `seconds` を使って、0以下なら「終了」、10以下なら「ラストチャンス」、それ以外なら「プレイ中」と表示してみましょう。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-temperature = 22
+seconds = 8
 
-if temperature >= 30
-  puts "暑いです"
-elsif temperature >= 15
-  puts "ちょうどよいです"
+if seconds <= 0
+  puts "終了"
+elsif seconds <= 10
+  puts "ラストチャンス"
 else
-  puts "寒いです"
+  puts "プレイ中"
 end
 ```
 
@@ -147,24 +151,24 @@ end
 
 ---
 
-### 問題7：自動販売機
+### 問題7：カフェのサイズ選び
 
-変数 `money` を使って、500円以上なら「コーヒーが買えます」、200円以上なら「ジュースが買えます」、100円以上なら「水が買えます」、それ未満なら「お金が足りません」と表示してみましょう。
+変数 `size` を使って、`"S"` なら「小さいサイズです」、`"M"` なら「ふつうサイズです」、`"L"` なら「大きいサイズです」、それ以外なら「サイズを確認してください」と表示してみましょう。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-money = 350
+size = "M"
 
-if money >= 500
-  puts "コーヒーが買えます"
-elsif money >= 200
-  puts "ジュースが買えます"
-elsif money >= 100
-  puts "水が買えます"
+if size == "S"
+  puts "小さいサイズです"
+elsif size == "M"
+  puts "ふつうサイズです"
+elsif size == "L"
+  puts "大きいサイズです"
 else
-  puts "お金が足りません"
+  puts "サイズを確認してください"
 end
 ```
 
@@ -172,22 +176,22 @@ end
 
 ---
 
-### 問題8：食べ物でメッセージを変える
+### 問題8：割引クーポン
 
-変数 `food` を使って、`"カレー"`、`"ラーメン"`、それ以外でメッセージを変えてみましょう。
+変数 `coupon` を使って、`"あり"` なら「10%割引です」、`"期限切れ"` なら「このクーポンは使えません」、それ以外なら「通常価格です」と表示してみましょう。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-food = "ラーメン"
+coupon = "あり"
 
-if food == "カレー"
-  puts "辛口がおすすめです"
-elsif food == "ラーメン"
-  puts "スープも飲みたいですね"
+if coupon == "あり"
+  puts "10%割引です"
+elsif coupon == "期限切れ"
+  puts "このクーポンは使えません"
 else
-  puts "#{food}、いいですね"
+  puts "通常価格です"
 end
 ```
 
@@ -195,22 +199,21 @@ end
 
 ---
 
-### 問題9：成績を3段階に分ける
+### 問題9：イベント入場判定
 
-変数 `score` を使って、80以上なら「よくできました」、60以上なら「合格です」、それ以外は「もう少しがんばろう」と表示してみましょう。
+変数 `has_ticket` と `age` を使って、チケットが `"あり"` かつ年齢が12以上なら「入場できます」、それ以外なら「入場できません」と表示してみましょう。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-score = 68
+has_ticket = "あり"
+age = 13
 
-if score >= 80
-  puts "よくできました"
-elsif score >= 60
-  puts "合格です"
+if has_ticket == "あり" && age >= 12
+  puts "入場できます"
 else
-  puts "もう少しがんばろう"
+  puts "入場できません"
 end
 ```
 
@@ -218,26 +221,26 @@ end
 
 ---
 
-### 問題10：FizzBuzz（1問だけ）
+### 問題10：ラーメンの辛さ判定
 
-変数 `number` を使って、3でも5でも割り切れるなら「FizzBuzz」、3で割り切れるなら「Fizz」、5で割り切れるなら「Buzz」、それ以外は数値をそのまま表示してみましょう。
+変数 `spice_level` を使って、5以上なら「激辛」、3以上なら「中辛」、1以上なら「小辛」、0以下なら「辛くない」と表示してみましょう。
 
-ヒント：両方の条件を同時に満たすかどうかは `&&` を使って書けます。
+条件の順番に注意しましょう。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-number = 15
+spice_level = 4
 
-if number % 3 == 0 && number % 5 == 0
-  puts "FizzBuzz"
-elsif number % 3 == 0
-  puts "Fizz"
-elsif number % 5 == 0
-  puts "Buzz"
+if spice_level >= 5
+  puts "激辛"
+elsif spice_level >= 3
+  puts "中辛"
+elsif spice_level >= 1
+  puts "小辛"
 else
-  puts number
+  puts "辛くない"
 end
 ```
 
@@ -247,21 +250,197 @@ end
 
 ## 11〜20：入力して判定する
 
-### 問題11：入力した年齢で判定する
+ここでは `gets.chomp` または `gets.to_i` を使って、入力した値で判定します。
 
-キーボードから年齢を入力して、18歳以上なら「大人です」、それ以外は「未成年です」と表示してみましょう。
+### 問題11：入力したバッテリー残量で判定する
+
+キーボードからバッテリー残量を入力して、20未満なら「充電してください」、それ以外なら「まだ使えます」と表示してみましょう。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
+puts "バッテリー残量を入力してください"
+battery = gets.to_i
+
+if battery < 20
+  puts "充電してください"
+else
+  puts "まだ使えます"
+end
+```
+
+</details>
+
+---
+
+### 問題12：入力した荷物の重さで判定する
+
+キーボードから荷物の重さを入力して、20以上なら「追加料金が必要です」、それ以外なら「そのまま預けられます」と表示してみましょう。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "荷物の重さを入力してください"
+weight = gets.to_i
+
+if weight >= 20
+  puts "追加料金が必要です"
+else
+  puts "そのまま預けられます"
+end
+```
+
+</details>
+
+---
+
+### 問題13：入力した注文状態でメッセージを出す
+
+キーボードから注文状態を入力して、次のように表示してみましょう。
+
+- `準備中`：「ただいま準備中です」
+- `発送済み`：「発送しました」
+- `配達完了`：「お届け済みです」
+- それ以外：「状態を確認してください」
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "注文状態を入力してください"
+status = gets.chomp
+
+if status == "準備中"
+  puts "ただいま準備中です"
+elsif status == "発送済み"
+  puts "発送しました"
+elsif status == "配達完了"
+  puts "お届け済みです"
+else
+  puts "状態を確認してください"
+end
+```
+
+</details>
+
+---
+
+### 問題14：入力した座席番号で左右を分ける
+
+キーボードから座席番号を入力して、偶数なら「右側の席です」、奇数なら「左側の席です」と表示してみましょう。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "座席番号を入力してください"
+seat_number = gets.to_i
+
+if seat_number % 2 == 0
+  puts "右側の席です"
+else
+  puts "左側の席です"
+end
+```
+
+</details>
+
+---
+
+### 問題15：入力した在庫数で表示を変える
+
+キーボードから在庫数を入力して、10以上なら「在庫あり」、1以上なら「残りわずか」、0以下なら「売り切れ」と表示してみましょう。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "在庫数を入力してください"
+stock = gets.to_i
+
+if stock >= 10
+  puts "在庫あり"
+elsif stock >= 1
+  puts "残りわずか"
+else
+  puts "売り切れ"
+end
+```
+
+</details>
+
+---
+
+### 問題16：入力したカフェサイズで判定する
+
+キーボードからサイズを入力して、`S` なら「小さいサイズです」、`M` なら「ふつうサイズです」、`L` なら「大きいサイズです」、それ以外なら「サイズを確認してください」と表示してみましょう。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "サイズを入力してください（S/M/L）"
+size = gets.chomp
+
+if size == "S"
+  puts "小さいサイズです"
+elsif size == "M"
+  puts "ふつうサイズです"
+elsif size == "L"
+  puts "大きいサイズです"
+else
+  puts "サイズを確認してください"
+end
+```
+
+</details>
+
+---
+
+### 問題17：入力したクーポンで判定する
+
+キーボードからクーポンの状態を入力して、`あり` なら「10%割引です」、`期限切れ` なら「このクーポンは使えません」、それ以外なら「通常価格です」と表示してみましょう。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "クーポンの状態を入力してください"
+coupon = gets.chomp
+
+if coupon == "あり"
+  puts "10%割引です"
+elsif coupon == "期限切れ"
+  puts "このクーポンは使えません"
+else
+  puts "通常価格です"
+end
+```
+
+</details>
+
+---
+
+### 問題18：入力した入場情報で判定する
+
+チケットの有無と年齢を入力して、チケットが `あり` かつ年齢が12以上なら「入場できます」、それ以外なら「入場できません」と表示してみましょう。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "チケットはありますか？（あり/なし）"
+has_ticket = gets.chomp
+
 puts "年齢を入力してください"
 age = gets.to_i
 
-if age >= 18
-  puts "大人です"
+if has_ticket == "あり" && age >= 12
+  puts "入場できます"
 else
-  puts "未成年です"
+  puts "入場できません"
 end
 ```
 
@@ -269,21 +448,25 @@ end
 
 ---
 
-### 問題12：入力した点数で合否判定する
+### 問題19：入力した辛さで判定する
 
-キーボードから点数を入力して、60点以上なら「合格」、それ以外は「不合格」と表示してみましょう。
+キーボードから辛さレベルを入力して、5以上なら「激辛」、3以上なら「中辛」、1以上なら「小辛」、0以下なら「辛くない」と表示してみましょう。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-puts "点数を入力してください"
-score = gets.to_i
+puts "辛さレベルを入力してください"
+spice_level = gets.to_i
 
-if score >= 60
-  puts "合格"
+if spice_level >= 5
+  puts "激辛"
+elsif spice_level >= 3
+  puts "中辛"
+elsif spice_level >= 1
+  puts "小辛"
 else
-  puts "不合格"
+  puts "辛くない"
 end
 ```
 
@@ -291,226 +474,26 @@ end
 
 ---
 
-### 問題13：入力した点数で成績を出す
+### 問題20：入力した2つの数で大きい方を表示する
 
-キーボードから点数を入力して、成績（S/A/B/C/F）を表示してみましょう。
-
-- 90以上：S
-- 80以上：A
-- 70以上：B
-- 60以上：C
-- 60未満：F
+2つの数を入力して、1つ目が大きければ「1つ目が大きい」、2つ目が大きければ「2つ目が大きい」、同じなら「同じです」と表示してみましょう。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-puts "点数を入力してください"
-score = gets.to_i
+puts "1つ目の数を入力してください"
+number1 = gets.to_i
 
-if score >= 90
-  grade = "S"
-elsif score >= 80
-  grade = "A"
-elsif score >= 70
-  grade = "B"
-elsif score >= 60
-  grade = "C"
+puts "2つ目の数を入力してください"
+number2 = gets.to_i
+
+if number1 > number2
+  puts "1つ目が大きい"
+elsif number2 > number1
+  puts "2つ目が大きい"
 else
-  grade = "F"
-end
-
-puts "#{score}点は#{grade}です"
-```
-
-</details>
-
----
-
-### 問題14：入力した気温で判定する
-
-キーボードから気温を入力して、30以上なら「暑いです」、15以上なら「ちょうどよいです」、それ未満なら「寒いです」と表示してみましょう。
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-puts "気温を入力してください"
-temperature = gets.to_i
-
-if temperature >= 30
-  puts "暑いです"
-elsif temperature >= 15
-  puts "ちょうどよいです"
-else
-  puts "寒いです"
-end
-```
-
-</details>
-
----
-
-### 問題15：入力した所持金で判定する
-
-キーボードから所持金を入力して、自動販売機で買えるものを表示してみましょう。
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-puts "所持金を入力してください"
-money = gets.to_i
-
-if money >= 500
-  puts "コーヒーが買えます"
-elsif money >= 200
-  puts "ジュースが買えます"
-elsif money >= 100
-  puts "水が買えます"
-else
-  puts "お金が足りません"
-end
-```
-
-</details>
-
----
-
-### 問題16：入力した月が冬かどうかを判定する
-
-キーボードから月を入力して、12月・1月・2月なら「冬です」、それ以外なら「冬ではありません」と表示してみましょう。
-
-ヒント：`||` は「または」という意味です。
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-puts "月を入力してください"
-month = gets.to_i
-
-if month == 12 || month == 1 || month == 2
-  puts "冬です"
-else
-  puts "冬ではありません"
-end
-```
-
-</details>
-
----
-
-### 問題17：入力した年齢を5段階に分ける
-
-キーボードから年齢を入力して、次のように表示してみましょう。
-
-- 0〜5歳：「幼児です」
-- 6〜12歳：「小学生です」
-- 13〜15歳：「中学生です」
-- 16〜18歳：「高校生です」
-- 19歳以上：「大人です」
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-puts "年齢を入力してください"
-age = gets.to_i
-
-if age <= 5
-  puts "幼児です"
-elsif age <= 12
-  puts "小学生です"
-elsif age <= 15
-  puts "中学生です"
-elsif age <= 18
-  puts "高校生です"
-else
-  puts "大人です"
-end
-```
-
-</details>
-
----
-
-### 問題18：入力した数が偶数か奇数かを判定する
-
-キーボードから数を入力して、偶数なら「偶数です」、奇数なら「奇数です」と表示してみましょう。
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-puts "数を入力してください"
-number = gets.to_i
-
-if number % 2 == 0
-  puts "偶数です"
-else
-  puts "奇数です"
-end
-```
-
-</details>
-
----
-
-### 問題19：入力したHPで状態を表示する
-
-キーボードから HP を入力して、0以下なら「たおれた」、10以下なら「ピンチです」、それ以外は「まだ元気です」と表示してみましょう。
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-puts "HPを入力してください"
-hp = gets.to_i
-
-if hp <= 0
-  puts "たおれた"
-elsif hp <= 10
-  puts "ピンチです"
-else
-  puts "まだ元気です"
-end
-```
-
-</details>
-
----
-
-### 問題20：入力した手でじゃんけんする
-
-じゃんけんプログラムを作りましょう。自分の手と相手の手を入力して、勝敗を表示します。
-
-- 1：グー
-- 2：チョキ
-- 3：パー
-
-ヒント：`&&` は「かつ」という意味です。
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-puts "自分の手を入力してください（1:グー 2:チョキ 3:パー）"
-my_hand = gets.to_i
-
-puts "相手の手を入力してください（1:グー 2:チョキ 3:パー）"
-enemy_hand = gets.to_i
-
-if my_hand == enemy_hand
-  puts "あいこ！"
-elsif my_hand == 1 && enemy_hand == 2
-  puts "勝ち！"
-elsif my_hand == 2 && enemy_hand == 3
-  puts "勝ち！"
-elsif my_hand == 3 && enemy_hand == 1
-  puts "勝ち！"
-else
-  puts "負け！"
+  puts "同じです"
 end
 ```
 
@@ -2458,20 +2441,37 @@ end
 
 ## 91〜100：仕上げ
 
-### 問題91：自分で条件分岐を作る
+ここからは、入力・計算・条件分岐を組み合わせます。問題文の条件を1つずつ満たすように作りましょう。
 
-変数を1つ作り、`if`/`else` を使って表示が変わるプログラムを作りましょう。
+### 問題91：学食の注文アプリ
+
+メニュー番号を入力して、注文内容を表示しましょう。
+
+- `1`：カレー、500円
+- `2`：うどん、400円
+- `3`：定食、650円
+- それ以外：`そのメニューはありません`
+
+番号が1〜3のときは、メニュー名と値段を表示してください。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-hungry = "はい"
+puts "メニュー番号を入力してください（1:カレー 2:うどん 3:定食）"
+menu = gets.to_i
 
-if hungry == "はい"
-  puts "ごはんを食べよう"
+if menu == 1
+  puts "カレーを注文しました"
+  puts "値段：500円"
+elsif menu == 2
+  puts "うどんを注文しました"
+  puts "値段：400円"
+elsif menu == 3
+  puts "定食を注文しました"
+  puts "値段：650円"
 else
-  puts "少し休もう"
+  puts "そのメニューはありません"
 end
 ```
 
@@ -2479,247 +2479,339 @@ end
 
 ---
 
-### 問題92：自分で3段階判定を作る
+### 問題92：送料込みの合計金額
 
-`elsif` を使って、3段階に分かれるプログラムを作りましょう。
+商品の値段と個数を入力して、小計と送料込みの合計金額を表示しましょう。
 
-<details>
-<summary>解答例</summary>
-
-```ruby
-sleep_hours = 6
-
-if sleep_hours >= 8
-  puts "よく眠れました"
-elsif sleep_hours >= 6
-  puts "ふつうです"
-else
-  puts "眠いです"
-end
-```
-
-</details>
-
----
-
-### 問題93：自分で入力アプリを作る
-
-`gets.chomp` を使って、入力した文字によって結果が変わるプログラムを作りましょう。
+- 小計が2000円以上なら送料は0円
+- 小計が2000円未満なら送料は500円
+- 最後に「小計」「送料」「合計」を表示する
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-puts "好きな色を入力してください"
-color = gets.chomp
-
-if color == "青"
-  puts "落ち着いた色ですね"
-else
-  puts "#{color}もいいですね"
-end
-```
-
-</details>
-
----
-
-### 問題94：自分で数値入力アプリを作る
-
-`gets.to_i` を使って、入力した数値によって結果が変わるプログラムを作りましょう。
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-puts "歩数を入力してください"
-steps = gets.to_i
-
-if steps >= 8000
-  puts "よく歩きました"
-else
-  puts "もう少し歩こう"
-end
-```
-
-</details>
-
----
-
-### 問題95：自分で間違い探しを作る
-
-条件分岐に関する「間違ったコード」を自分で作り、その下に正しいコードを書きましょう。
-
-条件：
-
-- 間違ったコードを書く
-- 正しいコードを書く
-- 何が間違いだったかを1行で説明する
-
-<details>
-<summary>解答例</summary>
-
-間違ったコード：
-
-```ruby
-score = 80
-
-if score = 80
-  puts "80点です"
-end
-```
-
-正しいコード：
-
-```ruby
-score = 80
-
-if score == 80
-  puts "80点です"
-end
-```
-
-条件で等しいか調べるときは `==` を使います。
-
-</details>
-
----
-
-### 問題96：境界の値を試す
-
-60点以上なら合格にするプログラムを作り、`59`、`60`、`61` の3つで試しましょう。
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-score = 60
-
-if score >= 60
-  puts "合格"
-else
-  puts "不合格"
-end
-```
-
-`59` は不合格、`60` と `61` は合格です。
-
-</details>
-
----
-
-### 問題97：条件の順番を説明する
-
-次のコードで、`score = 95` のとき「A」と表示される理由を説明してみましょう。
-
-```ruby
-score = 95
-
-if score >= 90
-  puts "A"
-elsif score >= 80
-  puts "B"
-elsif score >= 60
-  puts "C"
-else
-  puts "D"
-end
-```
-
-<details>
-<summary>解答例</summary>
-
-上から順に条件を見て、最初の `score >= 90` が正しいからです。
-
-`score >= 80` や `score >= 60` も正しいですが、最初に正しかった1つだけが実行されます。
-
-</details>
-
----
-
-### 問題98：`if` を2つ使う例を作る
-
-条件が2つとも正しければ、2行表示されるプログラムを作りましょう。
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-score = 90
-
-if score >= 60
-  puts "合格"
-end
-
-if score >= 80
-  puts "優秀"
-end
-```
-
-</details>
-
----
-
-### 問題99：`elsif` を使う例に直す
-
-問題98のコードを、表示が1行だけになるように `elsif` で書き直しましょう。
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-score = 90
-
-if score >= 80
-  puts "優秀"
-elsif score >= 60
-  puts "合格"
-else
-  puts "不合格"
-end
-```
-
-</details>
-
----
-
-### 問題100：自分でミニアプリを作る
-
-入力、変数、計算、条件分岐を使って、自分だけのミニアプリを作りましょう。
-
-条件：
-
-- `gets.chomp` または `gets.to_i` を使う
-- `if`/`elsif`/`else` を使う
-- `#{}` を使って結果を表示する
-- 表示が5行以上ある
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-puts "名前を入力してください"
-name = gets.chomp
-
-puts "所持金を入力してください"
-money = gets.to_i
-
 puts "商品の値段を入力してください"
 price = gets.to_i
 
-change = money - price
+puts "個数を入力してください"
+count = gets.to_i
+
+subtotal = price * count
+
+if subtotal >= 2000
+  shipping = 0
+else
+  shipping = 500
+end
+
+total = subtotal + shipping
+
+puts "小計：#{subtotal}円"
+puts "送料：#{shipping}円"
+puts "合計：#{total}円"
+```
+
+</details>
+
+---
+
+### 問題93：映画チケットの料金
+
+年齢を入力して、映画チケットの料金を表示しましょう。
+
+- 6歳未満：0円
+- 6歳以上18歳未満：1000円
+- 18歳以上65歳未満：1800円
+- 65歳以上：1200円
+
+最後に `料金：○円` と表示してください。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "年齢を入力してください"
+age = gets.to_i
+
+if age < 6
+  price = 0
+elsif age < 18
+  price = 1000
+elsif age < 65
+  price = 1800
+else
+  price = 1200
+end
+
+puts "料金：#{price}円"
+```
+
+</details>
+
+---
+
+### 問題94：パスワードと合言葉
+
+パスワードと合言葉を入力して、両方正しければ「ログイン成功」、どちらかが違えば「ログイン失敗」と表示しましょう。
+
+- 正しいパスワード：`ruby`
+- 正しい合言葉：`dojo`
+
+ヒント：両方正しいかどうかは `&&` を使います。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "パスワードを入力してください"
+password = gets.chomp
+
+puts "合言葉を入力してください"
+keyword = gets.chomp
+
+if password == "ruby" && keyword == "dojo"
+  puts "ログイン成功"
+else
+  puts "ログイン失敗"
+end
+```
+
+</details>
+
+---
+
+### 問題95：ポイントカード判定
+
+購入金額と会員ランクを入力して、もらえるポイントを表示しましょう。
+
+- 会員ランクが `gold` なら、購入金額の10分の1
+- 会員ランクが `silver` なら、購入金額の20分の1
+- それ以外なら、購入金額の100分の1
+
+整数の計算でOKです。最後に `ポイント：○` と表示してください。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "購入金額を入力してください"
+price = gets.to_i
+
+puts "会員ランクを入力してください"
+rank = gets.chomp
+
+if rank == "gold"
+  point = price / 10
+elsif rank == "silver"
+  point = price / 20
+else
+  point = price / 100
+end
+
+puts "ポイント：#{point}"
+```
+
+</details>
+
+---
+
+### 問題96：入力ミスを直す
+
+次のコードは、数値として比べたいのに `gets.chomp` を使っているためエラーになります。直して動くようにしましょう。
+
+```ruby
+puts "残り時間を入力してください"
+seconds = gets.chomp
+
+if seconds <= 0
+  puts "終了"
+elsif seconds <= 10
+  puts "あと少し"
+else
+  puts "プレイ中"
+end
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "残り時間を入力してください"
+seconds = gets.to_i
+
+if seconds <= 0
+  puts "終了"
+elsif seconds <= 10
+  puts "あと少し"
+else
+  puts "プレイ中"
+end
+```
+
+数値として比べるときは `gets.to_i` を使います。
+
+</details>
+
+---
+
+### 問題97：条件の順番を直す
+
+次のコードは、`score = 100` のときも「合格」と表示されます。「満点」と表示されるように、条件の順番を直しましょう。
+
+```ruby
+score = 100
+
+if score >= 60
+  puts "合格"
+elsif score == 100
+  puts "満点"
+else
+  puts "不合格"
+end
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+score = 100
+
+if score == 100
+  puts "満点"
+elsif score >= 60
+  puts "合格"
+else
+  puts "不合格"
+end
+```
+
+特別な条件を先に書きます。
+
+</details>
+
+---
+
+### 問題98：水分補給チェック
+
+気温と運動時間を入力して、水分補給のメッセージを表示しましょう。
+
+- 気温が30以上、または運動時間が60以上なら「こまめに水分補給しましょう」
+- それ以外なら「いつも通りで大丈夫です」
+
+ヒント：どちらかが正しいかどうかは `||` を使います。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "気温を入力してください"
+temperature = gets.to_i
+
+puts "運動時間を分で入力してください"
+minutes = gets.to_i
+
+if temperature >= 30 || minutes >= 60
+  puts "こまめに水分補給しましょう"
+else
+  puts "いつも通りで大丈夫です"
+end
+```
+
+</details>
+
+---
+
+### 問題99：レシートカードを作る
+
+商品名、値段、個数を入力して、レシートカードを作りましょう。
+
+表示する内容：
+
+- 区切り線
+- 商品名
+- 値段
+- 個数
+- 合計金額
+- 合計が3000円以上なら「高額な買い物です」、それ以外なら「通常の買い物です」
+- 区切り線
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "商品名を入力してください"
+item = gets.chomp
+
+puts "値段を入力してください"
+price = gets.to_i
+
+puts "個数を入力してください"
+count = gets.to_i
+
+total = price * count
 
 puts "===================="
-puts "名前：#{name}"
-puts "所持金：#{money}円"
-puts "商品：#{price}円"
+puts "商品名：#{item}"
+puts "値段：#{price}円"
+puts "個数：#{count}個"
+puts "合計：#{total}円"
 
-if change >= 0
-  puts "買えます"
-  puts "残り：#{change}円"
+if total >= 3000
+  puts "高額な買い物です"
 else
-  puts "買えません"
-  puts "不足：#{change * -1}円"
+  puts "通常の買い物です"
+end
+
+puts "===================="
+```
+
+</details>
+
+---
+
+### 問題100：旅行の持ち物アプリ
+
+旅行先、日数、天気を入力して、持ち物リストを表示しましょう。
+
+表示する内容：
+
+- 旅行先
+- 日数
+- 天気
+- 日数が3日以上なら「着替えは多めに持ちましょう」、それ以外なら「荷物は少なめで大丈夫です」
+- 天気が `雨` なら「傘を持ちましょう」、`晴れ` なら「帽子を持ちましょう」、それ以外なら「天気予報を確認しましょう」
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+puts "旅行先を入力してください"
+place = gets.chomp
+
+puts "日数を入力してください"
+days = gets.to_i
+
+puts "天気を入力してください"
+weather = gets.chomp
+
+puts "===================="
+puts "旅行先：#{place}"
+puts "日数：#{days}日"
+puts "天気：#{weather}"
+
+if days >= 3
+  puts "着替えは多めに持ちましょう"
+else
+  puts "荷物は少なめで大丈夫です"
+end
+
+if weather == "雨"
+  puts "傘を持ちましょう"
+elsif weather == "晴れ"
+  puts "帽子を持ちましょう"
+else
+  puts "天気予報を確認しましょう"
 end
 
 puts "===================="
