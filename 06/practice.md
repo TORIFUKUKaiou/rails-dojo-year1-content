@@ -273,3 +273,5 @@ puts "#{item["name"]}は#{item["price"]}円で、在庫は#{item["stock"]}個で
 ```
 
 </details>
+
+チャレンジ問題を全部終えた人は [もっと練習](stretch.md) へ進みましょう。
