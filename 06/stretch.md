@@ -26,7 +26,8 @@ person = { name: "田中", age: 20, city: "福岡" }
 
 このハッシュから、名前と年齢を表示してみましょう。
 
-ヒント：
+> [!TIP]
+> 
 
 ```ruby
 puts person[:name]
