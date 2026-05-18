@@ -52,7 +52,23 @@
 
 1. Codespacesを起動する
 2. `main.rb` を開く（なければ新しく作る）
-3. 書き換えるたびに、ターミナルで `ruby main.rb` を実行する
+3. `main.rb` に次のコードを書く
+
+```ruby
+puts "Hello, World!"
+```
+
+4. ターミナルで以下を実行する
+
+```bash
+ruby main.rb
+```
+
+`Hello, World!` と表示されたら成功です。
+
+ここまでできたら準備完了です。
+`main.rb` は動作確認用のファイルです。
+ここから先の練習では、問題ごとに `practice01.rb`、`practice02.rb` のような新しいファイルを作って進めましょう。
 
 ---
 
