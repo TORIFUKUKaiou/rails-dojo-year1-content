@@ -125,14 +125,6 @@ foods = ["ピザ", "カレー", "オムライス"]
 
 ## 2. 番号で取り出す
 
-```ruby
-foods = ["カレー", "ラーメン", "寿司"]
-
-puts foods[0]
-puts foods[1]
-puts foods[2]
-```
-
 ### やってみよう
 
 自分の配列を使って、1番目と3番目を表示してみましょう。
@@ -152,14 +144,6 @@ puts foods[2]
 ---
 
 ## 3. `each` で全部表示する
-
-```ruby
-foods = ["カレー", "ラーメン", "寿司"]
-
-foods.each do |food|
-  puts food
-end
-```
 
 ### やってみよう
 
@@ -182,21 +166,12 @@ end
 
 ## 4. 条件分岐と組み合わせる
 
-```ruby
-scores = [80, 55, 100]
-
-scores.each do |score|
-  if score >= 60
-    puts "#{score}点：合格"
-  else
-    puts "#{score}点：不合格"
-  end
-end
-```
-
 ### やってみよう
 
 3つの点数を配列に入れて、1つずつ合格・不合格を判定してみましょう。
+
+- 60点以上を合格
+- 59点以下を不合格
 
 <details>
 <summary>解答例</summary>
@@ -219,20 +194,9 @@ end
 
 ## 5. 合計を出す
 
-```ruby
-scores = [80, 55, 100]
-total = 0
-
-scores.each do |score|
-  total = total + score
-end
-
-puts "合計：#{total}点"
-```
-
 ### やってみよう
 
-自分で3つの点数を入れて、合計を表示してみましょう。
+自分で3つの点数を配列に入れて、合計を表示してみましょう。
 
 <details>
 <summary>解答例</summary>
