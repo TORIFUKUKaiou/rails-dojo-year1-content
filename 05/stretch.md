@@ -35,18 +35,22 @@ end
 
 ---
 
-### 問題2：好きな食べ物を表示する
+### 問題2：曜日を表示する
 
-好きな食べ物を3つ入れた配列を作り、1つずつ表示してみましょう。
+次の配列を使って、`今日は月曜日です` のように表示してみましょう。
+
+```ruby
+days = ["月曜日", "水曜日", "金曜日"]
+```
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-foods = ["カレー", "寿司", "ラーメン"]
+days = ["月曜日", "水曜日", "金曜日"]
 
-foods.each do |food|
-  puts food
+days.each do |day|
+  puts "今日は#{day}です"
 end
 ```
 
@@ -54,22 +58,22 @@ end
 
 ---
 
-### 問題3：名前に「さん」をつける
+### 問題3：レベルを表示する
 
-次の配列を使って、`田中さん` のように表示してみましょう。
+次の配列を使って、`レベル1` のように表示してみましょう。
 
 ```ruby
-names = ["田中", "鈴木", "佐藤"]
+levels = [1, 2, 3]
 ```
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-names = ["田中", "鈴木", "佐藤"]
+levels = [1, 2, 3]
 
-names.each do |name|
-  puts "#{name}さん"
+levels.each do |level|
+  puts "レベル#{level}"
 end
 ```
 
@@ -242,22 +246,22 @@ end
 
 ## 11〜20：配列から取り出す
 
-### 問題11：1番目と3番目を表示する
+### 問題11：2番目と4番目を表示する
 
-次の配列から、1番目と3番目を表示してみましょう。
+次の配列から、2番目と4番目を表示してみましょう。
 
 ```ruby
-foods = ["カレー", "ラーメン", "寿司"]
+stations = ["博多", "小倉", "広島", "岡山"]
 ```
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-foods = ["カレー", "ラーメン", "寿司"]
+stations = ["博多", "小倉", "広島", "岡山"]
 
-puts foods[0]
-puts foods[2]
+puts stations[1]
+puts stations[3]
 ```
 
 </details>
@@ -608,22 +612,22 @@ end
 
 ---
 
-### 問題26：偶数だけ表示する
+### 問題26：10以上だけ表示する
 
-次の配列から、偶数だけを表示してみましょう。
+次の配列から、10以上の数字だけを表示してみましょう。
 
 ```ruby
-numbers = [3, 8, 11, 20, 7, 14]
+numbers = [3, 12, 8, 25, 10, 6]
 ```
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-numbers = [3, 8, 11, 20, 7, 14]
+numbers = [3, 12, 8, 25, 10, 6]
 
 numbers.each do |number|
-  if number % 2 == 0
+  if number >= 10
     puts number
   end
 end
@@ -767,26 +771,26 @@ puts "合計：#{total}点"
 
 ---
 
-### 問題32：商品の合計金額を出す
+### 問題32：交通費の合計を出す
 
-次の配列の合計金額を表示してみましょう。
+次の配列の交通費を合計して表示してみましょう。
 
 ```ruby
-prices = [120, 80, 300, 150]
+fares = [180, 220, 150, 300]
 ```
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-prices = [120, 80, 300, 150]
+fares = [180, 220, 150, 300]
 total = 0
 
-prices.each do |price|
-  total = total + price
+fares.each do |fare|
+  total = total + fare
 end
 
-puts "合計金額：#{total}円"
+puts "交通費合計：#{total}円"
 ```
 
 </details>
@@ -795,7 +799,7 @@ puts "合計金額：#{total}円"
 
 ### 問題33：`sum` で合計する
 
-問題32と同じ配列を使って、`sum` で合計金額を表示してみましょう。
+問題32と同じ配列を使って、`sum` で交通費の合計を表示してみましょう。
 
 > [!TIP]
 > `配列.sum` と書くと、配列の中の数を合計できます。
@@ -804,37 +808,37 @@ puts "合計金額：#{total}円"
 <summary>解答例</summary>
 
 ```ruby
-prices = [120, 80, 300, 150]
+fares = [180, 220, 150, 300]
 
-puts "合計金額：#{prices.sum}円"
+puts "交通費合計：#{fares.sum}円"
 ```
 
 </details>
 
 ---
 
-### 問題34：合格者数を数える
+### 問題34：90点以上の人数を数える
 
-次の配列を使って、60点以上の人数を数えて表示してみましょう。
+次の配列を使って、90点以上の人数を数えて表示してみましょう。
 
 ```ruby
-scores = [80, 55, 100, 42, 67]
+scores = [95, 82, 74, 100, 60]
 ```
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-scores = [80, 55, 100, 42, 67]
+scores = [95, 82, 74, 100, 60]
 count = 0
 
 scores.each do |score|
-  if score >= 60
+  if score >= 90
     count = count + 1
   end
 end
 
-puts "合格者：#{count}人"
+puts "90点以上：#{count}人"
 ```
 
 </details>
@@ -925,12 +929,12 @@ puts "売上0の日：#{count}日"
 
 ---
 
-### 問題38：平均点を出す
+### 問題38：平均睡眠時間を出す
 
-次の配列の平均点を表示してみましょう。
+次の配列の平均睡眠時間を表示してみましょう。
 
 ```ruby
-scores = [80, 60, 100, 40]
+hours = [6, 7, 5, 8]
 ```
 
 > [!TIP]
@@ -940,15 +944,15 @@ scores = [80, 60, 100, 40]
 <summary>解答例</summary>
 
 ```ruby
-scores = [80, 60, 100, 40]
+hours = [6, 7, 5, 8]
 total = 0
 
-scores.each do |score|
-  total = total + score
+hours.each do |hour|
+  total = total + hour
 end
 
-average = total / scores.length
-puts "平均：#{average}点"
+average = total / hours.length
+puts "平均睡眠時間：#{average}時間"
 ```
 
 </details>
@@ -982,29 +986,29 @@ puts "平均：#{average}円"
 
 ---
 
-### 問題40：予算内か判定する
+### 問題40：目標時間を達成したか判定する
 
-次の配列の合計金額を出し、500円以内なら「予算内」、500円を超えたら「予算オーバー」と表示してみましょう。
+次の配列の合計学習時間を出し、120分以上なら「目標達成」、120分未満なら「あと少し」と表示してみましょう。
 
 ```ruby
-prices = [120, 80, 300, 150]
+minutes = [30, 45, 20, 60]
 ```
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-prices = [120, 80, 300, 150]
+minutes = [30, 45, 20, 60]
 total = 0
 
-prices.each do |price|
-  total = total + price
+minutes.each do |minute|
+  total = total + minute
 end
 
-if total <= 500
-  puts "予算内"
+if total >= 120
+  puts "目標達成"
 else
-  puts "予算オーバー"
+  puts "あと少し"
 end
 ```
 
@@ -1288,15 +1292,15 @@ puts "一番長い言葉：#{longest}"
 
 ## 51〜60：範囲を使う
 
-### 問題51：1から10まで表示する
+### 問題51：5から15まで表示する
 
-`1..10` を使って、1から10まで表示してみましょう。
+`5..15` を使って、5から15まで表示してみましょう。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-r = 1..10
+r = 5..15
 
 r.each do |number|
   puts number
@@ -1307,15 +1311,15 @@ end
 
 ---
 
-### 問題52：1から10までの合計を出す
+### 問題52：1から20までの合計を出す
 
-`1..10` を使って、1から10までの合計を表示してみましょう。
+`1..20` を使って、1から20までの合計を表示してみましょう。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-r = 1..10
+r = 1..20
 total = 0
 
 r.each do |number|
@@ -1413,15 +1417,15 @@ end
 
 ---
 
-### 問題57：7の段を表示する
+### 問題57：4の段を表示する
 
-`1..9` を使って、7の段を表示してみましょう。
+`1..9` を使って、4の段を表示してみましょう。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-dan = 7
+dan = 4
 r = 1..9
 
 r.each do |number|
@@ -1501,28 +1505,31 @@ puts "合計：#{total}"
 
 ## 61〜70：入力と配列
 
-### 問題61：3つの名前を配列に入れる
+### 問題61：3つの買い物メモを配列に入れる
 
-名前を3回入力し、配列に入れてから、最後に全員分を表示してみましょう。
+買いたいものを3回入力し、配列に入れてから、最後に番号つきで表示してみましょう。
 
 > [!TIP]
 > - 文字を入力するときは `gets.chomp` を使います
-> - `names << name` と書くと、配列の最後に `name` を追加できます
+> - `items << item` と書くと、配列の最後に `item` を追加できます
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-names = []
+items = []
 
 3.times do
-  puts "名前を入力してください"
-  name = gets.chomp
-  names << name
+  puts "買いたいものを入力してください"
+  item = gets.chomp
+  items << item
 end
 
-names.each do |name|
-  puts name
+number = 1
+
+items.each do |item|
+  puts "#{number}. #{item}"
+  number = number + 1
 end
 ```
 
