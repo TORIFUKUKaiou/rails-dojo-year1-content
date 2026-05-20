@@ -1,81 +1,317 @@
-# 第6回：Stretch ── ハッシュをもう少し使ってみる
+# 第6回 もっと練習
 
-## 今日のゴール
+この課題は、[練習](practice.md) を終えた人向けの発展課題です。第1回〜第6回で学んだ `puts`、変数、`#{}`、`if`/`elsif`/`else`、`gets.to_i`、`gets.chomp`、`times`、配列、`each`、範囲、ハッシュを使って解きましょう。
 
-ハッシュを使って、少し複雑なデータの持ち方にも触れてみる。
+後半では、`rand`、`break`、`max`、`min`、`include?` なども使います。まだ授業で深く扱っていないものは、問題の近くにヒントを入れています。
 
----
-
-## この課題について
-
-この課題は、[練習](practice.md) を終えた人向けの発展課題です。
+Practice と同じように、自分で解いたあとで解答例を開き、実行結果や書き方を比べてください。
 
 やればやるほど力がつきます。できるところまで進めましょう。
 
 ---
 
-## 課題1：記号のキーを見てみる（15分）
+### 問題1：色の辞書を作る
 
-Rubyでは、キーに文字列だけでなくシンボルを使うこともあります。
+次のハッシュを作り、`"red"` と `"blue"` の日本語を表示してみましょう。
 
 ```ruby
-person = { name: "田中", age: 20, city: "福岡" }
+colors = { "red" => "赤", "blue" => "青", "green" => "緑" }
 ```
 
-### やってみよう
+<details>
+<summary>解答例</summary>
 
-このハッシュから、名前と年齢を表示してみましょう。
+```ruby
+colors = { "red" => "赤", "blue" => "青", "green" => "緑" }
+
+puts colors["red"]
+puts colors["blue"]
+```
+
+</details>
+
+---
+
+### 問題2：メニューの値段を表示する
+
+次のハッシュを使って、カレーとサラダの値段を表示してみましょう。
+
+```ruby
+menu = { "カレー" => 700, "ラーメン" => 850, "サラダ" => 300 }
+```
+
+表示例：
+
+```text
+カレーは700円です
+サラダは300円です
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+menu = { "カレー" => 700, "ラーメン" => 850, "サラダ" => 300 }
+
+puts "カレーは#{menu["カレー"]}円です"
+puts "サラダは#{menu["サラダ"]}円です"
+```
+
+</details>
+
+---
+
+### 問題3：在庫を追加する
+
+次のハッシュに `"消しゴム" => 6` を追加して、全部表示してみましょう。
+
+```ruby
+stock = { "ノート" => 12, "ペン" => 20 }
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+stock = { "ノート" => 12, "ペン" => 20 }
+
+stock["消しゴム"] = 6
+
+stock.each do |name, count|
+  puts "#{name}: #{count}個"
+end
+```
+
+</details>
+
+---
+
+### 問題4：在庫を減らす
+
+次のハッシュのペンの在庫を3個減らして、ペンの在庫を表示してみましょう。
+
+```ruby
+stock = { "ノート" => 12, "ペン" => 20, "消しゴム" => 6 }
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+stock = { "ノート" => 12, "ペン" => 20, "消しゴム" => 6 }
+
+stock["ペン"] = stock["ペン"] - 3
+
+puts "ペン: #{stock["ペン"]}個"
+```
+
+</details>
+
+---
+
+### 問題5：登録されている商品か調べる
+
+次のハッシュに `"えんぴつ"` が登録されているか調べてみましょう。
+
+```ruby
+stock = { "ノート" => 12, "ペン" => 20, "消しゴム" => 6 }
+```
+
+表示例：
+
+```text
+えんぴつは登録されていません
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+stock = { "ノート" => 12, "ペン" => 20, "消しゴム" => 6 }
+
+if stock.key?("えんぴつ")
+  puts "えんぴつは登録されています"
+else
+  puts "えんぴつは登録されていません"
+end
+```
+
+</details>
+
+---
+
+### 問題6：キーの一覧に番号をつける
+
+次のハッシュのキーを取り出し、番号つきで表示してみましょう。
+
+```ruby
+menu = { "カレー" => 700, "ラーメン" => 850, "サラダ" => 300 }
+```
+
+表示例：
+
+```text
+1. カレー
+2. ラーメン
+3. サラダ
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+menu = { "カレー" => 700, "ラーメン" => 850, "サラダ" => 300 }
+
+number = 1
+
+menu.keys.each do |name|
+  puts "#{number}. #{name}"
+  number = number + 1
+end
+```
+
+</details>
+
+---
+
+### 問題7：値段の合計を出す
+
+次のハッシュの値段を合計して表示してみましょう。
+
+```ruby
+menu = { "カレー" => 700, "ラーメン" => 850, "サラダ" => 300 }
+```
+
+表示例：
+
+```text
+合計：1850円
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+menu = { "カレー" => 700, "ラーメン" => 850, "サラダ" => 300 }
+
+total = 0
+
+menu.each do |name, price|
+  total = total + price
+end
+
+puts "合計：#{total}円"
+```
+
+</details>
+
+---
+
+### 問題8：一番高い値段を表示する
+
+次のハッシュから、一番高い値段を表示してみましょう。
+
+```ruby
+menu = { "カレー" => 700, "ラーメン" => 850, "サラダ" => 300 }
+```
 
 > [!TIP]
-> ハッシュは `person[:name]` のように、キーを指定して値を取り出します。
-> `:name` は名前、`:age` は年齢を取り出すためのキーです。
-
-```ruby
-puts person[:name]
-```
+> `menu.values` で値段だけの配列を取り出せます。
+> 配列には `max` を使えます。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-person = { name: "田中", age: 20, city: "福岡" }
+menu = { "カレー" => 700, "ラーメン" => 850, "サラダ" => 300 }
 
-puts person[:name]
-puts person[:age]
+puts menu.values.max
 ```
 
 </details>
 
 ---
 
-## 課題2：配列の中にハッシュを入れる（20分）
+### 問題9：一番安い値段を表示する
 
-1人分の情報をハッシュにできるなら、複数人分は配列にまとめられます。
+次のハッシュから、一番安い値段を表示してみましょう。
 
 ```ruby
-students = [
-  { "name" => "田中", "score" => 80 },
-  { "name" => "鈴木", "score" => 65 },
-  { "name" => "佐藤", "score" => 92 }
-]
+menu = { "カレー" => 700, "ラーメン" => 850, "サラダ" => 300 }
 ```
 
-### やってみよう
-
-全員の名前と点数を、1行ずつ表示してみましょう。
+> [!TIP]
+> `menu.values` で値段だけの配列を取り出せます。
+> 配列には `min` を使えます。
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-students = [
-  { "name" => "田中", "score" => 80 },
-  { "name" => "鈴木", "score" => 65 },
-  { "name" => "佐藤", "score" => 92 }
-]
+menu = { "カレー" => 700, "ラーメン" => 850, "サラダ" => 300 }
 
-students.each do |student|
-  puts "#{student["name"]}: #{student["score"]}点"
+puts menu.values.min
+```
+
+</details>
+
+---
+
+### 問題10：入力した言葉を辞書で調べる
+
+英単語を入力し、日本語を表示してみましょう。
+
+```ruby
+words = { "apple" => "りんご", "book" => "本", "school" => "学校" }
+```
+
+表示例：
+
+```text
+英単語を入力してください
+りんご
+```
+
+> [!TIP]
+> 入力は `gets.chomp` で受け取ります。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+words = { "apple" => "りんご", "book" => "本", "school" => "学校" }
+
+puts "英単語を入力してください"
+word = gets.chomp
+
+puts words[word]
+```
+
+</details>
+
+---
+
+### 問題11：辞書にない言葉を判定する
+
+英単語を入力し、辞書にあれば日本語を表示し、なければ `登録されていません` と表示してみましょう。
+
+```ruby
+words = { "apple" => "りんご", "book" => "本", "school" => "学校" }
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+words = { "apple" => "りんご", "book" => "本", "school" => "学校" }
+
+puts "英単語を入力してください"
+word = gets.chomp
+
+if words.key?(word)
+  puts words[word]
+else
+  puts "登録されていません"
 end
 ```
 
@@ -83,67 +319,1310 @@ end
 
 ---
 
-## 課題3：辞書のように使う（20分）
+### 問題12：出席状況を表示する
 
-ハッシュは、言葉と意味を対応づけるような使い方もできます。
+次のハッシュを使って、出席している人だけを表示してみましょう。
 
 ```ruby
-capitals = { "日本" => "東京", "韓国" => "ソウル", "中国" => "北京" }
+attendance = { "田中" => true, "鈴木" => false, "佐藤" => true }
 ```
 
-### やってみよう
+表示例：
 
-`"韓国"` の首都を表示してみましょう。余裕があれば、自分で国を1つ追加してください。
+```text
+田中
+佐藤
+```
 
 <details>
 <summary>解答例</summary>
 
 ```ruby
-capitals = { "日本" => "東京", "韓国" => "ソウル", "中国" => "北京" }
+attendance = { "田中" => true, "鈴木" => false, "佐藤" => true }
 
-puts capitals["韓国"]
-
-capitals["タイ"] = "バンコク"
-puts capitals["タイ"]
-```
-
-</details>
-
----
-
-## 課題4：点数表を見やすくする（20分）
-
-次のハッシュがあります。
-
-```ruby
-scores = { "国語" => 70, "数学" => 85, "英語" => 90 }
-```
-
-### やってみよう
-
-次のように表示してみましょう。
-
-```
-国語は70点です
-数学は85点です
-英語は90点です
-```
-
-そのあと、80点以上なら `よくできました` と続けて表示してみましょう。
-
-<details>
-<summary>解答例</summary>
-
-```ruby
-scores = { "国語" => 70, "数学" => 85, "英語" => 90 }
-
-scores.each do |subject, score|
-  puts "#{subject}は#{score}点です"
-
-  if score >= 80
-    puts "よくできました"
+attendance.each do |name, present|
+  if present
+    puts name
   end
 end
+```
+
+</details>
+
+---
+
+### 問題13：欠席者数を数える
+
+次のハッシュを使って、欠席者数を表示してみましょう。
+
+```ruby
+attendance = { "田中" => true, "鈴木" => false, "佐藤" => true, "高橋" => false }
+```
+
+表示例：
+
+```text
+欠席者：2人
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+attendance = { "田中" => true, "鈴木" => false, "佐藤" => true, "高橋" => false }
+
+count = 0
+
+attendance.each do |name, present|
+  if present == false
+    count = count + 1
+  end
+end
+
+puts "欠席者：#{count}人"
+```
+
+</details>
+
+---
+
+### 問題14：天気ごとのメッセージ
+
+天気を入力し、ハッシュからメッセージを取り出して表示してみましょう。
+
+```ruby
+messages = { "晴れ" => "外に出よう", "雨" => "傘を持とう", "雪" => "あたたかくしよう" }
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+messages = { "晴れ" => "外に出よう", "雨" => "傘を持とう", "雪" => "あたたかくしよう" }
+
+puts "天気を入力してください"
+weather = gets.chomp
+
+if messages.key?(weather)
+  puts messages[weather]
+else
+  puts "登録されていない天気です"
+end
+```
+
+</details>
+
+---
+
+### 問題15：商品一覧を表示する
+
+次の配列を使って、商品名と値段を表示してみましょう。
+
+```ruby
+products = [
+  { "name" => "Tシャツ", "price" => 1500 },
+  { "name" => "バッグ", "price" => 3200 },
+  { "name" => "くつ下", "price" => 500 }
+]
+```
+
+表示例：
+
+```text
+Tシャツ: 1500円
+バッグ: 3200円
+くつ下: 500円
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+products = [
+  { "name" => "Tシャツ", "price" => 1500 },
+  { "name" => "バッグ", "price" => 3200 },
+  { "name" => "くつ下", "price" => 500 }
+]
+
+products.each do |product|
+  puts "#{product["name"]}: #{product["price"]}円"
+end
+```
+
+</details>
+
+---
+
+### 問題16：2000円以上の商品だけ表示する
+
+次の配列から、2000円以上の商品だけ表示してみましょう。
+
+```ruby
+products = [
+  { "name" => "Tシャツ", "price" => 1500 },
+  { "name" => "バッグ", "price" => 3200 },
+  { "name" => "くつ下", "price" => 500 }
+]
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+products = [
+  { "name" => "Tシャツ", "price" => 1500 },
+  { "name" => "バッグ", "price" => 3200 },
+  { "name" => "くつ下", "price" => 500 }
+]
+
+products.each do |product|
+  if product["price"] >= 2000
+    puts product["name"]
+  end
+end
+```
+
+</details>
+
+---
+
+### 問題17：在庫ありの商品だけ表示する
+
+次の配列から、在庫が1個以上ある商品だけ表示してみましょう。
+
+```ruby
+products = [
+  { "name" => "ノート", "stock" => 4 },
+  { "name" => "ペン", "stock" => 0 },
+  { "name" => "消しゴム", "stock" => 8 }
+]
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+products = [
+  { "name" => "ノート", "stock" => 4 },
+  { "name" => "ペン", "stock" => 0 },
+  { "name" => "消しゴム", "stock" => 8 }
+]
+
+products.each do |product|
+  if product["stock"] >= 1
+    puts product["name"]
+  end
+end
+```
+
+</details>
+
+---
+
+### 問題18：商品を1つ追加する
+
+次の配列に商品を1つ追加し、商品名を全部表示してみましょう。
+
+```ruby
+products = [
+  { "name" => "ノート", "price" => 120 },
+  { "name" => "ペン", "price" => 80 }
+]
+```
+
+追加する商品：
+
+```ruby
+{ "name" => "消しゴム", "price" => 60 }
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+products = [
+  { "name" => "ノート", "price" => 120 },
+  { "name" => "ペン", "price" => 80 }
+]
+
+products << { "name" => "消しゴム", "price" => 60 }
+
+products.each do |product|
+  puts product["name"]
+end
+```
+
+</details>
+
+---
+
+### 問題19：商品の値段を変更する
+
+次の配列の2番目の商品であるペンの値段を100円に変更し、商品一覧を表示してみましょう。
+
+```ruby
+products = [
+  { "name" => "ノート", "price" => 120 },
+  { "name" => "ペン", "price" => 80 }
+]
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+products = [
+  { "name" => "ノート", "price" => 120 },
+  { "name" => "ペン", "price" => 80 }
+]
+
+products[1]["price"] = 100
+
+products.each do |product|
+  puts "#{product["name"]}: #{product["price"]}円"
+end
+```
+
+</details>
+
+---
+
+### 問題20：商品の平均金額を出す
+
+次の配列を使って、商品の平均金額を表示してみましょう。
+
+```ruby
+products = [
+  { "name" => "Tシャツ", "price" => 1500 },
+  { "name" => "バッグ", "price" => 3200 },
+  { "name" => "くつ下", "price" => 500 }
+]
+```
+
+> [!TIP]
+> 合計を出してから、`products.length` で割ります。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+products = [
+  { "name" => "Tシャツ", "price" => 1500 },
+  { "name" => "バッグ", "price" => 3200 },
+  { "name" => "くつ下", "price" => 500 }
+]
+
+total = 0
+
+products.each do |product|
+  total = total + product["price"]
+end
+
+average = total / products.length
+
+puts "平均：#{average}円"
+```
+
+</details>
+
+---
+
+### 問題21：クラスごとの名簿を表示する
+
+次のハッシュを使って、A組の名前を全部表示してみましょう。
+
+```ruby
+classes = {
+  "A" => ["田中", "鈴木", "佐藤"],
+  "B" => ["高橋", "伊藤"]
+}
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+classes = {
+  "A" => ["田中", "鈴木", "佐藤"],
+  "B" => ["高橋", "伊藤"]
+}
+
+classes["A"].each do |name|
+  puts name
+end
+```
+
+</details>
+
+---
+
+### 問題22：クラスごとの人数を表示する
+
+次のハッシュを使って、各クラスの人数を表示してみましょう。
+
+```ruby
+classes = {
+  "A" => ["田中", "鈴木", "佐藤"],
+  "B" => ["高橋", "伊藤"]
+}
+```
+
+表示例：
+
+```text
+A組: 3人
+B組: 2人
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+classes = {
+  "A" => ["田中", "鈴木", "佐藤"],
+  "B" => ["高橋", "伊藤"]
+}
+
+classes.each do |class_name, names|
+  puts "#{class_name}組: #{names.length}人"
+end
+```
+
+</details>
+
+---
+
+### 問題23：カテゴリごとの商品を表示する
+
+次のハッシュを使って、カテゴリと商品名を表示してみましょう。
+
+```ruby
+categories = {
+  "文房具" => ["ノート", "ペン"],
+  "食品" => ["パン", "牛乳", "卵"]
+}
+```
+
+表示例：
+
+```text
+文房具
+- ノート
+- ペン
+食品
+- パン
+- 牛乳
+- 卵
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+categories = {
+  "文房具" => ["ノート", "ペン"],
+  "食品" => ["パン", "牛乳", "卵"]
+}
+
+categories.each do |category, items|
+  puts category
+
+  items.each do |item|
+    puts "- #{item}"
+  end
+end
+```
+
+</details>
+
+---
+
+### 問題24：教科ごとの点数配列を合計する
+
+次のハッシュを使って、教科ごとの合計点を表示してみましょう。
+
+```ruby
+scores = {
+  "国語" => [70, 80, 90],
+  "数学" => [60, 75, 85]
+}
+```
+
+表示例：
+
+```text
+国語: 240点
+数学: 220点
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+scores = {
+  "国語" => [70, 80, 90],
+  "数学" => [60, 75, 85]
+}
+
+scores.each do |subject, points|
+  total = 0
+
+  points.each do |point|
+    total = total + point
+  end
+
+  puts "#{subject}: #{total}点"
+end
+```
+
+</details>
+
+---
+
+### 問題25：ユーザーの住所を表示する
+
+次のハッシュから、ユーザー名と市区町村を表示してみましょう。
+
+```ruby
+user = {
+  "name" => "田中",
+  "address" => {
+    "prefecture" => "福岡県",
+    "city" => "福岡市"
+  }
+}
+```
+
+表示例：
+
+```text
+田中さんは福岡市に住んでいます
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+user = {
+  "name" => "田中",
+  "address" => {
+    "prefecture" => "福岡県",
+    "city" => "福岡市"
+  }
+}
+
+puts "#{user["name"]}さんは#{user["address"]["city"]}に住んでいます"
+```
+
+</details>
+
+---
+
+### 問題26：住所を変更する
+
+次のハッシュの市区町村を `"北九州市"` に変更して表示してみましょう。
+
+```ruby
+user = {
+  "name" => "田中",
+  "address" => {
+    "prefecture" => "福岡県",
+    "city" => "福岡市"
+  }
+}
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+user = {
+  "name" => "田中",
+  "address" => {
+    "prefecture" => "福岡県",
+    "city" => "福岡市"
+  }
+}
+
+user["address"]["city"] = "北九州市"
+
+puts user["address"]["city"]
+```
+
+</details>
+
+---
+
+### 問題27：商品レビューの平均点を出す
+
+次のハッシュから、レビュー点数の平均を表示してみましょう。
+
+```ruby
+product = {
+  "name" => "ノート",
+  "reviews" => [5, 4, 3, 5]
+}
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+product = {
+  "name" => "ノート",
+  "reviews" => [5, 4, 3, 5]
+}
+
+total = 0
+
+product["reviews"].each do |score|
+  total = total + score
+end
+
+average = total / product["reviews"].length
+
+puts "平均：#{average}点"
+```
+
+</details>
+
+---
+
+### 問題28：投稿データのタグを表示する
+
+次の投稿データから、タグを全部表示してみましょう。
+
+```ruby
+post = {
+  "title" => "Rubyの勉強",
+  "tags" => ["Ruby", "配列", "ハッシュ"]
+}
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+post = {
+  "title" => "Rubyの勉強",
+  "tags" => ["Ruby", "配列", "ハッシュ"]
+}
+
+post["tags"].each do |tag|
+  puts tag
+end
+```
+
+</details>
+
+---
+
+### 問題29：投稿データにタグを追加する
+
+次の投稿データに `"JSON"` というタグを追加して、タグを全部表示してみましょう。
+
+```ruby
+post = {
+  "title" => "Rubyの勉強",
+  "tags" => ["Ruby", "配列", "ハッシュ"]
+}
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+post = {
+  "title" => "Rubyの勉強",
+  "tags" => ["Ruby", "配列", "ハッシュ"]
+}
+
+post["tags"] << "JSON"
+
+post["tags"].each do |tag|
+  puts tag
+end
+```
+
+</details>
+
+---
+
+### 問題30：投稿者の名前を表示する
+
+次の投稿データから、投稿者の名前を表示してみましょう。
+
+```ruby
+post = {
+  "title" => "Rubyの勉強",
+  "author" => {
+    "name" => "山田",
+    "role" => "student"
+  }
+}
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+post = {
+  "title" => "Rubyの勉強",
+  "author" => {
+    "name" => "山田",
+    "role" => "student"
+  }
+}
+
+puts post["author"]["name"]
+```
+
+</details>
+
+---
+
+### 問題31：記事一覧のタイトルだけ表示する
+
+次の配列から、記事のタイトルだけを表示してみましょう。
+
+```ruby
+articles = [
+  { "title" => "Ruby入門", "likes" => 12 },
+  { "title" => "Rails入門", "likes" => 20 },
+  { "title" => "HTML入門", "likes" => 8 }
+]
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+articles = [
+  { "title" => "Ruby入門", "likes" => 12 },
+  { "title" => "Rails入門", "likes" => 20 },
+  { "title" => "HTML入門", "likes" => 8 }
+]
+
+articles.each do |article|
+  puts article["title"]
+end
+```
+
+</details>
+
+---
+
+### 問題32：いいね数が10以上の記事だけ表示する
+
+次の配列から、いいね数が10以上の記事タイトルだけを表示してみましょう。
+
+```ruby
+articles = [
+  { "title" => "Ruby入門", "likes" => 12 },
+  { "title" => "Rails入門", "likes" => 20 },
+  { "title" => "HTML入門", "likes" => 8 }
+]
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+articles = [
+  { "title" => "Ruby入門", "likes" => 12 },
+  { "title" => "Rails入門", "likes" => 20 },
+  { "title" => "HTML入門", "likes" => 8 }
+]
+
+articles.each do |article|
+  if article["likes"] >= 10
+    puts article["title"]
+  end
+end
+```
+
+</details>
+
+---
+
+### 問題33：いいね数の合計を出す
+
+次の配列から、いいね数の合計を表示してみましょう。
+
+```ruby
+articles = [
+  { "title" => "Ruby入門", "likes" => 12 },
+  { "title" => "Rails入門", "likes" => 20 },
+  { "title" => "HTML入門", "likes" => 8 }
+]
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+articles = [
+  { "title" => "Ruby入門", "likes" => 12 },
+  { "title" => "Rails入門", "likes" => 20 },
+  { "title" => "HTML入門", "likes" => 8 }
+]
+
+total = 0
+
+articles.each do |article|
+  total = total + article["likes"]
+end
+
+puts "合計：#{total}"
+```
+
+</details>
+
+---
+
+### 問題34：コメント数を表示する
+
+次の配列から、記事タイトルとコメント数を表示してみましょう。
+
+```ruby
+articles = [
+  { "title" => "Ruby入門", "comments" => ["よい", "助かる"] },
+  { "title" => "Rails入門", "comments" => ["難しい"] }
+]
+```
+
+表示例：
+
+```text
+Ruby入門: 2件
+Rails入門: 1件
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+articles = [
+  { "title" => "Ruby入門", "comments" => ["よい", "助かる"] },
+  { "title" => "Rails入門", "comments" => ["難しい"] }
+]
+
+articles.each do |article|
+  puts "#{article["title"]}: #{article["comments"].length}件"
+end
+```
+
+</details>
+
+---
+
+### 問題35：コメントを全部表示する
+
+次の配列から、記事タイトルとコメントを全部表示してみましょう。
+
+```ruby
+articles = [
+  { "title" => "Ruby入門", "comments" => ["よい", "助かる"] },
+  { "title" => "Rails入門", "comments" => ["難しい"] }
+]
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+articles = [
+  { "title" => "Ruby入門", "comments" => ["よい", "助かる"] },
+  { "title" => "Rails入門", "comments" => ["難しい"] }
+]
+
+articles.each do |article|
+  puts article["title"]
+
+  article["comments"].each do |comment|
+    puts "- #{comment}"
+  end
+end
+```
+
+</details>
+
+---
+
+### 問題36：入力した商品名の値段を表示する
+
+商品名を入力し、メニューにあれば値段を表示してみましょう。
+
+```ruby
+menu = { "カレー" => 700, "ラーメン" => 850, "サラダ" => 300 }
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+menu = { "カレー" => 700, "ラーメン" => 850, "サラダ" => 300 }
+
+puts "商品名を入力してください"
+name = gets.chomp
+
+if menu.key?(name)
+  puts "#{name}は#{menu[name]}円です"
+else
+  puts "登録されていません"
+end
+```
+
+</details>
+
+---
+
+### 問題37：入力した商品名の在庫を減らす
+
+商品名を入力し、在庫があれば1個減らして表示してみましょう。
+
+```ruby
+stock = { "ノート" => 3, "ペン" => 0, "消しゴム" => 5 }
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+stock = { "ノート" => 3, "ペン" => 0, "消しゴム" => 5 }
+
+puts "商品名を入力してください"
+name = gets.chomp
+
+if stock.key?(name)
+  if stock[name] >= 1
+    stock[name] = stock[name] - 1
+    puts "#{name}の在庫は#{stock[name]}個です"
+  else
+    puts "#{name}は在庫切れです"
+  end
+else
+  puts "登録されていません"
+end
+```
+
+</details>
+
+---
+
+### 問題38：入力した人数分の名前と点数をハッシュにする
+
+3人分の名前と点数を入力し、名前をキー、点数を値にしたハッシュを作って表示してみましょう。
+
+> [!TIP]
+> 点数は `gets.to_i` で受け取ります。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+scores = {}
+
+3.times do
+  puts "名前を入力してください"
+  name = gets.chomp
+
+  puts "点数を入力してください"
+  score = gets.to_i
+
+  scores[name] = score
+end
+
+scores.each do |name, score|
+  puts "#{name}: #{score}点"
+end
+```
+
+</details>
+
+---
+
+### 問題39：入力した点数表から合格者だけ表示する
+
+3人分の名前と点数を入力し、60点以上の人だけ表示してみましょう。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+scores = {}
+
+3.times do
+  puts "名前を入力してください"
+  name = gets.chomp
+
+  puts "点数を入力してください"
+  score = gets.to_i
+
+  scores[name] = score
+end
+
+scores.each do |name, score|
+  if score >= 60
+    puts "#{name}: #{score}点"
+  end
+end
+```
+
+</details>
+
+---
+
+### 問題40：入力した点数表の平均を出す
+
+3人分の名前と点数を入力し、平均点を表示してみましょう。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+scores = {}
+
+3.times do
+  puts "名前を入力してください"
+  name = gets.chomp
+
+  puts "点数を入力してください"
+  score = gets.to_i
+
+  scores[name] = score
+end
+
+total = 0
+
+scores.each do |name, score|
+  total = total + score
+end
+
+average = total / scores.length
+
+puts "平均：#{average}点"
+```
+
+</details>
+
+---
+
+### 問題41：ランダムな点数表を作る
+
+3人分の名前を配列で用意し、点数は `rand(1..100)` で作ってハッシュに入れましょう。
+
+```ruby
+names = ["田中", "鈴木", "佐藤"]
+```
+
+> [!TIP]
+> `rand(1..100)` は、1から100までのランダムな整数を作ります。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+names = ["田中", "鈴木", "佐藤"]
+scores = {}
+
+names.each do |name|
+  scores[name] = rand(1..100)
+end
+
+scores.each do |name, score|
+  puts "#{name}: #{score}点"
+end
+```
+
+</details>
+
+---
+
+### 問題42：ランダムな在庫を作る
+
+商品名の配列を使って、商品ごとの在庫数をランダムに作って表示してみましょう。
+
+```ruby
+items = ["ノート", "ペン", "消しゴム"]
+```
+
+在庫数は `rand(0..10)` で作ります。
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+items = ["ノート", "ペン", "消しゴム"]
+stock = {}
+
+items.each do |item|
+  stock[item] = rand(0..10)
+end
+
+stock.each do |item, count|
+  puts "#{item}: #{count}個"
+end
+```
+
+</details>
+
+---
+
+### 問題43：シンボルキーの商品を表示する
+
+次のハッシュから、商品名と値段を表示してみましょう。
+
+```ruby
+item = { name: "ノート", price: 120, stock: 8 }
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+item = { name: "ノート", price: 120, stock: 8 }
+
+puts "#{item[:name]}: #{item[:price]}円"
+```
+
+</details>
+
+---
+
+### 問題44：シンボルキーの商品を更新する
+
+次のハッシュの在庫を1個減らして表示してみましょう。
+
+```ruby
+item = { name: "ノート", price: 120, stock: 8 }
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+item = { name: "ノート", price: 120, stock: 8 }
+
+item[:stock] = item[:stock] - 1
+
+puts "#{item[:name]}: #{item[:stock]}個"
+```
+
+</details>
+
+---
+
+### 問題45：シンボルキーの配列を表示する
+
+次の配列を使って、商品名と値段を表示してみましょう。
+
+```ruby
+items = [
+  { name: "ノート", price: 120 },
+  { name: "ペン", price: 80 },
+  { name: "消しゴム", price: 60 }
+]
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+items = [
+  { name: "ノート", price: 120 },
+  { name: "ペン", price: 80 },
+  { name: "消しゴム", price: 60 }
+]
+
+items.each do |item|
+  puts "#{item[:name]}: #{item[:price]}円"
+end
+```
+
+</details>
+
+---
+
+### 問題46：ユーザーごとの購入履歴を表示する
+
+次のハッシュを使って、ユーザーごとの購入履歴を表示してみましょう。
+
+```ruby
+users = {
+  "田中" => ["ノート", "ペン"],
+  "鈴木" => ["バッグ"],
+  "佐藤" => ["消しゴム", "ノート", "定規"]
+}
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+users = {
+  "田中" => ["ノート", "ペン"],
+  "鈴木" => ["バッグ"],
+  "佐藤" => ["消しゴム", "ノート", "定規"]
+}
+
+users.each do |name, items|
+  puts name
+
+  items.each do |item|
+    puts "- #{item}"
+  end
+end
+```
+
+</details>
+
+---
+
+### 問題47：購入数が多いユーザーを表示する
+
+次のハッシュを使って、購入数が2個以上のユーザーだけ表示してみましょう。
+
+```ruby
+users = {
+  "田中" => ["ノート", "ペン"],
+  "鈴木" => ["バッグ"],
+  "佐藤" => ["消しゴム", "ノート", "定規"]
+}
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+users = {
+  "田中" => ["ノート", "ペン"],
+  "鈴木" => ["バッグ"],
+  "佐藤" => ["消しゴム", "ノート", "定規"]
+}
+
+users.each do |name, items|
+  if items.length >= 2
+    puts name
+  end
+end
+```
+
+</details>
+
+---
+
+### 問題48：注文データの合計金額を出す
+
+次の注文データから、合計金額を表示してみましょう。
+
+```ruby
+order = {
+  "items" => [
+    { "name" => "ノート", "price" => 120, "count" => 2 },
+    { "name" => "ペン", "price" => 80, "count" => 3 }
+  ]
+}
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+order = {
+  "items" => [
+    { "name" => "ノート", "price" => 120, "count" => 2 },
+    { "name" => "ペン", "price" => 80, "count" => 3 }
+  ]
+}
+
+total = 0
+
+order["items"].each do |item|
+  total = total + item["price"] * item["count"]
+end
+
+puts "合計金額：#{total}円"
+```
+
+</details>
+
+---
+
+### 問題49：注文データに商品を追加する
+
+次の注文データに商品を追加し、合計金額を表示してみましょう。
+
+```ruby
+order = {
+  "items" => [
+    { "name" => "ノート", "price" => 120, "count" => 2 },
+    { "name" => "ペン", "price" => 80, "count" => 3 }
+  ]
+}
+```
+
+追加する商品：
+
+```ruby
+{ "name" => "消しゴム", "price" => 60, "count" => 1 }
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+order = {
+  "items" => [
+    { "name" => "ノート", "price" => 120, "count" => 2 },
+    { "name" => "ペン", "price" => 80, "count" => 3 }
+  ]
+}
+
+order["items"] << { "name" => "消しゴム", "price" => 60, "count" => 1 }
+
+total = 0
+
+order["items"].each do |item|
+  total = total + item["price"] * item["count"]
+end
+
+puts "合計金額：#{total}円"
+```
+
+</details>
+
+---
+
+### 問題50：小さな会員カードを作る
+
+名前、年齢、好きなものを入力し、ハッシュに入れてプロフィールを表示してみましょう。
+
+表示例：
+
+```text
+名前を入力してください
+年齢を入力してください
+好きなものを入力してください
+山田さんは18歳で、好きなものはカレーです
+```
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+member = {}
+
+puts "名前を入力してください"
+member["name"] = gets.chomp
+
+puts "年齢を入力してください"
+member["age"] = gets.to_i
+
+puts "好きなものを入力してください"
+member["favorite"] = gets.chomp
+
+puts "#{member["name"]}さんは#{member["age"]}歳で、好きなものは#{member["favorite"]}です"
 ```
 
 </details>
