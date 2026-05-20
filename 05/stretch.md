@@ -1296,7 +1296,9 @@ puts "一番長い言葉：#{longest}"
 <summary>解答例</summary>
 
 ```ruby
-(1..10).each do |number|
+r = 1..10
+
+r.each do |number|
   puts number
 end
 ```
@@ -1313,9 +1315,10 @@ end
 <summary>解答例</summary>
 
 ```ruby
+r = 1..10
 total = 0
 
-(1..10).each do |number|
+r.each do |number|
   total = total + number
 end
 
@@ -1334,7 +1337,9 @@ puts "合計：#{total}"
 <summary>解答例</summary>
 
 ```ruby
-(1..20).each do |number|
+r = 1..20
+
+r.each do |number|
   if number % 2 == 0
     puts number
   end
@@ -1353,7 +1358,9 @@ end
 <summary>解答例</summary>
 
 ```ruby
-(1..20).each do |number|
+r = 1..20
+
+r.each do |number|
   if number % 2 == 1
     puts number
   end
@@ -1372,7 +1379,9 @@ end
 <summary>解答例</summary>
 
 ```ruby
-(1..30).each do |number|
+r = 1..30
+
+r.each do |number|
   if number % 3 == 0
     puts number
   end
@@ -1391,7 +1400,9 @@ end
 <summary>解答例</summary>
 
 ```ruby
-(1..50).each do |number|
+r = 1..50
+
+r.each do |number|
   if number % 5 == 0
     puts number
   end
@@ -1411,8 +1422,9 @@ end
 
 ```ruby
 dan = 7
+r = 1..9
 
-(1..9).each do |number|
+r.each do |number|
   puts "#{dan} x #{number} = #{dan * number}"
 end
 ```
@@ -1431,8 +1443,9 @@ end
 ```ruby
 puts "何の段を表示しますか"
 dan = gets.to_i
+r = 1..9
 
-(1..9).each do |number|
+r.each do |number|
   puts "#{dan} x #{number} = #{dan * number}"
 end
 ```
@@ -1451,8 +1464,9 @@ end
 ```ruby
 puts "いくつまで表示しますか"
 n = gets.to_i
+r = 1..n
 
-(1..n).each do |number|
+r.each do |number|
   puts number
 end
 ```
@@ -1471,9 +1485,10 @@ end
 ```ruby
 puts "いくつまで合計しますか"
 n = gets.to_i
+r = 1..n
 total = 0
 
-(1..n).each do |number|
+r.each do |number|
   total = total + number
 end
 
