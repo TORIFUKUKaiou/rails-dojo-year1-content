@@ -17,8 +17,8 @@
 2. 自分で考えてコードを書く
 3. `ruby practice01.rb` で実行する
 4. 動いたら、解答例を開く
-5. `practice01-answer.rb` を作り、解答例を写す（コピーしてもOK）
-6. `ruby practice01-answer.rb` を実行する
+5. `practice01_answer.rb` を作り、解答例を写す（コピーしてもOK）
+6. `ruby practice01_answer.rb` を実行する
 7. 自分の実行結果と、解答例の実行結果を比べる
 
 実行結果が同じならOKです。
@@ -99,7 +99,7 @@ ruby main.rb
 
 ---
 
-## 1. 配列を作る
+## 📝 1. 配列を作る ( `practice01.rb` )
 
 ```ruby
 foods = ["カレー", "ラーメン", "寿司"]
@@ -113,9 +113,10 @@ foods = ["カレー", "ラーメン", "寿司"]
 実行してエラーが出ず、何も表示されなければ成功です。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice01_answer.rb)</summary>
 
 ```ruby
+# practice01_answer.rb
 foods = ["ピザ", "カレー", "オムライス"]
 ```
 
@@ -123,16 +124,17 @@ foods = ["ピザ", "カレー", "オムライス"]
 
 ---
 
-## 2. 番号で取り出す
+## 📝 2. 番号で取り出す ( `practice02.rb` )
 
 ### やってみよう
 
 自分の配列を使って、1番目と3番目を表示してみましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice02_answer.rb)</summary>
 
 ```ruby
+# practice02_answer.rb
 foods = ["ピザ", "カレー", "オムライス"]
 
 puts foods[0]
@@ -143,16 +145,17 @@ puts foods[2]
 
 ---
 
-## 3. `each` で全部表示する
+## 📝 3. `each` で全部表示する ( `practice03.rb` )
 
 ### やってみよう
 
 自分の配列の中身を、`each` を使って全部表示してみましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice03_answer.rb)</summary>
 
 ```ruby
+# practice03_answer.rb
 foods = ["ピザ", "カレー", "オムライス"]
 
 foods.each do |food|
@@ -164,7 +167,7 @@ end
 
 ---
 
-## 4. 条件分岐と組み合わせる
+## 📝 4. 条件分岐と組み合わせる ( `practice04.rb` )
 
 ### やってみよう
 
@@ -174,9 +177,10 @@ end
 - 59点以下を不合格
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice04_answer.rb)</summary>
 
 ```ruby
+# practice04_answer.rb
 scores = [72, 48, 90]
 
 scores.each do |score|
@@ -192,7 +196,7 @@ end
 
 ---
 
-## 5. 合計を出す
+## 📝 5. 合計を出す ( `practice05.rb` )
 
 ### やってみよう
 
@@ -204,9 +208,10 @@ end
 > `total` は、点数を入れていく貯金箱のような変数です。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice05_answer.rb)</summary>
 
 ```ruby
+# practice05_answer.rb
 scores = [72, 48, 90]
 total = 0
 
@@ -222,6 +227,7 @@ puts "合計：#{total}点"
 Rubyには、配列の中の数を合計する `sum` というメソッドもあります。
 
 ```ruby
+# practice05_answer2.rb
 scores = [72, 48, 90]
 
 puts "合計：#{scores.sum}点"
@@ -234,7 +240,7 @@ puts "合計：#{scores.sum}点"
 
 ---
 
-## 6. 名前に「さん」をつける
+## 📝 6. 名前に「さん」をつける ( `practice06.rb` )
 
 名前の配列を作って、次のように表示してみましょう。
 
@@ -245,9 +251,10 @@ puts "合計：#{scores.sum}点"
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice06_answer.rb)</summary>
 
 ```ruby
+# practice06_answer.rb
 names = ["田中", "鈴木", "佐藤"]
 
 names.each do |name|
@@ -259,7 +266,7 @@ end
 
 ---
 
-## 7. 偶数だけ表示する
+## 📝 7. 偶数だけ表示する ( `practice07.rb` )
 
 数字の配列から、偶数だけを表示してみましょう。
 
@@ -268,9 +275,10 @@ numbers = [3, 8, 11, 20, 7, 14]
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice07_answer.rb)</summary>
 
 ```ruby
+# practice07_answer.rb
 numbers = [3, 8, 11, 20, 7, 14]
 
 numbers.each do |number|
@@ -284,7 +292,7 @@ end
 
 ---
 
-## 8. 80点以上だけ表示する
+## 📝 8. 80点以上だけ表示する ( `practice08.rb` )
 
 次の配列の中から、80点以上だけ表示してみましょう。
 
@@ -293,9 +301,10 @@ scores = [65, 82, 97, 40, 88]
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice08_answer.rb)</summary>
 
 ```ruby
+# practice08_answer.rb
 scores = [65, 82, 97, 40, 88]
 
 scores.each do |score|
@@ -309,7 +318,7 @@ end
 
 ---
 
-## 9. 感嘆符をつけて表示する
+## 📝 9. 感嘆符をつけて表示する ( `practice09.rb` )
 
 配列の中の文字を、1つずつ `Ruby!` のように感嘆符つきで表示してみましょう。
 
@@ -318,9 +327,10 @@ words = ["Ruby", "Rails", "HTML"]
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice09_answer.rb)</summary>
 
 ```ruby
+# practice09_answer.rb
 words = ["Ruby", "Rails", "HTML"]
 
 words.each do |word|
@@ -332,14 +342,15 @@ end
 
 ---
 
-## 10. 1から10まで表示する
+## 📝 10. 1から10まで表示する ( `practice10.rb` )
 
 `1..10` を使って、1から10まで表示してみましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice10_answer.rb)</summary>
 
 ```ruby
+# practice10_answer.rb
 numbers = 1..10
 
 numbers.each do |number|
@@ -351,7 +362,7 @@ end
 
 ---
 
-## 11. 1から10までの合計を出す
+## 📝 11. 1から10までの合計を出す ( `practice11.rb` )
 
 `1..10` を使って、1から10までの合計を表示してみましょう。
 
@@ -362,9 +373,10 @@ end
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice11_answer.rb)</summary>
 
 ```ruby
+# practice11_answer.rb
 numbers = 1..10
 total = 0
 
@@ -379,14 +391,15 @@ puts "合計：#{total}"
 
 ---
 
-## 12. 1から10までの偶数だけ表示する
+## 📝 12. 1から10までの偶数だけ表示する ( `practice12.rb` )
 
 `1..10` を使って、偶数だけを表示してみましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice12_answer.rb)</summary>
 
 ```ruby
+# practice12_answer.rb
 numbers = 1..10
 
 numbers.each do |number|
@@ -400,7 +413,7 @@ end
 
 ---
 
-## 13. 買うかどうかを判定する
+## 📝 13. 買うかどうかを判定する ( `practice13.rb` )
 
 次の配列を1つずつ見て、100円以上なら「買う」、100円未満なら「やめる」と表示してみましょう。
 
@@ -419,9 +432,10 @@ prices = [80, 120, 50, 300, 100]
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice13_answer.rb)</summary>
 
 ```ruby
+# practice13_answer.rb
 prices = [80, 120, 50, 300, 100]
 
 prices.each do |price|
@@ -437,7 +451,7 @@ end
 
 ---
 
-## 14. 合格した人数を数える
+## 📝 14. 合格した人数を数える ( `practice14.rb` )
 
 次の配列を使って、60点以上の人数を数えて表示してみましょう。
 
@@ -452,9 +466,10 @@ scores = [80, 55, 100, 42, 67]
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice14_answer.rb)</summary>
 
 ```ruby
+# practice14_answer.rb
 scores = [80, 55, 100, 42, 67]
 count = 0
 
@@ -471,7 +486,7 @@ puts "合格者：#{count}人"
 
 ---
 
-## 15. 3文字以上の言葉を数える
+## 📝 15. 3文字以上の言葉を数える ( `practice15.rb` )
 
 次の配列の中から、3文字以上の言葉がいくつあるか数えて表示してみましょう。
 
@@ -489,9 +504,10 @@ words = ["犬", "ねこ", "りんご", "本", "プログラム"]
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice15_answer.rb)</summary>
 
 ```ruby
+# practice15_answer.rb
 words = ["犬", "ねこ", "りんご", "本", "プログラム"]
 count = 0
 
@@ -508,7 +524,7 @@ puts "3文字以上：#{count}個"
 
 ---
 
-## 16. 番号をつけて表示する
+## 📝 16. 番号をつけて表示する ( `practice16.rb` )
 
 次の配列を使って、名前に番号をつけて表示してみましょう。
 
@@ -525,9 +541,10 @@ names = ["田中", "鈴木", "佐藤"]
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice16_answer.rb)</summary>
 
 ```ruby
+# practice16_answer.rb
 names = ["田中", "鈴木", "佐藤"]
 number = 1
 
@@ -541,7 +558,7 @@ end
 
 ---
 
-## 17. 商品の合計金額を出す
+## 📝 17. 商品の合計金額を出す ( `practice17.rb` )
 
 次の配列を使って、商品の合計金額を表示してみましょう。
 
@@ -556,9 +573,10 @@ prices = [120, 80, 300, 150]
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice17_answer.rb)</summary>
 
 ```ruby
+# practice17_answer.rb
 prices = [120, 80, 300, 150]
 total = 0
 
@@ -574,6 +592,7 @@ puts "合計金額：#{total}円"
 `sum` を使うと、配列の中の数をまとめて合計できます。
 
 ```ruby
+# practice17_answer2.rb
 prices = [120, 80, 300, 150]
 
 puts "合計金額：#{prices.sum}円"
@@ -583,7 +602,7 @@ puts "合計金額：#{prices.sum}円"
 
 ---
 
-## 18. 予算内かどうかを判定する
+## 📝 18. 予算内かどうかを判定する ( `practice18.rb` )
 
 次の配列を使って合計金額を出し、500円以内なら「予算内です」、500円を超えたら「予算オーバーです」と表示してみましょう。
 
@@ -592,9 +611,10 @@ prices = [120, 80, 300, 150]
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice18_answer.rb)</summary>
 
 ```ruby
+# practice18_answer.rb
 prices = [120, 80, 300, 150]
 total = 0
 
@@ -613,7 +633,7 @@ end
 
 ---
 
-## 19. 7の段を表示する
+## 📝 19. 7の段を表示する ( `practice19.rb` )
 
 `1..9` を使って、7の段を表示してみましょう。
 
@@ -628,9 +648,10 @@ end
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice19_answer.rb)</summary>
 
 ```ruby
+# practice19_answer.rb
 dan = 7
 numbers = 1..9
 
@@ -643,7 +664,7 @@ end
 
 ---
 
-## 20. 点数にコメントをつける
+## 📝 20. 点数にコメントをつける ( `practice20.rb` )
 
 次の配列を使って、点数ごとにコメントを表示してみましょう。
 
@@ -667,9 +688,10 @@ scores = [95, 72, 48, 60]
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice20_answer.rb)</summary>
 
 ```ruby
+# practice20_answer.rb
 scores = [95, 72, 48, 60]
 
 scores.each do |score|
@@ -687,7 +709,7 @@ end
 
 ---
 
-## 21. 配列の中身を書き換える
+## 📝 21. 配列の中身を書き換える ( `practice21.rb` )
 
 次の配列の2番目を `"うどん"` に書き換えてから、全部表示してみましょう。
 
@@ -696,9 +718,10 @@ foods = ["カレー", "ラーメン", "寿司"]
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice21_answer.rb)</summary>
 
 ```ruby
+# practice21_answer.rb
 foods = ["カレー", "ラーメン", "寿司"]
 
 foods[1] = "うどん"
@@ -712,7 +735,7 @@ end
 
 ---
 
-## 22. 配列にあとから追加する
+## 📝 22. 配列にあとから追加する ( `practice22.rb` )
 
 次の配列に `"うどん"` を追加してから、全部表示してみましょう。
 
@@ -724,9 +747,10 @@ foods = ["カレー", "ラーメン", "寿司"]
 > `foods << "うどん"` と書くと、配列の最後に `"うどん"` を追加できます。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice22_answer.rb)</summary>
 
 ```ruby
+# practice22_answer.rb
 foods = ["カレー", "ラーメン", "寿司"]
 
 foods << "うどん"
@@ -740,7 +764,7 @@ end
 
 ---
 
-## 23. 配列の個数を表示する
+## 📝 23. 配列の個数を表示する ( `practice23.rb` )
 
 次の配列に点数がいくつ入っているか、`length` を使って表示してみましょう。
 
@@ -755,9 +779,10 @@ scores = [80, 55, 100, 72]
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice23_answer.rb)</summary>
 
 ```ruby
+# practice23_answer.rb
 scores = [80, 55, 100, 72]
 
 puts "点数は#{scores.length}個あります"
@@ -767,7 +792,7 @@ puts "点数は#{scores.length}個あります"
 
 ---
 
-## 24. 平均点を出す
+## 📝 24. 平均点を出す ( `practice24.rb` )
 
 次の配列を使って、平均点を表示してみましょう。
 
@@ -782,9 +807,10 @@ scores = [80, 60, 100, 40]
 - 平均は `合計 / 個数` で出す
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice24_answer.rb)</summary>
 
 ```ruby
+# practice24_answer.rb
 scores = [80, 60, 100, 40]
 
 total = scores.sum
@@ -797,7 +823,7 @@ puts "平均：#{average}点"
 
 ---
 
-## 25. 入力した名前を配列にためる
+## 📝 25. 入力した名前を配列にためる ( `practice25.rb` )
 
 名前を3回入力し、配列に追加してから、最後に全員分を表示してみましょう。
 
@@ -806,9 +832,10 @@ puts "平均：#{average}点"
 > - `names << name` と書くと、配列の最後に `name` を追加できます
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice25_answer.rb)</summary>
 
 ```ruby
+# practice25_answer.rb
 names = []
 
 3.times do
@@ -826,7 +853,7 @@ end
 
 ---
 
-## 26. 数当てゲームを作る
+## 📝 26. 数当てゲームを作る ( `practice26.rb` )
 
 もっと練習に入る前の助走として、数当てゲームを作ってみましょう。
 ここまで学んだ「順次（上から下へ）」「分岐」「繰り返し」をすべて使う総合問題です。
@@ -858,9 +885,10 @@ end
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice26_answer.rb)</summary>
 
 ```ruby
+# practice26_answer.rb
 answer = rand(1..10)
 
 3.times do
