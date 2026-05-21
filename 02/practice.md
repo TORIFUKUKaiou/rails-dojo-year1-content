@@ -20,8 +20,8 @@
 2. 自分で考えてコードを書く
 3. `ruby practice01.rb` で実行する
 4. 動いたら、解答例を開く
-5. `practice01-answer.rb` を作り、解答例を写す（コピーしてもOK）
-6. `ruby practice01-answer.rb` を実行する
+5. `practice01_answer.rb` を作り、解答例を写す（コピーしてもOK）
+6. `ruby practice01_answer.rb` を実行する
 7. 自分の実行結果と、解答例の実行結果を比べる
 
 実行結果が同じならOKです。
@@ -102,7 +102,7 @@ ruby main.rb
 
 ---
 
-## 1. 変数に入れて表示する
+## 📝 1. 変数に入れて表示する ( `practice01.rb` )
 
 ```ruby
 name = "田中"
@@ -125,7 +125,7 @@ puts name
 
 ---
 
-## 2. 変数を上書きする
+## 📝 2. 変数を上書きする ( `practice02.rb` )
 
 ```ruby
 weather = "晴れ"
@@ -154,7 +154,7 @@ puts food
 
 ---
 
-## 3. 文字列と数値の違い
+## 📝 3. 文字列と数値の違い ( `practice03.rb` )
 
 ```ruby
 puts "10" + "20"
@@ -196,7 +196,7 @@ puts "10" + 20.to_s
 
 ---
 
-## 4. 自己紹介カードを作る
+## 📝 4. 自己紹介カードを作る ( `practice04.rb` )
 
 変数と `#{}` を組み合わせて、自己紹介カードを作りましょう。
 
@@ -245,7 +245,7 @@ puts "========================"
 
 ---
 
-## 5. 計算プログラムを作る
+## 📝 5. 計算プログラムを作る ( `practice05.rb` )
 
 変数を使って、計算結果を表示するプログラムを作りましょう。
 
@@ -286,8 +286,7 @@ puts "合計：#{total_with_tax}円"
 
 ## 6. チャレンジ問題
 
-### その1
-
+### 📝 その1 ( `practice06.rb` )
 以下の出力を、変数を使って作ってみましょう：
 
 ```
@@ -299,9 +298,10 @@ puts "合計：#{total_with_tax}円"
 名前と年齢は変数に入れて、計算で表示しましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice06_answer.rb)</summary>
 
 ```ruby
+# practice06_answer.rb
 name = "田中"
 age = 20
 
@@ -312,8 +312,7 @@ puts "#{name}さんの20年後は#{age + 20}歳です"
 
 </details>
 
-### その2
-
+### 📝 その2 ( `practice07.rb` )
 3つの科目の点数を変数に入れて、合計と平均を表示してみましょう。
 
 ```
@@ -325,9 +324,10 @@ puts "#{name}さんの20年後は#{age + 20}歳です"
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice07_answer.rb)</summary>
 
 ```ruby
+# practice07_answer.rb
 japanese = 75
 math = 82
 english = 68
@@ -343,14 +343,14 @@ puts "平均：#{average}点"
 
 </details>
 
-### その3
-
+### 📝 その3 ( `practice08.rb` )
 前回のチャレンジ問題（九九の7の段）を、変数を使って書き直してみましょう。`7` を変数に入れれば、数字を変えるだけで別の段になります。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice08_answer.rb)</summary>
 
 ```ruby
+# practice08_answer.rb
 n = 7
 
 puts "#{n} x 1 = #{n * 1}"
@@ -368,8 +368,7 @@ puts "#{n} x 9 = #{n * 9}"
 
 </details>
 
-### その4
-
+### 📝 その4 ( `practice09.rb` )
 映画のチケット料金を表示するプログラムを作りましょう。
 
 次の4つを変数に入れてください。
@@ -392,9 +391,10 @@ puts "#{n} x 9 = #{n * 9}"
 名前、年齢、単価、枚数の値は好きに変えてOKです。ただし、合計は計算で出しましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice09_answer.rb)</summary>
 
 ```ruby
+# practice09_answer.rb
 name = "田中"
 age = 20
 ticket_price = 1500

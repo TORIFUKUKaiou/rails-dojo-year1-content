@@ -20,8 +20,8 @@
 2. 自分で考えてコードを書く
 3. `ruby practice01.rb` で実行する
 4. 動いたら、解答例を開く
-5. `practice01-answer.rb` を作り、解答例を写す（コピーしてもOK）
-6. `ruby practice01-answer.rb` を実行する
+5. `practice01_answer.rb` を作り、解答例を写す（コピーしてもOK）
+6. `ruby practice01_answer.rb` を実行する
 7. 自分の実行結果と、解答例の実行結果を比べる
 
 実行結果が同じならOKです。
@@ -102,7 +102,7 @@ ruby main.rb
 
 ---
 
-## 1. 同じ文字を3回表示する
+## 📝 1. 同じ文字を3回表示する ( `practice01.rb` )
 
 ```ruby
 3.times do
@@ -127,7 +127,7 @@ end
 
 ---
 
-## 2. 何回目かを表示する
+## 📝 2. 何回目かを表示する ( `practice02.rb` )
 
 ```ruby
 3.times do |i|
@@ -154,7 +154,7 @@ end
 
 ---
 
-## 3. `i + 1` で1回目から表示する
+## 📝 3. `i + 1` で1回目から表示する ( `practice03.rb` )
 
 ```ruby
 3.times do |i|
@@ -179,7 +179,7 @@ end
 
 ---
 
-## 4. 変数と組み合わせる
+## 📝 4. 変数と組み合わせる ( `practice04.rb` )
 
 ```ruby
 count = 4
@@ -208,7 +208,7 @@ end
 
 ---
 
-## 5. くり返して形を作る
+## 📝 5. くり返して形を作る ( `practice05.rb` )
 
 ```ruby
 5.times do
@@ -246,7 +246,7 @@ end
 
 ---
 
-## 6. 合計を作る
+## 📝 6. 合計を作る ( `practice06.rb` )
 
 繰り返しでは、毎回の値を変数に足していくこともよくあります。
 
@@ -293,17 +293,17 @@ puts total
 
 ## 7. チャレンジ問題
 
-### その1
-
+### 📝 その1 ( `practice07.rb` )
 1から10までを表示してみましょう。
 
 > [!TIP]
 > `times` の `i` は 0 から始まるので、`i + 1` を使います。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice07_answer.rb)</summary>
 
 ```ruby
+# practice07_answer.rb
 10.times do |i|
   puts i + 1
 end
@@ -311,8 +311,7 @@ end
 
 </details>
 
-### その2
-
+### 📝 その2 ( `practice08.rb` )
 その1を改造して、キーボードから入力した数まで表示するようにしましょう。
 
 > [!TIP]
@@ -320,9 +319,10 @@ end
 > `gets` だけだと文字列のままなので、`times` の回数として使うには数値に変換する必要があります。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice08_answer.rb)</summary>
 
 ```ruby
+# practice08_answer.rb
 puts "いくつまで表示しますか？"
 n = gets.to_i
 
@@ -333,8 +333,7 @@ end
 
 </details>
 
-### その3
-
+### 📝 その3 ( `practice09.rb` )
 次の出力を作ってみましょう。
 
 ```
@@ -353,9 +352,10 @@ puts "*" * 3
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice09_answer.rb)</summary>
 
 ```ruby
+# practice09_answer.rb
 5.times do |i|
   puts "*" * (i + 1)
 end
@@ -363,14 +363,14 @@ end
 
 </details>
 
-### その4
-
+### 📝 その4 ( `practice10.rb` )
 その3を改造して、段数をキーボードから入力できるようにしましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice10_answer.rb)</summary>
 
 ```ruby
+# practice10_answer.rb
 puts "何段にしますか？"
 n = gets.to_i
 
@@ -381,8 +381,7 @@ end
 
 </details>
 
-### その5
-
+### 📝 その5 ( `practice11.rb` )
 7の段を、繰り返しで表示してみましょう。
 
 ```
@@ -393,9 +392,10 @@ end
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice11_answer.rb)</summary>
 
 ```ruby
+# practice11_answer.rb
 9.times do |i|
   n = i + 1
   puts "7 x #{n} = #{7 * n}"
@@ -404,14 +404,14 @@ end
 
 </details>
 
-### その6
-
+### 📝 その6 ( `practice12.rb` )
 その5を改造して、何の段を表示するかをキーボードから入力できるようにしましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice12_answer.rb)</summary>
 
 ```ruby
+# practice12_answer.rb
 puts "何の段を表示しますか？"
 dan = gets.to_i
 
@@ -423,8 +423,7 @@ end
 
 </details>
 
-### その7
-
+### 📝 その7 ( `practice13.rb` )
 カウントダウンを作ってみましょう。
 
 ```
@@ -437,9 +436,10 @@ end
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice13_answer.rb)</summary>
 
 ```ruby
+# practice13_answer.rb
 5.times do |i|
   puts 5 - i
 end
@@ -449,14 +449,14 @@ puts "スタート！"
 
 </details>
 
-### その8
-
+### 📝 その8 ( `practice14.rb` )
 その7を改造して、何秒前からカウントダウンするかをキーボードから入力できるようにしましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice14_answer.rb)</summary>
 
 ```ruby
+# practice14_answer.rb
 puts "何からカウントダウンしますか？"
 n = gets.to_i
 
@@ -469,8 +469,7 @@ puts "スタート！"
 
 </details>
 
-### その9
-
+### 📝 その9 ( `practice15.rb` )
 キーボードから名前と回数を入力して、「○○さん、がんばれ！」をその回数だけ表示するプログラムを作りましょう。
 
 > [!NOTE]
@@ -500,9 +499,10 @@ puts "スタート！"
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice15_answer.rb)</summary>
 
 ```ruby
+# practice15_answer.rb
 puts "名前を入力してください"
 name = gets.chomp
 

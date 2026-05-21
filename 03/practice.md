@@ -20,8 +20,8 @@
 2. 自分で考えてコードを書く
 3. `ruby practice01.rb` で実行する
 4. 動いたら、解答例を開く
-5. `practice01-answer.rb` を作り、解答例を写す（コピーしてもOK）
-6. `ruby practice01-answer.rb` を実行する
+5. `practice01_answer.rb` を作り、解答例を写す（コピーしてもOK）
+6. `ruby practice01_answer.rb` を実行する
 7. 自分の実行結果と、解答例の実行結果を比べる
 
 実行結果が同じならOKです。
@@ -102,7 +102,7 @@ ruby main.rb
 
 ---
 
-## 1. if と else
+## 📝 1. if と else ( `practice01.rb` )
 
 ```ruby
 age = 20
@@ -137,7 +137,7 @@ end
 
 ---
 
-## 2. 比較記号を使う
+## 📝 2. 比較記号を使う ( `practice02.rb` )
 
 ```ruby
 score = 75
@@ -172,7 +172,7 @@ end
 
 ---
 
-## 3. elsif で3つ以上に分ける
+## 📝 3. elsif で3つ以上に分ける ( `practice03.rb` )
 
 ```ruby
 score = 75
@@ -211,7 +211,7 @@ end
 
 ---
 
-## 4. 文字列を比較する
+## 📝 4. 文字列を比較する ( `practice04.rb` )
 
 ```ruby
 weather = "晴れ"
@@ -250,7 +250,7 @@ end
 
 ---
 
-## 5. 変数と条件分岐を組み合わせる
+## 📝 5. 変数と条件分岐を組み合わせる ( `practice05.rb` )
 
 ```ruby
 price = 500
@@ -289,7 +289,7 @@ end
 
 ---
 
-## 6. キーボードから入力して判定する
+## 📝 6. キーボードから入力して判定する ( `practice06.rb` )
 
 ```ruby
 puts "年齢を入力してください"
@@ -332,8 +332,7 @@ end
 
 このチャレンジ問題では、 `gets` を使って、キーボードから入力する形で書いてみましょう。
 
-### その1
-
+### 📝 その1 ( `practice07.rb` )
 年齢を入力して、以下のように表示するプログラムを作りましょう：
 
 - 0〜5歳：「幼児です」
@@ -343,9 +342,10 @@ end
 - 19歳以上：「大人です」
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice07_answer.rb)</summary>
 
 ```ruby
+# practice07_answer.rb
 puts "年齢を入力してください"
 age = gets.to_i
 
@@ -364,8 +364,7 @@ end
 
 </details>
 
-### その2
-
+### 📝 その2 ( `practice08.rb` )
 点数を入力して、成績（S/A/B/C/F）を表示するプログラムを作りましょう。
 
 - 90以上：S
@@ -377,9 +376,10 @@ end
 表示例：`75点はBです`
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice08_answer.rb)</summary>
 
 ```ruby
+# practice08_answer.rb
 puts "点数を入力してください"
 score = gets.to_i
 
@@ -400,8 +400,7 @@ puts "#{score}点は#{grade}です"
 
 </details>
 
-### その3
-
+### 📝 その3 ( `practice09.rb` )
 じゃんけんプログラムを作りましょう。自分の手と相手の手を入力して、勝敗を表示します。
 
 - 1：グー
@@ -409,9 +408,10 @@ puts "#{score}点は#{grade}です"
 - 3：パー
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice09_answer.rb)</summary>
 
 ```ruby
+# practice09_answer.rb
 puts "自分の手を入力してください（1:グー 2:チョキ 3:パー）"
 my_hand = gets.to_i
 
@@ -452,17 +452,17 @@ end
 
 </details>
 
-### その4
-
+### 📝 その4 ( `practice10.rb` )
 月を入力して、12月・1月・2月なら「冬です」、それ以外なら「冬ではありません」と表示するプログラムを作りましょう。
 
 > [!TIP]
 > `||` は「または」という意味です。どれか1つでも当てはまれば実行されます。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice10_answer.rb)</summary>
 
 ```ruby
+# practice10_answer.rb
 puts "月を入力してください"
 month = gets.to_i
 
