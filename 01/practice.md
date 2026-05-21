@@ -20,8 +20,8 @@
 2. 自分で考えてコードを書く
 3. `ruby practice01.rb` で実行する
 4. 動いたら、解答例を開く
-5. `practice01-answer.rb` を作り、解答例を写す（コピーしてもOK）
-6. `ruby practice01-answer.rb` を実行する
+5. `practice01_answer.rb` を作り、解答例を写す（コピーしてもOK）
+6. `ruby practice01_answer.rb` を実行する
 7. 自分の実行結果と、解答例の実行結果を比べる
 
 実行結果が同じならOKです。
@@ -72,7 +72,7 @@ ruby main.rb
 
 ---
 
-## 1. 文字を表示する
+## 📝 1. 文字を表示する ( `practice01.rb` )
 
 ```ruby
 puts "こんにちは"
@@ -91,9 +91,10 @@ puts "こんにちは"
 自分の名前を表示してみましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice01_answer.rb)</summary>
 
 ```ruby
+# practice01_answer.rb
 puts "山田太郎"
 ```
 
@@ -101,7 +102,7 @@ puts "山田太郎"
 
 ---
 
-## 2. 複数行を表示する
+## 📝 2. 複数行を表示する ( `practice02.rb` )
 
 ```ruby
 puts "1行目"
@@ -116,9 +117,10 @@ puts "3行目"
 自己紹介を3行で書いてみましょう。名前、出身地、好きなもの。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice02_answer.rb)</summary>
 
 ```ruby
+# practice02_answer.rb
 puts "山田太郎"
 puts "福岡県出身"
 puts "カレー・ピザ・ハンバーガーが好き"
@@ -128,7 +130,7 @@ puts "カレー・ピザ・ハンバーガーが好き"
 
 ---
 
-## 3. 計算する
+## 📝 3. 計算する ( `practice03.rb` )
 
 ```ruby
 puts 1 + 1
@@ -149,9 +151,10 @@ Rubyは計算もできます。結果が画面に表示されます。
 自分の年齢を計算で表示してみましょう。（例：2026 - 2006）
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice03_answer.rb)</summary>
 
 ```ruby
+# practice03_answer.rb
 puts 2026 - 2006
 ```
 
@@ -159,7 +162,7 @@ puts 2026 - 2006
 
 ---
 
-## 4. 文字と計算を混ぜる
+## 📝 4. 文字と計算を混ぜる ( `practice04.rb` )
 
 ```ruby
 puts "1 + 1 の答えは"
@@ -179,9 +182,10 @@ puts "1 + 1 の答えは #{1 + 1} です"
 「私は○歳です」を1行で表示してみましょう。○の部分は計算で。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice04_answer.rb)</summary>
 
 ```ruby
+# practice04_answer.rb
 puts "私は #{2026 - 2006} 歳です"
 ```
 
@@ -189,7 +193,7 @@ puts "私は #{2026 - 2006} 歳です"
 
 ---
 
-## 5. Rubyに聞いてみる
+## 📝 5. Rubyに聞いてみる ( `practice05.rb` )
 
 `#{}` の中には計算だけでなく、Rubyへの問いかけも書けます。
 
@@ -212,9 +216,10 @@ puts "ruby".upcase
 `"hello"` を大文字にして表示してみましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice05_answer.rb)</summary>
 
 ```ruby
+# practice05_answer.rb
 puts "hello".upcase
 ```
 
@@ -224,8 +229,7 @@ puts "hello".upcase
 
 ## 6. チャレンジ問題
 
-### その1
-
+### 📝 その1 ( `practice06.rb` )
 以下の出力を `puts` だけで作ってみましょう：
 
 ```
@@ -237,9 +241,10 @@ puts "hello".upcase
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice06_answer.rb)</summary>
 
 ```ruby
+# practice06_answer.rb
 puts "**********"
 puts "*        *"
 puts "*  Ruby  *"
@@ -249,8 +254,7 @@ puts "**********"
 
 </details>
 
-### その2
-
+### 📝 その2 ( `practice07.rb` )
 九九の7の段を表示してみましょう：
 
 ```
@@ -261,9 +265,10 @@ puts "**********"
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice07_answer.rb)</summary>
 
 ```ruby
+# practice07_answer.rb
 puts "7 x 1 = #{7 * 1}"
 puts "7 x 2 = #{7 * 2}"
 puts "7 x 3 = #{7 * 3}"
@@ -277,8 +282,7 @@ puts "7 x 9 = #{7 * 9}"
 
 </details>
 
-### その3
-
+### 📝 その3 ( `practice08.rb` )
 以下の出力を作ってみましょう：
 
 ```
@@ -291,9 +295,10 @@ puts "7 x 9 = #{7 * 9}"
 名前と生まれ年は自分のものに変えてください。年齢と10年後は `#{}` で計算しましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice08_answer.rb)</summary>
 
 ```ruby
+# practice08_answer.rb
 puts "私の名前は山田太郎です"
 puts "今年は2026年です"
 puts "私は #{2026 - 2006} 歳です"
@@ -302,8 +307,7 @@ puts "10年後は #{2026 - 2006 + 10} 歳です"
 
 </details>
 
-### その4
-
+### 📝 その4 ( `practice09.rb` )
 以下の出力を作ってみましょう：
 
 ```
@@ -318,9 +322,10 @@ puts "10年後は #{2026 - 2006 + 10} 歳です"
 > `\` を表示するには `\\` と書きます。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice09_answer.rb)</summary>
 
 ```ruby
+# practice09_answer.rb
 puts "     /\\_/\\"
 puts "    ( o.o )"
 puts "     > ^ <"
@@ -330,8 +335,7 @@ puts "   (_|   |_)"
 
 </details>
 
-### その5
-
+### 📝 その5 ( `practice10.rb` )
 好きなものを3つ表示してみましょう。
 
 例：
