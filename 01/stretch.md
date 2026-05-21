@@ -66,7 +66,6 @@ puts "1日は #{24 * 60 * 60} 秒です"
 > `/` は割り算、`%` は余りを求める演算です。
 
 ```ruby
-# stretch001_answer.rb
 puts 170 / 100   # => 1
 puts 170 % 100   # => 70
 ```
@@ -95,7 +94,6 @@ puts "170cmは #{170 / 100}mと #{170 % 100}cmです"
 > `print` を使うと改行なしで表示できます。
 
 ```ruby
-# stretch001_answer2.rb
 print "hello "
 print "world"
 # => hello world（1行に表示される）

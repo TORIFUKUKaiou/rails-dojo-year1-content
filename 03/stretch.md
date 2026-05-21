@@ -710,7 +710,6 @@ end
 次のコードは、`gets` で入力した値をそのまま数値と比べているので、うまく動きません。直してみましょう。
 
 ```ruby
-# stretch001_answer.rb
 puts "年齢を入力してください"
 age = gets
 
@@ -747,7 +746,6 @@ end
 次のコードは、`=` と `==` をまちがえています。直して動くようにしましょう。
 
 ```ruby
-# stretch001_answer2.rb
 puts "点数を入力してください"
 score = gets.to_i
 
