@@ -559,6 +559,7 @@ puts "#{total_seconds}秒は#{hours}時間#{minutes}分#{seconds}秒です"
 次のコードはエラーになります。直して動くようにしましょう。
 
 ```ruby
+# stretch001_answer.rb
 name = 田中
 puts name
 ```
@@ -583,6 +584,7 @@ puts name
 次のコードは、変数名の打ち間違いがあります。直して動くようにしましょう。
 
 ```ruby
+# stretch001_answer2.rb
 name = "田中"
 puts nmae
 ```

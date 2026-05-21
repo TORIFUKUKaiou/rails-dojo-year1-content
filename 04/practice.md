@@ -115,9 +115,10 @@ end
 自分の名前を3回表示してみましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice01_answer.rb)</summary>
 
 ```ruby
+# practice01_answer.rb
 3.times do
   puts "山田太郎"
 end
@@ -142,9 +143,10 @@ end
 次に、`5.times` に変えて試してみましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice02_answer.rb)</summary>
 
 ```ruby
+# practice02_answer.rb
 5.times do |i|
   puts i
 end
@@ -167,9 +169,10 @@ end
 `5.times` にして、`1回目` から `5回目` まで表示してみましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice03_answer.rb)</summary>
 
 ```ruby
+# practice03_answer.rb
 5.times do |i|
   puts "#{i + 1}回目です"
 end
@@ -194,9 +197,10 @@ end
 好きな数字を変数に入れて、その回数だけ好きな言葉を表示してみましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice04_answer.rb)</summary>
 
 ```ruby
+# practice04_answer.rb
 count = 6
 
 count.times do
@@ -232,9 +236,10 @@ end
 > 文字列は掛け算ができます。たとえば `puts "*" * 3` と書くと、`***` と表示されます。これを使うともっと楽に書けるかもしれません！
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice05_answer.rb)</summary>
 
 ```ruby
+# practice05_answer.rb
 stars = "*" * 3
 
 4.times do |i|
@@ -275,9 +280,10 @@ puts total
 1から10までの合計を表示してみましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice06_answer.rb)</summary>
 
 ```ruby
+# practice06_answer.rb
 total = 0
 
 10.times do |i|

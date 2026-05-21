@@ -111,9 +111,10 @@ ruby main.rb
 実行してエラーが出ず、何も表示されなければ成功です。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice01_answer.rb)</summary>
 
 ```ruby
+# practice01_answer.rb
 person = { "name" => "山田", "age" => 18, "city" => "福岡" }
 ```
 
@@ -132,9 +133,10 @@ person = { "name" => "田中", "age" => 20, "city" => "福岡" }
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice02_answer.rb)</summary>
 
 ```ruby
+# practice02_answer.rb
 person = { "name" => "田中", "age" => 20, "city" => "福岡" }
 
 puts person["name"]
@@ -162,9 +164,10 @@ person = { "name" => "佐藤", "age" => 19, "city" => "長崎" }
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice03_answer.rb)</summary>
 
 ```ruby
+# practice03_answer.rb
 person = { "name" => "佐藤", "age" => 19, "city" => "長崎" }
 
 puts "#{person["name"]}さんは#{person["city"]}出身です"
@@ -185,9 +188,10 @@ puts "#{person["name"]}さんは#{person["city"]}出身です"
 - 在庫：8
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice04_answer.rb)</summary>
 
 ```ruby
+# practice04_answer.rb
 item = {
   "name" => "りんご",
   "price" => 120,
@@ -213,9 +217,10 @@ person = { "name" => "田中", "age" => 20 }
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice05_answer.rb)</summary>
 
 ```ruby
+# practice05_answer.rb
 person = { "name" => "田中", "age" => 20 }
 
 person["age"] = 21
@@ -244,9 +249,10 @@ person = { "name" => "田中", "age" => 20 }
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice06_answer.rb)</summary>
 
 ```ruby
+# practice06_answer.rb
 person = { "name" => "田中", "age" => 20 }
 
 person["city"] = "福岡"
@@ -277,9 +283,10 @@ city: 福岡
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice07_answer.rb)</summary>
 
 ```ruby
+# practice07_answer.rb
 person = { "name" => "田中", "age" => 20, "city" => "福岡" }
 
 person.each do |key, value|
@@ -304,9 +311,10 @@ end
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice08_answer.rb)</summary>
 
 ```ruby
+# practice08_answer.rb
 scores = { "国語" => 70, "数学" => 85, "英語" => 90 }
 
 scores.each do |subject, score|
@@ -329,13 +337,14 @@ person = { "name" => "田中", "age" => 20, "city" => "福岡" }
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice09_answer.rb)</summary>
 
 `person.keys` は、キーの一覧を配列として返します。
 
 ### 解答例1：1行ずつ表示する
 
 ```ruby
+# practice09_answer.rb
 person = { "name" => "田中", "age" => 20, "city" => "福岡" }
 
 puts person.keys
@@ -346,6 +355,7 @@ puts person.keys
 ### 解答例2：配列の形で確認する
 
 ```ruby
+# practice09_answer2.rb
 person = { "name" => "田中", "age" => 20, "city" => "福岡" }
 
 p person.keys
@@ -370,13 +380,14 @@ person = { "name" => "田中", "age" => 20, "city" => "福岡" }
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice10_answer.rb)</summary>
 
 `person.values` は、値の一覧を配列として返します。
 
 ### 解答例1：1行ずつ表示する
 
 ```ruby
+# practice10_answer.rb
 person = { "name" => "田中", "age" => 20, "city" => "福岡" }
 
 puts person.values
@@ -387,6 +398,7 @@ puts person.values
 ### 解答例2：配列の形で確認する
 
 ```ruby
+# practice10_answer2.rb
 person = { "name" => "田中", "age" => 20, "city" => "福岡" }
 
 p person.values
@@ -417,9 +429,10 @@ item = { "name" => "りんご", "price" => 120, "stock" => 8 }
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice11_answer.rb)</summary>
 
 ```ruby
+# practice11_answer.rb
 item = { "name" => "りんご", "price" => 120, "stock" => 8 }
 
 puts "項目数：#{item.length}"
@@ -446,9 +459,10 @@ person = { "name" => "田中", "age" => 20, "city" => "福岡" }
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice12_answer.rb)</summary>
 
 ```ruby
+# practice12_answer.rb
 person = { "name" => "田中", "age" => 20, "city" => "福岡" }
 
 if person.key?("city")
@@ -479,9 +493,10 @@ person = { "name" => "田中", "age" => 20 }
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice13_answer.rb)</summary>
 
 ```ruby
+# practice13_answer.rb
 person = { "name" => "田中", "age" => 20 }
 
 if person.key?("city")
@@ -517,9 +532,10 @@ person = { "name" => "田中", "food" => "カレー" }
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice14_answer.rb)</summary>
 
 ```ruby
+# practice14_answer.rb
 foods = ["カレー", "ラーメン", "寿司"]
 person = { "name" => "田中", "food" => "カレー" }
 
@@ -559,9 +575,10 @@ students = [
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice15_answer.rb)</summary>
 
 ```ruby
+# practice15_answer.rb
 students = [
   { "name" => "田中", "score" => 80 },
   { "name" => "鈴木", "score" => 65 },
@@ -599,9 +616,10 @@ students = [
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice16_answer.rb)</summary>
 
 ```ruby
+# practice16_answer.rb
 students = [
   { "name" => "田中", "score" => 80 },
   { "name" => "鈴木", "score" => 65 },
@@ -641,9 +659,10 @@ students = [
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice17_answer.rb)</summary>
 
 ```ruby
+# practice17_answer.rb
 students = [
   { "name" => "田中", "score" => 80 },
   { "name" => "鈴木", "score" => 55 },
@@ -692,9 +711,10 @@ students = [
 > そのハッシュから `student["score"]` で点数を取り出し、`total` に足していきます。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice18_answer.rb)</summary>
 
 ```ruby
+# practice18_answer.rb
 students = [
   { "name" => "田中", "score" => 80 },
   { "name" => "鈴木", "score" => 65 },
@@ -728,9 +748,10 @@ person = {
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice19_answer.rb)</summary>
 
 ```ruby
+# practice19_answer.rb
 person = {
   "name" => "田中",
   "favorites" => ["カレー", "ラーメン", "寿司"]
@@ -758,9 +779,10 @@ person = {
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice20_answer.rb)</summary>
 
 ```ruby
+# practice20_answer.rb
 person = {
   "name" => "田中",
   "favorites" => ["カレー", "ラーメン", "寿司"]
@@ -789,9 +811,10 @@ person = {
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice21_answer.rb)</summary>
 
 ```ruby
+# practice21_answer.rb
 person = {
   "name" => "田中",
   "favorites" => ["カレー", "ラーメン", "寿司"]
@@ -826,9 +849,10 @@ student = {
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice22_answer.rb)</summary>
 
 ```ruby
+# practice22_answer.rb
 student = {
   "name" => "田中",
   "scores" => {
@@ -863,9 +887,10 @@ student = {
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice23_answer.rb)</summary>
 
 ```ruby
+# practice23_answer.rb
 student = {
   "name" => "田中",
   "scores" => {
@@ -902,9 +927,10 @@ article = {
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice24_answer.rb)</summary>
 
 ```ruby
+# practice24_answer.rb
 article = {
   "title" => "はじめての記事",
   "tags" => ["Ruby", "Rails"],
@@ -939,9 +965,10 @@ article = {
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice25_answer.rb)</summary>
 
 ```ruby
+# practice25_answer.rb
 article = {
   "title" => "はじめての記事",
   "tags" => ["Ruby", "Rails"],
@@ -977,9 +1004,10 @@ article = {
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice26_answer.rb)</summary>
 
 ```ruby
+# practice26_answer.rb
 article = {
   "title" => "はじめての記事",
   "tags" => ["Ruby", "Rails"],
@@ -1013,9 +1041,10 @@ person = { name: "田中", age: 20, city: "福岡" }
 > 文字列のキーで使った `person["name"]` とは書き方が異なります。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice27_answer.rb)</summary>
 
 ```ruby
+# practice27_answer.rb
 person = { name: "田中", age: 20, city: "福岡" }
 
 puts person[:name]
@@ -1037,9 +1066,10 @@ person = { name: "田中", age: 20, city: "福岡" }
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice28_answer.rb)</summary>
 
 ```ruby
+# practice28_answer.rb
 person = { name: "田中", age: 20, city: "福岡" }
 
 person.each do |key, value|
@@ -1074,9 +1104,10 @@ items = [
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice29_answer.rb)</summary>
 
 ```ruby
+# practice29_answer.rb
 items = [
   { "name" => "りんご", "price" => 120, "stock" => 8 },
   { "name" => "バナナ", "price" => 90, "stock" => 12 },
@@ -1117,9 +1148,10 @@ items = [
 > `each` で商品を1つずつ取り出し、合計用の変数に足していきます。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice30_answer.rb)</summary>
 
 ```ruby
+# practice30_answer.rb
 items = [
   { "name" => "ノート", "price" => 120, "count" => 2 },
   { "name" => "ペン", "price" => 80, "count" => 3 },

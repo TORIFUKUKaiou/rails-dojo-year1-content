@@ -119,9 +119,10 @@ end
 `age` を自分の年齢に変えて実行してみましょう。次に `age = 10` にして、結果が変わることを確認しましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice01_answer.rb)</summary>
 
 ```ruby
+# practice01_answer.rb
 age = 18
 
 if age >= 18
@@ -154,9 +155,10 @@ end
 `score` を色々な値に変えて試してみましょう。60、59、100、0 など。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice02_answer.rb)</summary>
 
 ```ruby
+# practice02_answer.rb
 score = 59
 
 if score >= 60
@@ -191,9 +193,10 @@ end
 点数を4段階に分けてみましょう。90以上「素晴らしい」、80以上「よくできました」、60以上「合格」、それ以外「もう少し」。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice03_answer.rb)</summary>
 
 ```ruby
+# practice03_answer.rb
 score = 85
 
 if score >= 90
@@ -230,9 +233,10 @@ end
 好きな食べ物を変数に入れて、食べ物によってメッセージを変えるプログラムを作ってみましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice04_answer.rb)</summary>
 
 ```ruby
+# practice04_answer.rb
 food = "カレー"
 
 if food == "カレー"
@@ -269,9 +273,10 @@ end
 消費税込みの金額で判定するように書き換えてみましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice05_answer.rb)</summary>
 
 ```ruby
+# practice05_answer.rb
 price = 500
 count = 3
 total = price * count
@@ -309,9 +314,10 @@ end
 自分の年齢を入力して判定してみましょう。次に、別の数字を入れて結果が変わることも確認しましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice06_answer.rb)</summary>
 
 ```ruby
+# practice06_answer.rb
 puts "年齢を入力してください"
 age = gets.to_i
 

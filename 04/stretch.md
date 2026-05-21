@@ -1681,6 +1681,7 @@ end
 次のコードはエラーになります。直して動くようにしましょう。
 
 ```ruby
+# stretch001_answer.rb
 4.times
   puts "確認中"
 end
@@ -1705,6 +1706,7 @@ end
 次のコードはエラーになります。直して動くようにしましょう。
 
 ```ruby
+# stretch001_answer2.rb
 3.times do
   puts "Ruby"
 ```

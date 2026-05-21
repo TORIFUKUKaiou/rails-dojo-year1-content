@@ -114,9 +114,10 @@ puts name
 自分の名前を変数に入れて表示してみましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice01_answer.rb)</summary>
 
 ```ruby
+# practice01_answer.rb
 name = "山田太郎"
 puts name
 ```
@@ -140,9 +141,10 @@ puts weather
 好きな食べ物を変数に入れて表示し、別の食べ物に上書きしてもう一度表示してみましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice02_answer.rb)</summary>
 
 ```ruby
+# practice02_answer.rb
 food = "カレー"
 puts food
 
@@ -172,7 +174,7 @@ puts "10" + 20
 ```
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice03_answer.rb)</summary>
 
 エラーになります。文字列と数値は `+` で直接つなげません。
 
@@ -183,12 +185,14 @@ no implicit conversion of Integer into String (TypeError)
 こういうときは `#{}` を使います：
 
 ```ruby
+# practice03_answer.rb
 puts "10#{20}"
 ```
 
 または数値を文字列に変換します：
 
 ```ruby
+# practice03_answer2.rb
 puts "10" + 20.to_s
 ```
 
@@ -221,9 +225,10 @@ puts "========================"
 自分の情報に書き換えて実行してみましょう。項目を増やしてもOKです。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice04_answer.rb)</summary>
 
 ```ruby
+# practice04_answer.rb
 name = "山田太郎"
 age = 18
 hobby = "音楽"
@@ -264,9 +269,10 @@ puts "合計：#{total}円"
 消費税（10%）を含めた合計を表示してみましょう。
 
 <details>
-<summary>解答例</summary>
+<summary>解答例 (practice05_answer.rb)</summary>
 
 ```ruby
+# practice05_answer.rb
 price = 500
 count = 3
 total = price * count
