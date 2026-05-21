@@ -301,10 +301,13 @@ puts scores.length
 ```ruby
 scores = [80, 55, 100]
 total = scores.sum
-average = total / scores.length
+length = scores.length
+average = total / length
 
 puts "平均：#{average}点"
 ```
+
+`scores.length` の結果をいったん `length` に入れてから、`total / length` で平均を計算しています。
 
 実行すると：
 
