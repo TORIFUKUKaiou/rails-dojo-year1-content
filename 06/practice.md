@@ -331,11 +331,29 @@ person = { "name" => "田中", "age" => 20, "city" => "福岡" }
 <details>
 <summary>解答例</summary>
 
+`person.keys` は、キーの一覧を配列として返します。
+
+### 解答例1：1行ずつ表示する
+
 ```ruby
 person = { "name" => "田中", "age" => 20, "city" => "福岡" }
 
 puts person.keys
 ```
+
+`puts person.keys` と書くと、キーが1行ずつ表示されます。
+
+### 解答例2：配列の形で確認する
+
+```ruby
+person = { "name" => "田中", "age" => 20, "city" => "福岡" }
+
+p person.keys
+```
+
+`p person.keys` と書くと、`["name", "age", "city"]` のように配列の形で確認できます。
+
+`p` は、値の中身を確認したいときに使える表示用の命令です。
 
 </details>
 
@@ -354,11 +372,29 @@ person = { "name" => "田中", "age" => 20, "city" => "福岡" }
 <details>
 <summary>解答例</summary>
 
+`person.values` は、値の一覧を配列として返します。
+
+### 解答例1：1行ずつ表示する
+
 ```ruby
 person = { "name" => "田中", "age" => 20, "city" => "福岡" }
 
 puts person.values
 ```
+
+`puts person.values` と書くと、値が1行ずつ表示されます。
+
+### 解答例2：配列の形で確認する
+
+```ruby
+person = { "name" => "田中", "age" => 20, "city" => "福岡" }
+
+p person.values
+```
+
+`p person.values` と書くと、`["田中", 20, "福岡"]` のように配列の形で確認できます。
+
+`p` は、値の中身を確認したいときに使える表示用の命令です。
 
 </details>
 
@@ -1093,11 +1129,13 @@ items = [
 total = 0
 
 items.each do |item|
-  total = total + item["price"] * item["count"]
+  total = total + (item["price"] * item["count"])
 end
 
 puts "合計金額：#{total}円"
 ```
+
+`item["price"] * item["count"]` を `()` で囲むと、先に1商品分の小計を計算していることが分かりやすくなります。
 
 </details>
 
