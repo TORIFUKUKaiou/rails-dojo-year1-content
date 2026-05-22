@@ -250,8 +250,8 @@ end
 ```ruby
 person = { "name" => "田中", "age" => 20, "city" => "福岡" }
 
-puts person.keys
-puts person.values
+p person.keys
+p person.values
 puts person.length
 puts person.key?("name")
 ```
@@ -262,6 +262,34 @@ puts person.key?("name")
 - `values`：値の一覧を取り出す
 - `length`：キーと値のセットがいくつあるか調べる
 - `key?("name")`：そのキーがあるか調べる
+
+`person.keys` は、キーの一覧を配列として返します。
+
+`person.values` も、値の一覧を配列として返します。
+
+`puts person.keys` と書くと、キーが1行ずつ表示されます。
+
+```text
+name
+age
+city
+```
+
+配列の形で確認したいときは、`p` を使います。
+
+```ruby
+p person.keys
+p person.values
+```
+
+実行すると、配列の形のまま表示できます。
+
+```text
+["name", "age", "city"]
+["田中", 20, "福岡"]
+```
+
+`p` は、値の中身を確認したいときに使える表示用の命令です。
 
 `key?` は、条件分岐と組み合わせると便利です。
 
