@@ -1260,8 +1260,9 @@ ruby stretch21_answer.rb
 
 ### やってみよう
 
-数値の配列と基準値を引数として受け取り、基準値以上の要素がいくつあるかを数えて返す `count_above` メソッドを作ってみましょう。
+数値の配列と基準値を引数として受け取り、基準値以上の点数がいくつあるかを数えて返す `count_scores_at_least` メソッドを作ってみましょう。
 引数名は `scores` と `threshold` とします。
+<ruby>threshold<rt>スレッショルド</rt></ruby> は、「しきい値」のことで、ここを超えたら扱いを変える、という境目です。
 メソッドの内部で変数 `count = 0` を用意し、`scores.each` を使って条件を満たす要素をカウントしてください。
 
 次の配列と基準値について呼び出し、それぞれの戻り値を `puts` で表示してください。
@@ -1270,8 +1271,8 @@ ruby stretch21_answer.rb
 scores = [85, 42, 90, 63, 77, 58, 92]
 ```
 
-1. `count_above(scores, 80)` （80点以上は何人？）
-2. `count_above(scores, 60)` （60点以上は何人？）
+1. `count_scores_at_least(scores, 80)` （80点以上は何人？）
+2. `count_scores_at_least(scores, 60)` （60点以上は何人？）
 
 作成するファイル：
 ```text
@@ -1296,7 +1297,7 @@ ruby stretch22.rb
 
 ```ruby
 # stretch22_answer.rb
-def count_above(scores, threshold)
+def count_scores_at_least(scores, threshold)
   count = 0
   scores.each do |score|
     if score >= threshold
@@ -1307,8 +1308,8 @@ def count_above(scores, threshold)
 end
 
 scores = [85, 42, 90, 63, 77, 58, 92]
-puts count_above(scores, 80)
-puts count_above(scores, 60)
+puts count_scores_at_least(scores, 80)
+puts count_scores_at_least(scores, 60)
 ```
 
 解答例を確認するときは、`stretch22_answer.rb` を作成し、上のコードを書いてから次を実行してください。
