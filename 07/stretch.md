@@ -636,21 +636,16 @@ ruby stretch11_answer.rb
 
 ---
 
-## 📝 問題12：在庫数に応じてラベルを返す ( `stretch12.rb` )
+## 📝 問題12：割引率に応じた価格を計算する ( `stretch12.rb` )
 
 ### やってみよう
 
-在庫数を引数として受け取り、在庫の状況に応じたラベルの文字列を返す `stock_label` メソッドを作ってみましょう。
-引数名は `stock` とします。ラベルの基準は以下とします。
-
-- `10` 以上：`"在庫十分"`
-- `1` 以上 `10` 未満：`"残りわずか"`
-- `0` 以下：`"在庫なし"`
-
-次の3つの在庫数について呼び出し、それぞれの戻り値を `puts` で表示してください。
-1. `15`
-2. `4`
-3. `0`
+元の価格と割引率を引数で受け取り、割引適用後の価格を計算して返す `apply_discount` メソッドを作ってみましょう。
+引数名は `price` と `rate` とします。`rate` には `0.2` (2割引き) や `0.5` (半額) などの小数が渡されます。
+計算式は `price * (1 - rate)` としてください（戻り値は小数を含んでも構いません。Rubyでは自動で小数になります）。
+メソッドの中では計算結果だけを返し、表示処理は行わないでください。
+`puts` を使い、次の呼び出し結果を表示してください。
+1. 元の価格 `1000`、割引率 `0.3`（3割引き）
 
 作成するファイル：
 ```text
@@ -659,9 +654,7 @@ stretch12.rb
 
 表示例：
 ```text
-在庫十分
-残りわずか
-在庫なし
+700.0
 ```
 
 実行するコマンド：
@@ -676,19 +669,11 @@ ruby stretch12.rb
 
 ```ruby
 # stretch12_answer.rb
-def stock_label(stock)
-  if stock >= 10
-    "在庫十分"
-  elsif stock >= 1
-    "残りわずか"
-  else
-    "在庫なし"
-  end
+def apply_discount(price, rate)
+  price * (1 - rate)
 end
 
-puts stock_label(15)
-puts stock_label(4)
-puts stock_label(0)
+puts apply_discount(1000, 0.3)
 ```
 
 解答例を確認するときは、`stretch12_answer.rb` を作成し、上のコードを書いてから次を実行してください。
@@ -703,16 +688,15 @@ ruby stretch12_answer.rb
 
 ---
 
-## 📝 問題13：割引率に応じた価格を計算する ( `stretch13.rb` )
+## 📝 問題13：大人かどうか判定するメソッド ( `stretch13.rb` )
 
 ### やってみよう
 
-元の価格と割引率を引数で受け取り、割引適用後の価格を計算して返す `apply_discount` メソッドを作ってみましょう。
-引数名は `price` と `rate` とします。`rate` には `0.2` (2割引き) や `0.5` (半額) などの小数が渡されます。
-計算式は `price * (1 - rate)` としてください（戻り値は小数を含んでも構いません。Rubyでは自動で小数になります）。
-メソッドの中では計算結果だけを返し、表示処理は行わないでください。
-`puts` を使い、次の呼び出し結果を表示してください。
-1. 元の価格 `1000`、割引率 `0.3`（3割引き）
+年齢を引数として受け取り、その年齢が18歳以上（大人）なら `true`、18歳未満（子供）なら `false` を戻り値として返す `adult?` メソッドを作ってみましょう。
+引数名は `age` とします。メソッドの中では `puts` などの表示は行わず、比較結果だけを返すようにしてください。
+`puts` を使い、次の2つの年齢について判定結果を表示してください。
+1. `20`
+2. `15`
 
 作成するファイル：
 ```text
@@ -721,7 +705,8 @@ stretch13.rb
 
 表示例：
 ```text
-700.0
+true
+false
 ```
 
 実行するコマンド：
@@ -736,11 +721,12 @@ ruby stretch13.rb
 
 ```ruby
 # stretch13_answer.rb
-def apply_discount(price, rate)
-  price * (1 - rate)
+def adult?(age)
+  age >= 18
 end
 
-puts apply_discount(1000, 0.3)
+puts adult?(20)
+puts adult?(15)
 ```
 
 解答例を確認するときは、`stretch13_answer.rb` を作成し、上のコードを書いてから次を実行してください。
@@ -755,15 +741,14 @@ ruby stretch13_answer.rb
 
 ---
 
-## 📝 問題14：大人かどうか判定するメソッド ( `stretch14.rb` )
+## 📝 問題14：判定結果を外側の条件分岐で利用する ( `stretch14.rb` )
 
 ### やってみよう
 
-年齢を引数として受け取り、その年齢が18歳以上（大人）なら `true`、18歳未満（子供）なら `false` を戻り値として返す `adult?` メソッドを作ってみましょう。
-引数名は `age` とします。メソッドの中では `puts` などの表示は行わず、比較結果だけを返すようにしてください。
-`puts` を使い、次の2つの年齢について判定結果を表示してください。
-1. `20`
-2. `15`
+問13で作った `adult?` メソッドを定義し、その結果を使って外側の `if` 分岐で表示するメッセージを切り替えてみましょう。
+変数 `user_age` に `17` を代入しておきます。
+メソッド `adult?(user_age)` を呼び出して結果を変数 `is_adult` に代入してください。
+その後、`if is_adult` を使って、大人の場合は「ビールを注文できます」、そうでない場合は「ソフトドリンクを注文できます」と `puts` で画面に表示してください。
 
 作成するファイル：
 ```text
@@ -772,8 +757,7 @@ stretch14.rb
 
 表示例：
 ```text
-true
-false
+ソフトドリンクを注文できます
 ```
 
 実行するコマンド：
@@ -792,8 +776,14 @@ def adult?(age)
   age >= 18
 end
 
-puts adult?(20)
-puts adult?(15)
+user_age = 17
+is_adult = adult?(user_age)
+
+if is_adult
+  puts "ビールを注文できます"
+else
+  puts "ソフトドリンクを注文できます"
+end
 ```
 
 解答例を確認するときは、`stretch14_answer.rb` を作成し、上のコードを書いてから次を実行してください。
@@ -808,64 +798,7 @@ ruby stretch14_answer.rb
 
 ---
 
-## 📝 問題15：判定結果を外側の条件分岐で利用する ( `stretch15.rb` )
-
-### やってみよう
-
-問14で作った `adult?` メソッドを定義し、その結果を使って外側の `if` 分岐で表示するメッセージを切り替えてみましょう。
-変数 `user_age` に `17` を代入しておきます。
-メソッド `adult?(user_age)` を呼び出して結果を変数 `is_adult` に代入してください。
-その後、`if is_adult` を使って、大人の場合は「ビールを注文できます」、そうでない場合は「ソフトドリンクを注文できます」と `puts` で画面に表示してください。
-
-作成するファイル：
-```text
-stretch15.rb
-```
-
-表示例：
-```text
-ソフトドリンクを注文できます
-```
-
-実行するコマンド：
-```bash
-ruby stretch15.rb
-```
-
-上の表示になれば成功です。
-
-<details>
-<summary>解答例 (stretch15_answer.rb)</summary>
-
-```ruby
-# stretch15_answer.rb
-def adult?(age)
-  age >= 18
-end
-
-user_age = 17
-is_adult = adult?(user_age)
-
-if is_adult
-  puts "ビールを注文できます"
-else
-  puts "ソフトドリンクを注文できます"
-end
-```
-
-解答例を確認するときは、`stretch15_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby stretch15_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
-</details>
-
----
-
-## 📝 問題16：点数から成績評価を返す ( `stretch16.rb` )
+## 📝 問題15：点数から成績評価を返す ( `stretch15.rb` )
 
 ### やってみよう
 
@@ -884,7 +817,7 @@ ruby stretch15_answer.rb
 
 作成するファイル：
 ```text
-stretch16.rb
+stretch15.rb
 ```
 
 表示例：
@@ -896,16 +829,16 @@ D
 
 実行するコマンド：
 ```bash
-ruby stretch16.rb
+ruby stretch15.rb
 ```
 
 上の表示になれば成功です。
 
 <details>
-<summary>解答例 (stretch16_answer.rb)</summary>
+<summary>解答例 (stretch15_answer.rb)</summary>
 
 ```ruby
-# stretch16_answer.rb
+# stretch15_answer.rb
 def grade(score)
   if score >= 90
     "A"
@@ -923,6 +856,59 @@ puts grade(75)
 puts grade(45)
 ```
 
+解答例を確認するときは、`stretch15_answer.rb` を作成し、上のコードを書いてから次を実行してください。
+
+```bash
+ruby stretch15_answer.rb
+```
+
+自分のプログラムと解答例の表示結果を比べてください。
+
+</details>
+
+---
+
+## 📝 問題16：在庫切れかどうか判定する ( `stretch16.rb` )
+
+### やってみよう
+
+在庫数を受け取り、在庫切れ（0以下）であれば `true`、在庫があれば `false` を返す `out_of_stock?` メソッドを作ってみましょう。
+引数名は `stock` とします。メソッドの中では `puts` などの表示は行わず、比較した判定結果だけを返すようにしてください。
+`puts` を使い、次の2つの在庫数について判定結果を表示してください。
+1. `0`
+2. `5`
+
+作成するファイル：
+```text
+stretch16.rb
+```
+
+表示例：
+```text
+true
+false
+```
+
+実行するコマンド：
+```bash
+ruby stretch16.rb
+```
+
+上の表示になれば成功です。
+
+<details>
+<summary>解答例 (stretch16_answer.rb)</summary>
+
+```ruby
+# stretch16_answer.rb
+def out_of_stock?(stock)
+  stock <= 0
+end
+
+puts out_of_stock?(0)
+puts out_of_stock?(5)
+```
+
 解答例を確認するときは、`stretch16_answer.rb` を作成し、上のコードを書いてから次を実行してください。
 
 ```bash
@@ -935,15 +921,16 @@ ruby stretch16_answer.rb
 
 ---
 
-## 📝 問題17：在庫切れかどうか判定する ( `stretch17.rb` )
+## 📝 問題17：在庫ステータス文字列を返す ( `stretch17.rb` )
 
 ### やってみよう
 
-在庫数を受け取り、在庫切れ（0以下）であれば `true`、在庫があれば `false` を返す `out_of_stock?` メソッドを作ってみましょう。
-引数名は `stock` とします。メソッドの中では `puts` などの表示は行わず、比較した判定結果だけを返すようにしてください。
-`puts` を使い、次の2つの在庫数について判定結果を表示してください。
+問16の `out_of_stock?` メソッドを定義し、その結果を利用して在庫の状況メッセージを返す `stock_status_message` メソッドをさらに作ってみましょう。
+`stock_status_message` メソッドは引数として `stock` を受け取り、その中で `out_of_stock?(stock)` を呼び出します。
+もし戻り値が `true` なら `"売り切れ"`、`false` なら `"在庫あり"` という文字列を戻り値として返してください。
+`puts` を使い、次の2つの在庫数についてステータスメッセージを表示してください。
 1. `0`
-2. `5`
+2. `8`
 
 作成するファイル：
 ```text
@@ -952,8 +939,8 @@ stretch17.rb
 
 表示例：
 ```text
-true
-false
+売り切れ
+在庫あり
 ```
 
 実行するコマンド：
@@ -972,8 +959,16 @@ def out_of_stock?(stock)
   stock <= 0
 end
 
-puts out_of_stock?(0)
-puts out_of_stock?(5)
+def stock_status_message(stock)
+  if out_of_stock?(stock)
+    "売り切れ"
+  else
+    "在庫あり"
+  end
+end
+
+puts stock_status_message(0)
+puts stock_status_message(8)
 ```
 
 解答例を確認するときは、`stretch17_answer.rb` を作成し、上のコードを書いてから次を実行してください。
@@ -988,55 +983,82 @@ ruby stretch17_answer.rb
 
 ---
 
-## 📝 問題18：在庫ステータス文字列を返す ( `stretch18.rb` )
+## 📝 問題18：商品ハッシュから在庫管理メッセージを返す ( `stretch18.rb` )
 
 ### やってみよう
 
-問17の `out_of_stock?` メソッドを定義し、その結果を利用して在庫の状況メッセージを返す `stock_status_message` メソッドをさらに作ってみましょう。
-`stock_status_message` メソッドは引数として `stock` を受け取り、その中で `out_of_stock?(stock)` を呼び出します。
-もし戻り値が `true` なら `"売り切れ"`、`false` なら `"在庫あり"` という文字列を戻り値として返してください。
-`puts` を使い、次の2つの在庫数についてステータスメッセージを表示してください。
-1. `0`
-2. `8`
+商品情報のハッシュを受け取り、商品名と在庫数に応じた管理用メッセージを返す `make_stock_message` メソッドを作ってみましょう。
+
+引数名は `item` とします。商品ハッシュには、次の情報が入っています。
+
+- `"name"`：商品名
+- `"stock"`：現在の在庫数
+
+メッセージは、次のルールで返してください。
+
+- 在庫数が `0` の場合：
+  `"消しゴム：在庫なし。発注が必要です"` のような文字列を返す。
+- 在庫数が `1` 以上 `3` 以下の場合：
+  `"ノート：残り2個。そろそろ発注してください"` のような文字列を返す。
+- 在庫数が `4` 以上の場合：
+  `"鉛筆：在庫は十分です"` のような文字列を返す。
+
+次の3つの商品について、それぞれ `make_stock_message` メソッドを呼び出し、戻り値を `puts` で表示してください。
+
+```ruby
+eraser = { "name" => "消しゴム", "stock" => 0 }
+notebook = { "name" => "ノート", "stock" => 2 }
+pencil = { "name" => "鉛筆", "stock" => 12 }
+```
 
 作成するファイル：
+
 ```text
 stretch18.rb
 ```
 
 表示例：
+
 ```text
-売り切れ
-在庫あり
+消しゴム：在庫なし。発注が必要です
+ノート：残り2個。そろそろ発注してください
+鉛筆：在庫は十分です
 ```
 
 実行するコマンド：
+
 ```bash
 ruby stretch18.rb
 ```
 
-上の表示になれば成功です。
+上の3種類のメッセージが表示されれば成功です。
 
 <details>
 <summary>解答例 (stretch18_answer.rb)</summary>
 
 ```ruby
 # stretch18_answer.rb
-def out_of_stock?(stock)
-  stock <= 0
-end
-
-def stock_status_message(stock)
-  if out_of_stock?(stock)
-    "売り切れ"
+def make_stock_message(item)
+  if item["stock"] == 0
+    "#{item["name"]}：在庫なし。発注が必要です"
+  elsif item["stock"] <= 3
+    "#{item["name"]}：残り#{item["stock"]}個。そろそろ発注してください"
   else
-    "在庫あり"
+    "#{item["name"]}：在庫は十分です"
   end
 end
 
-puts stock_status_message(0)
-puts stock_status_message(8)
+eraser = { "name" => "消しゴム", "stock" => 0 }
+notebook = { "name" => "ノート", "stock" => 2 }
+pencil = { "name" => "鉛筆", "stock" => 12 }
+
+puts make_stock_message(eraser)
+puts make_stock_message(notebook)
+puts make_stock_message(pencil)
 ```
+
+`make_stock_message` は、在庫数だけではなく、ハッシュから取り出した商品名も使って管理用の文章を作っています。
+在庫数によって返す文章を切り替えるため、問16・17よりも複数の情報を組み合わせた処理になっています。
 
 解答例を確認するときは、`stretch18_answer.rb` を作成し、上のコードを書いてから次を実行してください。
 
