@@ -90,13 +90,17 @@ ruby main.rb
 `main.rb` は動作確認用のファイルです。
 ここから先の練習では、問題ごとに `practice01.rb`、`practice02.rb` のような新しいファイルを作って進めましょう。
 
+> [!IMPORTANT]
+> この授業では、**「メソッドの中には puts を書かず、計算結果や文章を戻り値として返す」**ことを基本方針とします。
+> メソッドを作る問題では、メソッド内に `puts` を書かないように注意しましょう。
+
 ---
 
 ## 📝 1. メソッドを作る ( `practice01.rb` )
 
 ### やってみよう
 
-「こんにちは」と表示する `greet` メソッドを作ってみましょう。
+「こんにちは」という文字列を戻り値として返す `make_message` メソッドを作ってみましょう。
 ただし、この問題ではメソッドを作る（定義する）だけにして、呼び出す命令は書かないでください。
 
 作成するファイル：
@@ -117,8 +121,8 @@ ruby practice01.rb
 
 ```ruby
 # practice01_answer.rb
-def greet
-  puts "こんにちは"
+def make_message
+  "こんにちは"
 end
 ```
 
@@ -138,7 +142,10 @@ ruby practice01_answer.rb
 
 ### やってみよう
 
-問1で作った `greet` メソッドを定義し、その下でメソッドを「呼び出して」実行してみましょう。
+問1で作った `make_message` メソッドを定義し、その下でメソッドを呼び出し、`puts` を使って画面に表示してみましょう。
+
+> [!IMPORTANT]
+> 画面への表示は、メソッドを呼び出す「外側」で `puts` を使って行います。
 
 作成するファイル：
 ```text
@@ -162,11 +169,11 @@ ruby practice02.rb
 
 ```ruby
 # practice02_answer.rb
-def greet
-  puts "こんにちは"
+def make_message
+  "こんにちは"
 end
 
-greet
+puts make_message
 ```
 
 解答例を確認するときは、`practice02_answer.rb` を作成し、上のコードを書いてから次を実行してください。
@@ -181,12 +188,14 @@ ruby practice02_answer.rb
 
 ---
 
-## 📝 3. 同じメソッドを複数回呼び出す ( `practice03.rb` )
+## 📝 3. 受付用の入場券を100枚作る ( `practice03.rb` )
 
 ### やってみよう
 
-「おはようございます」と表示する `say_morning` メソッドを作り、そのメソッドを `times` を使って「100回」呼び出してみましょう。
-第4回で学んだ `100.times` の繰り返しの中に、メソッドを呼び出すコードを書いてください。
+学校の体験会で、受付に来た100人へ同じ内容の入場券を渡します。
+1行の表示を「1枚分の入場券」と考え、入場券の文字列 `"Ruby体験会 入場券"` を戻り値として返す `make_ticket` メソッドを作ってみましょう。
+
+入場券は100枚必要です。`puts make_ticket` を100行コピーして書くのではなく、第4回で学んだ `100.times` の中で `puts` を使い、メソッドの戻り値を100回表示してください。
 
 作成するファイル：
 ```text
@@ -195,10 +204,10 @@ practice03.rb
 
 表示例（最初の数行）：
 ```text
-おはようございます
-おはようございます
-おはようございます
-...（合計100回表示されます）
+Ruby体験会 入場券
+Ruby体験会 入場券
+Ruby体験会 入場券
+...（同じ入場券が合計100枚分表示されます）
 ```
 
 実行するコマンド：
@@ -206,19 +215,19 @@ practice03.rb
 ruby practice03.rb
 ```
 
-上の表示（100行のおはようございます）になれば成功です。
+`Ruby体験会 入場券` が100行表示されれば、100枚分の入場券を作れたことになります。
 
 <details>
 <summary>解答例 (practice03_answer.rb)</summary>
 
 ```ruby
 # practice03_answer.rb
-def say_morning
-  puts "おはようございます"
+def make_ticket
+  "Ruby体験会 入場券"
 end
 
 100.times do
-  say_morning
+  puts make_ticket
 end
 ```
 
@@ -238,9 +247,9 @@ ruby practice03_answer.rb
 
 ### やってみよう
 
-引数として名前を受け取る `greet` メソッドを作ってみましょう。
-引数名は `name` とし、メソッドの中で「こんにちは、○○さん」と表示されるようにしてください。
-メソッドを作ったら、引数に `"田中"` を渡して呼び出してください。
+引数として名前を受け取り、「こんにちは、○○さん」という文字列を戻り値として返す `make_greeting` メソッドを作ってみましょう。
+引数名は `name` とします。
+メソッドを定義したら、メソッドの外で `puts` を使い、引数に `"田中"` を渡して呼び出した結果を表示してください。
 
 作成するファイル：
 ```text
@@ -264,11 +273,11 @@ ruby practice04.rb
 
 ```ruby
 # practice04_answer.rb
-def greet(name)
-  puts "こんにちは、#{name}さん"
+def make_greeting(name)
+  "こんにちは、#{name}さん"
 end
 
-greet("田中")
+puts make_greeting("田中")
 ```
 
 解答例を確認するときは、`practice04_answer.rb` を作成し、上のコードを書いてから次を実行してください。
@@ -287,9 +296,9 @@ ruby practice04_answer.rb
 
 ### やってみよう
 
-引数として名前を受け取る `say_goodnight` メソッドを作ってみましょう。
-引数名は `name` とし、メソッドの中で「おやすみなさい、○○さん」と表示されるようにしてください。
-メソッドを作ったら、次の2つの名前を引数に渡して、それぞれ呼び出してください。
+引数として名前を受け取り、「おやすみなさい、○○さん」という文字列を戻り値として返す `make_goodnight` メソッドを作ってみましょう。
+引数名は `name` とします。
+メソッドを定義したら、メソッドの外で `puts` を使い、次の2つの名前を引数に渡して、それぞれ呼び出した結果を表示してください。
 1. `"佐藤"`
 2. `"鈴木"`
 
@@ -316,12 +325,12 @@ ruby practice05.rb
 
 ```ruby
 # practice05_answer.rb
-def say_goodnight(name)
-  puts "おやすみなさい、#{name}さん"
+def make_goodnight(name)
+  "おやすみなさい、#{name}さん"
 end
 
-say_goodnight("佐藤")
-say_goodnight("鈴木")
+puts make_goodnight("佐藤")
+puts make_goodnight("鈴木")
 ```
 
 解答例を確認するときは、`practice05_answer.rb` を作成し、上のコードを書いてから次を実行してください。
@@ -398,9 +407,9 @@ ruby practice06_answer.rb
 
 ### やってみよう
 
-名前と年齢の2つの引数を受け取る `introduce` メソッドを作ってみましょう。
-引数名は `name` と `age` とし、メソッドの中で「○○さんは△△歳です」と表示されるようにしてください。
-メソッドを作ったら、次の2組のデータを引数に渡して、それぞれ呼び出してください。
+名前と年齢の2つの引数を受け取り、「○○さんは△△歳です」という文字列を戻り値として返す `make_introduction` メソッドを作ってみましょう。
+引数名は `name` と `age` とします。
+メソッドを定義したら、メソッドの外で `puts` を使い、次の2組のデータを引数に渡して、それぞれ呼び出した結果を表示してください。
 1. 名前 `"山田"`、年齢 `18`
 2. 名前 `"小林"`、年齢 `20`
 
@@ -427,12 +436,12 @@ ruby practice07.rb
 
 ```ruby
 # practice07_answer.rb
-def introduce(name, age)
-  puts "#{name}さんは#{age}歳です"
+def make_introduction(name, age)
+  "#{name}さんは#{age}歳です"
 end
 
-introduce("山田", 18)
-introduce("小林", 20)
+puts make_introduction("山田", 18)
+puts make_introduction("小林", 20)
 ```
 
 解答例を確認するときは、`practice07_answer.rb` を作成し、上のコードを書いてから次を実行してください。
@@ -501,14 +510,18 @@ ruby practice08_answer.rb
 
 ---
 
-## 📝 9. 計算結果を戻り値として返す ( `practice09.rb` )
+## 📝 9. 戻り値は自動では表示されないことを確認する ( `practice09.rb` )
 
 ### やってみよう
+
+問6と問8では、メソッドの呼び出し結果を `puts` に渡して、画面に表示しました。
+この問題では、メソッドから戻り値が返ってきても、表示する命令を書かなければ画面には表示されないことを確認します。
 
 2つの数値を受け取り、その合計を**戻り値として返す** `add` メソッドを作ってみましょう。
 引数名は `a` と `b` とします。
 メソッドの中では `puts` などの表示は行わず、計算結果の式だけを書いてください。
-メソッドを定義したら、引数に `10` と `20` を渡して呼び出すコードを書いてください（結果を変数に代入するだけで、画面には何も表示しません）。
+メソッドを定義したら、引数に `10` と `20` を渡して呼び出し、戻り値を変数 `result` に代入してください。
+この問題では、`puts result` は書かないでください。
 
 作成するファイル：
 ```text
@@ -520,8 +533,8 @@ practice09.rb
 ruby practice09.rb
 ```
 
-この問題では、まだ画面に表示する命令を書いていません。
-実行してエラーが出ず、何も表示されなければ成功です。
+`result` には計算結果の `30` が入りますが、この問題では画面に表示する命令を書いていません。
+実行してエラーが出ず、何も表示されなければ、戻り値と画面表示は別であることを確認できています。
 
 <details>
 <summary>解答例 (practice09_answer.rb)</summary>
@@ -542,16 +555,18 @@ ruby practice09_answer.rb
 ```
 
 実行してエラーが出ず、何も表示されないことを確認してください。
+次の問10では、この `result` を画面に表示して結果を比べます。
 
 </details>
 
 ---
 
-## 📝 10. 戻り値を変数に入れて表示する ( `practice10.rb` )
+## 📝 10. 問9の戻り値を画面に表示して確認する ( `practice10.rb` )
 
 ### やってみよう
 
-問9で作った `add` メソッドを定義し、呼び出し時に返ってきた戻り値を変数 `result` に代入して、`puts result` で画面に表示してみましょう。
+問9では、`result` に戻り値が入っていても、画面には何も表示されませんでした。
+今度は、問9と同じ `add` メソッドを定義し、呼び出し時に返ってきた戻り値を変数 `result` に代入して、`puts result` で画面に表示してみましょう。
 引数には `10` と `20` を渡してください。
 
 作成するファイル：
@@ -569,7 +584,8 @@ practice10.rb
 ruby practice10.rb
 ```
 
-上の表示になれば成功です。
+問9では何も表示されず、この問題では `30` が表示されれば成功です。
+メソッドが返した値を画面で見たいときには、外側で `puts` を使う必要があることを確認してください。
 
 <details>
 <summary>解答例 (practice10_answer.rb)</summary>
@@ -637,7 +653,8 @@ puts answer
 ```
 
 `result` には、`add(100, 200)` の戻り値である `300` が入ります。
-その `result` を次の `add` メソッドに引数として渡すため、`300 + 50` の結果である `350` が `answer` に入ります。
+その `result` をもう一度 `add` メソッドの引数として渡すため、`300 + 50` の結果である `350` が `answer` に入ります。
+このように、あるメソッドの戻り値を、その後のメソッド呼び出しで使うことができます。
 
 解答例を確認するときは、`practice11_answer.rb` を作成し、上のコードを書いてから次を実行してください。
 
@@ -879,7 +896,7 @@ ruby practice15_answer.rb
 
 ---
 
-## 📝 16. スコープ（見えない壁）のエラーを確認する ( `practice16.rb` )
+## 📝 16. スコープ（変数の見えない壁）のエラーを確認する ( `practice16.rb` )
 
 ### やってみよう
 
@@ -889,11 +906,11 @@ ruby practice15_answer.rb
 ```ruby
 message = "こんにちは"
 
-def say_hello
-  puts message
+def get_message
+  message
 end
 
-say_hello
+puts get_message
 ```
 
 作成するファイル：
@@ -907,7 +924,7 @@ ruby practice16.rb
 ```
 
 > [!IMPORTANT]
-> この課題は、メソッドの外で作った変数を中から使うとエラーになることを確認する問題です。
+> この課題は、メソッドの外で作った変数を中から直接使おうとするとエラーになることを確認する問題です。
 > 実行するとエラーになりますが、この問題ではエラーが表示されれば確認成功です。
 
 ### どんなエラーが表示された？
@@ -921,11 +938,11 @@ ruby practice16.rb
 # practice16_answer.rb
 message = "こんにちは"
 
-def say_hello
-  puts message
+def get_message
+  message
 end
 
-say_hello
+puts get_message
 ```
 
 解答例を確認するときは、`practice16_answer.rb` を作成し、上のコードを書いてから次を実行してください。
@@ -945,7 +962,7 @@ ruby practice16_answer.rb
 ### やってみよう
 
 問16でエラーになったプログラムを、**引数**を使って正しく動くように修正してみましょう。
-`say_hello` メソッドに引数 `text` を追加し、メソッドを呼び出す際に外側の変数 `message` を引数として渡すように書き換えてください。
+`get_message` メソッドに引数 `text` を追加し、呼び出し時に外側の変数 `message` を引数として渡すように書き換えてください。
 
 作成するファイル：
 ```text
@@ -971,16 +988,17 @@ ruby practice17.rb
 # practice17_answer.rb
 message = "こんにちは"
 
-def say_hello(text)
-  puts text
+def get_message(text)
+  text
 end
 
-say_hello(message)
+puts get_message(message)
 ```
 
 `message` はメソッドの外側で作った変数で、中には文字列 `"こんにちは"` が入っています。
-`say_hello(message)` と呼び出すと、`message` に入っている値がメソッドへ渡され、メソッドの中では引数 `text` という名前で受け取ります。
-そのため、外側と内側で変数名が `message` と `text` のように違っていても、`puts text` で `"こんにちは"` を表示できます。
+`get_message(message)` と呼び出すと、`message` に入っている値がメソッドへ渡され、メソッドの中では引数 `text` という名前で受け取ります。
+外側の変数名 `message` と、メソッド内の引数名 `text` が同じでなくても、値を渡して使うことができます。
+`get_message` は受け取った文字列を戻り値として返し、外側の `puts` がそれを表示しています。
 
 解答例を確認するときは、`practice17_answer.rb` を作成し、上のコードを書いてから次を実行してください。
 
@@ -1807,32 +1825,33 @@ ruby practice29_answer.rb
 
 ---
 
-## 📝 30. 【総合問題2】お会計とクーポンの割引処理 ( `practice30.rb` )
+## 📝 30. 【総合問題2】セール商品の価格表示 ( `practice30.rb` )
 
 ### やってみよう
 
 第7回のまとめ問題です。
-商品の価格とクーポンの有無によってお会計のテキストを表示するプログラムを、2つのメソッドを組み合わせて作ってみましょう。
+売り場には、通常価格の商品と、100円引きセールの対象商品があります。
+商品の価格と、その商品がセール対象かどうかによって価格表示を作るプログラムを、2つのメソッドを組み合わせて作ってみましょう。
 
 次の2つのメソッドを作ってください。
-1. `apply_discount(price, coupon_used)`:
-   商品の元の価格 `price` と、クーポン使用の有無 `coupon_used`（`true` または `false`）を引数で受け取る。
-   クーポンが使用されている（`coupon_used` が `true`）場合は価格から `100` 引いた値を、そうでない（`false`）場合はそのままの価格を戻り値として返す。
-2. `create_bill(item)`:
+1. `calc_sale_price(price, on_sale)`:
+   商品の通常価格 `price` と、その商品がセール対象かどうかを表す `on_sale`（`true` または `false`）を引数で受け取る。
+   セール対象である（`on_sale` が `true`）場合は価格から `100` 引いた値を、そうでない（`false`）場合はそのままの価格を戻り値として返す。
+2. `format_price_label(item)`:
    商品情報のハッシュ `item` を引数で受け取る。
-   メソッドの中で `apply_discount` メソッドを呼び出して割引後の価格を計算し、「【お会計】○○: △△円」という文字列を戻り値として返す。
+   メソッドの中で `calc_sale_price` メソッドを呼び出して表示する価格を計算し、「【価格表示】○○: △△円」という文字列を戻り値として返す。
 
 メソッドを定義したら、次の配列を定義してください。
 
 ```ruby
 items = [
-  { "name" => "りんご", "price" => 150, "coupon" => true },
-  { "name" => "バナナ", "price" => 120, "coupon" => false },
-  { "name" => "ぶどう", "price" => 300, "coupon" => true }
+  { "name" => "りんご", "price" => 150, "on_sale" => true },
+  { "name" => "バナナ", "price" => 120, "on_sale" => false },
+  { "name" => "ぶどう", "price" => 300, "on_sale" => true }
 ]
 ```
 
-`items.each` で商品を1つずつ取り出し、`create_bill` メソッドを呼び出し、その戻り値を `puts` で画面に表示してください。
+`items.each` で商品を1つずつ取り出し、`format_price_label` メソッドを呼び出し、その戻り値を `puts` で画面に表示してください。
 
 作成するファイル：
 ```text
@@ -1841,9 +1860,9 @@ practice30.rb
 
 表示例：
 ```text
-【お会計】りんご: 50円
-【お会計】バナナ: 120円
-【お会計】ぶどう: 200円
+【価格表示】りんご: 50円
+【価格表示】バナナ: 120円
+【価格表示】ぶどう: 200円
 ```
 
 実行するコマンド：
@@ -1858,28 +1877,28 @@ ruby practice30.rb
 
 ```ruby
 # practice30_answer.rb
-def apply_discount(price, coupon_used)
-  if coupon_used
+def calc_sale_price(price, on_sale)
+  if on_sale
     price - 100
   else
     price
   end
 end
 
-def create_bill(item)
-  discounted_price = apply_discount(item["price"], item["coupon"])
-  "【お会計】#{item["name"]}: #{discounted_price}円"
+def format_price_label(item)
+  display_price = calc_sale_price(item["price"], item["on_sale"])
+  "【価格表示】#{item["name"]}: #{display_price}円"
 end
 
 items = [
-  { "name" => "りんご", "price" => 150, "coupon" => true },
-  { "name" => "バナナ", "price" => 120, "coupon" => false },
-  { "name" => "ぶどう", "price" => 300, "coupon" => true }
+  { "name" => "りんご", "price" => 150, "on_sale" => true },
+  { "name" => "バナナ", "price" => 120, "on_sale" => false },
+  { "name" => "ぶどう", "price" => 300, "on_sale" => true }
 ]
 
 items.each do |item|
-  bill = create_bill(item)
-  puts bill
+  price_label = format_price_label(item)
+  puts price_label
 end
 ```
 
