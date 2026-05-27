@@ -702,7 +702,7 @@ ruby practice12_answer.rb
 
 ---
 
-## 📝 13. putsの中身をpで確認する ( `practice13.rb` )
+## 📝 13. `puts` を使ったメソッドの戻り値を `p` で確認する ( `practice13.rb` )
 
 ### やってみよう
 
@@ -1108,7 +1108,7 @@ ruby practice19_answer.rb
 
 ### やってみよう
 
-点数の配列を引数として受け取り、合計点と人数をまとめた文章を戻り値として返す `show_summary` メソッドを作ってみましょう。
+点数の配列を引数として受け取り、合計点と人数をまとめた文章を戻り値として返す `make_summary` メソッドを作ってみましょう。
 引数名は `scores` とします。戻り値は「参加者は○人で、合計点は○点です」という文字列にしてください。
 メソッドを定義したら、次の配列を引数に渡して呼び出し、戻り値を変数 `result` に代入して `puts result` で表示してください。
 
@@ -1138,14 +1138,14 @@ ruby practice20.rb
 
 ```ruby
 # practice20_answer.rb
-def show_summary(scores)
+def make_summary(scores)
   total = scores.sum
   count = scores.length
   "参加者は#{count}人で、合計点は#{total}点です"
 end
 
 points = [80, 90, 70, 85]
-result = show_summary(points)
+result = make_summary(points)
 puts result
 ```
 
@@ -1165,9 +1165,14 @@ ruby practice20_answer.rb
 
 ### やってみよう
 
-ハッシュを引数として受け取り、その中の名前を表示する `show_name` メソッドを作ってみましょう。
-引数名は `person` とし、メソッドの中でハッシュの `"name"` というキーを使って名前を表示してください。
-メソッドを定義したら、次のハッシュを引数に渡して呼び出してください。
+ハッシュを引数として受け取り、その中の名前を戻り値として返す `get_name` メソッドを作ってみましょう。
+引数名は `person` とし、メソッドの中ではハッシュの `"name"` というキーを使って名前を取り出し、その値を戻り値として返してください。
+
+> [!IMPORTANT]
+> この問題では、メソッドの中に `puts` は書きません。
+> 名前を戻り値として返し、メソッドの外で `puts` を使って表示してください。
+
+メソッドを定義したら、次のハッシュを引数に渡して呼び出し、戻り値を `puts` で表示してください。
 
 ```ruby
 student = { "name" => "田中", "age" => 20 }
@@ -1195,13 +1200,16 @@ ruby practice21.rb
 
 ```ruby
 # practice21_answer.rb
-def show_name(person)
-  puts person["name"]
+def get_name(person)
+  person["name"]
 end
 
 student = { "name" => "田中", "age" => 20 }
-show_name(student)
+puts get_name(student)
 ```
+
+`get_name(student)` は、ハッシュから取り出した名前を戻り値として返します。
+画面への表示は、メソッドの外側にある `puts` が担当しています。
 
 解答例を確認するときは、`practice21_answer.rb` を作成し、上のコードを書いてから次を実行してください。
 
@@ -1454,8 +1462,13 @@ ruby practice25_answer.rb
 ### やってみよう
 
 あらかじめ作ったメソッドを、`each` の繰り返し処理の中で何度も使ってみましょう。
-まず、名前を受け取って「こんにちは、○○さん」と表示する `greet` メソッドを作ります（引数名は `name`）。
-その下で次の配列を作り、`each` を使って配列から1人ずつ名前を取り出し、`greet` メソッドに渡して呼び出してください。
+まず、名前を受け取って「こんにちは、○○さん」という文字列を戻り値として返す `make_greeting` メソッドを作ります（引数名は `name`）。
+
+> [!IMPORTANT]
+> この問題では、メソッドの中に `puts` は書きません。
+> メソッドは1人分の挨拶文を戻り値として返し、`each` の中で `puts` を使って表示してください。
+
+その下で次の配列を作り、`each` を使って配列から1人ずつ名前を取り出し、`make_greeting` メソッドに渡してください。返ってきた文字列を `puts` で表示します。
 
 ```ruby
 names = ["田中", "佐藤", "鈴木"]
@@ -1485,16 +1498,18 @@ ruby practice26.rb
 
 ```ruby
 # practice26_answer.rb
-def greet(name)
-  puts "こんにちは、#{name}さん"
+def make_greeting(name)
+  "こんにちは、#{name}さん"
 end
 
 names = ["田中", "佐藤", "鈴木"]
 
 names.each do |name|
-  greet(name)
+  puts make_greeting(name)
 end
 ```
+
+`make_greeting(name)` は挨拶文を作って戻り値として返し、`puts` は `each` の中でその文章を表示します。
 
 解答例を確認するときは、`practice26_answer.rb` を作成し, 上のコードを書いてから次を実行してください。
 
@@ -1668,9 +1683,52 @@ ruby practice28_answer.rb
 
 これまでに学んだメソッドの「引数」「戻り値」「条件分岐」「繰り返し（`each`）」「ハッシュ」を組み合わせてみましょう。
 
+### `true` と `false` を知ろう
+
+条件が正しいかどうかを表す値に、`true`（正しい）と `false`（正しくない）があります。
+この2つは文字列ではないため、`"true"` のように `"` で囲まずに書きます。
+
+比較を行う式は、結果として `true` または `false` を返します。
+
+```ruby
+p 85 >= 80
+p 70 >= 80
+```
+
+実行すると、次のように表示されます。
+
+```text
+true
+false
+```
+
+したがって、次のメソッドは、点数が `80` 以上なら `true`、そうでなければ `false` を戻り値として返します。
+
+```ruby
+def check_high_score(student)
+  student["score"] >= 80
+end
+```
+
+戻り値の `true` または `false` は、変数に入れてから `if` で調べることができます。
+
+```ruby
+student = { "name" => "田中", "score" => 85 }
+
+is_high_score = check_high_score(student)
+
+if is_high_score
+  puts "80点以上です"
+end
+```
+
+`is_high_score` は、「80点以上かどうか」を表す変数です。
+この変数に `true` が入っていると `if` の中の処理が実行されます。
+`false` が入っていると、`if` の中の処理は実行されません。
+
 次の2つのメソッドを作ってください。
 1. `check_high_score(student)`:
-   学生のハッシュを受け取り、点数が `80` 以上なら `true` を、未満なら `false` を戻り値として返す。
+   学生のハッシュを受け取り、`student["score"] >= 80` の判定結果を戻り値として返す。
 2. `format_message(student)`:
    学生のハッシュを受け取り、「優秀者: ○○さん (△△点)」という文字列を戻り値として返す。
 
@@ -1686,8 +1744,8 @@ students = [
 ```
 
 `students.each` で各学生のデータを1つずつ取り出し、次の処理を行ってください。
-- まず `check_high_score` メソッドを使って、その学生が80点以上か判定する。
-- 80点以上（`true`）だった場合のみ、`format_message` メソッドを使ってメッセージを作り、その結果を `puts` で画面に表示する。
+- まず `check_high_score` メソッドを使って、その学生が80点以上か判定し、戻り値を変数 `is_high_score` に入れる。
+- `if is_high_score` と書き、`is_high_score` が `true` の場合のみ、`format_message` メソッドを使ってメッセージを作り、その結果を `puts` で画面に表示する。
 
 作成するファイル：
 ```text
@@ -1713,11 +1771,7 @@ ruby practice29.rb
 ```ruby
 # practice29_answer.rb
 def check_high_score(student)
-  if student["score"] >= 80
-    true
-  else
-    false
-  end
+  student["score"] >= 80
 end
 
 def format_message(student)
@@ -1732,7 +1786,9 @@ students = [
 ]
 
 students.each do |student|
-  if check_high_score(student)
+  is_high_score = check_high_score(student)
+
+  if is_high_score
     message = format_message(student)
     puts message
   end
