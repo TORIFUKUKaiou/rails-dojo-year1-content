@@ -1466,22 +1466,41 @@ ruby stretch25_answer.rb
 
 ---
 
-## 📝 問題26：注文リストのフォーマット行を生成して表示する ( `stretch26.rb` )
+## 📝 問題26：図書館の貸出期限チェック ( `stretch26.rb` )
 
 ### やってみよう
 
-注文情報のハッシュを受け取り、「○○ × △△個」という1行の文字列を返す `format_order_line` メソッドを作ってみましょう。
-引数名は `order` とし、ハッシュの `"product"` と `"qty"` を使ってください。
+本の貸出状況（ハッシュ）を受け取り、返却されているかどうかの状況や、返却期限を過ぎている日数に応じた判定メッセージを組み立てて返す `make_loan_message` メソッドを作ってみましょう。
 
-次の配列を定義し、`each` で1件ずつ `format_order_line` メソッドに渡し、返ってきた文字列を `puts` で表示してください。
+引数名は `book` とします。本のハッシュには、以下のキーと値が含まれます。
+- `"title"`：本のタイトル（文字列）
+- `"returned"`：返却されているかどうか（真偽値：`true` または `false`）
+- `"overdue_days"`：期限を過ぎている日数（数値）
+
+判定メッセージは、以下のルールで組み立てて戻り値として返してください。
+
+- もし `"returned"` が `true`（返却済み）の場合：
+  `「○○」は返却済みです` という文字列を返す。（例：`「Ruby入門」は返却済みです`）
+- もし `"returned"` が `false`（未返却）で、かつ `"overdue_days"` が `1` 以上の場合：
+  `「○○」は返却期限を△△日過ぎています` という文字列を返す。（例：`「Webのしくみ」は返却期限を3日過ぎています`）
+- それ以外（未返却で、期限を過ぎていない）の場合：
+  `「○○」は貸出中です` という文字列を返す。（例：`「データベース基礎」は貸出中です`）
+
+メソッドを定義したら、次の配列を定義してください。
 
 ```ruby
-orders = [
-  { "product" => "鉛筆", "qty" => 3 },
-  { "product" => "ノート", "qty" => 1 },
-  { "product" => "消しゴム", "qty" => 5 }
+books = [
+  { "title" => "Ruby入門", "returned" => true, "overdue_days" => 0 },
+  { "title" => "Webのしくみ", "returned" => false, "overdue_days" => 3 },
+  { "title" => "データベース基礎", "returned" => false, "overdue_days" => 0 }
 ]
 ```
+
+`books.each` で本を1冊ずつ取り出し、`make_loan_message` メソッドに渡して、返ってきた判定メッセージを `puts` で表示してください。3種類の結果がすべて正しく表示されることを確認しましょう。
+
+> [!IMPORTANT]
+> この問題では、真偽値と数値の条件を組み合わせ、状況に応じて異なるメッセージを返します。
+> メソッド内に puts は書かず、表示はメソッドの外側で行ってください。
 
 作成するファイル：
 ```text
@@ -1490,9 +1509,9 @@ stretch26.rb
 
 表示例：
 ```text
-鉛筆 × 3個
-ノート × 1個
-消しゴム × 5個
+「Ruby入門」は返却済みです
+「Webのしくみ」は返却期限を3日過ぎています
+「データベース基礎」は貸出中です
 ```
 
 実行するコマンド：
@@ -1507,22 +1526,30 @@ ruby stretch26.rb
 
 ```ruby
 # stretch26_answer.rb
-def format_order_line(order)
-  "#{order["product"]} × #{order["qty"]}個"
+def make_loan_message(book)
+  if book["returned"] == true
+    "「#{book["title"]}」は返却済みです"
+  elsif book["overdue_days"] >= 1
+    "「#{book["title"]}」は返却期限を#{book["overdue_days"]}日過ぎています"
+  else
+    "「#{book["title"]}」は貸出中です"
+  end
 end
 
-orders = [
-  { "product" => "鉛筆", "qty" => 3 },
-  { "product" => "ノート", "qty" => 1 },
-  { "product" => "消しゴム", "qty" => 5 }
+books = [
+  { "title" => "Ruby入門", "returned" => true, "overdue_days" => 0 },
+  { "title" => "Webのしくみ", "returned" => false, "overdue_days" => 3 },
+  { "title" => "データベース基礎", "returned" => false, "overdue_days" => 0 }
 ]
 
-orders.each do |order|
-  puts format_order_line(order)
+books.each do |book|
+  puts make_loan_message(book)
 end
 ```
 
-`format_order_line` メソッドは1件分のハッシュを受け取り、表示用の文字列を作って返します。実際に画面へ表示するのは `each` の中の `puts` です。
+このメソッドは、本情報のハッシュを受け取り、内部で真偽値と数値を組み合わせた条件分岐を行っています。
+`"returned"` が `true` の場合はすぐに返却済みのメッセージを返し、未返却（`false`）の場合はさらに `"overdue_days"` をチェックして期限を過ぎているか判定します。
+画面への表示は、メソッドの内部ではなく、呼び出し元の `each` の中の `puts` で行っています。
 
 解答例を確認するときは、`stretch26_answer.rb` を作成し、上のコードを書いてから次を実行してください。
 
