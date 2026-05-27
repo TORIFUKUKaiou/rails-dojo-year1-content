@@ -1947,11 +1947,17 @@ ruby stretch31_answer.rb
 2. `make_attendance_report(student)`:
    学生のハッシュ（引数名 `student`）を受け取る。メソッドの中で `attendance_grade(student["attended"], student["total"])` を呼び出してグレードを求め、「○○さんの出席状況: △△」という文字列を返すメソッド。
 
-メソッドを定義したら、次のハッシュを定義して `make_attendance_report` メソッドを呼び出し、戻り値を `puts` で表示してください。
+メソッドを定義したら、次の3人分のハッシュが入った配列を定義してください。
 
 ```ruby
-student_data = { "name" => "高橋", "attended" => 18, "total" => 20 }
+students = [
+  { "name" => "高橋", "attended" => 18, "total" => 20 },
+  { "name" => "佐藤", "attended" => 14, "total" => 20 },
+  { "name" => "鈴木", "attended" => 10, "total" => 20 }
+]
 ```
+
+`students.each` で学生を1人ずつ取り出し、`make_attendance_report` メソッドに渡して、戻り値を `puts` で表示してください。
 
 作成するファイル：
 ```text
@@ -1961,6 +1967,8 @@ stretch32.rb
 表示例：
 ```text
 高橋さんの出席状況: 良好
+佐藤さんの出席状況: 要注意
+鈴木さんの出席状況: 出席不足
 ```
 
 実行するコマンド：
@@ -1968,7 +1976,7 @@ stretch32.rb
 ruby stretch32.rb
 ```
 
-上の表示（18 × 100 / 20 = 90 で 80 以上のため「良好」）になれば成功です。
+上の表示になれば成功です。出席率は、高橋さんが `90`、佐藤さんが `70`、鈴木さんが `50` となり、3段階の評価をすべて確認できます。
 
 <details>
 <summary>解答例 (stretch32_answer.rb)</summary>
@@ -1991,8 +1999,15 @@ def make_attendance_report(student)
   "#{student["name"]}さんの出席状況: #{grade}"
 end
 
-student_data = { "name" => "高橋", "attended" => 18, "total" => 20 }
-puts make_attendance_report(student_data)
+students = [
+  { "name" => "高橋", "attended" => 18, "total" => 20 },
+  { "name" => "佐藤", "attended" => 14, "total" => 20 },
+  { "name" => "鈴木", "attended" => 10, "total" => 20 }
+]
+
+students.each do |student|
+  puts make_attendance_report(student)
+end
 ```
 
 解答例を確認するときは、`stretch32_answer.rb` を作成し、上のコードを書いてから次を実行してください。
