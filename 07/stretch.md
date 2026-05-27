@@ -517,22 +517,31 @@ ruby stretch09_answer.rb
 
 ---
 
-## 📝 問題10：複数の外側の変数を引数でまとめてメソッドへ渡す ( `stretch10.rb` )
+## 📝 問題10：送料と割引を含む支払明細を作る ( `stretch10.rb` )
 
 ### やってみよう
 
-外側で作った複数の変数を、引数を使ってメソッドへ渡してみましょう。
+メソッドの外側で用意した商品代、送料、割引額を引数として渡し、最終的な支払額を含む明細を作ってみましょう。
 
-メソッドの外側で次の3つの変数を定義してください。
+メソッドの外側で次の4つの変数を定義してください。
 
 ```ruby
-item_name = "ノート"
-unit_price = 150
-quantity = 4
+item_name = "ワイヤレスイヤホン"
+subtotal = 2400
+shipping_fee = 300
+coupon_discount = 500
 ```
 
-これらを引数として受け取り、「○○ × △△個 = ☆☆円」という文字列を戻り値として返す `make_order_line` メソッドを定義してください。
-引数名は `name`、`price`、`count` とします。メソッド内で合計金額を計算してください。
+これらを引数として受け取る `make_payment_summary` メソッドを定義してください。
+引数名は `name`、`price`、`shipping`、`discount` とします。
+
+メソッドの中で、次の計算を行って最終的な支払額を求めてください。
+
+```ruby
+total = price + shipping - discount
+```
+
+戻り値は、「○○：商品代△△円 + 送料☆☆円 - 割引□□円 = 支払額◇◇円」という文字列にしてください。
 
 作成するファイル：
 ```text
@@ -541,7 +550,7 @@ stretch10.rb
 
 表示例：
 ```text
-ノート × 4個 = 600円
+ワイヤレスイヤホン：商品代2400円 + 送料300円 - 割引500円 = 支払額2200円
 ```
 
 実行するコマンド：
@@ -556,19 +565,20 @@ ruby stretch10.rb
 
 ```ruby
 # stretch10_answer.rb
-def make_order_line(name, price, count)
-  total = price * count
-  "#{name} × #{count}個 = #{total}円"
+def make_payment_summary(name, price, shipping, discount)
+  total = price + shipping - discount
+  "#{name}：商品代#{price}円 + 送料#{shipping}円 - 割引#{discount}円 = 支払額#{total}円"
 end
 
-item_name = "ノート"
-unit_price = 150
-quantity = 4
+item_name = "ワイヤレスイヤホン"
+subtotal = 2400
+shipping_fee = 300
+coupon_discount = 500
 
-puts make_order_line(item_name, unit_price, quantity)
+puts make_payment_summary(item_name, subtotal, shipping_fee, coupon_discount)
 ```
 
-`item_name`、`unit_price`、`quantity` はメソッドの外側で作った変数です。それぞれ引数 `name`、`price`、`count` として渡されます。外側の変数名とメソッド内の引数名が違っても、値が渡されれば問題ありません。
+`item_name`、`subtotal`、`shipping_fee`、`coupon_discount` は、いずれもメソッドの外側で作った変数です。それぞれ引数 `name`、`price`、`shipping`、`discount` として渡され、メソッドの中で明細の文章作成や支払額の計算に使われます。外側の変数名とメソッド内の引数名が違っても、値を渡して使うことができます。
 
 解答例を確認するときは、`stretch10_answer.rb` を作成し、上のコードを書いてから次を実行してください。
 
