@@ -511,7 +511,6 @@ puts person["name"]
 
 [Rails Dojo Visuals](https://torifukukaiou.github.io/rails-dojo-visuals/)
 
-ページを開くと、最初は「第5回 配列」が表示されます。
 画面上部の `第6回 ハッシュ` を押してから進めてください。
 
 使い方：
