@@ -69,9 +69,14 @@ def make_greeting(name)
   "-----------------\nこんにちは、#{name}さん。\n今日も良い天気ですね。\n-----------------"
 end
 
-puts make_greeting("田中")
-puts make_greeting("佐藤")
-puts make_greeting("鈴木")
+msg1 = make_greeting("田中")
+puts msg1
+
+msg2 = puts make_greeting("佐藤")
+puts msg2
+
+msg3 = make_greeting("鈴木")
+puts msg3
 ```
 
 > [!NOTE]
@@ -136,7 +141,8 @@ def make_message
 end
 
 # メソッドを使い（呼び出し）、結果を puts で表示する
-puts make_message
+msg = make_message
+puts msg
 ```
 
 コードは上から下へ進みますが、`make_message` と呼ばれた瞬間に、`def make_message` の中へ処理がジャンプします。終わると元の場所へ戻ってきて、返ってきた文字列を `puts` が画面に表示します。
