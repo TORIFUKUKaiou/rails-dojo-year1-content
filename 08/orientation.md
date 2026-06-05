@@ -29,7 +29,7 @@ puts make_greeting("田中")
 
 ## なぜクラスが必要なのか
 
-第6回では、記事のデータをハッシュで表しました。
+これまでに、1件分のデータをハッシュで表す方法を学びました。たとえば記事のデータをハッシュで表すと、次のようになります。
 
 ```ruby
 article = { "title" => "はじめての記事", "body" => "Rubyを学んでいます" }
@@ -248,105 +248,6 @@ true
 
 ---
 
-## ❓ 考えてみよう（1）
-
-次のコードを読んで、実行結果を予測してから実行してみましょう。
-
-```ruby
-class Article
-  def initialize(title, body)
-    @title = title
-    @body = body
-    @published = false
-  end
-
-  def title_message
-    "記事タイトル：#{@title}"
-  end
-
-  def publish
-    @published = true
-  end
-
-  def published?
-    @published
-  end
-end
-
-article1 = Article.new("はじめての記事", "Rubyを学んでいます")
-article2 = Article.new("Railsとは", "WebアプリをRubyで作るフレームワークです")
-
-article1.publish
-
-puts article1.title_message
-puts article1.published?
-
-puts article2.title_message
-puts article2.published?
-```
-
-<details>
-<summary>実行結果</summary>
-
-```text
-記事タイトル：はじめての記事
-true
-記事タイトル：Railsとは
-false
-```
-
-`article1` と `article2` はそれぞれ別のインスタンスです。  
-`article1.publish` を呼んでも、`article2` の `@published` は変わりません。  
-インスタンスごとに、データは独立しています。
-
-</details>
-
----
-
-## ❓ 考えてみよう（2）
-
-次のコードを実行するとどうなるでしょうか？
-
-```ruby
-class Article
-  def initialize(title, body)
-    @title = title
-    @body = body
-  end
-
-  def summary
-    "#{@title}｜#{@body}"
-  end
-end
-
-articles = [
-  Article.new("はじめての記事", "Rubyを学んでいます"),
-  Article.new("Railsとは", "WebアプリをRubyで作るフレームワークです"),
-  Article.new("ハッシュとは", "名前でデータを管理します")
-]
-
-articles.each do |article|
-  puts article.summary
-end
-```
-
-<details>
-<summary>実行結果</summary>
-
-```text
-はじめての記事｜Rubyを学んでいます
-Railsとは｜WebアプリをRubyで作るフレームワークです
-ハッシュとは｜名前でデータを管理します
-```
-
-配列にインスタンスを入れて `each` で取り出すことができます。  
-第5回の配列と第8回のクラスが組み合わさっています。  
-Railsでは、データベースから取り出した複数の記事がこの形で扱われます。
-
-</details>
-
----
-
 ## Railsへのつながり
 
 後期のRails授業では、次のようなコードが出てきます。
@@ -359,9 +260,9 @@ article.save
 
 これは、`Article` というクラスのインスタンスを作り、タイトルを入れて、データベースに保存する操作です。
 
-**今日作った `Article` クラスと、構造はまったく同じです。**
+「クラスからインスタンスを作り、メソッドを呼ぶ」という基本の考え方は、今日作ったクラスと同じです。
 
-Railsは裏側でたくさんのことを自動でやってくれますが、「クラスからインスタンスを作り、メソッドを呼ぶ」という考え方は変わりません。
+ただし、`article.title = "はじめての記事"` のようにタイトルを代入できたり、`article.save` でデータベースに保存できたりするのは、Railsが裏側でたくさんの仕組みを用意してくれているからです。今日の `Article` クラスにはまだそのような仕組みはありませんが、後期のRails授業でその全体像を学びます。
 
 ---
 
