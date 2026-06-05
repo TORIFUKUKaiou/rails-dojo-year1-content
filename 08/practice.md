@@ -142,7 +142,7 @@ ruby practice01_answer.rb
 
 ### やってみよう
 
-問1の `Article` クラスに、`body_message` というメソッドを追加してください。`body_message` は `"これは本文です"` という文字列を返します。
+新しいファイルに問1と同じ `Article` クラスをもう一度書き、`body_message` というメソッドを追加してください。`body_message` は `"これは本文です"` という文字列を返します。
 
 インスタンスを1つ作り、`title_message` と `body_message` を両方呼び出して、それぞれ `puts` で表示してください。
 
