@@ -11,8 +11,7 @@
 
 ## この練習について
 
-コピーすれば早く終わりますが、今は自分の手で打って慣れることの方が大事です。
-特に最初のうちは、入力に慣れること自体が練習です。できるだけ自分で打って進めましょう。
+最初のうちは、自分の手で打って慣れることを大事にしましょう。
 
 各問題は、次の順番で進めてください。
 
@@ -462,6 +461,20 @@ practice07.rb:1:in `<main>': class/module name must be CONSTANT (SyntaxError)
 
 Rubyでは、クラス名は必ず大文字で始めます。`article` → `Article` に直すと正しく動きます。
 
+クラス名を直した修正版を `practice07_answer.rb` に書いて確認しましょう。
+
+```ruby
+# practice07_answer.rb
+class Article
+  def title_message
+    "これは記事です"
+  end
+end
+
+article = Article.new
+puts article.title_message
+```
+
 ```bash
 ruby practice07_answer.rb
 ```
@@ -532,7 +545,7 @@ ruby practice08_answer.rb
 
 ### やってみよう
 
-問8と同じ `Article` クラスを使って、タイトルが違う記事を2つ作ってください。
+新しいファイルに問8と同じ `Article` クラスをもう一度書き、タイトルが違う記事を2つ作ってください。
 
 - 1つ目：`"はじめての記事"`
 - 2つ目：`"Rubyを学ぶ"`
@@ -935,7 +948,7 @@ ruby practice14_answer.rb
 
 ### やってみよう
 
-問14の `Student` クラスに `result` メソッドを追加してください。
+新しいファイルに問14と同じ `Student` クラスをもう一度書き、そこに `result` メソッドを追加してください。
 
 - `@score` が60以上なら `"合格"` を返す
 - それ以外なら `"不合格"` を返す
@@ -1010,7 +1023,7 @@ ruby practice15_answer.rb
 
 ### やってみよう
 
-問15の `Student` クラスを使い、`profile` と `result` を組み合わせて「名前：点数（合否）」の形で表示してみましょう。
+新しいファイルに問15と同じ `Student` クラスをもう一度書き、`report` メソッドを追加して「名前：点数（合否）」の形で表示してみましょう。
 
 `report` メソッドを追加し、`"#{@name}：#{@score}点（#{result}）"` という文字列を返すようにしてください。
 
@@ -1161,7 +1174,7 @@ ruby practice17_answer.rb
 
 ### やってみよう
 
-問17の `Product` クラスに `tax_included_price` メソッドを追加してください。税込価格は `@price * 110 / 100` で計算します（整数の割り算なので、小数点以下は切り捨てになります）。
+新しいファイルに問17と同じ `Product` クラスをもう一度書き、そこに `tax_included_price` メソッドを追加してください。税込価格は `@price * 110 / 100` で計算します（整数の割り算なので、小数点以下は切り捨てになります）。
 
 `tax_info` メソッドも作り、`"#{@name}：税込#{tax_included_price}円"` という文字列を返すようにしてください。
 
@@ -1295,7 +1308,7 @@ ruby practice19_answer.rb
 
 ### やってみよう
 
-問19の `Article` クラスに `publish` メソッドを追加してください。`publish` を呼ぶと `@published` が `true` に変わります。
+新しいファイルに問19と同じ `Article` クラスをもう一度書き、そこに `publish` メソッドを追加してください。`publish` を呼ぶと `@published` が `true` に変わります。
 
 記事を1つ作り、`publish` を呼び出した後に `published?` を表示してください。
 
@@ -1358,7 +1371,7 @@ ruby practice20_answer.rb
 
 ### やってみよう
 
-問20の `Article` クラスを使い、`publish` を呼ぶ前と後で `published?` の表示が変わることを確認してください。
+新しいファイルに問20と同じ `Article` クラスをもう一度書き、`publish` を呼ぶ前と後で `published?` の表示が変わることを確認してください。
 
 記事を1つ作り、次の順番でコードを書いてください。
 
@@ -1429,7 +1442,7 @@ ruby practice21_answer.rb
 
 ### やってみよう
 
-問21の `Article` クラスを使い、記事を2つ作ってください。`article1` だけ `publish` し、`article2` はそのままにしてください。
+新しいファイルに問21と同じ `Article` クラスをもう一度書き、記事を2つ作ってください。`article1` だけ `publish` し、`article2` はそのままにしてください。
 
 それぞれの `published?` を表示して、状態が独立していることを確認してください。
 
@@ -1566,7 +1579,7 @@ ruby practice23_answer.rb
 
 ### やってみよう
 
-問23の `Task` クラスに `status_message` メソッドを追加してください。
+新しいファイルに問23と同じ `Task` クラスをもう一度書き、そこに `status_message` メソッドを追加してください。
 
 - `@done` が `true` なら `"#{@name}：完了"` を返す
 - `@done` が `false` なら `"#{@name}：未完了"` を返す
@@ -2016,7 +2029,7 @@ ruby practice29_answer.rb
 
 ### やってみよう
 
-問29の `Article` クラスを使い、記事を3つ作ってください。1つ目だけ `publish` し、残り2つは未公開のままにしてください。
+新しいファイルに問29と同じ `Article` クラスをもう一度書き、記事を3つ作ってください。1つ目だけ `publish` し、残り2つは未公開のままにしてください。
 
 配列に3つ入れ、`each` でタイトルと状態を一覧表示してください。
 
