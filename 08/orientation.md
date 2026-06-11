@@ -84,11 +84,7 @@ flowchart LR
 
 まず、一番シンプルな形からはじめます。
 
-次のファイルを作ってください。
-
-**ファイル名：`main.rb`**（既存のファイルがあれば中身を書き換えてください）
-
-```ruby
+```ruby:main.rb
 class Article
   def title_message
     "これは記事です"
@@ -99,6 +95,7 @@ article = Article.new
 puts article.title_message
 ```
 
+上記を `main.rb` ファイルに保存したとします。
 ターミナルで実行します。
 
 ```
