@@ -101,6 +101,25 @@ ruby main.rb
 
 ---
 
+## コードの動きを目で確認する
+
+練習に進む前に、次の Visual 教材で、ハッシュ・`each`・入れ子のデータの動きを確認しましょう。
+
+[Rails Dojo Visuals](https://torifukukaiou.github.io/rails-dojo-visuals/)
+
+画面上部の `第6回 ハッシュ` を押してから進めてください。
+
+使い方：
+
+1. 画面上部の `第6回 ハッシュ` を押します。
+2. 右下の `>` ボタンを押すと、コードを1行ずつステップ実行できます。
+3. 右側のコード、左側の図、下の説明文を見比べながら進めてください。
+4. 左端にカーソルを合わせると、第6回の別のテーマを選ぶメニューが表示されます。
+
+特に、`person["name"]`、`person.each do |key, value|`、`students.each do |student|`、`student["scores"]["math"]` の動きは、ここで一度見てから練習に進みましょう。
+
+---
+
 ## 📝 1. ハッシュを作る ( `practice01.rb` )
 
 ### やってみよう
