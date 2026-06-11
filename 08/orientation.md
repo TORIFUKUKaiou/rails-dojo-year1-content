@@ -182,7 +182,7 @@ flowchart LR
     V["@title = &quot;はじめての記事&quot;"]
     M["title_message メソッド"] -- "@title を使う" --> V
   end
-  OUT["外側（クラスの外）"] -. "article1 の @title は使えない" .-> V
+  OUT["外側（クラスの外）"] -. "article1.@title は使えない" .-> V
 ```
 
 ---
