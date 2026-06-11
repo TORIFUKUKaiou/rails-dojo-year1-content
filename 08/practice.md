@@ -2112,4 +2112,4 @@ ruby practice30_answer.rb
 
 ---
 
-課題30まで終わったら、次の `stretch.md` に進みましょう。
+さらに力をつけるため、[Stretch](stretch.md) へ進みましょう。

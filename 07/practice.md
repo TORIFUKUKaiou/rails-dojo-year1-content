@@ -1911,3 +1911,5 @@ ruby practice30_answer.rb
 自分のプログラムと解答例の表示結果を比べてください。
 
 </details>
+
+さらに力をつけるため、[Stretch](stretch.md) へ進みましょう。
