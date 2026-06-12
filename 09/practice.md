@@ -3,28 +3,29 @@
 ## 今日のゴール
 
 - 変数、条件分岐、繰り返し、配列、ハッシュ、メソッド、クラスの役割と書き方を思い出す
-- それぞれのパーツを組み合わせて、お店の注文金額を計算するプログラムを作れるようになる
+- 学んだパーツを組み合わせて、注文金額を計算するプログラムを作る
 
 ---
 
-## この練習について
+## この練習の進め方
 
-最初のうちは、自分の手で打って慣れることを大事にしましょう。
+最初のうちは、コードを自分の手で入力することも大切です。
 
 各問題は、次の順番で進めてください。
 
-1. `practice01.rb` のようなファイルを作る
-2. 自分で考えてコードを書く
-3. `ruby practice01.rb` で実行する
-4. 動いたら、解答例を開く
-5. `practice01_answer.rb` を作り、解答例を写す（コピーしてもOK）
-6. `ruby practice01_answer.rb` を実行する
-7. 自分の実行結果と、解答例の実行結果を比べる
+1. `practice01.rb` のような問題用ファイルを作る
+2. 問題文を読み、自分でコードを書く
+3. `ruby practice01.rb` のように実行する
+4. 表示例と実行結果を比べる
+5. 動いたら解答例を開く
+6. 必要に応じて `practice01_answer.rb` のようなファイルを作り、解答例を実行する
+7. 自分のコードと解答例の違いを確認する
 
-実行結果が同じならOKです。
-そのうえで、自分のコードと解答例を見比べて、どちらが読みやすいかも考えてみましょう。
+自分のコードと解答例が同じでなくても、実行結果が同じになることがあります。正しく動いたあとは、変数名や処理の順番にも注目し、どちらが読みやすいかを考えてみましょう。
 
-実行結果が違う場合は、自分のコードと解答例を見比べて、どこが違うのかを確認してください。
+> [!IMPORTANT]
+> 解答例を見る前に、まずは自分で考えてコードを書いてください。
+> 分からない場合は、オリエンテーションやこれまでの教材を見返して構いません。
 
 ---
 
@@ -33,7 +34,7 @@
 <details>
 <summary>前回の Codespace が残っている場合</summary>
 
-前回の授業で Codespace を削除していないと、前回の Codespace が残っていることがあります。
+前回の授業で Codespace を削除していない場合は、前回の Codespace が残っていることがあります。
 
 - この授業では、操作に慣れるために、毎回新しい Codespace を作って始めます
 - 前回の Codespace が残っている場合は、削除してから新しく作り直してください
@@ -42,216 +43,162 @@
 
 </details>
 
----
-
 1. GitHubにログインする
-2. [このリポジトリ](https://github.com/TORIFUKUKaiou/rails-dojo-year1-content/)のページを開く（リンクを右クリックして、「リンクを新しいタブで開く」）
-3. 「Code」ボタン → 「Codespaces」タブ → 「Create codespace on main」をクリック
+2. [このリポジトリ](https://github.com/TORIFUKUKaiou/rails-dojo-year1-content/)を開く（リンクを右クリックして、「リンクを新しいタブで開く」）
+3. 「Code」ボタン → 「Codespaces」タブ → 「Create codespace on main」をクリックする
 
     ![](../images/create-codespace-on-main.png)
 
 4. しばらく待つ（初回は1〜2分かかります）
 
-画面が開いて、「**準備完了**」の文字が表示されたらプログラミングができる環境が整っています。
+画面が開き、「**準備完了**」と表示されたら、プログラミングを始められます。
 
 ![](../images/created-codespace-on-main.png)
 
-## ファイルにRubyのプログラムを書いて実行する
+### Rubyのプログラムを書いて実行する
 
-1. 画面左側のファイル一覧で `content` の外側、ホームディレクトリのあたりを右クリック →「新しいファイル」→ `main.rb` と入力
-
-    ![](../images/new-file.png)
-
-2. ファイルに以下を書く：
+1. 画面左側のファイル一覧で、`content` の外側にある何もない場所を右クリックする
+2. 「新しいファイル」を選び、`main.rb` と入力する
+3. `main.rb` に次のコードを書く
 
 ```ruby
 puts "Hello, World!"
 ```
 
-※ Codespaces 上の VS Code では、自動保存が初期設定で有効になっています。そのため、この環境では保存操作をしなくても変更は反映されます。ただし、開発環境によっては、保存しないと変更が反映されないこともあります。書き換えたら `ruby main.rb` を実行してください。
-
-3. ターミナルで以下を実行する：
+Codespaces上のVS Codeでは、自動保存が有効になっています。コードを書き換えたら、ターミナルで次を実行してください。
 
 ```bash
 ruby main.rb
 ```
 
-`Hello, World!` と表示されたら成功です。
+次のように表示されたら成功です。
 
-ここまでできたら準備完了です。
-`main.rb` は動作確認用のファイルです。
-ここから先の練習では、問題ごとに `practice01.rb`、`practice02.rb` のような新しいファイルを作って進めましょう。
+```text
+Hello, World!
+```
+
+`main.rb` は動作確認用のファイルです。ここからは、問題ごとに `practice01.rb`、`practice02.rb` のような新しいファイルを作って進めます。
 
 ---
 
-## 📝 1. 文字列と数値の表示 ( `practice01.rb` )
+# 基本の復習
+
+## 📝 1. 文字列と計算結果を表示する（`practice01.rb`）
 
 ### やってみよう
 
-`puts` を使って、文字列 `"Rubyの復習を始めます"` と、計算式 `150 + 80` の計算結果をそれぞれ別の行に表示するプログラムを書いてください。
+`puts` を使い、次の2つを別々の行に表示してください。
 
-作成するファイル：
-```text
-practice01.rb
-```
+- 文字列 `"Rubyの復習を始めます"`
+- `150 + 80` の計算結果
 
-表示例：
+### 表示例
+
 ```text
 Rubyの復習を始めます
 230
 ```
 
-実行するコマンド：
+### 実行するコマンド
+
 ```bash
 ruby practice01.rb
 ```
 
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice01_answer.rb)</summary>
+<summary>解答例（practice01_answer.rb）</summary>
 
 ```ruby
-# practice01_answer.rb
 puts "Rubyの復習を始めます"
 puts 150 + 80
 ```
 
-解答例を確認するときは、`practice01_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice01_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 2. 変数の代入と更新 ( `practice02.rb` )
+## 📝 2. 変数の値を更新する（`practice02.rb`）
 
 ### やってみよう
 
-変数 `total` を作り、初期値として数値 `120` を代入してください。
-その後、`total = total + 80` のように、現在の `total` の値に `80` を加算した結果をもう一度 `total` に代入（上書き）してください。
-最後に、`total` の中身を `puts` で表示してください。
+変数 `total` に `120` を代入してください。
 
-作成するファイル：
-```text
-practice02.rb
-```
+次に、現在の `total` に `80` を足した結果を、もう一度 `total` に代入してください。最後に、`total` の値を表示してください。
 
-表示例：
+### 表示例
+
 ```text
 200
 ```
 
-実行するコマンド：
-```bash
-ruby practice02.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice02_answer.rb)</summary>
+<summary>解答例（practice02_answer.rb）</summary>
 
 ```ruby
-# practice02_answer.rb
 total = 120
 total = total + 80
+
 puts total
 ```
-
-解答例を確認するときは、`practice02_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice02_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
 
 </details>
 
 ---
 
-## 📝 3. 変数を使った式展開 ( `practice03.rb` )
+## 📝 3. 変数を文字列に埋め込む（`practice03.rb`）
 
 ### やってみよう
 
-変数 `item_name` に `"カレー"`、変数 `price` に `750` を代入してください。
-`#{}` を使って、`"カレーは750円です"` という文章を組み立てて `puts` で表示するプログラムを書いてください。
+次の値を変数に代入してください。
 
-作成するファイル：
-```text
-practice03.rb
-```
+- `item_name`：`"カレー"`
+- `price`：`750`
 
-表示例：
+`#{}` を使い、次のように表示してください。
+
+### 表示例
+
 ```text
 カレーは750円です
 ```
 
-実行するコマンド：
-```bash
-ruby practice03.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice03_answer.rb)</summary>
+<summary>解答例（practice03_answer.rb）</summary>
 
 ```ruby
-# practice03_answer.rb
 item_name = "カレー"
 price = 750
 
 puts "#{item_name}は#{price}円です"
 ```
 
-解答例を確認するときは、`practice03_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice03_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 4. 条件分岐による判定 ( `practice04.rb` )
+# 条件分岐
+
+## 📝 4. `if` と `else` で判定する（`practice04.rb`）
 
 ### やってみよう
 
-変数 `score` に数値 `85` を代入してください。
-`if` と `else` を使って、`score` が `80` 以上の場合は `"合格です"`、それ以外の場合は `"不合格です"` と表示するプログラムを書いてください。
+変数 `score` に `85` を代入してください。
 
-作成するファイル：
-```text
-practice04.rb
-```
+- `score` が `80` 以上なら `"合格です"`
+- それ以外なら `"不合格です"`
 
-表示例：
+と表示してください。
+
+### 表示例
+
 ```text
 合格です
 ```
 
-実行するコマンド：
-```bash
-ruby practice04.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice04_answer.rb)</summary>
+<summary>解答例（practice04_answer.rb）</summary>
 
 ```ruby
-# practice04_answer.rb
 score = 85
 
 if score >= 80
@@ -261,51 +208,30 @@ else
 end
 ```
 
-解答例を確認するときは、`practice04_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice04_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 5. elsif を使った複数分岐 ( `practice05.rb` )
+## 📝 5. `elsif` で条件を増やす（`practice05.rb`）
 
 ### やってみよう
 
-変数 `age` に数値 `15` を代入してください。
-`if`、`elsif`、`else` を使って、以下の条件で表示を切り替えるプログラムを書いてください。
+変数 `age` に `15` を代入し、次の条件で表示を切り替えてください。
 
-- `age` が `18` 以上の場合は `"大人です"`
-- `age` が `12` 以上、かつ `18` 未満の場合は `"中高生です"`
-- それ以外（`12` 未満）の場合は `"子供です"`
+- `18` 以上：`"大人です"`
+- `12` 以上：`"中高生です"`
+- それ以外：`"子供です"`
 
-作成するファイル：
-```text
-practice05.rb
-```
+### 表示例
 
-表示例：
 ```text
 中高生です
 ```
 
-実行するコマンド：
-```bash
-ruby practice05.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice05_answer.rb)</summary>
+<summary>解答例（practice05_answer.rb）</summary>
 
 ```ruby
-# practice05_answer.rb
 age = 15
 
 if age >= 18
@@ -317,47 +243,33 @@ else
 end
 ```
 
-解答例を確認するときは、`practice05_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice05_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 6. 複合条件による判定 ( `practice06.rb` )
+## 📝 6. `||` を使って判定する（`practice06.rb`）
 
 ### やってみよう
 
-変数 `is_member` に `true`（会員である）、変数 `has_coupon` に `false`（クーポンは持っていない）を代入してください。
-`||`（または）を使って、「会員である」か「クーポンを持っている」のどちらか一方でも正しければ `"割引対象です"`、どちらも正しくなければ `"通常料金です"` と表示するプログラムを書いてください。
+次の値を変数に代入してください。
 
-作成するファイル：
-```text
-practice06.rb
+```ruby
+is_member = true
+has_coupon = false
 ```
 
-表示例：
+`is_member` または `has_coupon` のどちらかが `true` なら `"割引対象です"`、どちらも `false` なら `"通常料金です"` と表示してください。
+
+### 表示例
+
 ```text
 割引対象です
 ```
 
-実行するコマンド：
-```bash
-ruby practice06.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice06_answer.rb)</summary>
+<summary>解答例（practice06_answer.rb）</summary>
 
 ```ruby
-# practice06_answer.rb
 is_member = true
 has_coupon = false
 
@@ -368,59 +280,33 @@ else
 end
 ```
 
-解答例を確認するときは、`practice06_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice06_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 7. キーボードからの入力と条件判定 ( `practice07.rb` )
+## 📝 7. 入力された値を判定する（`practice07.rb`）
 
 ### やってみよう
 
-画面に `"年齢を入力してください"` と表示し、`gets.to_i` を使ってキーボードからの数値入力を受け取ってください。
-入力された値が `18` 以上の場合は `"大人です"`、`18` 未満の場合は `"未成年です"` と表示するプログラムを書いてください。
+1. `"年齢を入力してください"` と表示する
+2. `gets.to_i` で年齢を受け取る
+3. `18` 以上なら `"大人です"`、それ以外なら `"未成年です"` と表示する
 
-作成するファイル：
-```text
-practice07.rb
-```
+### 実行例
 
-表示例（キーボードから `20` と入力した場合）：
 ```text
 年齢を入力してください
 20
 大人です
 ```
 
-表示例（キーボードから `15` と入力した場合）：
-```text
-年齢を入力してください
-15
-未成年です
-```
-
-> [!IMPORTANT]
-> キーボードから入力する値（例の中の `20` や `15`）は、実行時に自分でターミナルに打ち込んで Enter を押してください。
-
-実行するコマンド：
-```bash
-ruby practice07.rb
-```
-
-上の表示になれば成功です。
+> [!NOTE]
+> 例の `20` は、プログラムが表示する値ではありません。実行中に自分で入力する値です。
 
 <details>
-<summary>解答例 (practice07_answer.rb)</summary>
+<summary>解答例（practice07_answer.rb）</summary>
 
 ```ruby
-# practice07_answer.rb
 puts "年齢を入力してください"
 age = gets.to_i
 
@@ -431,78 +317,49 @@ else
 end
 ```
 
-解答例を確認するときは、`practice07_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice07_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 8. times による繰り返し ( `practice08.rb` )
+# 繰り返し・配列・範囲
+
+## 📝 8. `times` で繰り返す（`practice08.rb`）
 
 ### やってみよう
 
-`times` を使って、画面に `"わっしょい"` と3回繰り返し表示するプログラムを書いてください。
+`times` を使い、`"わっしょい"` を3回表示してください。
 
-作成するファイル：
-```text
-practice08.rb
-```
+### 表示例
 
-表示例：
 ```text
 わっしょい
 わっしょい
 わっしょい
 ```
-
-実行するコマンド：
-```bash
-ruby practice08.rb
-```
-
-上の表示になれば成功です。
 
 <details>
-<summary>解答例 (practice08_answer.rb)</summary>
+<summary>解答例（practice08_answer.rb）</summary>
 
 ```ruby
-# practice08_answer.rb
 3.times do
   puts "わっしょい"
 end
 ```
 
-解答例を確認するときは、`practice08_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice08_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 9. ループ変数を使った回数の表示 ( `practice09.rb` )
+## 📝 9. 繰り返した回数を表示する（`practice09.rb`）
 
 ### やってみよう
 
-`times` とループ変数 `|i|` を使って、画面に `"1回目です"` から `"5回目です"` まで順番に表示するプログラムを書いてください。
-ループ変数は `0` から始まるため、人間に分かりやすい回数を表示するには `i + 1` を使うことに注意してください。
+`times` のループ変数を使い、`"1回目です"` から `"5回目です"` まで表示してください。
 
-作成するファイル：
-```text
-practice09.rb
-```
+ループ変数は `0` から始まります。表示するときは `1` を足してください。
 
-表示例：
+### 表示例
+
 ```text
 1回目です
 2回目です
@@ -511,67 +368,43 @@ practice09.rb
 5回目です
 ```
 
-実行するコマンド：
-```bash
-ruby practice09.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice09_answer.rb)</summary>
+<summary>解答例（practice09_answer.rb）</summary>
 
 ```ruby
-# practice09_answer.rb
 5.times do |i|
   puts "#{i + 1}回目です"
 end
 ```
 
-解答例を確認するときは、`practice09_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice09_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 10. 配列の定義と取り出し・書き換え ( `practice10.rb` )
+## 📝 10. 配列の要素を書き換える（`practice10.rb`）
 
 ### やってみよう
 
-`"カレー"`、`"ラーメン"`、`"寿司"` の3つの文字列を要素に持つ配列 `foods` を定義してください。
-その後、2番目の要素（ラーメン）を `"うどん"` に書き換えてください（配列の番号は `0` から始まることに注意してください）。
-最後に、`foods[0]`、`foods[1]`、`foods[2]` の中身をそれぞれ `puts` で別の行に表示してください。
+次の配列を作ってください。
 
-作成するファイル：
-```text
-practice10.rb
+```ruby
+foods = ["カレー", "ラーメン", "寿司"]
 ```
 
-表示例：
+2番目の要素を `"うどん"` に書き換えたあと、3つの要素を別々の行に表示してください。
+
+### 表示例
+
 ```text
 カレー
 うどん
 寿司
 ```
 
-実行するコマンド：
-```bash
-ruby practice10.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice10_answer.rb)</summary>
+<summary>解答例（practice10_answer.rb）</summary>
 
 ```ruby
-# practice10_answer.rb
 foods = ["カレー", "ラーメン", "寿司"]
 foods[1] = "うどん"
 
@@ -580,50 +413,30 @@ puts foods[1]
 puts foods[2]
 ```
 
-解答例を確認するときは、`practice10_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice10_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 11. 配列への追加と each ( `practice11.rb` )
+## 📝 11. 配列に要素を追加して繰り返す（`practice11.rb`）
 
 ### やってみよう
 
-`"カレー"`、`"ラーメン"` の2つの文字列を持つ配列 `foods` を定義してください。
-その後、`<<` を使って配列の最後に `"寿司"` を追加してください。
-最後に、`each` を使って配列の中身を1つずつ取り出し、`puts` で表示するプログラムを書いてください。
+`"カレー"` と `"ラーメン"` を持つ配列 `foods` を作ってください。
 
-作成するファイル：
-```text
-practice11.rb
-```
+`<<` を使って `"寿司"` を追加し、`each` ですべての要素を表示してください。
 
-表示例：
+### 表示例
+
 ```text
 カレー
 ラーメン
 寿司
 ```
 
-実行するコマンド：
-```bash
-ruby practice11.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice11_answer.rb)</summary>
+<summary>解答例（practice11_answer.rb）</summary>
 
 ```ruby
-# practice11_answer.rb
 foods = ["カレー", "ラーメン"]
 foods << "寿司"
 
@@ -632,48 +445,32 @@ foods.each do |food|
 end
 ```
 
-解答例を確認するときは、`practice11_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice11_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 12. 配列の each を使った合計値の計算 ( `practice12.rb` )
+## 📝 12. 配列の合計を計算する（`practice12.rb`）
 
 ### やってみよう
 
-`80`、`90`、`70` の3つの数値を持つ配列 `scores` を定義してください。
-合計値を入れておくための変数 `total` を `0` で作り、`each` を使って配列の数値を順番に `total` に足し込んでください（`total = total + score` のような変数の更新を使います）。
-ループが終わったあと、`total` の値を表示してください。
+次の配列を作ってください。
 
-作成するファイル：
-```text
-practice12.rb
+```ruby
+scores = [80, 90, 70]
 ```
 
-表示例：
+変数 `total` を `0` で用意し、`each` を使ってすべての点数を足してください。最後に合計を表示してください。
+
+### 表示例
+
 ```text
 240
 ```
 
-実行するコマンド：
-```bash
-ruby practice12.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice12_answer.rb)</summary>
+<summary>解答例（practice12_answer.rb）</summary>
 
 ```ruby
-# practice12_answer.rb
 scores = [80, 90, 70]
 total = 0
 
@@ -684,31 +481,20 @@ end
 puts total
 ```
 
-解答例を確認するときは、`practice12_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice12_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 13. 範囲オブジェクトと繰り返し ( `practice13.rb` )
+## 📝 13. 範囲オブジェクトを繰り返す（`practice13.rb`）
 
 ### やってみよう
 
-`1..5` の範囲オブジェクトを定義してください。
-`each` を使って、その範囲内の数値を1つずつ取り出し、それぞれを2倍した値を `puts` で表示するプログラムを書いてください。
+`1..5` を変数 `numbers` に代入してください。
 
-作成するファイル：
-```text
-practice13.rb
-```
+`each` を使い、範囲内の数値を1つずつ取り出して、それぞれを2倍した値を表示してください。
 
-表示例：
+### 表示例
+
 ```text
 2
 4
@@ -717,18 +503,10 @@ practice13.rb
 10
 ```
 
-実行するコマンド：
-```bash
-ruby practice13.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice13_answer.rb)</summary>
+<summary>解答例（practice13_answer.rb）</summary>
 
 ```ruby
-# practice13_answer.rb
 numbers = 1..5
 
 numbers.each do |number|
@@ -736,51 +514,43 @@ numbers.each do |number|
 end
 ```
 
-解答例を確認するときは、`practice13_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice13_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 14. ハッシュの定義と書き換え・追加 ( `practice14.rb` )
+# ハッシュとデータの組み合わせ
+
+## 📝 14. ハッシュの値を書き換えて追加する（`practice14.rb`）
 
 ### やってみよう
 
-キーが `"name"`（値は `"カレー"`）、キーが `"price"`（値は `700`）であるハッシュ `item` を定義してください。
-定義後、価格（`"price"` キーの値）を `750` に書き換えてください。
-さらに、新しくキー `"category"`（値は `"主食"`）を追加してください。
-最後に、`puts` を使って `"name"`、`"price"`、`"category"` の値をそれぞれ表示してください。
+次のハッシュを作ってください。
 
-作成するファイル：
-```text
-practice14.rb
+```ruby
+item = {
+  "name" => "カレー",
+  "price" => 700
+}
 ```
 
-表示例：
+次の操作を行ってください。
+
+1. `"price"` の値を `750` に書き換える
+2. `"category"` というキーと `"主食"` という値を追加する
+3. `"name"`、`"price"`、`"category"` の値を表示する
+
+### 表示例
+
 ```text
 カレー
 750
 主食
 ```
 
-実行するコマンド：
-```bash
-ruby practice14.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice14_answer.rb)</summary>
+<summary>解答例（practice14_answer.rb）</summary>
 
 ```ruby
-# practice14_answer.rb
 item = {
   "name" => "カレー",
   "price" => 700
@@ -794,49 +564,38 @@ puts item["price"]
 puts item["category"]
 ```
 
-解答例を確認するときは、`practice14_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice14_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 15. ハッシュの each ( `practice15.rb` )
+## 📝 15. ハッシュのキーと値を繰り返す（`practice15.rb`）
 
 ### やってみよう
 
-キーが `"name"`（値は `"田中"`）、キーが `"age"`（値は `20`）、キーが `"city"`（値は `"福岡"`）であるハッシュ `person` を定義してください。
-`each` を使い、すべてのキーと値のペアを取り出して、`"キー: 値"` の形式で表示するプログラムを書いてください。
+次のハッシュを作ってください。
 
-作成するファイル：
-```text
-practice15.rb
+```ruby
+person = {
+  "name" => "田中",
+  "age" => 20,
+  "city" => "福岡"
+}
 ```
 
-表示例：
+`each` を使い、すべてのキーと値を `"キー: 値"` の形式で表示してください。
+
+### 表示例
+
 ```text
 name: 田中
 age: 20
 city: 福岡
 ```
 
-実行するコマンド：
-```bash
-ruby practice15.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice15_answer.rb)</summary>
+<summary>解答例（practice15_answer.rb）</summary>
 
 ```ruby
-# practice15_answer.rb
 person = {
   "name" => "田中",
   "age" => 20,
@@ -848,54 +607,34 @@ person.each do |key, value|
 end
 ```
 
-解答例を確認するときは、`practice15_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice15_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 16. 配列とハッシュの組み合わせ ( `practice16.rb` )
+## 📝 16. ハッシュを配列に入れる（`practice16.rb`）
 
 ### やってみよう
 
-複数のハッシュを格納した配列 `members` を定義してください。各ハッシュは `"name"` と `"age"` をキーに持ちます。データは以下の3人分とします。
+次の3人を、ハッシュの配列 `members` で表してください。
 
-- 1つ目のハッシュ：`name` は `"佐藤"`、`age` は `19`
-- 2つ目のハッシュ：`name` は `"鈴木"`、`age` は `22`
-- 3つ目のハッシュ：`name` は `"高橋"`、`age` は `20`
+- 佐藤：19歳
+- 鈴木：22歳
+- 高橋：20歳
 
-配列 `members` に対して `each` を使い、それぞれのメンバーの名前と年齢を取り出して、`"○○さんは△△歳です"` と表示するプログラムを書いてください。
+`each` を使い、名前と年齢を表示してください。
 
-作成するファイル：
-```text
-practice16.rb
-```
+### 表示例
 
-表示例：
 ```text
 佐藤さんは19歳です
 鈴木さんは22歳です
 高橋さんは20歳です
 ```
 
-実行するコマンド：
-```bash
-ruby practice16.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice16_answer.rb)</summary>
+<summary>解答例（practice16_answer.rb）</summary>
 
 ```ruby
-# practice16_answer.rb
 members = [
   { "name" => "佐藤", "age" => 19 },
   { "name" => "鈴木", "age" => 22 },
@@ -907,47 +646,31 @@ members.each do |member|
 end
 ```
 
-解答例を確認するときは、`practice16_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice16_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 17. ハッシュの値に配列を入れる ( `practice17.rb` )
+## 📝 17. ハッシュの値に配列を入れる（`practice17.rb`）
 
 ### やってみよう
 
-ハッシュ `user` を定義してください。キー `"name"` の値は `"田中"`、キー `"favorites"` の値は `"カレー"` と `"ラーメン"` の2つの文字列を持つ配列とします。
-このハッシュから `"name"` の値と、`"favorites"` 配列の1番目（インデックス `0`）の料理名を取り出し、`"田中さんのお気に入りはカレーです"` と表示するプログラムを書いてください。
+次のデータをハッシュ `user` で表してください。
 
-作成するファイル：
-```text
-practice17.rb
-```
+- `"name"`：`"田中"`
+- `"favorites"`：`["カレー", "ラーメン"]`
 
-表示例：
+配列の最初の料理を取り出し、次のように表示してください。
+
+### 表示例
+
 ```text
 田中さんのお気に入りはカレーです
 ```
 
-実行するコマンド：
-```bash
-ruby practice17.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice17_answer.rb)</summary>
+<summary>解答例（practice17_answer.rb）</summary>
 
 ```ruby
-# practice17_answer.rb
 user = {
   "name" => "田中",
   "favorites" => ["カレー", "ラーメン"]
@@ -956,102 +679,67 @@ user = {
 puts "#{user["name"]}さんのお気に入りは#{user["favorites"][0]}です"
 ```
 
-解答例を確認するときは、`practice17_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice17_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 18. メソッドの定義と呼び出し ( `practice18.rb` )
+# メソッド
+
+## 📝 18. 引数を受け取るメソッドを作る（`practice18.rb`）
 
 ### やってみよう
 
-引数として名前（`name`）を1つ受け取り、`"こんにちは、○○さん！"` という挨拶の文字列を作って返す `make_message(name)` メソッドを定義してください。
-メソッドの中では `puts` を使わずに値を返し、呼び出し側の外側で `puts` を使って画面に表示してください。
-名前として `"佐藤"` と `"鈴木"` をそれぞれ引数に渡して呼び出し、結果を表示してください。
+名前を引数として受け取り、`"こんにちは、○○さん！"` という文字列を戻り値として返す `make_message` メソッドを作ってください。
 
-作成するファイル：
-```text
-practice18.rb
-```
+`"佐藤"` と `"鈴木"` を渡して呼び出し、結果を表示してください。
 
-表示例：
+### 表示例
+
 ```text
 こんにちは、佐藤さん！
 こんにちは、鈴木さん！
 ```
 
-実行するコマンド：
-```bash
-ruby practice18.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice18_answer.rb)</summary>
+<summary>解答例（practice18_answer.rb）</summary>
 
 ```ruby
-# practice18_answer.rb
 def make_message(name)
   "こんにちは、#{name}さん！"
 end
 
-msg1 = make_message("佐藤")
-puts msg1
-
-msg2 = make_message("鈴木")
-puts msg2
+puts make_message("佐藤")
+puts make_message("鈴木")
 ```
-
-解答例を確認するときは、`practice18_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice18_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
 
 </details>
 
 ---
 
-## 📝 19. メソッド内での条件分岐 ( `practice19.rb` )
+## 📝 19. メソッドの中で条件分岐する（`practice19.rb`）
 
 ### やってみよう
 
-引数として点数（`score`）を1つ受け取り、`score` が `80` 以上の場合は文字列 `"合格"`、それ以外の場合は `"不合格"` を戻り値として返す `judge(score)` メソッドを定義してください。
-引数として `85` と `50` を渡してそれぞれメソッドを呼び出し、結果を `puts` で表示してください。
+点数を引数として受け取る `judge` メソッドを作ってください。
 
-作成するファイル：
-```text
-practice19.rb
-```
+- `80` 以上なら `"合格"`
+- それ以外なら `"不合格"`
 
-表示例：
+を戻り値として返します。
+
+`85` と `50` を渡し、結果を表示してください。
+
+### 表示例
+
 ```text
 合格
 不合格
 ```
 
-実行するコマンド：
-```bash
-ruby practice19.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice19_answer.rb)</summary>
+<summary>解答例（practice19_answer.rb）</summary>
 
 ```ruby
-# practice19_answer.rb
 def judge(score)
   if score >= 80
     "合格"
@@ -1064,50 +752,31 @@ puts judge(85)
 puts judge(50)
 ```
 
-解答例を確認するときは、`practice19_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice19_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 20. メソッドのスコープと引数の利用 ( `practice20.rb` )
+## 📝 20. 必要な値を引数で渡す（`practice20.rb`）
 
 ### やってみよう
 
-メソッドの外で定義した変数（`discount`）の値を、メソッドの中から直接使おうとすると、エラーが発生してプログラムが止まってしまいます。
-外のデータをメソッドの中で使うために、引数としてそのデータをメソッドに渡すようにする必要があります。
+通常価格と割引額を受け取り、割引後の価格を返す `calculate_discount` メソッドを作ってください。
 
-引数として通常価格（`price`）と割引額（`discount`）の2つを受け取り、割引適用後の価格を計算して返す `calculate_discount(price, discount)` メソッドを定義してください。
-メソッドの外で変数 `discount = 150` を定義し、通常価格 `1000` とその `discount` を引数に渡してメソッドを呼び出し、戻り値を表示してください。
+メソッドの外で `discount = 150` を定義し、通常価格 `1000` と `discount` をメソッドへ渡してください。
 
-作成するファイル：
-```text
-practice20.rb
-```
+### 表示例
 
-表示例：
 ```text
 850
 ```
 
-実行するコマンド：
-```bash
-ruby practice20.rb
-```
-
-上の表示になれば成功です。
+> [!NOTE]
+> メソッドの外で作ったローカル変数は、メソッドの中から直接使えません。必要な値は引数として渡します。
 
 <details>
-<summary>解答例 (practice20_answer.rb)</summary>
+<summary>解答例（practice20_answer.rb）</summary>
 
 ```ruby
-# practice20_answer.rb
 def calculate_discount(price, discount)
   price - discount
 end
@@ -1118,48 +787,30 @@ result = calculate_discount(1000, discount)
 puts result
 ```
 
-解答例を確認するときは、`practice20_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice20_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 21. クラスの定義とインスタンス化 ( `practice21.rb` )
+# クラスとインスタンス
+
+## 📝 21. クラスからインスタンスを作る（`practice21.rb`）
 
 ### やってみよう
 
-クラス名 `Article` でクラスを定義してください。クラス名は大文字で始めるルールを忘れないでください。
-`Article` クラスの中に `title_message` というメソッドを作り、文字列 `"記事のタイトル欄"` を返すようにしてください。
-クラスを定義したあと、`Article.new` でインスタンスを1つ作り、変数 `article` に代入してください。その後、`article.title_message` を呼び出して `puts` で表示してください。
+`Article` クラスを作り、その中に `"記事のタイトル欄"` を返す `title_message` メソッドを定義してください。
 
-作成するファイル：
-```text
-practice21.rb
-```
+`Article.new` でインスタンスを作り、`title_message` の戻り値を表示してください。
 
-表示例：
+### 表示例
+
 ```text
 記事のタイトル欄
 ```
 
-実行するコマンド：
-```bash
-ruby practice21.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice21_answer.rb)</summary>
+<summary>解答例（practice21_answer.rb）</summary>
 
 ```ruby
-# practice21_answer.rb
 class Article
   def title_message
     "記事のタイトル欄"
@@ -1167,57 +818,39 @@ class Article
 end
 
 article = Article.new
+
 puts article.title_message
 ```
-
-解答例を確認するときは、`practice21_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice21_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
 
 </details>
 
 ---
 
-## 📝 22. initialize とインスタンス変数 ( `practice22.rb` )
+## 📝 22. インスタンスごとに値を保存する（`practice22.rb`）
 
 ### やってみよう
 
-`Article` クラスを定義してください。
-`Article` クラスの中に `initialize(title)` メソッドを作り、受け取った `title` をインスタンス変数 `@title` に代入してください。
-さらに、`title_message` メソッドを定義し、インスタンス変数 `@title` の値を埋め込んだ文字列 `"記事タイトル：#{@title}"` を返すようにしてください。
+`Article` クラスに次の2つのメソッドを作ってください。
 
-クラスの定義後、次の2つのインスタンスを作成して、それぞれの `title_message` を呼び出して表示してください。
+- `initialize(title)`：受け取った `title` を `@title` に代入する
+- `title_message`：`"記事タイトル：#{@title}"` を返す
 
-- 1つ目のインスタンス（変数 `article1`）：タイトルは `"Rubyとは"`
-- 2つ目のインスタンス（変数 `article2`）：タイトルは `"Railsを学ぶ"`
+次の2つのインスタンスを作り、それぞれのタイトルを表示してください。
 
-作成するファイル：
-```text
-practice22.rb
-```
+- `"Rubyとは"`
+- `"Railsを学ぶ"`
 
-表示例：
+### 表示例
+
 ```text
 記事タイトル：Rubyとは
 記事タイトル：Railsを学ぶ
 ```
 
-実行するコマンド：
-```bash
-ruby practice22.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice22_answer.rb)</summary>
+<summary>解答例（practice22_answer.rb）</summary>
 
 ```ruby
-# practice22_answer.rb
 class Article
   def initialize(title)
     @title = title
@@ -1235,48 +868,35 @@ puts article1.title_message
 puts article2.title_message
 ```
 
-解答例を確認するときは、`practice22_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice22_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 23. ハッシュデータの割引計算 ( `practice23.rb` )
+# 総合問題：注文管理プログラム
+
+ここからは、これまでに学んだパーツを組み合わせます。
+
+## 📝 23. 商品データと条件分岐を組み合わせる（`practice23.rb`）
 
 ### やってみよう
 
-キーが `"name"`（値は `"カレー"`）、キーが `"price"`（値は `1200`）であるハッシュ `item` を定義してください。
-価格（`"price"` キーの値）が `1000` 以上の場合は通常価格から `100` 円を引き、そうでない場合は通常価格のままの金額を合計金額（変数 `total`）としてください。
-最後に、`"カレーの合計金額は1100円です"` の形式で表示するプログラムを書いてください。
+次の商品をハッシュ `item` で表してください。
 
-作成するファイル：
+- 商品名：`"カレー"`
+- 価格：`1200`
+
+価格が `1000` 円以上なら、100円引きにします。支払金額を変数 `total` に保存し、次の形式で表示してください。
+
+### 表示例
+
 ```text
-practice23.rb
+カレーの支払金額は1100円です
 ```
-
-表示例：
-```text
-カレーの合計金額は1100円です
-```
-
-実行するコマンド：
-```bash
-ruby practice23.rb
-```
-
-上の表示になれば成功です。
 
 <details>
-<summary>解答例 (practice23_answer.rb)</summary>
+<summary>解答例（practice23_answer.rb）</summary>
 
 ```ruby
-# practice23_answer.rb
 item = {
   "name" => "カレー",
   "price" => 1200
@@ -1288,56 +908,36 @@ if total >= 1000
   total = total - 100
 end
 
-puts "#{item["name"]}の合計金額は#{total}円です"
+puts "#{item["name"]}の支払金額は#{total}円です"
 ```
-
-解答例を確認するときは、`practice23_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice23_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
 
 </details>
 
 ---
 
-## 📝 24. 配列からのデータ抽出 ( `practice24.rb` )
+## 📝 24. 条件に合う商品だけを表示する（`practice24.rb`）
 
 ### やってみよう
 
-以下の3つの商品ハッシュを格納した配列 `items` を定義してください。
+次の商品を、ハッシュの配列 `items` で表してください。
 
-- 1つ目のハッシュ：`name` は `"カレー"`、`price` は `700`
-- 2つ目のハッシュ：`name` は `"サラダ"`、`price` は `300`
-- 3つ目のハッシュ：`name` は `"ラーメン"`、`price` は `850`
+- カレー：700円
+- サラダ：300円
+- ラーメン：850円
 
-配列 `items` に対して `each` と `if` を使い、価格が `500` 以上の商品のみを抽出し、`"商品名：価格円"`（例：`カレー：700円`）と表示するプログラムを書いてください。
+`each` と `if` を使い、価格が `500` 円以上の商品だけを表示してください。
 
-作成するファイル：
-```text
-practice24.rb
-```
+### 表示例
 
-表示例：
 ```text
 カレー：700円
 ラーメン：850円
 ```
 
-実行するコマンド：
-```bash
-ruby practice24.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice24_answer.rb)</summary>
+<summary>解答例（practice24_answer.rb）</summary>
 
 ```ruby
-# practice24_answer.rb
 items = [
   { "name" => "カレー", "price" => 700 },
   { "name" => "サラダ", "price" => 300 },
@@ -1351,52 +951,35 @@ items.each do |item|
 end
 ```
 
-解答例を確認するときは、`practice24_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice24_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 25. 合計金額を計算するメソッド ( `practice25.rb` )
+## 📝 25. 商品の合計金額を返すメソッドを作る（`practice25.rb`）
 
 ### やってみよう
 
-引数として商品の配列（ハッシュの配列）を受け取り、すべての商品の合計金額をループ処理で計算して戻り値として返す `calculate_total(items)` メソッドを定義してください。
-メソッドの外で、問24と同じ3つの商品ハッシュを含む配列 `items` を定義し、それを引数に渡して `calculate_total` メソッドを呼び出してください。戻り値を `puts` で表示してください。
+商品の配列を引数として受け取り、すべての商品の合計金額を返す `calculate_total` メソッドを作ってください。
 
-作成するファイル：
-```text
-practice25.rb
-```
+問24と同じ `items` を渡し、戻り値を表示してください。
 
-表示例：
+### 表示例
+
 ```text
 1850
 ```
 
-実行するコマンド：
-```bash
-ruby practice25.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice25_answer.rb)</summary>
+<summary>解答例（practice25_answer.rb）</summary>
 
 ```ruby
-# practice25_answer.rb
 def calculate_total(items)
   total = 0
+
   items.each do |item|
     total = total + item["price"]
   end
+
   total
 end
 
@@ -1409,48 +992,26 @@ items = [
 puts calculate_total(items)
 ```
 
-解答例を確認するときは、`practice25_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice25_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 26. Order クラスの定義 ( `practice26.rb` )
+## 📝 26. `Order` クラスを作る（`practice26.rb`）
 
 ### やってみよう
 
-注文を管理するクラス `Order` を定義してください。
-`Order` クラスの中に `initialize(items)` メソッドを作り、受け取った商品の配列をインスタンス変数 `@items` に代入してください。
-クラスの定義後、問24と同じ3つの商品ハッシュを含む配列 `items` を定義し、`Order.new(items)` でインスタンスを作って変数 `order` に代入してください。
-この問題では画面への出力はありません。エラーが出ずに終了すれば成功です。
+注文を表す `Order` クラスを作ってください。
 
-作成するファイル：
-```text
-practice26.rb
-```
+`initialize(items)` で受け取った商品の配列を、インスタンス変数 `@items` に保存します。
 
-表示例：
-（何も表示されません）
+問24と同じ商品データを使って、`Order` インスタンスを作ってください。
 
-> [!IMPORTANT]
-> この課題は、エラーが出ず、何も表示されなければ成功です。
-
-実行するコマンド：
-```bash
-ruby practice26.rb
-```
+この問題では、画面への出力はありません。エラーが表示されずにプログラムが終了すれば成功です。
 
 <details>
-<summary>解答例 (practice26_answer.rb)</summary>
+<summary>解答例（practice26_answer.rb）</summary>
 
 ```ruby
-# practice26_answer.rb
 class Order
   def initialize(items)
     @items = items
@@ -1466,48 +1027,28 @@ items = [
 order = Order.new(items)
 ```
 
-解答例を確認するときは、`practice26_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice26_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
 ---
 
-## 📝 27. Order クラスに合計金額計算メソッドを追加する ( `practice27.rb` )
+## 📝 27. 合計金額を計算するメソッドを追加する（`practice27.rb`）
 
 ### やってみよう
 
-新しいファイルに問26と同じ `Order` クラスをもう一度書き、インスタンスメソッド `total_price` を追加してください。
-`total_price` メソッドは、インスタンス変数 `@items` に入っているすべての商品の合計金額をループ処理で計算し、その結果を戻り値として返すようにしてください。
-クラス定義後、問24と同じ3つの商品ハッシュを含む配列 `items` を定義して `Order` インスタンスを作成し、`order.total_price` を呼び出して `puts` で表示してください。
+問26の `Order` クラスに、`total_price` メソッドを追加してください。
 
-作成するファイル：
-```text
-practice27.rb
-```
+`total_price` は、`@items` に入っているすべての商品の合計金額を返します。
 
-表示例：
+### 表示例
+
 ```text
 1850
 ```
 
-実行するコマンド：
-```bash
-ruby practice27.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice27_answer.rb)</summary>
+<summary>解答例（practice27_answer.rb）</summary>
 
 ```ruby
-# practice27_answer.rb
 class Order
   def initialize(items)
     @items = items
@@ -1515,9 +1056,11 @@ class Order
 
   def total_price
     total = 0
+
     @items.each do |item|
       total = total + item["price"]
     end
+
     total
   end
 end
@@ -1529,51 +1072,32 @@ items = [
 ]
 
 order = Order.new(items)
+
 puts order.total_price
 ```
-
-解答例を確認するときは、`practice27_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice27_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
 
 </details>
 
 ---
 
-## 📝 28. 注文商品の個数を取得するメソッド ( `practice28.rb` )
+## 📝 28. 商品数を返すメソッドを追加する（`practice28.rb`）
 
 ### やってみよう
 
-新しいファイルに問27と同じ `Order` クラスをもう一度書き、インスタンスメソッド `item_count` を追加してください。
-`item_count` メソッドは、注文に含まれる商品の個数を返すようにしてください（配列の個数を調べる `length` メソッドが使えます）。
-クラス定義後、問24と同じ3つの商品ハッシュを含む配列 `items` を定義して `Order` インスタンスを作成し、`order.item_count` を呼び出して表示してください。
+問27の `Order` クラスに、`item_count` メソッドを追加してください。
 
-作成するファイル：
-```text
-practice28.rb
-```
+`item_count` は、`@items` に入っている商品の個数を返します。配列の `length` メソッドを使ってください。
 
-表示例：
+### 表示例
+
 ```text
 3
 ```
 
-実行するコマンド：
-```bash
-ruby practice28.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice28_answer.rb)</summary>
+<summary>解答例（practice28_answer.rb）</summary>
 
 ```ruby
-# practice28_answer.rb
 class Order
   def initialize(items)
     @items = items
@@ -1581,9 +1105,11 @@ class Order
 
   def total_price
     total = 0
+
     @items.each do |item|
       total = total + item["price"]
     end
+
     total
   end
 
@@ -1599,61 +1125,41 @@ items = [
 ]
 
 order = Order.new(items)
+
 puts order.item_count
 ```
-
-解答例を確認するときは、`practice28_answer.rb` を作成し, 上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice28_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
 
 </details>
 
 ---
 
-## 📝 29. 送料を加算するメソッドの追加 ( `practice29.rb` )
+## 📝 29. 送料込みの金額を返すメソッドを追加する（`practice29.rb`）
 
 ### やってみよう
 
-新しいファイルに問28と同じ `Order` クラスをもう一度書き、インスタンスメソッド `total_price_with_shipping` を追加してください。
-`total_price_with_shipping` メソッドは、以下の条件で送料を加算した総支払額を返すようにしてください。
+問28の `Order` クラスに、`total_price_with_shipping` メソッドを追加してください。
 
-- 商品の合計金額（`total_price` メソッドで計算される値）が `3000` 未満の場合は、送料 `500` 円を加算する。
-- 合計金額が `3000` 以上の場合は、送料は加算しない（`0` 円）。
+送料の条件は次のとおりです。
 
-クラス定義後、以下の2パターンの注文インスタンスを作成し、それぞれの `total_price_with_shipping` を呼び出して `puts` で表示してください。
+- 商品の合計金額が `3000` 円未満：送料500円を加える
+- 商品の合計金額が `3000` 円以上：送料を加えない
 
-- 1つ目の注文（合計が3000円未満）：
-  - 商品：`"カレー"`（700円）、`"ラーメン"`（850円）
-- 2つ目の注文（合計が3000円以上）：
-  - 商品：`"カレー"`（700円）、`"ステーキ"`（2500円）
+次の2つの注文で確認してください。
 
-作成するファイル：
-```text
-practice29.rb
-```
+- カレー700円、ラーメン850円
+- カレー700円、ステーキ2500円
 
-表示例：
+### 表示例
+
 ```text
 2050
 3200
 ```
 
-実行するコマンド：
-```bash
-ruby practice29.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice29_answer.rb)</summary>
+<summary>解答例（practice29_answer.rb）</summary>
 
 ```ruby
-# practice29_answer.rb
 class Order
   def initialize(items)
     @items = items
@@ -1661,9 +1167,11 @@ class Order
 
   def total_price
     total = 0
+
     @items.each do |item|
       total = total + item["price"]
     end
+
     total
   end
 
@@ -1673,79 +1181,62 @@ class Order
 
   def total_price_with_shipping
     total = total_price
+
     if total < 3000
       total = total + 500
     end
+
     total
   end
 end
 
-# 1つ目の注文（合計 1550 円 → 3000 円未満なので送料 500 円加算）
 items1 = [
   { "name" => "カレー", "price" => 700 },
   { "name" => "ラーメン", "price" => 850 }
 ]
-order1 = Order.new(items1)
-puts order1.total_price_with_shipping
 
-# 2つ目の注文（合計 3200 円 → 3000 円以上なので送料 0 円）
 items2 = [
   { "name" => "カレー", "price" => 700 },
   { "name" => "ステーキ", "price" => 2500 }
 ]
+
+order1 = Order.new(items1)
 order2 = Order.new(items2)
+
+puts order1.total_price_with_shipping
 puts order2.total_price_with_shipping
 ```
-
-解答例を確認するときは、`practice29_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice29_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
 
 </details>
 
 ---
 
-## 📝 30. 複数の注文を each で一括処理する ( `practice30.rb` )
+## 📝 30. 複数の注文をまとめて処理する（`practice30.rb`）
 
 ### やってみよう
 
-新しいファイルに問29と同じ `Order` クラスを定義してください。
-問29で作成した `order1`（カレー・ラーメン）、`order2`（カレー・ステーキ）に加え、以下の3つ目の注文インスタンス `order3` を作成してください。
+問29と同じ `Order` クラスを使います。
 
-- 3つ目の注文（合計 500 円）：
-  - 商品：`"サラダ"`（300円）、`"ジュース"`（200円）
+次の3つの注文を作ってください。
 
-これら3つの `Order` インスタンスを要素とする配列 `orders` を定義してください。
-配列 `orders` に対して `each` を使い、それぞれの注文の送料込み合計金額を取り出して、`"注文の合計金額（送料込み）：○○円"` と表示するプログラムを書いてください。
+1. カレー700円、ラーメン850円
+2. カレー700円、ステーキ2500円
+3. サラダ300円、ジュース200円
 
-作成するファイル：
-```text
-practice30.rb
-```
+3つの `Order` インスタンスを配列 `orders` に入れ、`each` を使って送料込みの合計金額を表示してください。
 
-表示例：
+### 表示例
+
 ```text
 注文の合計金額（送料込み）：2050円
 注文の合計金額（送料込み）：3200円
 注文の合計金額（送料込み）：1000円
 ```
 
-実行するコマンド：
-```bash
-ruby practice30.rb
-```
-
-上の表示になれば成功です。
-
 <details>
-<summary>解答例 (practice30_answer.rb)</summary>
+<summary>解答例（practice30_answer.rb）</summary>
 
 ```ruby
-# practice30_answer.rb
 class Order
   def initialize(items)
     @items = items
@@ -1753,9 +1244,11 @@ class Order
 
   def total_price
     total = 0
+
     @items.each do |item|
       total = total + item["price"]
     end
+
     total
   end
 
@@ -1765,41 +1258,43 @@ class Order
 
   def total_price_with_shipping
     total = total_price
+
     if total < 3000
       total = total + 500
     end
+
     total
   end
 end
 
-orders = [
-  Order.new([
-    { "name" => "カレー", "price" => 700 },
-    { "name" => "ラーメン", "price" => 850 }
-  ]),
-  Order.new([
-    { "name" => "カレー", "price" => 700 },
-    { "name" => "ステーキ", "price" => 2500 }
-  ]),
-  Order.new([
-    { "name" => "サラダ", "price" => 300 },
-    { "name" => "ジュース", "price" => 200 }
-  ])
-]
+order1 = Order.new([
+  { "name" => "カレー", "price" => 700 },
+  { "name" => "ラーメン", "price" => 850 }
+])
+
+order2 = Order.new([
+  { "name" => "カレー", "price" => 700 },
+  { "name" => "ステーキ", "price" => 2500 }
+])
+
+order3 = Order.new([
+  { "name" => "サラダ", "price" => 300 },
+  { "name" => "ジュース", "price" => 200 }
+])
+
+orders = [order1, order2, order3]
 
 orders.each do |order|
   puts "注文の合計金額（送料込み）：#{order.total_price_with_shipping}円"
 end
 ```
 
-解答例を確認するときは、`practice30_answer.rb` を作成し、上のコードを書いてから次を実行してください。
-
-```bash
-ruby practice30_answer.rb
-```
-
-自分のプログラムと解答例の表示結果を比べてください。
-
 </details>
 
+---
 
+## 練習のまとめ
+
+30問を通して、Rubyの基本パーツを1つずつ振り返り、最後は複数のパーツを組み合わせて注文管理プログラムを作りました。
+
+うまく書けなかった問題は、そのままにせず、オリエンテーションやこれまでの教材を見返して、もう一度書いてみましょう。
