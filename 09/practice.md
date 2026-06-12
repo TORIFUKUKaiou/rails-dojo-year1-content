@@ -81,36 +81,35 @@ Hello, World!
 
 ---
 
-# 基本の復習
+# 変数と条件分岐
 
-## 📝 1. 文字列と計算結果を表示する（`practice01.rb`）
+## 📝 1. 変数を使って文章を表示する（`practice01.rb`）
 
 ### やってみよう
 
-`puts` を使い、次の2つを別々の行に表示してください。
+次の値を変数に代入してください。
 
-- 文字列 `"Rubyの復習を始めます"`
-- `150 + 80` の計算結果
+- `item_name`：`"カレー"`
+- `price`：`750`
+
+`#{}` を使い、1行目に `"Rubyの復習を始めます"`、2行目に `"カレーは750円です"` と表示してください。
 
 ### 表示例
 
 ```text
 Rubyの復習を始めます
-230
-```
-
-### 実行するコマンド
-
-```bash
-ruby practice01.rb
+カレーは750円です
 ```
 
 <details>
 <summary>解答例（practice01_answer.rb）</summary>
 
 ```ruby
+item_name = "カレー"
+price = 750
+
 puts "Rubyの復習を始めます"
-puts 150 + 80
+puts "#{item_name}は#{price}円です"
 ```
 
 </details>
@@ -145,49 +144,15 @@ puts total
 
 ---
 
-## 📝 3. 変数を文字列に埋め込む（`practice03.rb`）
+## 📝 3. `if`、`elsif`、`else` で判定する（`practice03.rb`）
 
 ### やってみよう
 
-次の値を変数に代入してください。
+変数 `score` に `75` を代入し、次の条件で表示を切り替えてください。
 
-- `item_name`：`"カレー"`
-- `price`：`750`
-
-`#{}` を使い、次のように表示してください。
-
-### 表示例
-
-```text
-カレーは750円です
-```
-
-<details>
-<summary>解答例（practice03_answer.rb）</summary>
-
-```ruby
-item_name = "カレー"
-price = 750
-
-puts "#{item_name}は#{price}円です"
-```
-
-</details>
-
----
-
-# 条件分岐
-
-## 📝 4. `if` と `else` で判定する（`practice04.rb`）
-
-### やってみよう
-
-変数 `score` に `85` を代入してください。
-
-- `score` が `80` 以上なら `"合格です"`
-- それ以外なら `"不合格です"`
-
-と表示してください。
+- `80` 以上：`"よくできました！"`
+- `60` 以上：`"合格です"`
+- それ以外：`"もう一度挑戦しましょう"`
 
 ### 表示例
 
@@ -196,15 +161,17 @@ puts "#{item_name}は#{price}円です"
 ```
 
 <details>
-<summary>解答例（practice04_answer.rb）</summary>
+<summary>解答例（practice03_answer.rb）</summary>
 
 ```ruby
-score = 85
+score = 75
 
 if score >= 80
+  puts "よくできました！"
+elsif score >= 60
   puts "合格です"
 else
-  puts "不合格です"
+  puts "もう一度挑戦しましょう"
 end
 ```
 
@@ -212,42 +179,7 @@ end
 
 ---
 
-## 📝 5. `elsif` で条件を増やす（`practice05.rb`）
-
-### やってみよう
-
-変数 `age` に `15` を代入し、次の条件で表示を切り替えてください。
-
-- `18` 以上：`"大人です"`
-- `12` 以上：`"中高生です"`
-- それ以外：`"子供です"`
-
-### 表示例
-
-```text
-中高生です
-```
-
-<details>
-<summary>解答例（practice05_answer.rb）</summary>
-
-```ruby
-age = 15
-
-if age >= 18
-  puts "大人です"
-elsif age >= 12
-  puts "中高生です"
-else
-  puts "子供です"
-end
-```
-
-</details>
-
----
-
-## 📝 6. `||` を使って判定する（`practice06.rb`）
+## 📝 4. `||` を使って判定する（`practice04.rb`）
 
 ### やってみよう
 
@@ -267,7 +199,7 @@ has_coupon = false
 ```
 
 <details>
-<summary>解答例（practice06_answer.rb）</summary>
+<summary>解答例（practice04_answer.rb）</summary>
 
 ```ruby
 is_member = true
@@ -284,7 +216,7 @@ end
 
 ---
 
-## 📝 7. 入力された値を判定する（`practice07.rb`）
+## 📝 5. 入力された値を判定する（`practice05.rb`）
 
 ### やってみよう
 
@@ -304,7 +236,7 @@ end
 > 例の `20` は、プログラムが表示する値ではありません。実行中に自分で入力する値です。
 
 <details>
-<summary>解答例（practice07_answer.rb）</summary>
+<summary>解答例（practice05_answer.rb）</summary>
 
 ```ruby
 puts "年齢を入力してください"
@@ -323,34 +255,7 @@ end
 
 # 繰り返し・配列・範囲
 
-## 📝 8. `times` で繰り返す（`practice08.rb`）
-
-### やってみよう
-
-`times` を使い、`"わっしょい"` を3回表示してください。
-
-### 表示例
-
-```text
-わっしょい
-わっしょい
-わっしょい
-```
-
-<details>
-<summary>解答例（practice08_answer.rb）</summary>
-
-```ruby
-3.times do
-  puts "わっしょい"
-end
-```
-
-</details>
-
----
-
-## 📝 9. 繰り返した回数を表示する（`practice09.rb`）
+## 📝 6. `times` で回数を表示する（`practice06.rb`）
 
 ### やってみよう
 
@@ -369,7 +274,7 @@ end
 ```
 
 <details>
-<summary>解答例（practice09_answer.rb）</summary>
+<summary>解答例（practice06_answer.rb）</summary>
 
 ```ruby
 5.times do |i|
@@ -381,7 +286,7 @@ end
 
 ---
 
-## 📝 10. 配列の要素を書き換える（`practice10.rb`）
+## 📝 7. 配列の要素を書き換えて追加する（`practice07.rb`）
 
 ### やってみよう
 
@@ -391,7 +296,11 @@ end
 foods = ["カレー", "ラーメン", "寿司"]
 ```
 
-2番目の要素を `"うどん"` に書き換えたあと、3つの要素を別々の行に表示してください。
+次の操作を行ってください。
+
+1. 2番目の要素を `"うどん"` に書き換える
+2. `<<` を使って `"そば"` を追加する
+3. `each` を使って、すべての要素を表示する
 
 ### 表示例
 
@@ -399,46 +308,17 @@ foods = ["カレー", "ラーメン", "寿司"]
 カレー
 うどん
 寿司
+そば
 ```
 
 <details>
-<summary>解答例（practice10_answer.rb）</summary>
+<summary>解答例（practice07_answer.rb）</summary>
 
 ```ruby
 foods = ["カレー", "ラーメン", "寿司"]
+
 foods[1] = "うどん"
-
-puts foods[0]
-puts foods[1]
-puts foods[2]
-```
-
-</details>
-
----
-
-## 📝 11. 配列に要素を追加して繰り返す（`practice11.rb`）
-
-### やってみよう
-
-`"カレー"` と `"ラーメン"` を持つ配列 `foods` を作ってください。
-
-`<<` を使って `"寿司"` を追加し、`each` ですべての要素を表示してください。
-
-### 表示例
-
-```text
-カレー
-ラーメン
-寿司
-```
-
-<details>
-<summary>解答例（practice11_answer.rb）</summary>
-
-```ruby
-foods = ["カレー", "ラーメン"]
-foods << "寿司"
+foods << "そば"
 
 foods.each do |food|
   puts food
@@ -449,7 +329,7 @@ end
 
 ---
 
-## 📝 12. 配列の合計を計算する（`practice12.rb`）
+## 📝 8. 配列の合計を計算する（`practice08.rb`）
 
 ### やってみよう
 
@@ -468,7 +348,7 @@ scores = [80, 90, 70]
 ```
 
 <details>
-<summary>解答例（practice12_answer.rb）</summary>
+<summary>解答例（practice08_answer.rb）</summary>
 
 ```ruby
 scores = [80, 90, 70]
@@ -485,7 +365,7 @@ puts total
 
 ---
 
-## 📝 13. 範囲オブジェクトを繰り返す（`practice13.rb`）
+## 📝 9. 範囲オブジェクトを繰り返す（`practice09.rb`）
 
 ### やってみよう
 
@@ -504,7 +384,7 @@ puts total
 ```
 
 <details>
-<summary>解答例（practice13_answer.rb）</summary>
+<summary>解答例（practice09_answer.rb）</summary>
 
 ```ruby
 numbers = 1..5
@@ -520,7 +400,7 @@ end
 
 # ハッシュとデータの組み合わせ
 
-## 📝 14. ハッシュの値を書き換えて追加する（`practice14.rb`）
+## 📝 10. ハッシュの値を書き換えて追加する（`practice10.rb`）
 
 ### やってみよう
 
@@ -548,7 +428,7 @@ item = {
 ```
 
 <details>
-<summary>解答例（practice14_answer.rb）</summary>
+<summary>解答例（practice10_answer.rb）</summary>
 
 ```ruby
 item = {
@@ -568,7 +448,7 @@ puts item["category"]
 
 ---
 
-## 📝 15. ハッシュのキーと値を繰り返す（`practice15.rb`）
+## 📝 11. ハッシュのキーと値を繰り返す（`practice11.rb`）
 
 ### やってみよう
 
@@ -593,7 +473,7 @@ city: 福岡
 ```
 
 <details>
-<summary>解答例（practice15_answer.rb）</summary>
+<summary>解答例（practice11_answer.rb）</summary>
 
 ```ruby
 person = {
@@ -611,7 +491,7 @@ end
 
 ---
 
-## 📝 16. ハッシュを配列に入れる（`practice16.rb`）
+## 📝 12. ハッシュを配列に入れる（`practice12.rb`）
 
 ### やってみよう
 
@@ -632,7 +512,7 @@ end
 ```
 
 <details>
-<summary>解答例（practice16_answer.rb）</summary>
+<summary>解答例（practice12_answer.rb）</summary>
 
 ```ruby
 members = [
@@ -650,42 +530,9 @@ end
 
 ---
 
-## 📝 17. ハッシュの値に配列を入れる（`practice17.rb`）
-
-### やってみよう
-
-次のデータをハッシュ `user` で表してください。
-
-- `"name"`：`"田中"`
-- `"favorites"`：`["カレー", "ラーメン"]`
-
-配列の最初の料理を取り出し、次のように表示してください。
-
-### 表示例
-
-```text
-田中さんのお気に入りはカレーです
-```
-
-<details>
-<summary>解答例（practice17_answer.rb）</summary>
-
-```ruby
-user = {
-  "name" => "田中",
-  "favorites" => ["カレー", "ラーメン"]
-}
-
-puts "#{user["name"]}さんのお気に入りは#{user["favorites"][0]}です"
-```
-
-</details>
-
----
-
 # メソッド
 
-## 📝 18. 引数を受け取るメソッドを作る（`practice18.rb`）
+## 📝 13. 引数を受け取り、戻り値を返す（`practice13.rb`）
 
 ### やってみよう
 
@@ -701,7 +548,7 @@ puts "#{user["name"]}さんのお気に入りは#{user["favorites"][0]}です"
 ```
 
 <details>
-<summary>解答例（practice18_answer.rb）</summary>
+<summary>解答例（practice13_answer.rb）</summary>
 
 ```ruby
 def make_message(name)
@@ -716,75 +563,44 @@ puts make_message("鈴木")
 
 ---
 
-## 📝 19. メソッドの中で条件分岐する（`practice19.rb`）
+## 📝 14. メソッドの中で条件分岐する（`practice14.rb`）
 
 ### やってみよう
 
-点数を引数として受け取る `judge` メソッドを作ってください。
+通常価格と割引額を引数として受け取る `calculate_price` メソッドを作ってください。
 
-- `80` 以上なら `"合格"`
-- それ以外なら `"不合格"`
+- 通常価格が `1000` 円以上なら、割引額を引いた価格を返す
+- 通常価格が `1000` 円未満なら、通常価格をそのまま返す
 
-を戻り値として返します。
+次の2つを表示してください。
 
-`85` と `50` を渡し、結果を表示してください。
+- `calculate_price(1200, 100)` の結果
+- `calculate_price(800, 100)` の結果
 
 ### 表示例
 
 ```text
-合格
-不合格
-```
-
-<details>
-<summary>解答例（practice19_answer.rb）</summary>
-
-```ruby
-def judge(score)
-  if score >= 80
-    "合格"
-  else
-    "不合格"
-  end
-end
-
-puts judge(85)
-puts judge(50)
-```
-
-</details>
-
----
-
-## 📝 20. 必要な値を引数で渡す（`practice20.rb`）
-
-### やってみよう
-
-通常価格と割引額を受け取り、割引後の価格を返す `calculate_discount` メソッドを作ってください。
-
-メソッドの外で `discount = 150` を定義し、通常価格 `1000` と `discount` をメソッドへ渡してください。
-
-### 表示例
-
-```text
-850
+1100
+800
 ```
 
 > [!NOTE]
 > メソッドの外で作ったローカル変数は、メソッドの中から直接使えません。必要な値は引数として渡します。
 
 <details>
-<summary>解答例（practice20_answer.rb）</summary>
+<summary>解答例（practice14_answer.rb）</summary>
 
 ```ruby
-def calculate_discount(price, discount)
-  price - discount
+def calculate_price(price, discount)
+  if price >= 1000
+    price - discount
+  else
+    price
+  end
 end
 
-discount = 150
-result = calculate_discount(1000, discount)
-
-puts result
+puts calculate_price(1200, 100)
+puts calculate_price(800, 100)
 ```
 
 </details>
@@ -793,40 +609,7 @@ puts result
 
 # クラスとインスタンス
 
-## 📝 21. クラスからインスタンスを作る（`practice21.rb`）
-
-### やってみよう
-
-`Article` クラスを作り、その中に `"記事のタイトル欄"` を返す `title_message` メソッドを定義してください。
-
-`Article.new` でインスタンスを作り、`title_message` の戻り値を表示してください。
-
-### 表示例
-
-```text
-記事のタイトル欄
-```
-
-<details>
-<summary>解答例（practice21_answer.rb）</summary>
-
-```ruby
-class Article
-  def title_message
-    "記事のタイトル欄"
-  end
-end
-
-article = Article.new
-
-puts article.title_message
-```
-
-</details>
-
----
-
-## 📝 22. インスタンスごとに値を保存する（`practice22.rb`）
+## 📝 15. インスタンスごとに値を保存する（`practice15.rb`）
 
 ### やってみよう
 
@@ -848,7 +631,7 @@ puts article.title_message
 ```
 
 <details>
-<summary>解答例（practice22_answer.rb）</summary>
+<summary>解答例（practice15_answer.rb）</summary>
 
 ```ruby
 class Article
@@ -876,7 +659,7 @@ puts article2.title_message
 
 ここからは、これまでに学んだパーツを組み合わせます。
 
-## 📝 23. 商品データと条件分岐を組み合わせる（`practice23.rb`）
+## 📝 16. 商品データと条件分岐を組み合わせる（`practice16.rb`）
 
 ### やってみよう
 
@@ -894,7 +677,7 @@ puts article2.title_message
 ```
 
 <details>
-<summary>解答例（practice23_answer.rb）</summary>
+<summary>解答例（practice16_answer.rb）</summary>
 
 ```ruby
 item = {
@@ -915,7 +698,7 @@ puts "#{item["name"]}の支払金額は#{total}円です"
 
 ---
 
-## 📝 24. 条件に合う商品だけを表示する（`practice24.rb`）
+## 📝 17. 商品を絞り込み、合計金額を計算する（`practice17.rb`）
 
 ### やってみよう
 
@@ -925,17 +708,21 @@ puts "#{item["name"]}の支払金額は#{total}円です"
 - サラダ：300円
 - ラーメン：850円
 
-`each` と `if` を使い、価格が `500` 円以上の商品だけを表示してください。
+`each` を使って、次の2つを行ってください。
+
+1. 価格が `500` 円以上の商品だけを表示する
+2. すべての商品の合計金額を計算して表示する
 
 ### 表示例
 
 ```text
 カレー：700円
 ラーメン：850円
+合計金額：1850円
 ```
 
 <details>
-<summary>解答例（practice24_answer.rb）</summary>
+<summary>解答例（practice17_answer.rb）</summary>
 
 ```ruby
 items = [
@@ -944,24 +731,30 @@ items = [
   { "name" => "ラーメン", "price" => 850 }
 ]
 
+total = 0
+
 items.each do |item|
   if item["price"] >= 500
     puts "#{item["name"]}：#{item["price"]}円"
   end
+
+  total = total + item["price"]
 end
+
+puts "合計金額：#{total}円"
 ```
 
 </details>
 
 ---
 
-## 📝 25. 商品の合計金額を返すメソッドを作る（`practice25.rb`）
+## 📝 18. 合計金額を返すメソッドを作る（`practice18.rb`）
 
 ### やってみよう
 
 商品の配列を引数として受け取り、すべての商品の合計金額を返す `calculate_total` メソッドを作ってください。
 
-問24と同じ `items` を渡し、戻り値を表示してください。
+問17と同じ `items` を渡し、戻り値を表示してください。
 
 ### 表示例
 
@@ -970,7 +763,7 @@ end
 ```
 
 <details>
-<summary>解答例（practice25_answer.rb）</summary>
+<summary>解答例（practice18_answer.rb）</summary>
 
 ```ruby
 def calculate_total(items)
@@ -996,106 +789,29 @@ puts calculate_total(items)
 
 ---
 
-## 📝 26. `Order` クラスを作る（`practice26.rb`）
+## 📝 19. `Order` クラスを作る（`practice19.rb`）
 
 ### やってみよう
 
 注文を表す `Order` クラスを作ってください。
 
-`initialize(items)` で受け取った商品の配列を、インスタンス変数 `@items` に保存します。
+次の3つのメソッドを定義します。
 
-問24と同じ商品データを使って、`Order` インスタンスを作ってください。
+- `initialize(items)`：受け取った商品の配列を `@items` に保存する
+- `total_price`：すべての商品の合計金額を返す
+- `item_count`：商品の個数を返す
 
-この問題では、画面への出力はありません。エラーが表示されずにプログラムが終了すれば成功です。
-
-<details>
-<summary>解答例（practice26_answer.rb）</summary>
-
-```ruby
-class Order
-  def initialize(items)
-    @items = items
-  end
-end
-
-items = [
-  { "name" => "カレー", "price" => 700 },
-  { "name" => "サラダ", "price" => 300 },
-  { "name" => "ラーメン", "price" => 850 }
-]
-
-order = Order.new(items)
-```
-
-</details>
-
----
-
-## 📝 27. 合計金額を計算するメソッドを追加する（`practice27.rb`）
-
-### やってみよう
-
-問26の `Order` クラスに、`total_price` メソッドを追加してください。
-
-`total_price` は、`@items` に入っているすべての商品の合計金額を返します。
+問17と同じ商品データを使って `Order` インスタンスを作り、合計金額と商品数を表示してください。
 
 ### 表示例
 
 ```text
-1850
+合計金額：1850円
+商品数：3個
 ```
 
 <details>
-<summary>解答例（practice27_answer.rb）</summary>
-
-```ruby
-class Order
-  def initialize(items)
-    @items = items
-  end
-
-  def total_price
-    total = 0
-
-    @items.each do |item|
-      total = total + item["price"]
-    end
-
-    total
-  end
-end
-
-items = [
-  { "name" => "カレー", "price" => 700 },
-  { "name" => "サラダ", "price" => 300 },
-  { "name" => "ラーメン", "price" => 850 }
-]
-
-order = Order.new(items)
-
-puts order.total_price
-```
-
-</details>
-
----
-
-## 📝 28. 商品数を返すメソッドを追加する（`practice28.rb`）
-
-### やってみよう
-
-問27の `Order` クラスに、`item_count` メソッドを追加してください。
-
-`item_count` は、`@items` に入っている商品の個数を返します。配列の `length` メソッドを使ってください。
-
-### 表示例
-
-```text
-3
-```
-
-<details>
-<summary>解答例（practice28_answer.rb）</summary>
+<summary>解答例（practice19_answer.rb）</summary>
 
 ```ruby
 class Order
@@ -1126,96 +842,24 @@ items = [
 
 order = Order.new(items)
 
-puts order.item_count
+puts "合計金額：#{order.total_price}円"
+puts "商品数：#{order.item_count}個"
 ```
 
 </details>
 
 ---
 
-## 📝 29. 送料込みの金額を返すメソッドを追加する（`practice29.rb`）
+## 📝 20. 複数の注文を送料込みで処理する（`practice20.rb`）
 
 ### やってみよう
 
-問28の `Order` クラスに、`total_price_with_shipping` メソッドを追加してください。
+問19の `Order` クラスに、`total_price_with_shipping` メソッドを追加してください。
 
 送料の条件は次のとおりです。
 
 - 商品の合計金額が `3000` 円未満：送料500円を加える
 - 商品の合計金額が `3000` 円以上：送料を加えない
-
-次の2つの注文で確認してください。
-
-- カレー700円、ラーメン850円
-- カレー700円、ステーキ2500円
-
-### 表示例
-
-```text
-2050
-3200
-```
-
-<details>
-<summary>解答例（practice29_answer.rb）</summary>
-
-```ruby
-class Order
-  def initialize(items)
-    @items = items
-  end
-
-  def total_price
-    total = 0
-
-    @items.each do |item|
-      total = total + item["price"]
-    end
-
-    total
-  end
-
-  def item_count
-    @items.length
-  end
-
-  def total_price_with_shipping
-    total = total_price
-
-    if total < 3000
-      total = total + 500
-    end
-
-    total
-  end
-end
-
-items1 = [
-  { "name" => "カレー", "price" => 700 },
-  { "name" => "ラーメン", "price" => 850 }
-]
-
-items2 = [
-  { "name" => "カレー", "price" => 700 },
-  { "name" => "ステーキ", "price" => 2500 }
-]
-
-order1 = Order.new(items1)
-order2 = Order.new(items2)
-
-puts order1.total_price_with_shipping
-puts order2.total_price_with_shipping
-```
-
-</details>
-
----
-
-## 📝 30. 複数の注文をまとめて処理する（`practice30.rb`）
-
-### やってみよう
-
-問29と同じ `Order` クラスを使います。
 
 次の3つの注文を作ってください。
 
@@ -1234,7 +878,7 @@ puts order2.total_price_with_shipping
 ```
 
 <details>
-<summary>解答例（practice30_answer.rb）</summary>
+<summary>解答例（practice20_answer.rb）</summary>
 
 ```ruby
 class Order
@@ -1295,6 +939,10 @@ end
 
 ## 練習のまとめ
 
-30問を通して、Rubyの基本パーツを1つずつ振り返り、最後は複数のパーツを組み合わせて注文管理プログラムを作りました。
+20問を通して、Rubyの基本パーツを振り返り、最後は複数のパーツを組み合わせて注文管理プログラムを作りました。
 
 うまく書けなかった問題は、そのままにせず、オリエンテーションやこれまでの教材を見返して、もう一度書いてみましょう。
+
+---
+
+さらに力をつけるため、[Stretch](stretch.md) へ進みましょう。
