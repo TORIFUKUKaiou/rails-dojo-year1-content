@@ -365,23 +365,28 @@ Railsは、Webアプリケーションを作るための道具です。
 Railsを学ぶときも、基本の流れは変わりません。
 
 ```mermaid
-flowchart TD
+flowchart LR
   Browser["ブラウザ"]
-  Request["リクエスト"]
-  Server["サーバ"]
-  Response["レスポンス"]
-  URL["URL"]
-  Method["GET / POST"]
-  Routing["ルーティング"]
+
+  subgraph Request["リクエスト"]
+    Method["GET"]
+    URL["/articles"]
+  end
+
+  subgraph Server["Railsサーバ"]
+    Routing["ルーティング<br>GET /articles"]
+    Controller["コントローラ<br>articles#index"]
+    View["ビュー<br>HTMLを作る"]
+  end
+
+  Response["レスポンス<br>HTML"]
 
   Browser --> Request
-  Request --> Server
-  Server --> Response
+  Request --> Routing
+  Routing --> Controller
+  Controller --> View
+  View --> Response
   Response --> Browser
-
-  Request --> URL
-  Request --> Method
-  Server --> Routing
 ```
 
 ブラウザがリクエストを送ります。
