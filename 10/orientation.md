@@ -362,38 +362,27 @@ POST /articles が来たら articles#create へ
 
 Railsは、Webアプリケーションを作るための道具です。
 
-Railsを学ぶときも、基本の流れは変わりません。
+ただし、Railsの前に、Webの基本があります。
 
 ```mermaid
-flowchart LR
-  Browser["ブラウザ"]
+sequenceDiagram
+  participant Browser as ブラウザ
+  participant Rails as Railsサーバ
 
-  subgraph Request["リクエスト"]
-    Method["GET"]
-    URL["/articles"]
-  end
-
-  subgraph Server["Railsサーバ"]
-    Routing["ルーティング<br>GET /articles"]
-    Controller["コントローラ<br>articles#index"]
-    View["ビュー<br>HTMLを作る"]
-  end
-
-  Response["レスポンス<br>HTML"]
-
-  Browser --> Request
-  Request --> Routing
-  Routing --> Controller
-  Controller --> View
-  View --> Response
-  Response --> Browser
+  Browser->>Rails: リクエスト<br>GET /articles
+  Rails->>Rails: ルーティングを確認
+  Rails->>Rails: コントローラを実行<br>articles#index
+  Rails->>Rails: ビューでHTMLを作る
+  Rails-->>Browser: レスポンス<br>HTML
 ```
 
-ブラウザがリクエストを送ります。
+Railsを学ぶときも、この流れは変わりません。
 
-サーバがレスポンスを返します。
+ブラウザがリクエストを送る。
 
-Railsは、サーバ側の処理を作るための道具です。
+サーバがレスポンスを返す。
+
+Railsは、そのサーバ側の処理を作るための道具です。
 
 ---
 
