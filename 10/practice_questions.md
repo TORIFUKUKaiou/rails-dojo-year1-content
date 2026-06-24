@@ -247,14 +247,14 @@
 
 ### Q21. POSTをよく使う場面はどれですか。
 
-- フォームの入力内容を送る
+- 登録フォームの入力内容を送る
 - 記事一覧を見る
 - 商品詳細を見る
 - 検索結果を見る
 
-正解：フォームの入力内容を送る
+正解：登録フォームの入力内容を送る
 
-解説：POSTは登録、投稿、ログインなど、データを送る場面でよく使います。
+解説：POSTは登録、投稿、ログインなど、入力したデータを送る場面でよく使います。
 
 ### Q22. GET /articles は何をお願いしていそうですか。
 
@@ -324,7 +324,13 @@
 
 ## フォーム
 
-### Q28. <form action="/search" method="get"> の送信先はどれですか。
+### Q28. 次のフォームの送信先はどれですか。
+
+```html
+<form action="/search" method="get">
+  <input type="text" name="keyword">
+</form>
+```
 
 - /search
 - get
@@ -335,7 +341,13 @@
 
 解説：action はフォームの送信先です。
 
-### Q29. <form action="/search" method="get"> の送信方法はどれですか。
+### Q29. 次のフォームの送信方法はどれですか。
+
+```html
+<form action="/search" method="get">
+  <input type="text" name="keyword">
+</form>
+```
 
 - GET
 - POST
@@ -346,7 +358,13 @@
 
 解説：method="get" なのでGETで送信します。
 
-### Q30. <input type="text" name="keyword"> の入力欄の名前はどれですか。
+### Q30. 次のフォームの入力欄の名前はどれですか。
+
+```html
+<form action="/search" method="get">
+  <input type="text" name="keyword">
+</form>
+```
 
 - keyword
 - text
@@ -578,7 +596,7 @@ post "/books", to: "books#create"
 
 正解：books#index
 
-解説：GETで /books に送信するため、get "/books" のルーティングに一致します。
+解説：GETで /books に送信するため、get "/books" のルーティングに一致します。name="author" は送るデータの名前です。どの処理につながるかは、method="get" と action="/books" を見ます。
 
 ### Q48. 次のフォームはどの処理につながりますか。
 
