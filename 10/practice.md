@@ -19,12 +19,6 @@
 https://TORIFUKUKaiou.github.io/rails-dojo-web-basics-quiz/
 ```
 
-## 復習用
+---
 
-Web教材で扱う問題を文章で確認したい場合は、次を見てください。
-
-- [practice_questions.md](practice_questions.md)
-
-> [!IMPORTANT]
-> Practice は、公開Web教材で取り組みます。
-> このファイルに答えを書き込む必要はありません。
+Web教材を最後まで一周したら、さらに力をつけるため、[Stretch](stretch.md) へ進みましょう。
