@@ -10,6 +10,7 @@
 
 - ブラウザとサーバ
 - リクエストとレスポンス
+- HTMLの基本構造
 - URLの分解
 - GET / POST の使い分け
 - フォームの `action` / `method` / `name`
@@ -205,9 +206,170 @@
 
 </details>
 
+## HTML
+
+### Q13. HTMLの説明として正しいものはどれですか。
+
+- ブラウザが読んで画面を表示するための文書
+- サーバの住所だけを表す文字列
+- Rubyの繰り返し専用の書き方
+- データベースに保存する表
+
+<details>
+<summary>解答と解説</summary>
+
+正解：ブラウザが読んで画面を表示するための文書
+
+解説：HTMLは、ブラウザが読んでWebページの画面を表示するための文書です。
+
+</details>
+
+### Q14. 次のHTMLで、画面に表示される中身を書く場所はどれですか。
+
+```html
+<html>
+  <head>
+    <title>ページのタイトル</title>
+  </head>
+  <body>
+    <h1>大きな見出し</h1>
+    <p>本文です。</p>
+  </body>
+</html>
+```
+
+- body
+- head
+- title
+- html
+
+<details>
+<summary>解答と解説</summary>
+
+正解：body
+
+解説：画面に表示される見出しや本文は、主に body の中に書きます。
+
+</details>
+
+### Q15. 次のHTMLで、ページの情報を書く場所はどれですか。
+
+```html
+<html>
+  <head>
+    <title>ページのタイトル</title>
+  </head>
+  <body>
+    <h1>大きな見出し</h1>
+  </body>
+</html>
+```
+
+- head
+- body
+- h1
+- p
+
+<details>
+<summary>解答と解説</summary>
+
+正解：head
+
+解説：head は、ページのタイトルなど、ページの情報を書く場所です。
+
+</details>
+
+### Q16. h1、h2、h3 は何を表すタグですか。
+
+- 見出し
+- 段落
+- 送信先
+- HTTPメソッド
+
+<details>
+<summary>解答と解説</summary>
+
+正解：見出し
+
+解説：h1、h2、h3 は見出しを表すタグです。数字が小さいほど大きな見出しです。
+
+</details>
+
+### Q17. p は何を表すタグですか。
+
+- 文章の段落
+- ページの住所
+- 大きな見出し
+- サーバへのリクエスト
+
+<details>
+<summary>解答と解説</summary>
+
+正解：文章の段落
+
+解説：p は paragraph の p で、文章の段落を表します。
+
+</details>
+
+### Q18. ブラウザで右クリックして「ページのソースを表示」を選ぶと、主に何を確認できますか。
+
+- そのページのHTML
+- EC2のインスタンスタイプ
+- Rubyの変数一覧
+- データベースの中身
+
+<details>
+<summary>解答と解説</summary>
+
+正解：そのページのHTML
+
+解説：ページのソースを表示すると、ブラウザが受け取ったHTMLを確認できます。
+
+</details>
+
+### Q19. 次のHTMLで、いちばん大きな見出しとして読むタグはどれですか。
+
+```html
+<body>
+  <h1>お知らせ</h1>
+  <h2>今日の予定</h2>
+  <p>13時から授業です。</p>
+</body>
+```
+
+- h1
+- h2
+- p
+- body
+
+<details>
+<summary>解答と解説</summary>
+
+正解：h1
+
+解説：h1 は、ページ内の大きな見出しを表します。
+
+</details>
+
+### Q20. Webページを開いたとき、HTMLはどの流れでブラウザへ届きますか。
+
+- サーバがレスポンスとして返す
+- ブラウザがデータベースへ直接保存する
+- URLが自動でRubyに変換する
+- CSSがサーバへログインする
+
+<details>
+<summary>解答と解説</summary>
+
+正解：サーバがレスポンスとして返す
+
+解説：ブラウザがリクエストを送り、サーバがHTMLなどをレスポンスとして返します。
+
+</details>
+
 ## URL
 
-### Q13. https://example.com/articles の通信の種類はどれですか。
+### Q21. https://example.com/articles の通信の種類はどれですか。
 
 - https
 - example.com
@@ -223,7 +385,7 @@
 
 </details>
 
-### Q14. https://example.com/articles のサーバの場所はどれですか。
+### Q22. https://example.com/articles のサーバの場所はどれですか。
 
 - https
 - example.com
@@ -239,7 +401,7 @@
 
 </details>
 
-### Q15. https://example.com/articles/1 のパスはどれですか。
+### Q23. https://example.com/articles/1 のパスはどれですか。
 
 - /articles/1
 - example.com
@@ -255,7 +417,7 @@
 
 </details>
 
-### Q16. https://example.com/search?keyword=ruby の追加の情報はどれですか。
+### Q24. https://example.com/search?keyword=ruby の追加の情報はどれですか。
 
 - keyword=ruby
 - /search
@@ -271,7 +433,7 @@
 
 </details>
 
-### Q17. /students/10 が表していそうなページはどれですか。
+### Q25. /students/10 が表していそうなページはどれですか。
 
 - 10番の学生の詳細
 - 学生一覧
@@ -287,7 +449,7 @@
 
 </details>
 
-### Q18. https://shop.example.com/items?category=book のパスはどれですか。
+### Q26. https://shop.example.com/items?category=book のパスはどれですか。
 
 - /items
 - category=book
@@ -303,7 +465,7 @@
 
 </details>
 
-### Q19. https://example.com/products?min_price=1000&max_price=3000 の追加の情報はどれですか。
+### Q27. https://example.com/products?min_price=1000&max_price=3000 の追加の情報はどれですか。
 
 - min_price=1000&max_price=3000
 - /products
@@ -321,7 +483,7 @@
 
 ## GET / POST
 
-### Q20. GETをよく使う場面はどれですか。
+### Q28. GETをよく使う場面はどれですか。
 
 - ページを見る
 - 新しい記事を登録する
@@ -337,7 +499,7 @@
 
 </details>
 
-### Q21. POSTをよく使う場面はどれですか。
+### Q29. POSTをよく使う場面はどれですか。
 
 - 登録フォームの入力内容を送る
 - 記事一覧を見る
@@ -353,7 +515,7 @@
 
 </details>
 
-### Q22. GET /articles は何をお願いしていそうですか。
+### Q30. GET /articles は何をお願いしていそうですか。
 
 - 記事一覧をください
 - 新しい記事を登録してください
@@ -369,7 +531,7 @@
 
 </details>
 
-### Q23. POST /articles は何をしていそうですか。
+### Q31. POST /articles は何をしていそうですか。
 
 - 新しい記事を投稿する
 - 記事一覧を見る
@@ -385,7 +547,7 @@
 
 </details>
 
-### Q24. 商品を検索する場面でよく使うのはどれですか。
+### Q32. 商品を検索する場面でよく使うのはどれですか。
 
 - GET
 - POST
@@ -401,7 +563,7 @@
 
 </details>
 
-### Q25. ログイン情報を送る場面でよく使うのはどれですか。
+### Q33. ログイン情報を送る場面でよく使うのはどれですか。
 
 - POST
 - GET
@@ -417,7 +579,7 @@
 
 </details>
 
-### Q26. 記事の詳細を見るリクエストとして自然なものはどれですか。
+### Q34. 記事の詳細を見るリクエストとして自然なものはどれですか。
 
 - GET /articles/1
 - POST /articles/1
@@ -433,7 +595,7 @@
 
 </details>
 
-### Q27. お問い合わせ内容を送るリクエストとして自然なものはどれですか。
+### Q35. お問い合わせ内容を送るリクエストとして自然なものはどれですか。
 
 - POST /contacts
 - GET /contacts/1
@@ -451,7 +613,7 @@
 
 ## フォーム
 
-### Q28. 次のフォームの送信先はどれですか。
+### Q36. 次のフォームの送信先はどれですか。
 
 ```html
 <form action="/search" method="get">
@@ -473,7 +635,7 @@
 
 </details>
 
-### Q29. 次のフォームの送信方法はどれですか。
+### Q37. 次のフォームの送信方法はどれですか。
 
 ```html
 <form action="/search" method="get">
@@ -495,7 +657,7 @@
 
 </details>
 
-### Q30. 次のフォームの入力欄の名前はどれですか。
+### Q38. 次のフォームの入力欄の名前はどれですか。
 
 ```html
 <form action="/search" method="get">
@@ -517,7 +679,7 @@
 
 </details>
 
-### Q31. /search に keyword=ruby をGETで送るリクエストはどれですか。
+### Q39. /search に keyword=ruby をGETで送るリクエストはどれですか。
 
 - GET /search?keyword=ruby
 - POST /search?keyword=ruby
@@ -533,7 +695,7 @@
 
 </details>
 
-### Q32. /contacts に message をPOSTで送るフォームとして正しい組み合わせはどれですか。
+### Q40. /contacts に message をPOSTで送るフォームとして正しい組み合わせはどれですか。
 
 - action="/contacts"、method="post"、name="message"
 - action="/message"、method="get"、name="contacts"
@@ -549,7 +711,7 @@
 
 </details>
 
-### Q33. 次のフォームで 1 と入力して送信すると、どのリクエストになりそうですか。
+### Q41. 次のフォームで 1 と入力して送信すると、どのリクエストになりそうですか。
 
 ```html
 <form action="/students" method="get">
@@ -571,7 +733,7 @@
 
 </details>
 
-### Q34. 次のフォームは何を送っていそうですか。
+### Q42. 次のフォームは何を送っていそうですか。
 
 ```html
 <form action="/login" method="post">
@@ -594,7 +756,7 @@
 
 </details>
 
-### Q35. /articles に title をPOSTで送るフォームとして正しいものはどれですか。
+### Q43. /articles に title をPOSTで送るフォームとして正しいものはどれですか。
 
 - action="/articles"、method="post"、name="title"
 - action="/articles"、method="get"、name="keyword"
@@ -612,7 +774,7 @@
 
 ## ルーティング
 
-### Q36. ルーティングの役割として正しいものはどれですか。
+### Q44. ルーティングの役割として正しいものはどれですか。
 
 - リクエストをどの処理につなげるかを決める
 - ブラウザの色を変える
@@ -628,7 +790,7 @@
 
 </details>
 
-### Q37. get "/articles", to: "articles#index" はどう読めますか。
+### Q45. get "/articles", to: "articles#index" はどう読めますか。
 
 - GET /articles が来たら articles#index へつなげる
 - POST /articles が来たら articles#index へつなげる
@@ -644,7 +806,7 @@
 
 </details>
 
-### Q38. post "/articles", to: "articles#create" に一致するリクエストはどれですか。
+### Q46. post "/articles", to: "articles#create" に一致するリクエストはどれですか。
 
 - POST /articles
 - GET /articles
@@ -660,7 +822,7 @@
 
 </details>
 
-### Q39. GET /books が books#index につながるルーティングはどれですか。
+### Q47. GET /books が books#index につながるルーティングはどれですか。
 
 - get "/books", to: "books#index"
 - post "/books", to: "books#index"
@@ -676,7 +838,7 @@
 
 </details>
 
-### Q40. POST /students が students#create につながるルーティングはどれですか。
+### Q48. POST /students が students#create につながるルーティングはどれですか。
 
 - post "/students", to: "students#create"
 - get "/students", to: "students#create"
@@ -692,7 +854,7 @@
 
 </details>
 
-### Q41. 次のルーティングで GET /comments はどこにつながりますか。
+### Q49. 次のルーティングで GET /comments はどこにつながりますか。
 
 ```ruby
 get "/comments", to: "comments#index"
@@ -713,7 +875,7 @@ post "/comments", to: "comments#create"
 
 </details>
 
-### Q42. 次のルーティングで POST /messages はどこにつながりますか。
+### Q50. 次のルーティングで POST /messages はどこにつながりますか。
 
 ```ruby
 get "/messages", to: "messages#index"
@@ -736,7 +898,7 @@ post "/messages", to: "messages#create"
 
 ## 総合問題
 
-### Q43. 本の一覧を見るリクエストとして最も自然なものはどれですか。
+### Q51. 本の一覧を見るリクエストとして最も自然なものはどれですか。
 
 - GET /books
 - POST /books
@@ -752,7 +914,7 @@ post "/messages", to: "messages#create"
 
 </details>
 
-### Q44. 3番の本を見るリクエストとして最も自然なものはどれですか。
+### Q52. 3番の本を見るリクエストとして最も自然なものはどれですか。
 
 - GET /books/3
 - POST /books/3
@@ -768,7 +930,7 @@ post "/messages", to: "messages#create"
 
 </details>
 
-### Q45. 新しい本を登録するリクエストとして最も自然なものはどれですか。
+### Q53. 新しい本を登録するリクエストとして最も自然なものはどれですか。
 
 - POST /books
 - GET /books
@@ -784,7 +946,7 @@ post "/messages", to: "messages#create"
 
 </details>
 
-### Q46. ruby で本を検索するリクエストとして最も自然なものはどれですか。
+### Q54. ruby で本を検索するリクエストとして最も自然なものはどれですか。
 
 - GET /books?keyword=ruby
 - POST /books/1
@@ -800,7 +962,7 @@ post "/messages", to: "messages#create"
 
 </details>
 
-### Q47. 次のフォームはどの処理につながりますか。
+### Q55. 次のフォームはどの処理につながりますか。
 
 ```html
 <form action="/books" method="get">
@@ -825,7 +987,7 @@ post "/books", to: "books#create"
 
 </details>
 
-### Q48. 次のフォームはどの処理につながりますか。
+### Q56. 次のフォームはどの処理につながりますか。
 
 ```html
 <form action="/articles" method="post">
@@ -850,7 +1012,7 @@ post "/articles", to: "articles#create"
 
 </details>
 
-### Q49. 学生一覧を見る、10番の学生を見る、新しい学生を登録する、の組み合わせとして最も自然なものはどれですか。
+### Q57. 学生一覧を見る、10番の学生を見る、新しい学生を登録する、の組み合わせとして最も自然なものはどれですか。
 
 - GET /students、GET /students/10、POST /students
 - POST /students、POST /students/10、GET /students
@@ -866,7 +1028,7 @@ post "/articles", to: "articles#create"
 
 </details>
 
-### Q50. 「URLは画面に表示する文章だけを表している」という説明は正しいですか。
+### Q58. 「URLは画面に表示する文章だけを表している」という説明は正しいですか。
 
 - 誤り。URLはサーバの場所やお願いしたい内容を表す
 - 正しい。URLは文章だけを表す
@@ -882,7 +1044,7 @@ post "/articles", to: "articles#create"
 
 </details>
 
-### Q51. 「GETは必ず新しいデータを登録するときに使う」という説明は正しいですか。
+### Q59. 「GETは必ず新しいデータを登録するときに使う」という説明は正しいですか。
 
 - 誤り。GETは情報を見るときによく使う
 - 正しい。GETは登録専用である
@@ -898,7 +1060,7 @@ post "/articles", to: "articles#create"
 
 </details>
 
-### Q52. Webアプリケーションの流れとして最も自然な順番はどれですか。
+### Q60. Webアプリケーションの流れとして最も自然な順番はどれですか。
 
 - ブラウザがリクエストを送る → サーバが処理する → サーバがレスポンスを返す → ブラウザが表示する
 - サーバが表示する → ブラウザが処理する → URLが消える → レスポンスを送る
@@ -914,7 +1076,7 @@ post "/articles", to: "articles#create"
 
 </details>
 
-### Q53. Railsに入る前に押さえておく考え方として正しいものをすべて選んでください。
+### Q61. Railsに入る前に押さえておく考え方として正しいものをすべて選んでください。
 
 - ブラウザがリクエストを送る
 - サーバがレスポンスを返す
@@ -930,7 +1092,7 @@ post "/articles", to: "articles#create"
 
 </details>
 
-### Q54. 次回以降のRails学習につながる読み方として正しいものはどれですか。
+### Q62. 次回以降のRails学習につながる読み方として正しいものはどれですか。
 
 - GET /articles が来たら、ルーティングが articles#index などの処理へつなげる
 - GET /articles が来たら、ブラウザが直接データベースを書き換える
