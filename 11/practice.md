@@ -27,7 +27,7 @@
 ## 2. 読んだ範囲を実際に操作する
 
 さきほど読んだ範囲を、実際に操作してみましょう。
-具体的な作業手順は、授業中に案内する private 教材を参照してください。
+具体的な作業手順は、授業中に案内する [private 教材](https://github.com/TORIFUKUKaiou/rails-tutorial-companion/blob/main/chapter01.md)を参照してください。
 
 Railsアプリケーションを作成し、ブラウザで表示するところまで進めます。
 
