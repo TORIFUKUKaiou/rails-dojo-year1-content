@@ -45,6 +45,18 @@ flowchart LR
 
 特に `cd` と `ls` は、今後もよく使います。
 
+## gemとは
+
+<ruby>gem<rt>ジェム</rt></ruby> は、Rubyで使える部品や道具をまとめたものです。
+
+Railsも <ruby>gem<rt>ジェム</rt></ruby> として配布されています。  
+そのため、Railsを使う前に `gem install rails` を実行して、Railsをインストールします。
+
+ここで押さえることは、次の2つです。
+
+- <ruby>gem<rt>ジェム</rt></ruby> は、Rubyで使える部品や道具
+- Railsは `gem install rails` でインストールする
+
 ## Railsとは
 
 Railsは、RubyでWebアプリケーションを作るためのフレームワークです。
@@ -131,13 +143,13 @@ Railsでは、アプリケーションを役割ごとに分けて作ります。
 | 名前 | 読み方 | 役割 |
 |---|---|---|
 | Model | モデル | データに関係する部分 |
-| View | ビュー | 画面に関係する部分 |
+| View | ビュー | HTMLを作る部分 |
 | Controller | コントローラ | 処理の流れを決める部分 |
 
 今日覚えることは、次の3つです。
 
 - Model はデータ
-- View は画面
+- View はHTML
 - Controller は処理の流れ
 
 Railsでは、ブラウザからのリクエストがRailsサーバに届きます。  
@@ -167,15 +179,15 @@ flowchart LR
 - `routes`：URLと処理の対応
 - Controller：処理の流れを決める
 - Model：データを扱う
-- View：画面を作る
+- View：HTMLを作る
 
 まずは、ブラウザからリクエストが送られ、Railsの中で役割分担され、レスポンスが返る流れを押さえます。
 
 ## Git・テスト・デプロイについて
 
-Railsチュートリアル第1章には、<ruby>Git<rt>ギット</rt></ruby>、テスト、デプロイも出てきます。
+Railsチュートリアルには、<ruby>Git<rt>ギット</rt></ruby>、テスト、デプロイも出てきます。
 
-この授業では、今回は作業としては扱いません。
+この授業では、作業としては扱いません。
 
 | 用語 | 意味 |
 |---|---|
@@ -199,6 +211,6 @@ flowchart LR
 ```
 
 Railsでは、ブラウザからのリクエストがRailsサーバに届きます。  
-Railsサーバの中では、`routes`、Controller、Model、Viewなどが役割を分担して動きます。
+Railsでは、`routes`、Controller、Model、Viewなどが役割を分担して動きます。
 
 まずは、Railsアプリケーションを作成し、ブラウザで表示するところまで進めましょう。
