@@ -15,9 +15,7 @@
 
 公開URL：
 
-```text
-https://TORIFUKUKaiou.github.io/rails-dojo-web-basics-quiz/
-```
+[https://TORIFUKUKaiou.github.io/rails-dojo-web-basics-quiz/](https://TORIFUKUKaiou.github.io/rails-dojo-web-basics-quiz/)
 
 ---
 
