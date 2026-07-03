@@ -1,5 +1,7 @@
 # 第10回：Webの仕組み ── ブラウザとサーバの会話
 
+[PDF資料](https://drive.google.com/file/d/1He5y6FOZSHJ9hPtAjwe0WoTf2EbtjUFG/view?usp=drive_link)
+
 ## 今日のゴール
 
 Webアプリケーションは、ブラウザとサーバのやり取りで動いています。
