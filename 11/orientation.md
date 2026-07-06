@@ -41,6 +41,7 @@ flowchart LR
 | `cd ディレクトリ名` | ディレクトリを移動する |
 | `ls` | ファイルやディレクトリの一覧を見る |
 | `rails server` | Railsサーバを起動する |
+| `rails routes` | URLと処理の対応を確認する |
 
 特に `cd` と `ls` は、今後もよく使います。
 
