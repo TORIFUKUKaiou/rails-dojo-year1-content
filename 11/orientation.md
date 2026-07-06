@@ -1,5 +1,7 @@
 # 第11回：Railsはじめの一歩
 
+[PDF資料](https://drive.google.com/file/d/1omd9Yt_1br9Q1ICQQ1vSMJLRo2q7VUAk/view?usp=drive_link)
+
 ## 今日の目標
 
 今回から Ruby on Rails を使います。
