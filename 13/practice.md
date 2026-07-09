@@ -1,54 +1,136 @@
 # Practice：scaffoldで3つのRailsアプリを作る
 
-## 進め方
+## はじめに
 
-このPracticeでは、Railsの`scaffold`を使って3つのアプリケーションを作ります。
+このPracticeでは、Railsの`scaffold`を使って、3つの小さなアプリケーションを作ります。
 
-1つのアプリケーションを作り、ブラウザで操作を確認してから、次のアプリケーションへ進みます。
+上から順番に進めてください。
 
 作るアプリケーションは次の3つです。
 
-| アプリケーション | フォルダ名 | 扱うデータ |
+| アプリケーション | フォルダ名 | 作るもの |
 |---|---|---|
-| TODOアプリ | `todo_app` | タスク |
-| 読書メモアプリ | `book_app` | 本 |
-| 支出メモアプリ | `expense_app` | 支出 |
+| TODOアプリ | `todo_app` | タスクを管理する画面 |
+| 読書メモアプリ | `book_app` | 読んだ本を記録する画面 |
+| 支出メモアプリ | `expense_app` | 使ったお金を記録する画面 |
 
-作業を始める前に、ターミナルでRailsのバージョンを確認します。
+## 最初にRailsのバージョンを確認する
+
+ターミナルで次のコマンドを実行します。
 
 ```bash
 rails --version
 ```
 
-次のように表示されることを確認してください。
+次のように表示されることを確認します。
 
 ```text
 Rails 8.0.2.1
 ```
 
-## 共通の注意
+> [!IMPORTANT]
+> このPracticeでは Rails `8.0.2.1` を使います。
+> 違うバージョンが表示された場合は、作業を進める前に教員へ確認してください。
 
-Railsサーバーを起動したまま次のアプリケーションを作ると、ポート3000が使われたままになります。
+---
 
-1つのアプリケーションの確認が終わったら、サーバーを起動しているターミナルで `Ctrl + C` を押して止めます。
+# アプリ1：TODOアプリ
 
-```text
-Ctrl + C
+TODOアプリでは、タスクを登録・表示・編集・削除します。
+
+## Step 1-1：TODOアプリを作る
+
+ターミナルで次のコマンドを実行します。
+
+```bash
+rails _8.0.2.1_ new todo_app
 ```
 
-サーバーを止めてから、次のアプリケーションを作ります。
+コマンドの実行が終わるまで待ちます。
 
-## 共通手順：Codespaces用のhost設定
+終わると、`todo_app` というフォルダが作られます。
 
-各アプリケーションで、`config/environments/development.rb` を開きます。
+## Step 1-2：TODOアプリのフォルダへ移動する
 
-既存の次のブロックを探します。
+次のコマンドを実行します。
+
+```bash
+cd todo_app
+```
+
+今いる場所を確認します。
+
+```bash
+pwd
+```
+
+表示の最後が、次のようになっていればOKです。
+
+```text
+todo_app
+```
+
+## Step 1-3：TODOアプリでRailsのバージョンを確認する
+
+次のコマンドを実行します。
+
+```bash
+bin/rails --version
+```
+
+次のように表示されることを確認します。
+
+```text
+Rails 8.0.2.1
+```
+
+## Step 1-4：Taskのscaffoldを作る
+
+TODOアプリでは、`Task` という名前のデータを扱います。
+
+次のコマンドを実行します。
+
+```bash
+bin/rails generate scaffold Task title:string description:text completed:boolean due_date:date
+```
+
+表示の中に、次のような行が含まれていればOKです。
+
+```text
+create    app/models/task.rb
+create    app/controllers/tasks_controller.rb
+create    app/views/tasks
+```
+
+このコマンドで、タスクの一覧画面、新規作成画面、編集画面などに必要なファイルが作られます。
+
+## Step 1-5：データベースに反映する
+
+次のコマンドを実行します。
+
+```bash
+bin/rails db:migrate
+```
+
+次のような表示が出ればOKです。
+
+```text
+CreateTasks: migrated
+```
+
+これで、タスクを保存するためのテーブルがデータベースに作られました。
+
+## Step 1-6：Codespaces用の設定を追加する
+
+`config/environments/development.rb` を開きます。
+
+ファイルの中から、次の行を探します。
 
 ```ruby
 Rails.application.configure do
 ```
 
-そのブロックの中に、次のコードを追加します。
+その少し下に、次のコードを追加します。
 
 ```ruby
 pf_domain = ENV["GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN"]
@@ -60,11 +142,7 @@ if pf_domain.present? && codespace_name.present?
 end
 ```
 
-> [!IMPORTANT]
-> `development.rb` のファイル全体を置き換えないでください。
-> 既存の `Rails.application.configure do` から `end` までの中に、上のコードを追加します。
-
-追加後のイメージは次のようになります。
+追加後の形は、次のようになります。
 
 ```ruby
 Rails.application.configure do
@@ -78,13 +156,102 @@ Rails.application.configure do
     config.hosts << pf_host
   end
 
-  # もともと書かれていた設定は消さずに残す
+  # もともと書かれていた設定は、この下にも続きます
 end
 ```
 
-## 共通手順：CSSを追加する
+> [!IMPORTANT]
+> `development.rb` のファイル全体を置き換えないでください。
+> 今ある内容は消さずに、上のコードだけを追加します。
 
-各アプリケーションで、`app/assets/stylesheets/application.css` を開きます。
+保存したら次へ進みます。
+
+## Step 1-7：TODOアプリのサーバーを起動する
+
+次のコマンドを実行します。
+
+```bash
+bin/rails server -b 0.0.0.0
+```
+
+次のような表示が出れば、サーバーが起動しています。
+
+```text
+* Listening on http://0.0.0.0:3000
+```
+
+このターミナルは、サーバーを動かすために使っています。
+
+サーバーを止めるまでは、このターミナルに次のコマンドを入力しません。
+
+## Step 1-8：TODOアプリをブラウザで開く
+
+Codespacesのポート3000のURLを開きます。
+
+URLの最後に `/tasks` を付けます。
+
+```text
+/tasks
+```
+
+たとえば、次のようなURLになります。
+
+```text
+https://xxxxxxxx-3000.app.github.dev/tasks
+```
+
+`Tasks` の画面が表示されればOKです。
+
+## Step 1-9：タスクを1件作る
+
+ブラウザで `New task` をクリックします。
+
+フォームに次のように入力します。
+
+| 項目 | 入力する値 |
+|---|---|
+| Title | Railsの復習 |
+| Description | scaffoldでTODOアプリを作る |
+| Completed | チェックしない |
+| Due date | 今日以降の日付 |
+
+入力したら、登録ボタンをクリックします。
+
+タスクの詳細画面が表示されればOKです。
+
+## Step 1-10：タスクの一覧を確認する
+
+`Back to tasks` をクリックします。
+
+一覧画面に、作成したタスクが表示されていることを確認します。
+
+`Title` に `Railsの復習` が表示されていればOKです。
+
+## Step 1-11：タスクを編集する
+
+一覧画面または詳細画面から、編集リンクをクリックします。
+
+`Title` を次のように変更します。
+
+```text
+Railsの復習を完了する
+```
+
+保存します。
+
+変更後のタイトルが表示されればOKです。
+
+## Step 1-12：タスクを削除する
+
+作成したタスクの詳細画面を開きます。
+
+削除ボタンをクリックします。
+
+一覧画面に戻り、作成したタスクが表示されなくなっていればOKです。
+
+## Step 1-13：TODOアプリにCSSを追加する
+
+`app/assets/stylesheets/application.css` を開きます。
 
 ファイルの一番下に、次のCSSを追加します。
 
@@ -193,27 +360,81 @@ p[style*="green"] {
 }
 ```
 
-追加したら、ブラウザを再読み込みして見た目の変化を確認します。
+保存します。
 
-## アプリ1：TODOアプリ
+ブラウザを再読み込みします。
 
-タスクを登録・表示・編集・削除できるTODOアプリを作ります。
+一覧画面、フォーム、ボタンの見た目が変わっていればOKです。
 
-### 課題1：Railsアプリケーションを作る
+## Step 1-14：TODOアプリのサーバーを止める
+
+サーバーを起動しているターミナルを開きます。
+
+`Ctrl + C` を押します。
+
+```text
+Ctrl + C
+```
+
+ターミナルにコマンドを入力できる状態に戻ればOKです。
+
+## Step 1-15：1つ上のフォルダへ戻る
+
+次のコマンドを実行します。
+
+```bash
+cd ..
+```
+
+今いる場所を確認します。
+
+```bash
+pwd
+```
+
+表示の最後が `todo_app` ではなくなっていればOKです。
+
+---
+
+# アプリ2：読書メモアプリ
+
+読書メモアプリでは、本のタイトル、著者、評価、メモを登録します。
+
+## Step 2-1：読書メモアプリを作る
 
 ターミナルで次のコマンドを実行します。
 
 ```bash
-rails _8.0.2.1_ new todo_app
+rails _8.0.2.1_ new book_app
 ```
 
-作成が終わったら、アプリケーションのフォルダへ移動します。
+コマンドの実行が終わるまで待ちます。
+
+終わると、`book_app` というフォルダが作られます。
+
+## Step 2-2：読書メモアプリのフォルダへ移動する
+
+次のコマンドを実行します。
 
 ```bash
-cd todo_app
+cd book_app
 ```
 
-Railsのバージョンを確認します。
+今いる場所を確認します。
+
+```bash
+pwd
+```
+
+表示の最後が、次のようになっていればOKです。
+
+```text
+book_app
+```
+
+## Step 2-3：読書メモアプリでRailsのバージョンを確認する
+
+次のコマンドを実行します。
 
 ```bash
 bin/rails --version
@@ -225,37 +446,27 @@ bin/rails --version
 Rails 8.0.2.1
 ```
 
-もし別のバージョンが表示された場合は、`Gemfile` の `gem "rails"` の行を確認し、必要に応じて次のように固定します。
+## Step 2-4：Bookのscaffoldを作る
 
-```ruby
-gem "rails", "= 8.0.2.1"
-```
-
-変更した場合は、次のコマンドを実行します。
-
-```bash
-bundle install
-```
-
-### 課題2：Taskのscaffoldを作る
+読書メモアプリでは、`Book` という名前のデータを扱います。
 
 次のコマンドを実行します。
 
 ```bash
-bin/rails generate scaffold Task title:string description:text completed:boolean due_date:date
+bin/rails generate scaffold Book title:string author:string rating:integer memo:text
 ```
 
-ファイルが生成されたことを確認します。
-
-表示の中に、次のような行が含まれていれば成功です。
+表示の中に、次のような行が含まれていればOKです。
 
 ```text
-create    app/models/task.rb
-create    app/controllers/tasks_controller.rb
-create    app/views/tasks
+create    app/models/book.rb
+create    app/controllers/books_controller.rb
+create    app/views/books
 ```
 
-### 課題3：データベースに反映する
+このコマンドで、本の一覧画面、新規作成画面、編集画面などに必要なファイルが作られます。
+
+## Step 2-5：データベースに反映する
 
 次のコマンドを実行します。
 
@@ -263,24 +474,61 @@ create    app/views/tasks
 bin/rails db:migrate
 ```
 
-次のような表示が出れば成功です。
+次のような表示が出ればOKです。
 
 ```text
-== 20xxxxxxxxxxxx CreateTasks: migrating =====================================
--- create_table(:tasks)
-   -> 0.0xxxs
-== 20xxxxxxxxxxxx CreateTasks: migrated (0.0xxxs) ============================
+CreateBooks: migrated
 ```
 
-### 課題4：Codespaces用のhost設定を追加する
+これで、本を保存するためのテーブルがデータベースに作られました。
+
+## Step 2-6：Codespaces用の設定を追加する
 
 `config/environments/development.rb` を開きます。
 
-`Rails.application.configure do` のブロック内に、共通手順で示したCodespaces用のhost設定を追加します。
+ファイルの中から、次の行を探します。
 
-保存したら、次へ進みます。
+```ruby
+Rails.application.configure do
+```
 
-### 課題5：サーバーを起動する
+その少し下に、次のコードを追加します。
+
+```ruby
+pf_domain = ENV["GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN"]
+codespace_name = ENV["CODESPACE_NAME"]
+
+if pf_domain.present? && codespace_name.present?
+  pf_host = "#{codespace_name}-3000.#{pf_domain}"
+  config.hosts << pf_host
+end
+```
+
+追加後の形は、次のようになります。
+
+```ruby
+Rails.application.configure do
+  # Settings specified here will take precedence over those in config/application.rb.
+
+  pf_domain = ENV["GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN"]
+  codespace_name = ENV["CODESPACE_NAME"]
+
+  if pf_domain.present? && codespace_name.present?
+    pf_host = "#{codespace_name}-3000.#{pf_domain}"
+    config.hosts << pf_host
+  end
+
+  # もともと書かれていた設定は、この下にも続きます
+end
+```
+
+> [!IMPORTANT]
+> `development.rb` のファイル全体を置き換えないでください。
+> 今ある内容は消さずに、上のコードだけを追加します。
+
+保存したら次へ進みます。
+
+## Step 2-7：読書メモアプリのサーバーを起動する
 
 次のコマンドを実行します。
 
@@ -294,124 +542,33 @@ bin/rails server -b 0.0.0.0
 * Listening on http://0.0.0.0:3000
 ```
 
-Codespacesのポート3000の転送URLを開き、次のURLへ移動します。
+このターミナルは、サーバーを動かすために使っています。
 
-```text
-/tasks
-```
+サーバーを止めるまでは、このターミナルに次のコマンドを入力しません。
 
-### 課題6：CRUD操作を確認する
+## Step 2-8：読書メモアプリをブラウザで開く
 
-ブラウザで次の操作を行います。
+Codespacesのポート3000のURLを開きます。
 
-1. `New task` からタスクを作成する
-2. 一覧画面に作成したタスクが表示されることを確認する
-3. 詳細画面を開く
-4. 編集画面で内容を変更する
-5. 一覧画面で変更後の内容を確認する
-6. タスクを削除する
-7. 一覧画面から削除されたことを確認する
-
-入力例：
-
-| 項目 | 入力する値 |
-|---|---|
-| Title | Railsの復習 |
-| Description | scaffoldでTODOアプリを作る |
-| Completed | チェックしない |
-| Due date | 今日以降の日付 |
-
-`completed` はチェックボックスとして表示されます。
-
-`due_date` は日付を入力する欄として表示されます。
-
-### 課題7：CSSを追加する
-
-`app/assets/stylesheets/application.css` を開きます。
-
-共通手順で示したCSSを、ファイルの一番下に追加します。
-
-保存したら、ブラウザを再読み込みします。
-
-一覧、フォーム、ボタンの見た目が変わったことを確認します。
-
-### 課題8：サーバーを止める
-
-サーバーを起動しているターミナルで `Ctrl + C` を押します。
-
-プロンプトが戻ってきたら、サーバーは止まっています。
-
-```text
-Ctrl + C
-```
-
-次のアプリケーションへ進むため、1つ上のフォルダへ戻ります。
-
-```bash
-cd ..
-```
-
-## アプリ2：読書メモアプリ
-
-本の情報を登録できる読書メモアプリを作ります。
-
-### 課題9：Railsアプリケーションを作る
-
-次のコマンドを実行します。
-
-```bash
-rails _8.0.2.1_ new book_app
-cd book_app
-bin/rails --version
-```
-
-次のように表示されることを確認します。
-
-```text
-Rails 8.0.2.1
-```
-
-### 課題10：Bookのscaffoldを作る
-
-次のコマンドを実行します。
-
-```bash
-bin/rails generate scaffold Book title:string author:string rating:integer memo:text
-```
-
-### 課題11：データベースに反映する
-
-次のコマンドを実行します。
-
-```bash
-bin/rails db:migrate
-```
-
-### 課題12：Codespaces用のhost設定を追加する
-
-`config/environments/development.rb` を開きます。
-
-`Rails.application.configure do` のブロック内に、共通手順で示したCodespaces用のhost設定を追加します。
-
-### 課題13：サーバーを起動する
-
-次のコマンドを実行します。
-
-```bash
-bin/rails server -b 0.0.0.0
-```
-
-Codespacesのポート3000の転送URLを開き、次のURLへ移動します。
+URLの最後に `/books` を付けます。
 
 ```text
 /books
 ```
 
-### 課題14：CRUD操作を確認する
+たとえば、次のようなURLになります。
 
-ブラウザで本を登録します。
+```text
+https://xxxxxxxx-3000.app.github.dev/books
+```
 
-入力例：
+`Books` の画面が表示されればOKです。
+
+## Step 2-9：本を1件作る
+
+ブラウザで `New book` をクリックします。
+
+フォームに次のように入力します。
 
 | 項目 | 入力する値 |
 |---|---|
@@ -420,45 +577,234 @@ Codespacesのポート3000の転送URLを開き、次のURLへ移動します。
 | Rating | 5 |
 | Memo | Railsのscaffoldを使って読書メモを作った |
 
-次のことを確認します。
+入力したら、登録ボタンをクリックします。
 
-- 本のタイトル、著者、評価、メモを登録できる
-- 一覧画面に表示される
-- 詳細画面を開ける
-- 編集できる
-- 削除できる
-- `rating` に数値を入力できる
-- `memo` に長めの文章を入力できる
+本の詳細画面が表示されればOKです。
 
-### 課題15：CSSを追加する
+## Step 2-10：本の一覧を確認する
+
+`Back to books` をクリックします。
+
+一覧画面に、作成した本が表示されていることを確認します。
+
+`Title` に `プログラミング入門` が表示されていればOKです。
+
+## Step 2-11：本を編集する
+
+一覧画面または詳細画面から、編集リンクをクリックします。
+
+`Rating` を次のように変更します。
+
+```text
+4
+```
+
+`Memo` を次のように変更します。
+
+```text
+Railsのscaffoldで読書メモアプリを作った
+```
+
+保存します。
+
+変更後の評価とメモが表示されればOKです。
+
+## Step 2-12：本を削除する
+
+作成した本の詳細画面を開きます。
+
+削除ボタンをクリックします。
+
+一覧画面に戻り、作成した本が表示されなくなっていればOKです。
+
+## Step 2-13：読書メモアプリにCSSを追加する
 
 `app/assets/stylesheets/application.css` を開きます。
 
-共通手順で示したCSSを、ファイルの一番下に追加します。
+ファイルの一番下に、次のCSSを追加します。
 
-保存したら、ブラウザを再読み込みして見た目の変化を確認します。
+```css
+body {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 0 24px;
+  background: #f6f7fb;
+  color: #1f2937;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
 
-### 課題16：サーバーを止める
+h1 {
+  margin-bottom: 24px;
+  color: #111827;
+}
 
-サーバーを起動しているターミナルで `Ctrl + C` を押します。
+a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
 
-その後、1つ上のフォルダへ戻ります。
+a:hover {
+  text-decoration: underline;
+}
+
+table {
+  width: 100%;
+  margin: 24px 0;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+th,
+td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+th {
+  background: #eef2ff;
+  color: #3730a3;
+}
+
+form,
+div[id$="_form"] {
+  max-width: 640px;
+  margin: 24px 0;
+  padding: 24px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font: inherit;
+}
+
+input[type="checkbox"] {
+  margin-bottom: 16px;
+}
+
+input[type="submit"],
+button {
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: #4f46e5;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+button:hover {
+  background: #4338ca;
+}
+
+p[style*="green"] {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #dcfce7;
+  color: #166534 !important;
+  font-weight: 700;
+}
+```
+
+保存します。
+
+ブラウザを再読み込みします。
+
+一覧画面、フォーム、ボタンの見た目が変わっていればOKです。
+
+## Step 2-14：読書メモアプリのサーバーを止める
+
+サーバーを起動しているターミナルを開きます。
+
+`Ctrl + C` を押します。
+
+```text
+Ctrl + C
+```
+
+ターミナルにコマンドを入力できる状態に戻ればOKです。
+
+## Step 2-15：1つ上のフォルダへ戻る
+
+次のコマンドを実行します。
 
 ```bash
 cd ..
 ```
 
-## アプリ3：支出メモアプリ
+今いる場所を確認します。
 
-買ったもの、金額、カテゴリ、購入日を記録する支出メモアプリを作ります。
+```bash
+pwd
+```
 
-### 課題17：Railsアプリケーションを作る
+表示の最後が `book_app` ではなくなっていればOKです。
+
+---
+
+# アプリ3：支出メモアプリ
+
+支出メモアプリでは、買ったもの、金額、カテゴリ、購入日を登録します。
+
+## Step 3-1：支出メモアプリを作る
+
+ターミナルで次のコマンドを実行します。
+
+```bash
+rails _8.0.2.1_ new expense_app
+```
+
+コマンドの実行が終わるまで待ちます。
+
+終わると、`expense_app` というフォルダが作られます。
+
+## Step 3-2：支出メモアプリのフォルダへ移動する
 
 次のコマンドを実行します。
 
 ```bash
-rails _8.0.2.1_ new expense_app
 cd expense_app
+```
+
+今いる場所を確認します。
+
+```bash
+pwd
+```
+
+表示の最後が、次のようになっていればOKです。
+
+```text
+expense_app
+```
+
+## Step 3-3：支出メモアプリでRailsのバージョンを確認する
+
+次のコマンドを実行します。
+
+```bash
 bin/rails --version
 ```
 
@@ -468,7 +814,9 @@ bin/rails --version
 Rails 8.0.2.1
 ```
 
-### 課題18：Expenseのscaffoldを作る
+## Step 3-4：Expenseのscaffoldを作る
+
+支出メモアプリでは、`Expense` という名前のデータを扱います。
 
 次のコマンドを実行します。
 
@@ -476,7 +824,17 @@ Rails 8.0.2.1
 bin/rails generate scaffold Expense item:string amount:integer category:string purchased_on:date
 ```
 
-### 課題19：データベースに反映する
+表示の中に、次のような行が含まれていればOKです。
+
+```text
+create    app/models/expense.rb
+create    app/controllers/expenses_controller.rb
+create    app/views/expenses
+```
+
+このコマンドで、支出の一覧画面、新規作成画面、編集画面などに必要なファイルが作られます。
+
+## Step 3-5：データベースに反映する
 
 次のコマンドを実行します。
 
@@ -484,13 +842,61 @@ bin/rails generate scaffold Expense item:string amount:integer category:string p
 bin/rails db:migrate
 ```
 
-### 課題20：Codespaces用のhost設定を追加する
+次のような表示が出ればOKです。
+
+```text
+CreateExpenses: migrated
+```
+
+これで、支出を保存するためのテーブルがデータベースに作られました。
+
+## Step 3-6：Codespaces用の設定を追加する
 
 `config/environments/development.rb` を開きます。
 
-`Rails.application.configure do` のブロック内に、共通手順で示したCodespaces用のhost設定を追加します。
+ファイルの中から、次の行を探します。
 
-### 課題21：サーバーを起動する
+```ruby
+Rails.application.configure do
+```
+
+その少し下に、次のコードを追加します。
+
+```ruby
+pf_domain = ENV["GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN"]
+codespace_name = ENV["CODESPACE_NAME"]
+
+if pf_domain.present? && codespace_name.present?
+  pf_host = "#{codespace_name}-3000.#{pf_domain}"
+  config.hosts << pf_host
+end
+```
+
+追加後の形は、次のようになります。
+
+```ruby
+Rails.application.configure do
+  # Settings specified here will take precedence over those in config/application.rb.
+
+  pf_domain = ENV["GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN"]
+  codespace_name = ENV["CODESPACE_NAME"]
+
+  if pf_domain.present? && codespace_name.present?
+    pf_host = "#{codespace_name}-3000.#{pf_domain}"
+    config.hosts << pf_host
+  end
+
+  # もともと書かれていた設定は、この下にも続きます
+end
+```
+
+> [!IMPORTANT]
+> `development.rb` のファイル全体を置き換えないでください。
+> 今ある内容は消さずに、上のコードだけを追加します。
+
+保存したら次へ進みます。
+
+## Step 3-7：支出メモアプリのサーバーを起動する
 
 次のコマンドを実行します。
 
@@ -498,17 +904,39 @@ bin/rails db:migrate
 bin/rails server -b 0.0.0.0
 ```
 
-Codespacesのポート3000の転送URLを開き、次のURLへ移動します。
+次のような表示が出れば、サーバーが起動しています。
+
+```text
+* Listening on http://0.0.0.0:3000
+```
+
+このターミナルは、サーバーを動かすために使っています。
+
+サーバーを止めるまでは、このターミナルに次のコマンドを入力しません。
+
+## Step 3-8：支出メモアプリをブラウザで開く
+
+Codespacesのポート3000のURLを開きます。
+
+URLの最後に `/expenses` を付けます。
 
 ```text
 /expenses
 ```
 
-### 課題22：CRUD操作を確認する
+たとえば、次のようなURLになります。
 
-ブラウザで支出を登録します。
+```text
+https://xxxxxxxx-3000.app.github.dev/expenses
+```
 
-入力例：
+`Expenses` の画面が表示されればOKです。
+
+## Step 3-9：支出を1件作る
+
+ブラウザで `New expense` をクリックします。
+
+フォームに次のように入力します。
 
 | 項目 | 入力する値 |
 |---|---|
@@ -517,71 +945,206 @@ Codespacesのポート3000の転送URLを開き、次のURLへ移動します。
 | Category | 食費 |
 | Purchased on | 今日以降の日付 |
 
-次のことを確認します。
+入力したら、登録ボタンをクリックします。
 
-- 品目、金額、カテゴリ、購入日を登録できる
-- 一覧画面に表示される
-- 詳細画面を開ける
-- 編集できる
-- 削除できる
-- `amount` に数値を入力できる
-- `purchased_on` が日付入力になる
+支出の詳細画面が表示されればOKです。
 
-### 課題23：CSSを追加する
+## Step 3-10：支出の一覧を確認する
+
+`Back to expenses` をクリックします。
+
+一覧画面に、作成した支出が表示されていることを確認します。
+
+`Item` に `昼食` が表示されていればOKです。
+
+## Step 3-11：支出を編集する
+
+一覧画面または詳細画面から、編集リンクをクリックします。
+
+`Amount` を次のように変更します。
+
+```text
+900
+```
+
+`Category` を次のように変更します。
+
+```text
+外食
+```
+
+保存します。
+
+変更後の金額とカテゴリが表示されればOKです。
+
+## Step 3-12：支出を削除する
+
+作成した支出の詳細画面を開きます。
+
+削除ボタンをクリックします。
+
+一覧画面に戻り、作成した支出が表示されなくなっていればOKです。
+
+## Step 3-13：支出メモアプリにCSSを追加する
 
 `app/assets/stylesheets/application.css` を開きます。
 
-共通手順で示したCSSを、ファイルの一番下に追加します。
+ファイルの一番下に、次のCSSを追加します。
 
-保存したら、ブラウザを再読み込みして見た目の変化を確認します。
+```css
+body {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 0 24px;
+  background: #f6f7fb;
+  color: #1f2937;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
 
-### 課題24：サーバーを止める
+h1 {
+  margin-bottom: 24px;
+  color: #111827;
+}
 
-サーバーを起動しているターミナルで `Ctrl + C` を押します。
+a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
 
-プロンプトが戻ってきたことを確認します。
+a:hover {
+  text-decoration: underline;
+}
 
-## 課題25：3つのアプリを比べる（考察問題・実行しない）
+table {
+  width: 100%;
+  margin: 24px 0;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
 
-> [!IMPORTANT]
-> この課題は考察問題です。
-> ファイルを変更したり、コマンドを実行したりしません。
-> ノートまたは指定されたファイルに答えを書いてください。
+th,
+td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
 
-3つのアプリケーションで、似ていたところを3つ書いてください。
+th {
+  background: #eef2ff;
+  color: #3730a3;
+}
 
-例：
+form,
+div[id$="_form"] {
+  max-width: 640px;
+  margin: 24px 0;
+  padding: 24px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
 
-- `rails new` でアプリケーションを作った
-- `generate scaffold` でCRUD画面を作った
-- `db:migrate` でデータベースに反映した
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
 
-次に、違っていたところを3つ書いてください。
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font: inherit;
+}
 
-例：
+input[type="checkbox"] {
+  margin-bottom: 16px;
+}
 
-- モデル名が違った
-- カラム名が違った
-- `boolean`、`integer`、`date` などデータ型が違った
+input[type="submit"],
+button {
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: #4f46e5;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
 
-## 課題26：scaffoldで作られた場所を確認する（考察問題・実行しない）
+input[type="submit"]:hover,
+button:hover {
+  background: #4338ca;
+}
 
-> [!IMPORTANT]
-> この課題は考察問題です。
-> ファイルを変更したり、コマンドを実行したりしません。
-> ノートまたは指定されたファイルに答えを書いてください。
+p[style*="green"] {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #dcfce7;
+  color: #166534 !important;
+  font-weight: 700;
+}
+```
 
-`expense_app` の中で、次のファイルを探してください。
+保存します。
 
-| ファイル | 役割 |
+ブラウザを再読み込みします。
+
+一覧画面、フォーム、ボタンの見た目が変わっていればOKです。
+
+## Step 3-14：支出メモアプリのサーバーを止める
+
+サーバーを起動しているターミナルを開きます。
+
+`Ctrl + C` を押します。
+
+```text
+Ctrl + C
+```
+
+ターミナルにコマンドを入力できる状態に戻ればOKです。
+
+---
+
+# ふりかえり
+
+## Step 4-1：3つのアプリで同じだったところを確認する
+
+このStepでは、ファイルを変更しません。
+
+3つのアプリで、同じだったところを確認します。
+
+| 同じだったところ | 内容 |
 |---|---|
-| `app/models/expense.rb` | 支出データを扱うModel |
-| `app/controllers/expenses_controller.rb` | 支出画面の処理を担当するController |
-| `app/views/expenses/index.html.erb` | 一覧画面のView |
-| `app/views/expenses/_form.html.erb` | 新規作成・編集で使うフォームのView |
-| `config/routes.rb` | URLとControllerを対応させる設定 |
-| `db/migrate/...create_expenses.rb` | expensesテーブルを作るmigration |
+| アプリ作成 | `rails _8.0.2.1_ new アプリ名` を実行した |
+| scaffold | `bin/rails generate scaffold ...` を実行した |
+| データベース反映 | `bin/rails db:migrate` を実行した |
+| サーバー起動 | `bin/rails server -b 0.0.0.0` を実行した |
+| ブラウザ確認 | 一覧・詳細・作成・編集・削除を確認した |
+| CSS追加 | `app/assets/stylesheets/application.css` にCSSを追加した |
 
-ブラウザで見ている画面が、どのファイルと関係しているかを確認します。
+## Step 4-2：3つのアプリで違っていたところを確認する
+
+このStepでは、ファイルを変更しません。
+
+3つのアプリで、違っていたところを確認します。
+
+| アプリ | モデル名 | URL | 主なカラム |
+|---|---|---|---|
+| TODOアプリ | `Task` | `/tasks` | `title`, `description`, `completed`, `due_date` |
+| 読書メモアプリ | `Book` | `/books` | `title`, `author`, `rating`, `memo` |
+| 支出メモアプリ | `Expense` | `/expenses` | `item`, `amount`, `category`, `purchased_on` |
+
+同じコマンドの形でも、モデル名やカラム名を変えると、別のアプリケーションになります。
 
 Practiceが終わったら、[Stretch](stretch.md)へ進みましょう。
