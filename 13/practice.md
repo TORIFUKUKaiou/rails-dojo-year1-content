@@ -14,7 +14,79 @@
 | 読書メモアプリ | `book_app` | 読んだ本を記録する画面 |
 | 支出メモアプリ | `expense_app` | 使ったお金を記録する画面 |
 
-## 最初にRailsのバージョンを確認する
+---
+
+# Codespaceを起動する
+
+最初に、Railsを動かすためのCodespaceを起動します。
+
+## Step 0-1：GitHubのリポジトリを開く
+
+ブラウザで次のリポジトリを開きます。
+
+- [TORIFUKUKaiou/rails-tutorial-companion](https://github.com/TORIFUKUKaiou/rails-tutorial-companion)
+
+GitHubにログインしていない場合は、ログインします。
+
+リポジトリの画面が表示されればOKです。
+
+## Step 0-2：Codespacesの画面を開く
+
+リポジトリ画面の右上付近にある、緑色の `Code` ボタンをクリックします。
+
+表示されたメニューの中で、`Codespaces` タブをクリックします。
+
+## Step 0-3：作成メニューを開く
+
+`Codespaces` タブの中にある三点リーダー `...` をクリックします。
+
+表示されたメニューから、次をクリックします。
+
+```text
+New with options...
+```
+
+## Step 0-4：Rails用のDev Containerを選ぶ
+
+設定画面が表示されたら、`Dev container configuration` を探します。
+
+`Dev container configuration` で、次を選びます。
+
+```text
+Rails 8.0.2.1 Ready
+```
+
+> [!IMPORTANT]
+> `Rails 8.0.2.1 Ready` を選びます。
+> Rubyだけの環境を選ぶと、このPracticeで使うRailsが入っていません。
+
+## Step 0-5：Codespaceを作成する
+
+設定画面で、Codespaceを作成するボタンをクリックします。
+
+ボタン名は、画面によって次のように表示されることがあります。
+
+```text
+Create codespace
+```
+
+または、
+
+```text
+Create codespace on main
+```
+
+Codespaceの作成が始まったら、画面が切り替わるまで待ちます。
+
+エディタのような画面が開き、下の方にターミナルが表示されればOKです。
+
+ターミナルが表示されていない場合は、画面上部のメニューから次を選びます。
+
+```text
+Terminal → New Terminal
+```
+
+## Step 0-6：Railsのバージョンを確認する
 
 ターミナルで次のコマンドを実行します。
 
@@ -31,6 +103,8 @@ Rails 8.0.2.1
 > [!IMPORTANT]
 > このPracticeでは Rails `8.0.2.1` を使います。
 > 違うバージョンが表示された場合は、作業を進める前に教員へ確認してください。
+
+Railsのバージョンを確認できたら、TODOアプリの作成へ進みます。
 
 ---
 
