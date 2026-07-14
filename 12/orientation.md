@@ -1,5 +1,7 @@
 # 第12回：scaffoldでWebアプリケーションを動かそう
 
+[PDF資料](https://drive.google.com/file/d/1cnSRrKRPHZWpc9SjM6AMyLwrDdFCIsVH/view?usp=drive_link)
+
 ## 今日の目標
 
 今日は、Railsの`scaffold`を使い、データを登録・表示・編集・削除できるWebアプリケーションを動かします。
