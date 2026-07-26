@@ -20,6 +20,11 @@
 
 最初に、Railsを動かすためのCodespaceを起動します。
 
+> [!IMPORTANT]
+> 今回は、第12回までとはCodespaceの作り方が異なります。
+> `Create codespace` をそのままクリックせず、三点リーダー `...` から `New with options...` を選びます。
+> その後、Railsが入っている環境を指定してCodespaceを作成します。
+
 ## Step 0-1：GitHubのリポジトリを開く
 
 ブラウザで次のリポジトリを開きます。
@@ -57,7 +62,8 @@ Rails 8.0.2.1 Ready
 ```
 
 > [!IMPORTANT]
-> `Rails 8.0.2.1 Ready` を選びます。
+> 第12回までと同じ設定のまま作成しないでください。
+> 必ず `Rails 8.0.2.1 Ready` を選びます。
 > Rubyだけの環境を選ぶと、このPracticeで使うRailsが入っていません。
 
 ## Step 0-5：Codespaceを作成する
