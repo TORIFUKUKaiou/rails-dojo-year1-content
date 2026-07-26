@@ -360,30 +360,17 @@ a:hover {
   text-decoration: underline;
 }
 
-table {
-  width: 100%;
-  margin: 24px 0;
-  border-collapse: collapse;
-  overflow: hidden;
+div[id^="task_"],
+div[id^="book_"],
+div[id^="expense_"] {
+  margin: 16px 0;
+  padding: 20px 24px;
   border-radius: 12px;
   background: #ffffff;
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
 }
 
-th,
-td {
-  padding: 14px 16px;
-  border-bottom: 1px solid #e5e7eb;
-  text-align: left;
-}
-
-th {
-  background: #eef2ff;
-  color: #3730a3;
-}
-
-form,
-div[id$="_form"] {
+form:not(.button_to) {
   max-width: 640px;
   margin: 24px 0;
   padding: 24px;
@@ -728,30 +715,17 @@ a:hover {
   text-decoration: underline;
 }
 
-table {
-  width: 100%;
-  margin: 24px 0;
-  border-collapse: collapse;
-  overflow: hidden;
+div[id^="task_"],
+div[id^="book_"],
+div[id^="expense_"] {
+  margin: 16px 0;
+  padding: 20px 24px;
   border-radius: 12px;
   background: #ffffff;
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
 }
 
-th,
-td {
-  padding: 14px 16px;
-  border-bottom: 1px solid #e5e7eb;
-  text-align: left;
-}
-
-th {
-  background: #eef2ff;
-  color: #3730a3;
-}
-
-form,
-div[id$="_form"] {
+form:not(.button_to) {
   max-width: 640px;
   margin: 24px 0;
   padding: 24px;
@@ -1096,30 +1070,17 @@ a:hover {
   text-decoration: underline;
 }
 
-table {
-  width: 100%;
-  margin: 24px 0;
-  border-collapse: collapse;
-  overflow: hidden;
+div[id^="task_"],
+div[id^="book_"],
+div[id^="expense_"] {
+  margin: 16px 0;
+  padding: 20px 24px;
   border-radius: 12px;
   background: #ffffff;
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
 }
 
-th,
-td {
-  padding: 14px 16px;
-  border-bottom: 1px solid #e5e7eb;
-  text-align: left;
-}
-
-th {
-  background: #eef2ff;
-  color: #3730a3;
-}
-
-form,
-div[id$="_form"] {
+form:not(.button_to) {
   max-width: 640px;
   margin: 24px 0;
   padding: 24px;
