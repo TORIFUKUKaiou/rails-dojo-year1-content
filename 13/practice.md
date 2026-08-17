@@ -226,6 +226,9 @@ if pf_domain.present? && codespace_name.present?
 end
 ```
 
+> [!NOTE]
+> この設定は、Codespacesで公開したポート3000のURLからRailsアプリを開けるようにするためのものです。
+
 追加後の形は、次のようになります。
 
 ```ruby
