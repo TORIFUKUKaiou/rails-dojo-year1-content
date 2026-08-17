@@ -1,5 +1,7 @@
 # 第13回：scaffoldで小さなRailsアプリを作ろう
 
+[PDF資料](https://drive.google.com/file/d/19959GdY3elELB-rCL98_J7vqHhVWnCe7/view?usp=drive_link)
+
 ## 今日の目標
 
 今日は、Railsの`scaffold`を使って、複数の小さなWebアプリケーションを作ります。
