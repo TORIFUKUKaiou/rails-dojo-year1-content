@@ -667,7 +667,7 @@ https://xxxxxxxx-3000.app.github.dev/books
 | Rating | 5 |
 | Memo | Railsのscaffoldを使って読書メモを作った |
 
-入力したら、登録ボタンをクリックします。
+入力したら、登録ボタン（Create Book）をクリックします。
 
 本の詳細画面が表示されればOKです。
 
@@ -681,7 +681,7 @@ https://xxxxxxxx-3000.app.github.dev/books
 
 ## Step 2-11：本を編集する
 
-一覧画面または詳細画面から、編集リンクをクリックします。
+「Show this book」から詳細画面へ遷移し、編集リンク（Edit this book）をクリックします。
 
 `Rating` を次のように変更します。
 
@@ -695,15 +695,15 @@ https://xxxxxxxx-3000.app.github.dev/books
 Railsのscaffoldで読書メモアプリを作った
 ```
 
-保存します。
+保存（Update Book）します。
 
 変更後の評価とメモが表示されればOKです。
 
 ## Step 2-12：本を削除する
 
-作成した本の詳細画面を開きます。
+作成した本の詳細画面を開きます。（2-11の直後は詳細画面です。）
 
-削除ボタンをクリックします。
+削除ボタン（Destroy this book）をクリックします。
 
 一覧画面に戻り、作成した本が表示されなくなっていればOKです。
 
