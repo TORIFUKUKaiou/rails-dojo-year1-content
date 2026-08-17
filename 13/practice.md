@@ -51,6 +51,8 @@ GitHubにログインしていない場合は、ログインします。
 New with options...
 ```
 
+![](../images/codespaces-Newwithoptions.png)
+
 ## Step 0-4：Rails用のDev Containerを選ぶ
 
 設定画面が表示されたら、`Dev container configuration` を探します。
@@ -60,6 +62,8 @@ New with options...
 ```text
 Rails 8.0.2.1 Ready
 ```
+
+![](../images/codespaces-rails-ready.png)
 
 > [!IMPORTANT]
 > 第12回までと同じ設定のまま作成しないでください。
