@@ -1030,7 +1030,7 @@ https://xxxxxxxx-3000.app.github.dev/expenses
 | Category | 食費 |
 | Purchased on | 今日以降の日付 |
 
-入力したら、登録ボタンをクリックします。
+入力したら、登録ボタン（Create Expenses）をクリックします。
 
 支出の詳細画面が表示されればOKです。
 
@@ -1044,7 +1044,7 @@ https://xxxxxxxx-3000.app.github.dev/expenses
 
 ## Step 3-11：支出を編集する
 
-一覧画面または詳細画面から、編集リンクをクリックします。
+「Show this expenses」から詳細画面へ遷移し、編集リンク（Edit this expenses）をクリックします。
 
 `Amount` を次のように変更します。
 
@@ -1058,15 +1058,15 @@ https://xxxxxxxx-3000.app.github.dev/expenses
 外食
 ```
 
-保存します。
+保存（Update Expenses）します。
 
 変更後の金額とカテゴリが表示されればOKです。
 
 ## Step 3-12：支出を削除する
 
-作成した支出の詳細画面を開きます。
+作成した支出の詳細画面を開きます。（3-11の直後は詳細画面です。）
 
-削除ボタンをクリックします。
+削除ボタン（Destroy this expenses）をクリックします。
 
 一覧画面に戻り、作成した支出が表示されなくなっていればOKです。
 
