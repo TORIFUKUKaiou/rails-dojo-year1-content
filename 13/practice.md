@@ -223,6 +223,7 @@ codespace_name = ENV["CODESPACE_NAME"]
 if pf_domain.present? && codespace_name.present?
   pf_host = "#{codespace_name}-3000.#{pf_domain}"
   config.hosts << pf_host
+  config.action_controller.forgery_protection_origin_check = false
 end
 ```
 
@@ -241,6 +242,7 @@ Rails.application.configure do
   if pf_domain.present? && codespace_name.present?
     pf_host = "#{codespace_name}-3000.#{pf_domain}"
     config.hosts << pf_host
+    config.action_controller.forgery_protection_origin_check = false
   end
 
   # もともと書かれていた設定は、この下にも続きます
@@ -274,6 +276,9 @@ bin/rails server -b 0.0.0.0
 ## Step 1-8：TODOアプリをブラウザで開く
 
 Codespacesのポート3000のURLを開きます。
+ポートタブの `Application(3000)` にカーソルをあて、`転送されたアドレス` の 🌐 アイコンをクリックします。  
+
+![](https://github.com/TORIFUKUKaiou/rails-dojo-year2-content/raw/main/images/open-rails-app.png)
 
 URLの最後に `/tasks` を付けます。
 
@@ -302,7 +307,7 @@ https://xxxxxxxx-3000.app.github.dev/tasks
 | Completed | チェックしない |
 | Due date | 今日以降の日付 |
 
-入力したら、登録ボタンをクリックします。
+入力したら、登録ボタン（Create Task）をクリックします。
 
 タスクの詳細画面が表示されればOKです。
 
@@ -316,7 +321,7 @@ https://xxxxxxxx-3000.app.github.dev/tasks
 
 ## Step 1-11：タスクを編集する
 
-一覧画面または詳細画面から、編集リンクをクリックします。
+「Show this task」から詳細画面へ遷移し、編集リンク（Edit this task）をクリックします。
 
 `Title` を次のように変更します。
 
@@ -324,15 +329,15 @@ https://xxxxxxxx-3000.app.github.dev/tasks
 Railsの復習を完了する
 ```
 
-保存します。
+保存（Update Task）します。
 
 変更後のタイトルが表示されればOKです。
 
 ## Step 1-12：タスクを削除する
 
-作成したタスクの詳細画面を開きます。
+作成したタスクの詳細画面を開きます。（1-13の直後は詳細画面です。）
 
-削除ボタンをクリックします。
+削除ボタン（Destroy this task）をクリックします。
 
 一覧画面に戻り、作成したタスクが表示されなくなっていればOKです。
 
@@ -575,6 +580,7 @@ codespace_name = ENV["CODESPACE_NAME"]
 if pf_domain.present? && codespace_name.present?
   pf_host = "#{codespace_name}-3000.#{pf_domain}"
   config.hosts << pf_host
+  config.action_controller.forgery_protection_origin_check = false
 end
 ```
 
@@ -590,6 +596,7 @@ Rails.application.configure do
   if pf_domain.present? && codespace_name.present?
     pf_host = "#{codespace_name}-3000.#{pf_domain}"
     config.hosts << pf_host
+    config.action_controller.forgery_protection_origin_check = false
   end
 
   # もともと書かれていた設定は、この下にも続きます
@@ -930,6 +937,7 @@ codespace_name = ENV["CODESPACE_NAME"]
 if pf_domain.present? && codespace_name.present?
   pf_host = "#{codespace_name}-3000.#{pf_domain}"
   config.hosts << pf_host
+  config.action_controller.forgery_protection_origin_check = false
 end
 ```
 
@@ -945,6 +953,7 @@ Rails.application.configure do
   if pf_domain.present? && codespace_name.present?
     pf_host = "#{codespace_name}-3000.#{pf_domain}"
     config.hosts << pf_host
+    config.action_controller.forgery_protection_origin_check = false
   end
 
   # もともと書かれていた設定は、この下にも続きます
