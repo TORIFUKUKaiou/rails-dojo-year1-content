@@ -287,51 +287,51 @@ p data
 ### 🔑 E. Ruby基礎：ハッシュ（問17〜問20）
 
 #### 問17
-ハッシュのキーとして「シンボル（Symbol）」を使用した、正しいハッシュの書き方はどれですか？
-1. `user = { "name" = "Tom", "age" = 20 }`
-2. `user = { :name => "Tom", :age => 20 }`
-3. `user = { name: "Tom", age: 20 }`
-4. 2 と 3 の両方
-* **解答**：4
-* **解説**：シンボルをキーにする場合、古い書き方（`:name => "Tom"`）とモダンな書き方（`name: "Tom"`）のどちらも有効で、内部的には同じシンボルキーとして扱われます。
+`"name"` と `"age"` をキーにして、名前と年齢をハッシュに入れる正しいコードはどれですか？
+1. `user = ["name", "Tom", "age", 20]`
+2. `user = { "name" => "Tom", "age" => 20 }`
+3. `user = { "Tom" => "name", 20 => "age" }`
+4. `user = { "name" = "Tom", "age" = 20 }`
+* **解答**：2
+* **解説**：ハッシュでは、`キー => 値` の形でデータを入れます。`"name"` というキーには `"Tom"`、`"age"` というキーには `20` が対応しています。
 
 #### 問18
 次のプログラムを実行した際、出力される値はどれですか？
 ```ruby
-user = { "name" => "Tom", :name => "Bob" }
-puts user[:name]
+user = { "name" => "Tom", "age" => 20 }
+puts user["age"]
 ```
 1. `Tom`
-2. `Bob`
-3. 両方出力される
+2. `20`
+3. `age`
 4. エラーになる
 * **解答**：2
-* **解説**：文字列のキー `"name"` とシンボルのキー `:name` は、ハッシュの中では明確に別のキーとして区別されます。`user[:name]` で取得できるのはシンボルに対応する `"Bob"` です。
+* **解説**：`user["age"]` は、`"age"` というキーに対応する値を取り出します。その値は `20` です。
 
 #### 問19
 次のプログラムを実行した際、出力される値はどれですか？
 ```ruby
 data = [
-  { name: "Tom", hobby: ["baseball", "soccer"] },
-  { name: "Bob", hobby: ["music"] }
+  { "name" => "Tom", "hobby" => ["baseball", "soccer"] },
+  { "name" => "Bob", "hobby" => ["music"] }
 ]
-puts data[0][:hobby][1]
+puts data[0]["hobby"][1]
 ```
 1. `Tom`
 2. `baseball`
 3. `soccer`
 4. `music`
 * **解答**：3
-* **解説**：`data[0]` は最初のハッシュ、その中の `[:hobby]` は配列 `["baseball", "soccer"]` を指し、そのインデックス `[1]`（2番目の要素）である `"soccer"` を取得しています。
+* **解説**：`data[0]` は最初のハッシュ、その中の `["hobby"]` は配列 `["baseball", "soccer"]` を指し、そのインデックス `[1]`（2番目の要素）である `"soccer"` を取得しています。
 
 #### 問20
-ハッシュ `user = { name: "Alice", age: 25 }` に、新しいキーと値のペアとして `hometown: "Tokyo"` を追加する正しいコードはどれですか？
-1. `user.add(hometown: "Tokyo")`
-2. `user << { hometown: "Tokyo" }`
-3. `user[:hometown] = "Tokyo"`
-4. `user.push(:hometown, "Tokyo")`
+ハッシュ `user = { "name" => "Alice", "age" => 25 }` に、新しいキーと値のペアとして `"hometown" => "Tokyo"` を追加する正しいコードはどれですか？
+1. `user.add("hometown" => "Tokyo")`
+2. `user << { "hometown" => "Tokyo" }`
+3. `user["hometown"] = "Tokyo"`
+4. `user.push("hometown", "Tokyo")`
 * **解答**：3
-* **解説**：ハッシュに値を追加・更新する際は、`ハッシュ名[キー] = 値` の代入構文を使用します。
+* **解説**：ハッシュに値を追加・更新する際は、`ハッシュ名["キー"] = 値` の代入構文を使用します。
 
 ---
 
