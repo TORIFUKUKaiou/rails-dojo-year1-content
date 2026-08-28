@@ -798,12 +798,55 @@ Railsアプリで、URLとコントローラーのアクションを紐付ける
    bin/rails db:migrate
    ```
 
-#### Step 3：ビューのカスタマイズ（プチ・メイクアップ）
+#### Step 3：Codespaces用の設定を追加する
+
+1. `config/environments/development.rb` を開きます。
+2. ファイルの中から、次の行を探します。
+   ```ruby
+   Rails.application.configure do
+   ```
+3. そのすぐ下に、次のコードを追加します。
+   ```ruby
+   pf_domain = ENV["GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN"]
+   codespace_name = ENV["CODESPACE_NAME"]
+
+   if pf_domain.present? && codespace_name.present?
+     pf_host = "#{codespace_name}-3000.#{pf_domain}"
+     config.hosts << pf_host
+     config.action_controller.forgery_protection_origin_check = false
+   end
+   ```
+4. 保存します。追加後の先頭付近は、次の形になります。
+   ```ruby
+   Rails.application.configure do
+     pf_domain = ENV["GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN"]
+     codespace_name = ENV["CODESPACE_NAME"]
+
+     if pf_domain.present? && codespace_name.present?
+       pf_host = "#{codespace_name}-3000.#{pf_domain}"
+       config.hosts << pf_host
+       config.action_controller.forgery_protection_origin_check = false
+     end
+
+     # もともと書かれていた設定は、この下にも続きます
+   end
+   ```
+
+> [!IMPORTANT]
+> `development.rb` のファイル全体を置き換えないでください。
+> 今ある内容は消さずに、上のコードだけを追加します。
+
+> [!NOTE]
+> この設定は、Codespacesで公開したポート3000のURLからRailsアプリを開けるようにするためのものです。
+
+保存できたら次へ進みます。ターミナルには何も表示されません。
+
+#### Step 4：ビューのカスタマイズ（プチ・メイクアップ）
 1. アプリケーションのタイトルを変更します。
    `app/views/memos/index.html.erb` を開き、ヘッダー（`<h1>`）にあるテキストを、**「（自分の名前）のメモ帳」** に変更して保存します。
 2. 講義資料（第13週）で配布された「オシャレにするスタイル用CSS」のコードを、`app/assets/stylesheets/application.css` にコピー＆ペーストして保存します。
 
-#### Step 4：起動と提出
+#### Step 5：起動と提出
 1. Railsサーバーを起動します。
    ```bash
    bin/rails server
