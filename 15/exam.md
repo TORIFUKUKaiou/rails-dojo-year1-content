@@ -96,7 +96,7 @@ Terminal → New Terminal
 ターミナルで次のコマンドを実行します。
 
 ~~~bash
-rails --version
+rails _8.0.2.1_ --version
 ~~~
 
 次のように表示されることを確認します。

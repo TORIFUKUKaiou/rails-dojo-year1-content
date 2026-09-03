@@ -143,7 +143,7 @@ function addCodespaceInstructions_(form) {
     [
       "ターミナルで次のコマンドを実行します。",
       "",
-      "rails --version",
+      "rails _8.0.2.1_ --version",
       "",
       "次のように表示されることを確認します。",
       "",
