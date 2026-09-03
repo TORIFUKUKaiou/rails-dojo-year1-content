@@ -208,9 +208,9 @@ puts total
 ~~~
 
 1. <code>950</code>
-2. <code>2,250</code>
-3. <code>2,450</code>
-4. <code>2,650</code>
+2. <code>2250</code>
+3. <code>2450</code>
+4. <code>2650</code>
 
 <details>
 <summary>解答・解説</summary>
