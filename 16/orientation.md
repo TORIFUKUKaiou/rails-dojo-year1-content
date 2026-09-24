@@ -46,6 +46,9 @@ rails db:seed
 bin/rails server
 ```
 
+> [!TIP]
+> ⏰️ `rails db:seed`は、1分程度かかります。
+
 ### ブラウザで動かして遊んでみよう！
 
 > [!TIP]
